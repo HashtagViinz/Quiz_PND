@@ -1,0 +1,654 @@
+Recap on Networks - Practical Network Defense
+
+
+
+1. Which organizational body is primarily responsible for discussing and fixing Internet standards through RFCs?
+
+A. IETF
+B. IANA
+C. IEEE
+D. ISO
+
+**Answer:** A
+
+AI Analyzing: The Internet Engineering Task Force (IETF) deals with Internet standards and Request for Comments (RFCs).
+
+
+
+2. Which of the following describes a 'Network Edge' component?
+
+A. Core routers
+B. End systems like servers and clients
+C. Fiber optic backbones
+D. Tier-1 ISPs
+
+**Answer:** B
+
+AI Analyzing: The network edge consists of hosts (clients, servers) and applications, whereas the core consists of interconnected routers.
+
+
+
+3. What is the primary purpose of the 'Backbone' in network architecture?
+
+A. To connect end-users within a home
+B. To encrypt all local traffic
+C. To manage local IP address assignments
+D. To provide high-speed infrastructure connecting different large-scale networks
+
+**Answer:** D
+
+AI Analyzing: Backbones are the core infrastructure links that connect ISPs, organizations, or regional networks over long distances.
+
+
+
+4. What is a major advantage of a 'Mesh Network' topology for the Internet?
+
+A. It simplifies the cabling process
+B. It reduces the size of the MAC address
+C. It eliminates the need for routing protocols
+D. It provides high reliability and path redundancy
+
+**Answer:** D
+
+AI Analyzing: A mesh network ensures that if one node fails, multiple other paths exist to reach the destination, increasing reliability.
+
+
+
+5. In the context of routing, what does 'Longest Prefix Matching' refer to?
+
+A. Selecting the most specific entry in a routing table for a given IP
+B. Choosing the route with the fewest hops
+C. Prioritizing IPv6 over IPv4
+D. The method used to calculate MAC addresses
+
+**Answer:** A
+
+AI Analyzing: Longest Prefix Matching is the rule used by routers to select the most specific (longest mask) matching entry in the routing table.
+
+
+
+6. What is a 'Protocol' in networking?
+
+A. A hardware device used to connect LANs
+B. A database of all hostnames on the internet
+C. A specific type of fiber optic cable
+D. A set of rules governing message format, syntax, and timing
+
+**Answer:** D
+
+AI Analyzing: A protocol defines the rules, procedures, and formats required for devices to communicate effectively.
+
+
+
+7. What is a disadvantage of the 'Packet Switching' approach used in modern networks?
+
+A. Susceptibility to network congestion
+B. Inefficient resource sharing
+C. Inability to adapt to path failures
+D. Requirement of a dedicated physical circuit for every call
+
+**Answer:** A
+
+AI Analyzing: While packet switching is efficient, it can lead to congestion and delays because resources are shared and not reserved.
+
+
+
+8. An Ethernet MAC address is composed of how many bits?
+
+A. 32 bits
+B. 48 bits
+C. 64 bits
+D. 128 bits
+
+**Answer:** B
+
+AI Analyzing: A MAC address consists of 6 bytes, which equals 48 bits.
+
+
+
+9. What is the function of the first 3 bytes of a MAC address?
+
+A. Representing the host serial number
+B. Identifying the manufacturer (OUI)
+C. Defining the subnet mask
+D. Marking the packet as broadcast
+
+**Answer:** B
+
+AI Analyzing: The first 3 bytes identify the manufacturer or Organizationally Unique Identifier (OUI).
+
+
+
+10. How does a 'Switch' improve network efficiency compared to a 'Hub'?
+
+A. By segmenting the network and forwarding packets only to the intended port
+B. By increasing the broadcast domain size
+C. By replacing IP addresses with MAC addresses
+D. By encrypting the preamble of the Ethernet frame
+
+**Answer:** A
+
+AI Analyzing: Switches use CAM tables to learn MAC addresses and forward traffic only to the specific port of the destination host.
+
+
+
+11. Which concept is defined as the set of all hosts that receive a packet addressed to FF:FF:FF:FF:FF:FF?
+
+A. Collision Domain
+B. Routing Table
+C. Broadcast Domain
+D. Autonomous System
+
+**Answer:** C
+
+AI Analyzing: A broadcast domain consists of all devices that receive a broadcast frame within a local network.
+
+
+
+12. What is the primary difference between a MAC address and an IP address?
+
+A. MAC is logical, IP is physical
+B. MAC is 32 bits, IP is 48 bits
+C. MAC identifies the identity/hardware, while IP identifies the location/network
+D. MAC addresses are used by routers, IP addresses are used by switches
+
+**Answer:** C
+
+AI Analyzing: MAC addresses are tied to the hardware (NIC), while IP addresses are logical and change based on the network location.
+
+
+
+13. In IPv4, how many bits are used for the address?
+
+A. 16
+B. 32
+C. 48
+D. 128
+
+**Answer:** B
+
+AI Analyzing: IPv4 uses 32-bit addresses, usually represented in four 8-bit octets.
+
+
+
+14. Which IPv4 class is identified by a first octet starting with '110' (binary) or range 192-223?
+
+A. Class C
+B. Class B
+C. Class A
+D. Class D
+
+**Answer:** A
+
+AI Analyzing: Class C addresses start with the bits 110 and are used for smaller networks.
+
+
+
+15. What is the purpose of RFC 1918?
+
+A. Defining the IPv6 standard
+B. Standardizing the 3-way handshake
+C. Defining private IP address ranges
+D. Regulating the sale of domain names
+
+**Answer:** C
+
+AI Analyzing: RFC 1918 defines the ranges for private, non-routable IP addresses (e.g., 192.168.x.x).
+
+
+
+16. Given the network 192.168.5.0/24, what is the broadcast address?
+
+A. 192.168.5.0
+B. 192.168.5.255
+C. 192.168.5.254
+D. 192.168.5.1
+
+**Answer:** B
+
+AI Analyzing: In a /24 network, the last address (.255) is reserved for broadcasting to all hosts.
+
+
+
+17. Which OSI layer is responsible for the actual 'Routing' of packets between different networks?
+
+A. Data Link Layer
+B. Session Layer
+C. Transport Layer
+D. Network Layer
+
+**Answer:** D
+
+AI Analyzing: The Network Layer (Layer 3) handles logical addressing and routing.
+
+
+
+18. What is the term for adding protocol information at each layer as data moves down the stack?
+
+A. Encapsulation
+B. Decapsulation
+C. Segmentation
+D. Demultiplexing
+
+**Answer:** A
+
+AI Analyzing: Encapsulation is the process of wrapping data in headers and trailers as it travels down the OSI layers.
+
+
+
+19. Which device 'destroys' the original Ethernet frame and creates a new one with a different source MAC address when forwarding to a new segment?
+
+A. Hub
+B. Router
+C. Switch
+D. Repeater
+
+**Answer:** B
+
+AI Analyzing: Routers operate at Layer 3; they strip the Layer 2 header and encapsulate the IP packet in a new frame for the next hop.
+
+
+
+20. Which layer in the TCP/IP model combines the OSI Application, Presentation, and Session layers?
+
+A. Application Layer
+B. Network Access Layer
+C. Transport Layer
+D. Internet Layer
+
+**Answer:** A
+
+AI Analyzing: The TCP/IP model consolidates the top three layers of the OSI model into a single Application layer.
+
+
+
+21. What are 'Ephemeral Ports' typically used for?
+
+A. Standard server services like HTTP
+B. The root DNS servers
+C. Temporary connections initiated by a client
+D. Hardware management on switches
+
+**Answer:** C
+
+AI Analyzing: Ephemeral ports are high-range ports (usually 49152+) assigned by the OS for client-side sessions.
+
+
+
+22. Which field in the IPv4 header is used to prevent packets from looping infinitely?
+
+A. Header Checksum
+B. Type of Service
+C. Identification
+D. Time To Live (TTL)
+
+**Answer:** D
+
+AI Analyzing: TTL is decremented by each router; if it reaches zero, the packet is discarded.
+
+
+
+23. A traceroute command works by incrementally increasing which field?
+
+A. Sequence Number
+B. Source Port
+C. TTL
+D. Fragment Offset
+
+**Answer:** C
+
+AI Analyzing: Traceroute sends packets with increasing TTL values to elicit ICMP 'Time Exceeded' messages from each router in the path.
+
+
+
+24. What is a characteristic of the UDP protocol?
+
+A. It uses a 3-way handshake to establish a connection
+B. It has a larger header size than TCP
+C. It performs complex flow control using sliding windows
+D. It is connectionless and does not guarantee delivery
+
+**Answer:** D
+
+AI Analyzing: UDP is lightweight and connectionless, prioritizing speed over reliability.
+
+
+
+25. In the TCP 3-way handshake, what is the second packet sent?
+
+A. SYN
+B. ACK
+C. SYN-ACK
+D. FIN
+
+**Answer:** C
+
+AI Analyzing: The server responds to the client's SYN with a SYN-ACK.
+
+
+
+26. Which service typically uses UDP port 53 for standard queries?
+
+A. DNS
+B. SSH
+C. HTTP
+D. FTP
+
+**Answer:** A
+
+AI Analyzing: DNS queries predominantly use UDP port 53.
+
+
+
+27. What is a 'Recursive DNS Query'?
+
+A. A query that only checks the local hosts file
+B. A query that uses TCP instead of UDP
+C. A query where the DNS server takes responsibility for finding the final answer
+D. A query meant for IPv6 addresses only
+
+**Answer:** C
+
+AI Analyzing: In a recursive query, the DNS server will query other servers on behalf of the client until it finds the IP.
+
+
+
+28. In the DHCP process, which message is sent by the server to offer an IP address to a client?
+
+A. DHCP Discover
+B. DHCP Ack
+C. DHCP Request
+D. DHCP Offer
+
+**Answer:** D
+
+AI Analyzing: Following a 'Discover', the server sends an 'Offer' with potential configuration parameters.
+
+
+
+29. What does 'Promiscuous Mode' allow a network card to do?
+
+A. Capture all traffic on the segment, even if not addressed to the host
+B. Send packets faster by skipping the checksum
+C. Change its own MAC address dynamically
+D. Block all incoming broadcast traffic
+
+**Answer:** A
+
+AI Analyzing: Promiscuous mode bypasses the MAC address filter, allowing the NIC to pass all frames to the OS.
+
+
+
+30. What is the main limitation of using a switch when trying to capture traffic in promiscuous mode?
+
+A. Switches encrypt all traffic
+B. Switches do not support the pcap library
+C. Switches only send traffic to the specific port where the destination is connected
+D. Switches block ICMP packets
+
+**Answer:** C
+
+AI Analyzing: Because switches segment the network, a host in promiscuous mode won't see traffic between other hosts unless port mirroring is used.
+
+
+
+31. Which tool is essentially the command-line equivalent of Wireshark for capturing traffic?
+
+A. Netflow
+B. tcpdump
+C. Zeek
+D. DAI
+
+**Answer:** B
+
+AI Analyzing: tcpdump is the standard command-line tool for packet analysis and sniffing.
+
+
+
+32. In Wireshark, what is the difference between a 'Capture Filter' and a 'Display Filter'?
+
+A. Capture filters use regular expressions, display filters do not
+B. Capture filters discard unwanted packets during the recording; display filters only hide them from view
+C. Capture filters are only for IPv6
+D. There is no difference between them
+
+**Answer:** B
+
+AI Analyzing: Capture filters save disk space by not recording traffic that doesn't match; display filters allow you to search through already captured data.
+
+
+
+33. What is 'Port Mirroring' (or SPAN)?
+
+A. A configuration that replicates traffic from one or more ports to a specific analysis port
+B. A method to use two ports for one server to double speed
+C. A security attack that clones MAC addresses
+D. A way to use IPv4 and IPv6 on the same port
+
+**Answer:** A
+
+AI Analyzing: Port mirroring/SPAN allows administrators to see traffic on a switch for monitoring purposes.
+
+
+
+34. Which security mechanism validates ARP packets against a database to prevent ARP poisoning?
+
+A. DHCP Snooping
+B. Dynamic Address Inspection (DAI)
+C. Port Mirroring
+D. GeoIP Resolver
+
+**Answer:** B
+
+AI Analyzing: DAI is a hardware feature in switches that validates ARP packets to ensure they aren't malicious.
+
+
+
+35. How many bits are in an IPv6 address?
+
+A. 32 bits
+B. 128 bits
+C. 64 bits
+D. 256 bits
+
+**Answer:** B
+
+AI Analyzing: IPv6 uses a 128-bit address space to accommodate a massive number of devices.
+
+
+
+36. In IPv6, which address type replaces the concept of 'Broadcast'?
+
+A. Unicast
+B. Anycast
+C. Link-Local
+D. Multicast
+
+**Answer:** D
+
+AI Analyzing: IPv6 does not use broadcast; it uses multicast (one-to-many) to reach groups of nodes.
+
+
+
+37. Which prefix identifies an IPv6 'Link-Local' address?
+
+A. 2001::/3
+B. ::1/128
+C. FF02::/16
+D. FE80::/10
+
+**Answer:** D
+
+AI Analyzing: Link-local addresses start with the FE80::/10 prefix and are unique to a single network segment.
+
+
+
+38. What is 'SLAAC' in the context of IPv6?
+
+A. A mechanism for hosts to automatically configure their own IP address without a DHCP server
+B. A method for encrypting web traffic
+C. A new version of the TCP handshake
+D. A protocol for routing between Tier-1 ISPs
+
+**Answer:** A
+
+AI Analyzing: Stateless Address Autoconfiguration (SLAAC) allows hosts to generate their own GUA using router advertisements.
+
+
+
+39. How is the 'Interface ID' generated in the EUI-64 algorithm?
+
+A. By hashing the hostname
+B. By choosing a random number between 0 and 65535
+C. By inserting 'FFFE' into the middle of the MAC address and flipping the 7th bit
+D. By copying the IPv4 address into the IPv6 field
+
+**Answer:** C
+
+AI Analyzing: EUI-64 derives a 64-bit ID from the 48-bit MAC address by padding it with FFFE and modifying the universal/local bit.
+
+
+
+40. What is the 'Unspecified Address' in IPv6?
+
+A. ::1
+B. ::/128
+C. FE80::1
+D. FF02::1
+
+**Answer:** B
+
+AI Analyzing: The address :: (all zeros) is the unspecified address, used by hosts before they have an address.
+
+
+
+41. What is a 'Global Unicast Address' (GUA) in IPv6 equivalent to in IPv4?
+
+A. A private IP address
+B. A loopback address
+C. A public IP address
+D. An ARP request
+
+**Answer:** C
+
+AI Analyzing: GUAs are globally unique and routable on the public Internet, just like IPv4 public addresses.
+
+
+
+42. Which concept describes the ability of a router to exchange network knowledge with its neighbors?
+
+A. Packet Forwarding
+B. Routing Protocol
+C. Flow Control
+D. Encapsulation
+
+**Answer:** B
+
+AI Analyzing: Routing protocols (like OSPF or RIP) are used by routers to share information and build routing tables.
+
+
+
+43. What is 'CAM' (Content Addressable Memory) used for in a switch?
+
+A. Storing the router's global configuration
+B. Mapping MAC addresses to physical ports
+C. Resolving domain names to IP addresses
+D. Measuring the cable length of the Ethernet link
+
+**Answer:** B
+
+AI Analyzing: The CAM table allows a switch to quickly look up which port a specific destination MAC address is connected to.
+
+
+
+44. What is a disadvantage of the ISO/OSI 7-layer model in practical implementations?
+
+A. It does not include a physical layer
+B. It cannot support wireless networks
+C. It is often too complex/redundant compared to the simpler TCP/IP model
+D. It is restricted only to fiber optic communications
+
+**Answer:** C
+
+AI Analyzing: The OSI model is a theoretical reference; in practice, layers like Session and Presentation are often merged into the Application layer (as in TCP/IP).
+
+
+
+45. In the context of the TCP header, what is the purpose of the 'Sequence Number'?
+
+A. To allow the receiver to reassemble segments in the correct order
+B. To identify the source port
+C. To specify the TTL of the segment
+D. To indicate the type of application being used
+
+**Answer:** A
+
+AI Analyzing: Sequence numbers track the order of bytes so that the transport layer can ensure data integrity and order.
+
+
+
+46. Which protocol is used to map a known IP address to an unknown MAC address on a local network?
+
+A. DNS
+B. DHCP
+C. ARP
+D. ICMP
+
+**Answer:** C
+
+AI Analyzing: The Address Resolution Protocol (ARP) is used to find the Layer 2 address (MAC) when the Layer 3 address (IP) is known.
+
+
+
+47. What is the primary pro of using fiber optic cables in the Internet backbone?
+
+A. It is the cheapest medium available
+B. It allows for easier splitting of signals than copper
+C. It uses electricity to send data across the ocean
+D. It is immune to electromagnetic interference and supports very high speeds
+
+**Answer:** D
+
+AI Analyzing: Fiber optics use light, making them faster and more reliable than copper over long distances.
+
+
+
+48. If you see a BPF filter like 'tcp port 80', what is its purpose during a capture?
+
+A. To capture only TCP packets where either the source or destination port is 80
+B. To block all web traffic to the host
+C. To change the destination port of packets to 80
+D. To decrypt HTTPS traffic on port 80
+
+**Answer:** A
+
+AI Analyzing: This is a capture filter syntax to isolate HTTP (non-encrypted) traffic.
+
+
+
+49. Which layer handles 'Flow Control' and 'Reliability' in the TCP/IP stack?
+
+A. Transport Layer
+B. Application Layer
+C. Internet Layer
+D. Network Access Layer
+
+**Answer:** A
+
+AI Analyzing: The Transport Layer (via TCP) ensures that data is received correctly and at an appropriate speed for the receiver.
+
+
+
+50. What does a 'Gateway' (like a default gateway) represent for a host?
+
+A. The primary DNS server address
+B. A list of blocked websites
+C. The host's own MAC address
+D. The exit point of the local network toward other networks
+
+**Answer:** D
+
+AI Analyzing: The default gateway is the router that a host sends traffic to when the destination is outside the local subnet.
+
+
+
