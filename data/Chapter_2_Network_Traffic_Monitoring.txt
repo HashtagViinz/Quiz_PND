@@ -1,0 +1,654 @@
+Network Traffic Monitoring and Protocol Fundamentals
+
+
+
+1. I am a device that segments a network to limit the replication of packets to specific cables based on destination MAC addresses. What am I?
+
+A. Hub
+B. Switch
+C. Repeater
+D. Bridge
+
+**Answer:** B
+
+AI Analyzing: A switch provides network segmentation by delivering packets only to the intended host using the CAM table, whereas a hub broadcasts to all ports.
+
+
+
+2. Which of the following best describes the difference between the OSI Model and the TCP/IP Model regarding the 'Application' layer?
+
+A. TCP/IP merges the Application, Presentation, and Session layers into one.
+B. The OSI Model has one Application layer, while TCP/IP splits it into three.
+C. The OSI Model includes the Physical layer in its Application layer.
+D. There is no difference between them regarding the Application layer.
+
+**Answer:** A
+
+AI Analyzing: In the TCP/IP Model, the top three layers of the OSI model (Application, Presentation, and Session) are combined into a single Application layer.
+
+
+
+3. I provide reliability, flow control, and sequence numbers for data exchange. Which transport protocol am I?
+
+A. TCP
+B. ICMP
+C. UDP
+D. IP
+
+**Answer:** A
+
+AI Analyzing: TCP is connection-oriented and provides reliability and flow control, unlike UDP which is connection-less.
+
+
+
+4. What is the primary difference between a MAC address and an IP address?
+
+A. MAC is logical, IP is physical.
+B. MAC identifies the location, IP identifies the identity.
+C. MAC is bound to the NIC, IP changes based on the network location.
+D. IP addresses are 48 bits, MAC addresses are 32 bits.
+
+**Answer:** C
+
+AI Analyzing: A MAC address is a permanent physical identifier for the NIC, while an IP address is a logical address that changes depending on the network.
+
+
+
+5. I specify the size of the IP header. Which field in the IPv4 header am I?
+
+A. TOS
+B. TTL
+C. IHL
+D. Fragment Offset
+
+**Answer:** C
+
+AI Analyzing: IHL (Internet Header Length) specifies the length of the IP header, which can range from 20 to 60 bytes.
+
+
+
+6. In Wireshark, what is the main difference between a Capture Filter and a Display Filter?
+
+A. Capture filters only hide packets from view without deleting them.
+B. Display filters discard packets permanently during the recording.
+C. There is no functional difference between the two.
+D. Capture filters determine which packets are saved to the disk; others are lost.
+
+**Answer:** D
+
+AI Analyzing: Capture filters are applied during the capture process and discard non-matching packets, while display filters only change what is shown on screen.
+
+
+
+7. How does a router decide where to forward a packet when it reads a map (routing table)?
+
+A. Shortest Path First
+B. Longest Prefix Matching
+C. Random Selection
+D. MAC Address Table
+
+**Answer:** B
+
+AI Analyzing: The Longest Prefix Matching rule is the standard mechanism used by routers to select the most specific entry in the routing table.
+
+
+
+8. Which IPv6 address type is indicated by the prefix FE80::/10?
+
+A. Global Unicast
+B. Multicast
+C. Link-Local Unicast
+D. Anycast
+
+**Answer:** C
+
+AI Analyzing: Link-Local Unicast addresses in IPv6 always start with the prefix FE80::/10 and are not routable outside the local link.
+
+
+
+9. I am a 3-step process used by TCP to establish a connection. What is my name?
+
+A. 3-way Handshake
+B. Flow Control
+C. Encapsulation
+D. Sliding Window
+
+**Answer:** A
+
+AI Analyzing: The 3-way handshake consists of SYN, SYN-ACK, and ACK packets to establish a connection between client and server.
+
+
+
+10. Comparing IPv4 and IPv6, which of the following is true regarding 'Broadcast' addresses?
+
+A. IPv6 does not have a Broadcast address; it uses Multicast instead.
+B. Both use Broadcast for ARP requests.
+C. IPv6 uses Broadcast more efficiently than IPv4.
+D. IPv4 uses Multicast to replace Broadcast.
+
+**Answer:** A
+
+AI Analyzing: IPv6 eliminates the concept of broadcast addresses, replacing them with specific multicast groups.
+
+
+
+11. I am the process of adding protocol information to data as it moves down the OSI stack. What am I?
+
+A. Encapsulation
+B. Segmentation
+C. Decapsulation
+D. Routing
+
+**Answer:** A
+
+AI Analyzing: Encapsulation occurs as data travels from upper layers to lower layers, wrapping data in headers at each step.
+
+
+
+12. In the IPv4 classful system, which class uses the first two bits '10' and has a 16-bit network prefix?
+
+A. Class A
+B. Class D
+C. Class C
+D. Class B
+
+**Answer:** D
+
+AI Analyzing: Class B addresses start with '10' in binary and have a default /16 subnet mask.
+
+
+
+13. I am a protocol that maps human-friendly names like 'sapienza.it' to IP addresses. What am I?
+
+A. DNS
+B. HTTP
+C. DHCP
+D. FTP
+
+**Answer:** A
+
+AI Analyzing: DNS (Domain Name System) translates domain names into numerical IP addresses.
+
+
+
+14. What is the result of applying the EUI-64 algorithm to a MAC address?
+
+A. A 64-bit Interface Identifier for IPv6.
+B. A 128-bit Global Unicast Address.
+C. A 32-bit IPv4 address.
+D. A 48-bit physical address.
+
+**Answer:** A
+
+AI Analyzing: The EUI-64 algorithm converts a 48-bit MAC address into a 64-bit Interface ID by inserting 'FFFE' and flipping the 7th bit.
+
+
+
+15. I am a Wireshark mode that allows a NIC to capture all packets on a network segment, regardless of the destination MAC. What am I?
+
+A. Standard Mode
+B. Broadcast Mode
+C. Stealth Mode
+D. Promiscuous Mode
+
+**Answer:** D
+
+AI Analyzing: Promiscuous mode allows the NIC to pass all received traffic to the OS, rather than just traffic destined for the host's MAC.
+
+
+
+16. Which IPv4 header field is decremented by each router to prevent infinite loops?
+
+A. Header Checksum
+B. Identification
+C. Time To Live (TTL)
+D. Protocol
+
+**Answer:** C
+
+AI Analyzing: TTL is decreased by one at each hop; when it reaches zero, the packet is discarded and an ICMP error is sent.
+
+
+
+17. If you see the IPv6 address '2001:0db8:0000:0000:0000:ff00:0042:8329', what is its shortest compressed form?
+
+A. 2001:db8::ff00:0042:8329
+B. 2001:db8:0:0:0:ff00:42:8329
+C. 2001:db8::ff00:42:8329
+D. 2001:db8:0::ff00:42:8329
+
+**Answer:** C
+
+AI Analyzing: Rule 1: Omitting leading zeros (0042 -> 42). Rule 2: Using double colon for the longest sequence of zeros.
+
+
+
+18. What happens when a packet moves from one Ethernet network to another through a router?
+
+A. The IP address is changed, but the MAC remains the same.
+B. The router only changes the TTL and nothing else.
+C. The entire packet is forwarded without any modifications.
+D. The Frame is destroyed and a new one is created with a new destination MAC.
+
+**Answer:** D
+
+AI Analyzing: Routers decapsulate the Layer 2 frame and re-encapsulate the Layer 3 packet into a new frame for the next link.
+
+
+
+19. I am a protocol used to automatically assign IP addresses and network configurations to hosts. What am I?
+
+A. DNS
+B. DHCP
+C. ARP
+D. SLAAC
+
+**Answer:** B
+
+AI Analyzing: DHCP (Dynamic Host Configuration Protocol) provides dynamic IP allocation and configuration like default gateway and DNS.
+
+
+
+20. Comparing TCP and UDP headers, which statement is correct?
+
+A. UDP has a larger header than TCP.
+B. TCP has a fixed 8-byte header.
+C. UDP headers are 8 bytes, while TCP headers are at least 20 bytes.
+D. Only UDP contains port numbers.
+
+**Answer:** C
+
+AI Analyzing: UDP headers are very simple (8 bytes), while TCP headers are more complex (minimum 20 bytes) to support reliability.
+
+
+
+21. I am a feature in switches that allows all traffic to be mirrored to a specific port for analysis. What is my Cisco name?
+
+A. SPAN
+B. VLAN
+C. DAI
+D. NAT
+
+**Answer:** A
+
+AI Analyzing: SPAN (Switched Port Analyzer) or Port Mirroring allows a switch to send a copy of all network traffic to a specific port for monitoring.
+
+
+
+22. What is the range of 'Well-known ports' used by servers for standard services?
+
+A. 0 - 1023
+B. 1024 - 49151
+C. 49152 - 65535
+D. 0 - 65535
+
+**Answer:** A
+
+AI Analyzing: Well-known ports range from 0 to 1023. Registered ports are 1024-49151, and ephemeral ports are 49152-65535.
+
+
+
+23. In the context of IPv6, what is 'SLAAC' used for?
+
+A. Stateless address auto-configuration.
+B. Secure communication between two hosts.
+C. Mapping MAC addresses to IP addresses.
+D. Dynamic routing between ISPs.
+
+**Answer:** A
+
+AI Analyzing: SLAAC allows a host to generate its own GUA using prefix information from a router advertisement without a DHCP server.
+
+
+
+24. I am a 48-bit address where the first 3 bytes represent the manufacturer. What am I?
+
+A. MAC Address
+B. IPv6 Address
+C. Port Number
+D. IPv4 Address
+
+**Answer:** A
+
+AI Analyzing: MAC addresses are 48 bits, and the first 24 bits (3 bytes) are the Organizationally Unique Identifier (OUI) assigned to manufacturers.
+
+
+
+25. Which transport protocol would a real-time VoIP application likely use and why?
+
+A. UDP, because it has less overhead and no delay from retransmissions.
+B. TCP, because it ensures every packet is received.
+C. ICMP, because it checks if the destination is reachable.
+D. HTTP, because it is the standard for web traffic.
+
+**Answer:** A
+
+AI Analyzing: UDP is preferred for real-time applications like VoIP where speed is more important than perfect reliability.
+
+
+
+26. I am a specific IPv4 address range (e.g., 192.168.0.0/16) that is not routable on the public Internet. What am I?
+
+A. Public Address Space
+B. Multicast Range
+C. Private Address Space (RFC 1918)
+D. Experimental Class E
+
+**Answer:** C
+
+AI Analyzing: RFC 1918 defines private address ranges that are used within internal networks and are not routable globally.
+
+
+
+27. What is the primary function of the ARP table in a host?
+
+A. To store the association between IP addresses and MAC addresses.
+B. To map domain names to IP addresses.
+C. To keep track of open TCP connections.
+D. To route packets to the default gateway.
+
+**Answer:** A
+
+AI Analyzing: The ARP table stores MAC addresses corresponding to local IP addresses so that frames can be addressed correctly at Layer 2.
+
+
+
+28. Which of these tools is best suited for command-line packet diagnostics on a server without a GUI?
+
+A. tcpdump
+B. dumpcap
+C. Wireshark
+D. Zeek
+
+**Answer:** A
+
+AI Analyzing: tcpdump is the standard command-line tool for capturing and analyzing traffic on servers.
+
+
+
+29. I am an IPv6 address part that identifies the specific host on a network. I am usually the last 64 bits. What am I?
+
+A. Global Routing Prefix
+B. Subnet ID
+C. Interface ID
+D. Anycast ID
+
+**Answer:** C
+
+AI Analyzing: The Interface ID occupies the last 64 bits of a GUA or Link-Local address and identifies the unique interface.
+
+
+
+30. What is the total size of the IPv6 address space?
+
+A. 32 bits
+B. 48 bits
+C. 128 bits
+D. 64 bits
+
+**Answer:** C
+
+AI Analyzing: IPv6 addresses are 128 bits long, allowing for a massive number of unique addresses compared to IPv4's 32 bits.
+
+
+
+31. How does 'Port Mirroring' help in network defense?
+
+A. It encrypts all traffic passing through the switch.
+B. It prevents ARP spoofing attacks.
+C. It allows an IDS to inspect traffic without interrupting the flow.
+D. It acts as a firewall between internal segments.
+
+**Answer:** C
+
+AI Analyzing: Port mirroring clones traffic to a monitoring port, allowing systems like an IDS or Wireshark to analyze network activity.
+
+
+
+32. In an IPv6 address, how many times can the double colon '::' be used?
+
+A. As many times as there are zero blocks.
+B. Exactly twice.
+C. It depends on the prefix length.
+D. Only once.
+
+**Answer:** D
+
+AI Analyzing: The double colon can only be used once in an IPv6 address to prevent ambiguity when reconstructing the address.
+
+
+
+33. I am a protocol that operates at the Internet layer to check network status and report errors like 'Destination Unreachable'. What am I?
+
+A. IP
+B. ICMP
+C. TCP
+D. UDP
+
+**Answer:** B
+
+AI Analyzing: ICMP (Internet Control Message Protocol) is used for diagnostic and error-reporting purposes.
+
+
+
+34. What does 'Encapsulation' mean for the Link Layer?
+
+A. Wrapping a Packet into a Frame.
+B. Wrapping a Segment into a Packet.
+C. Converting Bits into Light signals.
+D. Extracting Data from a Packet.
+
+**Answer:** A
+
+AI Analyzing: The Link Layer receives a Packet from the Network Layer and encapsulates it into a Frame by adding MAC addresses.
+
+
+
+35. Which of these is a valid 'Capture Filter' syntax in Wireshark/tcpdump to see traffic to a specific host?
+
+A. ip.addr == 10.0.0.1
+B. host 10.0.0.1
+C. src host 10.0.0.1
+D. filter host 10.0.0.1
+
+**Answer:** B
+
+AI Analyzing: 'host [IP]' is the standard BPF (Berkeley Packet Filter) syntax used for capture filters.
+
+
+
+36. I am the first packet sent in a TCP connection request. What flag is set in my header?
+
+A. SYN
+B. FIN
+C. ACK
+D. RST
+
+**Answer:** A
+
+AI Analyzing: The SYN (Synchronize) flag is used to initiate a connection in the 3-way handshake.
+
+
+
+37. What is the difference between an IPv6 Global Unicast Address and a Link-Local Address?
+
+A. GUA is for local links, Link-Local is for the Internet.
+B. GUA is 64 bits, Link-Local is 128 bits.
+C. GUA is globally routable, Link-Local is only for the local network segment.
+D. There is no difference; both are routable.
+
+**Answer:** C
+
+AI Analyzing: Global Unicast Addresses (GUA) are like public IPv4 addresses, while Link-Local addresses are restricted to the local link.
+
+
+
+38. I am the hardware component in a computer that connects it to a network and has a unique physical address. What am I?
+
+A. CPU
+B. RAM
+C. NIC
+D. GPU
+
+**Answer:** C
+
+AI Analyzing: The NIC (Network Interface Card) provides the physical connection and holds the MAC address.
+
+
+
+39. In IPv4, what is the purpose of the 'Subnet Mask'?
+
+A. To hide the identity of the host.
+B. To map MAC addresses to IP addresses.
+C. To encrypt the payload of the packet.
+D. To distinguish between the network part and the host part of an IP address.
+
+**Answer:** D
+
+AI Analyzing: The subnet mask identifies which bits of the IP address belong to the network and which belong to the host.
+
+
+
+40. Which of these is NOT a step in the EUI-64 process?
+
+A. Split the MAC address in half.
+B. Subtract 20 from the first octet.
+C. Flip the 7th bit of the first byte.
+D. Insert FFFE in the middle.
+
+**Answer:** B
+
+AI Analyzing: EUI-64 involves splitting the MAC, inserting FFFE, and flipping the 7th bit. Subtracting 20 is not part of the algorithm.
+
+
+
+41. I am a type of communication where a single packet is sent to a group of hosts, but not all. What am I?
+
+A. Unicast
+B. Broadcast
+C. Anycast
+D. Multicast
+
+**Answer:** D
+
+AI Analyzing: Multicast is a 'one-to-many' communication where only interested hosts receive the packets.
+
+
+
+42. What is the primary role of the Default Gateway?
+
+A. To assign IP addresses to local hosts.
+B. To resolve domain names into IP addresses.
+C. To provide access to networks outside the local segment.
+D. To filter internal traffic between local hosts.
+
+**Answer:** C
+
+AI Analyzing: The default gateway (usually a router) is the node that forwards traffic from the local network to remote networks.
+
+
+
+43. I am an IPv6 address starting with 'FF'. What type of address am I?
+
+A. Multicast
+B. Link-Local Unicast
+C. Global Unicast
+D. Loopback
+
+**Answer:** A
+
+AI Analyzing: IPv6 multicast addresses start with the prefix FF00::/8.
+
+
+
+44. What happens if a device receives a frame with a destination MAC address that is not its own and not a broadcast/multicast?
+
+A. It forwards it to the router.
+B. It processes it anyway.
+C. It sends an error message to the sender.
+D. It discards the frame.
+
+**Answer:** D
+
+AI Analyzing: Under normal operation, the NIC filters out frames not addressed to it to reduce processing load.
+
+
+
+45. I am the first message a host sends when it wants an IP address via DHCP. What am I?
+
+A. DHCP Offer
+B. DHCP Request
+C. DHCP Ack
+D. DHCP Discover
+
+**Answer:** D
+
+AI Analyzing: The host broadcasts a DHCP Discover message to find available DHCP servers on the network.
+
+
+
+46. Compare a 'Physical Tap' and 'Port Mirroring' for monitoring. Which is true?
+
+A. Port Mirroring requires extra hardware like a splitter.
+B. Port Mirroring is a switch feature, while a Tap is a physical hardware device.
+C. A Physical Tap is a software configuration on the switch.
+D. Both are identical in terms of implementation.
+
+**Answer:** B
+
+AI Analyzing: Port mirroring (SPAN) is built into managed switches, whereas a physical tap is an external device that physically splits the signal.
+
+
+
+47. In the '3-1-4 Rule' for IPv6 GUAs, what does the '1' represent?
+
+A. Global Routing Prefix
+B. ISP ID
+C. Interface ID
+D. Subnet ID
+
+**Answer:** D
+
+AI Analyzing: In a /64 GUA, the first 3 blocks (48 bits) are the Global Prefix, the next 1 block (16 bits) is the Subnet ID, and the last 4 blocks (64 bits) are the Interface ID.
+
+
+
+48. I am the hexadecimal representation of the number 10. What am I?
+
+A. 9
+B. A
+C. F
+D. B
+
+**Answer:** B
+
+AI Analyzing: In hexadecimal, 10 is A, 11 is B, 12 is C, 13 is D, 14 is E, and 15 is F.
+
+
+
+49. What is 'NAT' used for in IPv4 networks?
+
+A. To allow multiple private IP addresses to share one public IP.
+B. To speed up the transmission of packets.
+C. To encrypt DNS queries.
+D. To replace the need for MAC addresses.
+
+**Answer:** A
+
+AI Analyzing: Network Address Translation (NAT) allows internal hosts with private addresses to communicate with the Internet using a public IP.
+
+
+
+50. I am an IPv6 address used by a host to discover routers on the local link. What is my destination address?
+
+A. FF02::1 (All Hosts)
+B. FE80::1 (Gateway)
+C. ::1 (Loopback)
+D. FF02::2 (All Routers)
+
+**Answer:** D
+
+AI Analyzing: Router Solicitation messages are sent to the all-routers multicast address FF02::2.
+
+
+
