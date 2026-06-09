@@ -68,7 +68,6 @@ def load_congr_json():
     
     if os.path.exists(congr_file):
         with open(congr_file, "r", encoding="utf-8") as f:
-            print(f"{GREEN}🎉 Frasi di congratulazioni caricate da '{congr_file}'!{RESET}")
             return json.load(f)
 
 def congratulations():
