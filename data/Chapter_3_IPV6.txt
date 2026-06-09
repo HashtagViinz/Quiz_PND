@@ -1,0 +1,654 @@
+IPv6 Fundamentals and Advanced Configuration
+
+
+
+1. How many bits are used to represent an IPv6 address?
+
+A. 32 bits
+B. 128 bits
+C. 64 bits
+D. 256 bits
+
+**Answer:** B
+
+AI Analyzing: IPv6 uses a 128-bit address space, allowing for approximately 340 undecillion unique addresses.
+
+
+
+2. Which notation is used to represent IPv6 addresses for human readability?
+
+A. Dotted decimal
+B. Binary
+C. Hexadecimal
+D. Octal
+
+**Answer:** C
+
+AI Analyzing: IPv6 addresses are written in hexadecimal digits, divided into 8 groups of 4 digits each.
+
+
+
+3. What is the primary difference between IPv4 and IPv6 regarding address types?
+
+A. IPv6 does not use Unicast addresses
+B. IPv6 includes a Broadcast address
+C. IPv6 uses Anycast instead of Multicast
+D. IPv6 does not have a Broadcast address
+
+**Answer:** D
+
+AI Analyzing: Unlike IPv4, IPv6 does not have a broadcast address; it uses multicast for similar functions.
+
+
+
+4. Which IPv6 address type is globally unique and routable on the public Internet?
+
+A. Link-Local Unicast
+B. Anycast
+C. Global Unicast Address (GUA)
+D. Loopback Address
+
+**Answer:** C
+
+AI Analyzing: GUA is the IPv6 equivalent of a public IPv4 address, being globally unique and routable.
+
+
+
+5. What is the prefix range for Global Unicast Addresses (GUA)?
+
+A. FE80::/10
+B. 2000::/3
+C. FF00::/8
+D. ::1/128
+
+**Answer:** B
+
+AI Analyzing: GUA addresses currently assigned by IANA fall within the 2000::/3 range.
+
+
+
+6. Compare GUA and Link-Local addresses: Which statement is true?
+
+A. Link-Local is routable over the Internet, while GUA is not
+B. Both are routable off the local network
+C. GUA is routable, while Link-Local is restricted to a single link
+D. Link-Local uses 32 bits, while GUA uses 128 bits
+
+**Answer:** C
+
+AI Analyzing: GUA is for global communication, whereas Link-Local addresses are valid only within a specific network segment.
+
+
+
+7. A 128-bit address used only for local communication, starting with FE80, refers to:
+
+A. Global Unicast Address
+B. Multicast Address
+C. Link-Local Unicast Address
+D. Anycast Address
+
+**Answer:** C
+
+AI Analyzing: This description fits Link-Local addresses, which are mandatory for every IPv6 interface.
+
+
+
+8. In the IPv6 address compression rule, what does the double colon (::) represent?
+
+A. One or more continuous groups of all zeros
+B. A single group of four zeros
+C. The end of the network prefix
+D. The beginning of the interface ID
+
+**Answer:** A
+
+AI Analyzing: The double colon represents a contiguous string of zero-filled groups and can only be used once in an address.
+
+
+
+9. Which IPv6 address is specifically reserved for documentation purposes?
+
+A. 2001:DB8::/32
+B. FE80::/10
+C. ::1/128
+D. FF02::1
+
+**Answer:** A
+
+AI Analyzing: 2001:DB8::/32 is reserved by RFCs to be used in documentation and examples.
+
+
+
+10. According to the 3-1-4 Rule for GUA, what does the '1' represent?
+
+A. The Interface ID
+B. The Subnet ID
+C. The Global Routing Prefix
+D. The ISP Identifier
+
+**Answer:** B
+
+AI Analyzing: The 3-1-4 rule implies 3 blocks for Routing Prefix, 1 block (16 bits) for Subnet ID, and 4 blocks for Interface ID.
+
+
+
+11. The process where a host automatically generates its own IPv6 address using router information is called:
+
+A. DHCPv4
+B. Static Mapping
+C. NAT64
+D. SLAAC
+
+**Answer:** D
+
+AI Analyzing: Stateless Address Autoconfiguration (SLAAC) allows hosts to configure their own addresses without a stateful server.
+
+
+
+12. What is the first step of the EUI-64 algorithm?
+
+A. Divide the 48-bit MAC address into two 24-bit halves
+B. Insert FFFE in the middle of the MAC address
+C. Flip the 7th bit of the MAC address
+D. Add FE80 to the front of the address
+
+**Answer:** A
+
+AI Analyzing: The EUI-64 process starts by splitting the 48-bit MAC address into two equal parts.
+
+
+
+13. In EUI-64, what hexadecimal value is inserted between the two parts of the MAC address?
+
+A. FFFE
+B. EEEE
+C. FFFF
+D. ABCD
+
+**Answer:** A
+
+AI Analyzing: FFFE is the standard 16-bit value inserted to expand a 48-bit MAC to a 64-bit Interface ID.
+
+
+
+14. Which bit must be flipped in the first byte of the MAC address during EUI-64 generation?
+
+A. 1st bit
+B. 16th bit
+C. 8th bit
+D. 7th bit
+
+**Answer:** D
+
+AI Analyzing: The 7th most significant bit (Universal/Local bit) is flipped during the EUI-64 process.
+
+
+
+15. Identify the term: An address used as a source by an initializing host that hasn't learned its address yet.
+
+A. Loopback Address
+B. Multicast Address
+C. Unspecified Address (::/128)
+D. Default Gateway
+
+**Answer:** C
+
+AI Analyzing: The unspecified address ::/128 is used by hosts that do not yet have an assigned IP address.
+
+
+
+16. Which ICMPv6 message is sent by a host to discover routers on the link?
+
+A. Router Solicitation (RS)
+B. Router Advertisement (RA)
+C. Neighbor Solicitation
+D. Echo Request
+
+**Answer:** A
+
+AI Analyzing: Hosts send Router Solicitation (RS) messages to ask routers to identify themselves and provide network info.
+
+
+
+17. To which multicast address are Router Solicitation (RS) messages sent?
+
+A. FF02::1 (All nodes)
+B. FF05::2
+C. FF02::1:FF00:0/104
+D. FF02::2 (All routers)
+
+**Answer:** D
+
+AI Analyzing: RS messages are sent to the all-routers multicast address FF02::2.
+
+
+
+18. Compare RS and RA messages: Which one is typically sent periodically by a router?
+
+A. Router Solicitation
+B. Router Advertisement
+C. Both are periodic
+D. Neither is periodic
+
+**Answer:** B
+
+AI Analyzing: Router Advertisements (RA) are sent periodically by routers or in response to an RS.
+
+
+
+19. What is the primary reason NAT is generally not required in IPv6?
+
+A. The massive number of available addresses
+B. IPv6 is more secure than IPv4
+C. IPv6 routers cannot perform translation
+D. IPv6 uses hardware-based addresses only
+
+**Answer:** A
+
+AI Analyzing: Because there are enough IPv6 addresses for every device, there is no need to 'hide' private networks behind a single public IP.
+
+
+
+20. Identify the term: A transmission method where a packet is sent to the nearest member of a group of receivers.
+
+A. Unicast
+B. Broadcast
+C. Anycast
+D. Multicast
+
+**Answer:** C
+
+AI Analyzing: Anycast allows a packet to be delivered to the 'closest' interface among a group sharing the same address.
+
+
+
+21. How many bits are in a single hexadecimal digit of an IPv6 address?
+
+A. 2 bits
+B. 8 bits
+C. 4 bits
+D. 16 bits
+
+**Answer:** C
+
+AI Analyzing: Each hexadecimal digit represents 4 binary bits (0000 to 1111).
+
+
+
+22. Which part of the GUA is typically provided by the ISP to a customer?
+
+A. Interface ID
+B. The entire 128-bit address
+C. Global Routing Prefix
+D. MAC Address
+
+**Answer:** C
+
+AI Analyzing: ISPs typically assign a Global Routing Prefix (often a /48) to customers.
+
+
+
+23. Which feature of IPv6 improves support for mobility?
+
+A. Smaller header size
+B. Removal of the TTL field
+C. Address autoconfiguration and reachability
+D. Mandatory NAT
+
+**Answer:** C
+
+AI Analyzing: End-to-end reachability and autoconfiguration make it easier for devices to move across networks without breaking sessions.
+
+
+
+24. What happens if a host has multiple network interfaces in an IPv6 environment?
+
+A. It will have a different Link-Local address for each
+B. It must have the same MAC address on all
+C. It can only use one interface at a time
+D. Link-Local addresses are shared across interfaces
+
+**Answer:** A
+
+AI Analyzing: Each interface must have at least its own unique Link-Local address.
+
+
+
+25. What is the compressed form of the address 2001:0DB8:0000:0000:0001:0000:0000:0001?
+
+A. 2001:DB8:0:0:1:0:0:1
+B. 2001:DB8:0:0:1::1
+C. 2001:DB8::1::1
+D. 2001:DB8::1:0:0:1
+
+**Answer:** D
+
+AI Analyzing: Leading zeros are removed, and the longest sequence of zeros (the first two blocks) is replaced by ::. Double :: is not allowed.
+
+
+
+26. Identify the term: A mechanism that allows an IPv6 address to be valid only for a short time for security.
+
+A. Link-Local
+B. Static Routing
+C. Anycast
+D. Privacy/Temporary Address
+
+**Answer:** D
+
+AI Analyzing: Temporary addresses (privacy extensions) change over time to prevent tracking the host's Interface ID.
+
+
+
+27. What is the purpose of the 'Subnet ID' in an IPv6 GUA?
+
+A. To identify the specific host device
+B. To identify the ISP providing the connection
+C. To allow organizations to create multiple internal networks
+D. To store the MAC address
+
+**Answer:** C
+
+AI Analyzing: The Subnet ID (16 bits in a standard /48) allows for 65,536 subnets within an organization.
+
+
+
+28. How many hex digits are found in a standard IPv6 group?
+
+A. 2
+B. 4
+C. 8
+D. 16
+
+**Answer:** B
+
+AI Analyzing: Each of the 8 groups in an IPv6 address contains 4 hexadecimal digits (16 bits).
+
+
+
+29. If a host sends a packet to the address FF02::1, who receives it?
+
+A. Only the default gateway
+B. A specific host with that MAC
+C. All routers on the Internet
+D. All IPv6-enabled nodes on the local link
+
+**Answer:** D
+
+AI Analyzing: FF02::1 is the 'All Nodes' multicast address for the link-local scope.
+
+
+
+30. Compare IPv4 and IPv6: Which protocol has a fixed header size?
+
+A. IPv6
+B. IPv4
+C. Both
+D. Neither
+
+**Answer:** A
+
+AI Analyzing: IPv6 has a fixed header size of 40 bytes to simplify processing, whereas IPv4 headers are variable (20-60 bytes).
+
+
+
+31. Identify the term: The last 64 bits of an IPv6 address that uniquely identifies a device on a subnet.
+
+A. Subnet Mask
+B. Interface ID
+C. Global Prefix
+D. Next Hop
+
+**Answer:** B
+
+AI Analyzing: The Interface ID is the host portion of the IPv6 address, occupying the final 64 bits.
+
+
+
+32. In EUI-64, if the 7th bit of the MAC address is 0, what does it become?
+
+A. 1
+B. 0
+C. F
+D. It stays the same
+
+**Answer:** A
+
+AI Analyzing: The algorithm requires flipping the bit; if it is 0, it becomes 1.
+
+
+
+33. Which IPv6 address type replaces the functionality of IPv4 private addresses?
+
+A. Multicast
+B. Unique Local Address (ULA)
+C. Link-Local
+D. GUA
+
+**Answer:** B
+
+AI Analyzing: While Link-Local is used for internal link communication, Unique Local Addresses (FC00::/7) are the equivalent of private internal routable addresses.
+
+
+
+34. What is the binary representation of the first 4 bits of a Link-Local address (FE80)?
+
+A. 1010
+B. 0010
+C. 1100
+D. 1111
+
+**Answer:** D
+
+AI Analyzing: Hexadecimal 'F' corresponds to binary '1111'.
+
+
+
+35. Identify the term: The ICMPv6 message sent by a router in response to a host solicitation.
+
+A. Router Advertisement
+B. Neighbor Advertisement
+C. Echo Reply
+D. Redirect
+
+**Answer:** A
+
+AI Analyzing: Routers respond to solicitations with Router Advertisements (RA) containing configuration data.
+
+
+
+36. Which prefix length is the standard recommended size for a single IPv6 subnet?
+
+A. /64
+B. /48
+C. /32
+D. /128
+
+**Answer:** A
+
+AI Analyzing: /64 is the standard subnet size to accommodate SLAAC and EUI-64 mechanisms.
+
+
+
+37. In the EUI-64 process, the MAC address 00:11:22:33:44:55 would have what value inserted in the middle?
+
+A. FFFF
+B. FFFE
+C. 0000
+D. EEEE
+
+**Answer:** B
+
+AI Analyzing: The value FFFE is always inserted between the two 24-bit halves of the MAC address.
+
+
+
+38. Identify the term: The loopback address in IPv6.
+
+A. ::1/128
+B. ::/128
+C. FE80::1
+D. FF02::1
+
+**Answer:** A
+
+AI Analyzing: ::1/128 is the IPv6 loopback address, equivalent to 127.0.0.1 in IPv4.
+
+
+
+39. What is a characteristic of IPv6 Anycast addresses?
+
+A. They are assigned to every node on the link
+B. They are only used for local link discovery
+C. They must start with FF
+D. They are syntactically indistinguishable from GUA
+
+**Answer:** D
+
+AI Analyzing: Anycast addresses are taken from the unicast address space and look identical to them; their behavior depends on routing configuration.
+
+
+
+40. What prefix is used for all IPv6 Multicast addresses?
+
+A. FC00::/7
+B. FF00::/8
+C. FE80::/10
+D. 2000::/3
+
+**Answer:** B
+
+AI Analyzing: Multicast addresses always begin with the FF prefix (1111 1111 in binary).
+
+
+
+41. Compare IPv4 and IPv6: Which field was removed in IPv6 to improve performance?
+
+A. Source Address
+B. Header Checksum
+C. Hop Limit
+D. Payload Length
+
+**Answer:** B
+
+AI Analyzing: The Header Checksum was removed in IPv6 because it was redundant with layer 2 and layer 4 checks, speeding up router processing.
+
+
+
+42. What is 'Hop Limit' in an IPv6 header equivalent to in IPv4?
+
+A. Type of Service
+B. Total Length
+C. Fragment Offset
+D. Time to Live (TTL)
+
+**Answer:** D
+
+AI Analyzing: The Hop Limit field serves the same purpose as the TTL field in IPv4, preventing packets from looping indefinitely.
+
+
+
+43. Identify the term: The 48-bit part of a GUA assigned to an organization by an ISP or registry.
+
+A. Subnet ID
+B. Global Routing Prefix
+C. Interface ID
+D. Anycast ID
+
+**Answer:** B
+
+AI Analyzing: The Global Routing Prefix is the network portion assigned to a site/organization.
+
+
+
+44. How does a host verify that its self-generated SLAAC address is unique?
+
+A. Duplicate Address Detection (DAD)
+B. It asks the DHCP server
+C. It checks the ARP table
+D. It waits for a Router Advertisement
+
+**Answer:** A
+
+AI Analyzing: DAD is used by IPv6 nodes to ensure no other node on the link is using the same address.
+
+
+
+45. Which address is used as the default gateway in an IPv6 host routing table?
+
+A. The router's Link-Local address
+B. The router's GUA
+C. FF02::2
+D. The loopback address
+
+**Answer:** A
+
+AI Analyzing: In IPv6, the Link-Local address of the router is used as the next-hop for the default gateway.
+
+
+
+46. What is the maximum number of subnets possible with a 16-bit Subnet ID?
+
+A. 256
+B. 4,096
+C. 16.7 million
+D. 65,536
+
+**Answer:** D
+
+AI Analyzing: A 16-bit field allows for 2 to the power of 16 (65,536) unique values.
+
+
+
+47. Identify the term: A group of 4 bits in an IPv6 address.
+
+A. Octet
+B. Byte
+C. Hextet
+D. Nibble
+
+**Answer:** D
+
+AI Analyzing: In computing, a nibble is a four-bit aggregation, or half an octet. In IPv6, each hex digit is a nibble.
+
+
+
+48. What is the IPv6 multicast address for All Routers in the site-local scope?
+
+A. FF05::2
+B. FF02::2
+C. FF02::1
+D. FF01::2
+
+**Answer:** A
+
+AI Analyzing: While FF02::2 is for the local link, FF05::2 is used for routers within the site scope.
+
+
+
+49. Which field in the IPv6 header is used to label sequences of packets that require special handling?
+
+A. Traffic Class
+B. Next Header
+C. Flow Label
+D. Hop Limit
+
+**Answer:** C
+
+AI Analyzing: The Flow Label field allows tagging of specific traffic flows (e.g., real-time video) for prioritized handling by routers.
+
+
+
+50. Compare SLAAC and DHCPv6: Which one is considered 'stateless'?
+
+A. DHCPv6
+B. Both are stateless
+C. Both are stateful
+D. SLAAC
+
+**Answer:** D
+
+AI Analyzing: SLAAC is stateless because no server maintains a list of assigned addresses and their mappings to hosts.
+
+
+

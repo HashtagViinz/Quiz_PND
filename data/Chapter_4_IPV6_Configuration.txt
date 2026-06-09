@@ -1,0 +1,654 @@
+IPv6 Configuration Quiz
+
+
+
+1. What is the primary function of the ICMPv6 Router Solicitation (RS) message?
+
+A. To assign a dynamic IP to the router
+B. To resolve a MAC address into an IP address
+C. To perform Duplicate Address Detection
+D. To request a Router Advertisement from local routers
+
+**Answer:** D
+
+AI Analyzing: A host sends an RS message to all-routers multicast address (FF02::2) to prompt routers to send a Router Advertisement (RA) immediately rather than waiting for the next periodic one.
+
+
+
+2. Which of the following describes a 'Reverse' scenario where a host generates its own 128-bit IPv6 address using the prefix provided by a router and its own Interface ID?
+
+A. Stateful DHCPv6
+B. Static Routing
+C. SLAAC (Stateless Address Autoconfiguration)
+D. NAT64
+
+**Answer:** C
+
+AI Analyzing: SLAAC is the mechanism that allows a host to configure its own Global Unicast Address by combining the network prefix (from an RA) with its own generated Interface ID.
+
+
+
+3. When comparing SLAAC and Stateful DHCPv6, which one provides more centralized control over address assignment?
+
+A. Stateful DHCPv6
+B. SLAAC
+C. Both provide equal control
+D. Neither provides control
+
+**Answer:** A
+
+AI Analyzing: Stateful DHCPv6 maintains a record of which address is assigned to which host, similar to DHCP for IPv4, offering more administrative control than SLAAC.
+
+
+
+4. What does a Router Advertisement (RA) message with the M-flag set to 1 and the O-flag set to 1 indicate?
+
+A. Stateful DHCPv6
+B. Stateless DHCPv6
+C. SLAAC only
+D. No IPv6 connectivity
+
+**Answer:** A
+
+AI Analyzing: The Managed Address Configuration (M) flag set to 1 tells the host to use a stateful DHCPv6 server for its IPv6 address and all other configuration information.
+
+
+
+5. In the EUI-64 process, what specific value is inserted into the middle of the 48-bit MAC address?
+
+A. FFFE
+B. AAAA
+C. EEEE
+D. 1111
+
+**Answer:** A
+
+AI Analyzing: EUI-64 expands a 48-bit MAC address to a 64-bit Interface ID by inserting the 16-bit hex value FFFE in the middle.
+
+
+
+6. Which message is used during the Duplicate Address Detection (DAD) process to ensure an address is unique?
+
+A. Router Solicitation
+B. DHCPv6 Request
+C. Neighbor Solicitation
+D. Echo Request
+
+**Answer:** C
+
+AI Analyzing: DAD uses Neighbor Solicitation (NS) messages sent to the Solicited-Node multicast address. If no Neighbor Advertisement is received, the address is considered unique.
+
+
+
+7. Identify the configuration: The host uses the Router Advertisement for the network prefix but contacts a DHCPv6 server for DNS server addresses and domain names only.
+
+A. SLAAC Only
+B. Stateful DHCPv6
+C. Stateless DHCPv6
+D. Manual configuration
+
+**Answer:** C
+
+AI Analyzing: Stateless DHCPv6 occurs when the RA informs the host to use SLAAC for the IP address but provides an 'Other' flag (O=1) to get additional options from a server.
+
+
+
+8. What is the ICMPv6 message type number for a Router Advertisement?
+
+A. 133
+B. 134
+C. 135
+D. 136
+
+**Answer:** B
+
+AI Analyzing: Router Advertisement (RA) is ICMPv6 Type 134, while Router Solicitation (RS) is Type 133.
+
+
+
+9. Comparing DHCPv4 and DHCPv6, which DHCPv6 message is functionally equivalent to the DHCPv4 'Discover' message?
+
+A. Advertise
+B. Reply
+C. Request
+D. Solicit
+
+**Answer:** D
+
+AI Analyzing: In DHCPv6, a client sends a 'Solicit' message to locate a DHCPv6 server, matching the purpose of 'Discover' in IPv4.
+
+
+
+10. If the 7th bit of a MAC address '00' (binary 00000000) is flipped during EUI-64, what does the first byte become in hex?
+
+A. 01
+B. 80
+C. 10
+D. 02
+
+**Answer:** D
+
+AI Analyzing: Binary 00000000 becomes 00000010 when the 7th bit (from left, bit index 6) is flipped, which is '02' in hexadecimal.
+
+
+
+11. Which multicast address is used by a DHCPv6 client to send a Solicit message to all available DHCPv6 servers?
+
+A. FF02::1
+B. FF02::1:2
+C. FF02::2
+D. FF05::1:3
+
+**Answer:** B
+
+AI Analyzing: FF02::1:2 is the All-DHCP-Relay-Agents-and-Servers multicast address used for Solicit messages.
+
+
+
+12. Identify the characteristic: This IPv6 address must be assigned to an interface before any other dynamic configuration (SLAAC or DHCP) can begin.
+
+A. Link-Local Address
+B. Global Unicast Address
+C. Anycast Address
+D. Multicast Address
+
+**Answer:** A
+
+AI Analyzing: All IPv6 interfaces require a Link-Local address (FE80::/10) to communicate with the router and participate in neighbor discovery for configuration.
+
+
+
+13. In a SLAAC environment, what serves as the 'Default Gateway' for the host?
+
+A. The Global Unicast Address of the router
+B. A manually configured address
+C. The Link-Local address of the router
+D. The DHCPv6 server address
+
+**Answer:** C
+
+AI Analyzing: Hosts use the source Link-Local address of the Router Advertisement message as their default gateway.
+
+
+
+14. Which of these is NOT a field in the fixed IPv6 header?
+
+A. Flow Label
+B. Header Checksum
+C. Hop Limit
+D. Next Header
+
+**Answer:** B
+
+AI Analyzing: Unlike IPv4, the IPv6 header does not include a Checksum field, relying on upper-layer protocols (TCP/UDP) or Link-layer for error detection to increase efficiency.
+
+
+
+15. What is the purpose of the 'Privacy Extensions' for SLAAC?
+
+A. To encrypt all traffic sent via SLAAC
+B. To prevent the host MAC address from being visible in the Interface ID
+C. To block all incoming ICMPv6 messages
+D. To hide the Global Routing Prefix
+
+**Answer:** B
+
+AI Analyzing: Privacy extensions allow hosts to generate random Interface IDs rather than using EUI-64 (which is based on the MAC), preventing tracking of the hardware across different networks.
+
+
+
+16. When comparing 'Stateful DHCPv6' and 'Stateless DHCPv6', which one involves the server maintaining a binding table of clients?
+
+A. Stateless DHCPv6
+B. Neither maintains a table
+C. Both maintain binding tables
+D. Stateful DHCPv6
+
+**Answer:** D
+
+AI Analyzing: The term 'Stateful' implies the server tracks the 'state' or status of IP leases and assignments.
+
+
+
+17. What destination address is used by a host sending a Router Solicitation (RS) message?
+
+A. FF02::2
+B. FF02::1
+C. FF02::1:2
+D. FE80::1
+
+**Answer:** A
+
+AI Analyzing: RS messages are sent to the all-routers multicast address FF02::2.
+
+
+
+18. Identify the protocol: It replaces IPv4's ARP and is used for address resolution and router discovery in IPv6.
+
+A. Neighbor Discovery Protocol (NDP)
+B. Transmission Control Protocol (TCP)
+C. Routing Information Protocol (RIP)
+D. Secure Shell (SSH)
+
+**Answer:** A
+
+AI Analyzing: NDP (part of ICMPv6) handles router discovery, prefix discovery, and address resolution (replacing ARP).
+
+
+
+19. Which DHCPv6 message is sent by a server in response to a Solicit message?
+
+A. Request
+B. Offer
+C. Advertise
+D. Information-Request
+
+**Answer:** C
+
+AI Analyzing: In DHCPv6, the server sends an 'Advertise' message, which is similar to the 'Offer' in DHCPv4.
+
+
+
+20. Identify the characteristic: A 20-bit field in the IPv6 header used by a source to label sequences of packets for which special handling is requested.
+
+A. Traffic Class
+B. Flow Label
+C. Payload Length
+D. Next Header
+
+**Answer:** B
+
+AI Analyzing: The Flow Label is used for Quality of Service (QoS) management to identify packets belonging to the same flow.
+
+
+
+21. Comparing SLAAC and DHCPv6, which method requires the 'M' flag to be 0 and the 'O' flag to be 0 in the RA?
+
+A. SLAAC only
+B. Stateless DHCPv6
+C. Stateful DHCPv6
+D. Manual Static IP
+
+**Answer:** A
+
+AI Analyzing: When M=0 and O=0, the host is instructed to use SLAAC for both its address and other information (if RDNSS is supported).
+
+
+
+22. What is the prefix length usually recommended for a single IPv6 subnet?
+
+A. /32
+B. /64
+C. /48
+D. /128
+
+**Answer:** B
+
+AI Analyzing: A /64 prefix is the standard for almost all IPv6 subnets to support SLAAC and EUI-64.
+
+
+
+23. Which command is typically used on a Cisco router to enable it as an IPv6 router and allow RA messages?
+
+A. ipv6 address dhcp
+B. ipv6 unicast-routing
+C. ipv6 routing enable
+D. ipv6 host-solicitation
+
+**Answer:** B
+
+AI Analyzing: The command 'ipv6 unicast-routing' is global and must be enabled for a router to forward IPv6 packets and send RA messages.
+
+
+
+24. Compare the addresses: Which one is a 'Solicited-Node Multicast' address?
+
+A. FF02::1
+B. FF02::2
+C. FF02::1:FFXX:XXXX
+D. 2001:DB8::1
+
+**Answer:** C
+
+AI Analyzing: Solicited-Node Multicast addresses begin with the prefix FF02::1:FF /104 and are used for address resolution and DAD.
+
+
+
+25. Identify the term: A mechanism where an IPv6 host sends a message to ensure that its Link-Local address is not already in use by another host on the segment.
+
+A. Router Discovery
+B. SLAAC
+C. DHCPv6 Acknowledgement
+D. Duplicate Address Detection (DAD)
+
+**Answer:** D
+
+AI Analyzing: DAD is the specific part of the neighbor discovery process that checks for address collisions.
+
+
+
+26. In Stateless DHCPv6, what is the 'Reply' message used for?
+
+A. To assign a dynamic IPv6 address
+B. To provide configuration options like DNS and Domain Name
+C. To confirm the IPv6 address is unique
+D. To terminate the connection
+
+**Answer:** B
+
+AI Analyzing: The 'Reply' message in Stateless DHCPv6 provides the 'other' information requested by the client, even if no IP address is assigned by the server.
+
+
+
+27. How many bits are used for the Interface ID in a standard SLAAC configuration?
+
+A. 32 bits
+B. 48 bits
+C. 64 bits
+D. 128 bits
+
+**Answer:** C
+
+AI Analyzing: The standard Interface ID for IPv6 addresses is 64 bits long.
+
+
+
+28. Which IPv6 address is indicated by '::/128'?
+
+A. The loopback address
+B. The broadcast address
+C. The default route
+D. The unspecified address
+
+**Answer:** D
+
+AI Analyzing: ::/128 is the unspecified address, used as a source address by hosts that haven't yet acquired an address.
+
+
+
+29. Comparing IPv4 and IPv6, what replaced the 'TTL' field in the packet header?
+
+A. Flow Label
+B. Hop Limit
+C. Next Header
+D. Traffic Class
+
+**Answer:** B
+
+AI Analyzing: The Hop Limit field in IPv6 serves the same purpose as TTL in IPv4, preventing packets from looping indefinitely.
+
+
+
+30. What happens if a host performs DAD and receives a Neighbor Advertisement in response?
+
+A. The host realizes the address is already in use and stops using it
+B. The host disables the IPv6 stack on that interface
+C. The host begins using the address
+D. The host sends a Router Solicitation
+
+**Answer:** A
+
+AI Analyzing: If a Neighbor Advertisement is received, it means another device is already using that address, and the host must not use it.
+
+
+
+31. Identify the address type: An address used to reach any one interface from a group, typically the 'nearest' one.
+
+A. Unicast
+B. Anycast
+C. Multicast
+D. Broadcast
+
+**Answer:** B
+
+AI Analyzing: Anycast addresses are assigned to multiple interfaces; a packet sent to an anycast address is routed to the nearest interface.
+
+
+
+32. Which message type is DHCPv6 Type 1?
+
+A. Solicit
+B. Advertise
+C. Request
+D. Reply
+
+**Answer:** A
+
+AI Analyzing: DHCPv6 Solicit is the first message (Type 1) in the DHCPv6 exchange.
+
+
+
+33. Comparing RDNSS and DHCPv6, what is RDNSS?
+
+A. A type of routing protocol
+B. A firewall for IPv6
+C. A stateful address assignment server
+D. A router advertisement option that provides DNS information
+
+**Answer:** D
+
+AI Analyzing: RDNSS (Recursive DNS Server) is an ICMPv6 RA option that allows hosts to get DNS info without needing a DHCPv6 server.
+
+
+
+34. Identify the range: These addresses are in the 2000::/3 range.
+
+A. Link-Local Addresses
+B. Global Unicast Addresses
+C. Multicast Addresses
+D. Private Addresses
+
+**Answer:** B
+
+AI Analyzing: Global Unicast Addresses (GUA) currently allocated are within the range that begins with the first 3 bits as 001 (2000::/3).
+
+
+
+35. What is the primary difference between a DHCPv6 'Request' and a DHCPv6 'Information-Request'?
+
+A. Information-Request is for stateful DHCPv6
+B. Request is used to ask for an IP, Information-Request is for options only
+C. Information-Request is used by routers only
+D. There is no difference
+
+**Answer:** B
+
+AI Analyzing: In Stateless DHCPv6, the client sends an 'Information-Request' because it already has an IP via SLAAC; 'Request' is for stateful address binding.
+
+
+
+36. Which bit in the IPv6 header specifies the importance/priority of the packet?
+
+A. Version
+B. Payload Length
+C. Traffic Class
+D. Next Header
+
+**Answer:** C
+
+AI Analyzing: The 8-bit Traffic Class field is used for Differentiated Services (DiffServ) and priority marking.
+
+
+
+37. Identify the characteristic: It is a fixed 40-byte structure used at the beginning of every IPv6 packet.
+
+A. The IPv6 Extension Header
+B. The IPv6 Base Header
+C. The ICMPv6 Payload
+D. The UDP Segment
+
+**Answer:** B
+
+AI Analyzing: Every IPv6 packet starts with a fixed-size 40-byte base header.
+
+
+
+38. Comparing Solicited-Node and All-Nodes Multicast: Which one is more efficient for address resolution?
+
+A. All-Nodes Multicast
+B. Solicited-Node Multicast
+C. Both are equally efficient
+D. Neither is used for resolution
+
+**Answer:** B
+
+AI Analyzing: Solicited-Node multicast is more efficient because it only interrupts a small subset of hosts (those with the same last 24 bits of the address) rather than every host on the segment.
+
+
+
+39. What is the destination of a DHCPv6 Reply message?
+
+A. The client's Link-Local address
+B. FF02::1
+C. The client's Global Unicast address
+D. FF02::1:2
+
+**Answer:** A
+
+AI Analyzing: The server replies directly to the client's Link-Local address used in the initial request.
+
+
+
+40. In the '3-1-4' rule for IPv6 addresses, what does the '1' represent?
+
+A. Global Routing Prefix
+B. Subnet ID
+C. Interface ID
+D. The M-flag
+
+**Answer:** B
+
+AI Analyzing: In a common /64 address structure: 3 blocks (48 bits) are Global Prefix, 1 block (16 bits) is the Subnet ID, and 4 blocks (64 bits) are the Interface ID.
+
+
+
+41. Which of the following is a characteristic of SLAAC?
+
+A. Requires a DHCPv6 server to be present
+B. Stateless (no server tracks the assigned address)
+C. Only works for private addresses
+D. Uses ARP for collision detection
+
+**Answer:** B
+
+AI Analyzing: SLAAC is 'stateless' because no server maintains the state of which host has which address.
+
+
+
+42. Identify the ICMPv6 message: Sent by a router to all-nodes (FF02::1) to provide network information.
+
+A. Router Solicitation
+B. Neighbor Advertisement
+C. Router Advertisement
+D. Redirect
+
+**Answer:** C
+
+AI Analyzing: Router Advertisements (RA) are sent by routers periodically or in response to an RS.
+
+
+
+43. When a router is configured for Stateful DHCPv6, what flags are set in its RA?
+
+A. M=0, O=0
+B. M=0, O=1
+C. M=1, O=0 (or 1)
+D. M=0, O=0 but A=0
+
+**Answer:** C
+
+AI Analyzing: The M flag (Managed) must be 1 to trigger stateful DHCPv6 address configuration.
+
+
+
+44. Which statement is true comparing IPv4 DHCP and IPv6 DHCPv6?
+
+A. Both use broadcasts to find the server
+B. Both use TCP port 67
+C. IPv6 does not support DHCP
+D. DHCPv4 uses broadcast; DHCPv6 uses multicast
+
+**Answer:** D
+
+AI Analyzing: IPv6 has no broadcasts; DHCPv6 uses the FF02::1:2 multicast address to find servers.
+
+
+
+45. Identify the value: FE80::1 is often manually configured for what purpose?
+
+A. To serve as an easy-to-remember default gateway on a router
+B. To act as the public IP of a web server
+C. To identify the loopback interface
+D. To represent the all-hosts multicast
+
+**Answer:** A
+
+AI Analyzing: While routers generate Link-Local addresses automatically, administrators often set them to FE80::1 for configuration simplicity.
+
+
+
+46. What is the 'A' flag in a Router Advertisement Prefix Information option?
+
+A. Acknowledgement flag
+B. Address Autoconfiguration flag
+C. Anycast flag
+D. Advertised flag
+
+**Answer:** B
+
+AI Analyzing: The 'A' flag tells the host it can use the prefix in that RA for SLAAC (Autonomous address-configuration).
+
+
+
+47. Which port does a DHCPv6 server listen on?
+
+A. UDP 67
+B. UDP 68
+C. UDP 546
+D. UDP 547
+
+**Answer:** D
+
+AI Analyzing: DHCPv6 servers/relays use UDP port 547; clients use port 546.
+
+
+
+48. Identify the characteristic: In EUI-64, the MAC address is split into two halves of how many bits?
+
+A. 12 bits
+B. 48 bits
+C. 24 bits
+D. 64 bits
+
+**Answer:** C
+
+AI Analyzing: A 48-bit MAC is split into two 24-bit halves, and FFFE is inserted between them.
+
+
+
+49. Which field in the RA message helps a host decide whether to use SLAAC or DHCPv6?
+
+A. The Checksum field
+B. The Flag field (M, O, A)
+C. The TTL field
+D. The Flow Label
+
+**Answer:** B
+
+AI Analyzing: The Managed (M) and Other (O) flags are the primary indicators for dynamic configuration methods.
+
+
+
+50. What is the result of '::1/128' in IPv6?
+
+A. Default Gateway
+B. Documentation prefix
+C. All-routers address
+D. Loopback address
+
+**Answer:** D
+
+AI Analyzing: ::1/128 is the IPv6 loopback address, equivalent to 127.0.0.1 in IPv4.
+
+
+
