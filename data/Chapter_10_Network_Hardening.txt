@@ -1,0 +1,654 @@
+Network Hardening Quiz
+
+
+
+1. What is the primary goal of network hardening?
+
+A. To increase the speed of packet routing across the backbone
+B. To maximize the number of open ports for better service availability
+C. To minimize the attack surface by eliminating potential vulnerabilities
+D. To automate the dynamic assignment of IP addresses in a LAN
+
+**Answer:** C
+
+AI Analyzing: Network hardening is the process of securing a system by reducing its surface of vulnerability, which is often accomplished by removing unnecessary software, services, and logins.
+
+
+
+2. In the context of AAA, what is the main difference between RADIUS and TACACS+ regarding encryption?
+
+A. RADIUS encrypts the entire packet, while TACACS+ only encrypts the password
+B. Both encrypt the entire packet using the same algorithm
+C. RADIUS uses TCP for encryption, while TACACS+ uses UDP
+D. TACACS+ encrypts the entire body of the packet, while RADIUS only encrypts the password
+
+**Answer:** D
+
+AI Analyzing: TACACS+ is more secure in transmission because it encrypts the entire body of the packet, whereas RADIUS only encrypts the password field.
+
+
+
+3. Which feature allows a switch to shut down an interface if it receives a Bridge Protocol Data Unit (BPDU) on an access port?
+
+A. Root Guard
+B. BPDU Guard
+C. Loop Guard
+D. BPDU Filter
+
+**Answer:** B
+
+AI Analyzing: BPDU Guard is used on access ports to prevent unauthorized switches or loops by disabling the port if any BPDU is detected.
+
+
+
+4. Identify the feature based on these characteristics: it validates ARP packets, drops invalid IP-to-MAC bindings, and relies on a trusted database.
+
+A. DHCP Snooping
+B. Dynamic ARP Inspection (DAI)
+C. Port Security
+D. IP Source Guard
+
+**Answer:** B
+
+AI Analyzing: Dynamic ARP Inspection (DAI) uses the DHCP snooping binding database to validate ARP packets in a network.
+
+
+
+5. When comparing Standard ACLs and Extended ACLs, which statement is true?
+
+A. Standard ACLs can filter based on destination port numbers
+B. Extended ACLs can only filter based on source IP addresses
+C. Extended ACLs filter based on source/destination IP, protocol, and port numbers
+D. Standard ACLs should be placed as close to the source as possible
+
+**Answer:** C
+
+AI Analyzing: Extended ACLs provide much more granular control by looking at both source/destination IP addresses, protocols (TCP/UDP), and port numbers.
+
+
+
+6. Which mechanism prevents a rogue switch from becoming the STP Root Bridge by ignoring superior BPDUs on specific ports?
+
+A. BPDU Guard
+B. EtherChannel
+C. Root Guard
+D. VLAN Pruning
+
+**Answer:** C
+
+AI Analyzing: Root Guard prevents a port from becoming a Root Port, ensuring the root bridge placement remains under the administrator's control.
+
+
+
+7. Identify the feature: It learns MAC addresses dynamically, saves them to the running configuration, and limits the number of MACs on a port.
+
+A. MAC Flooding
+B. VLAN Trunking
+C. Static NAT
+D. Sticky MAC (Port Security)
+
+**Answer:** D
+
+AI Analyzing: Sticky MAC addresses allow a switch to learn MAC addresses and add them to the running configuration so they are not lost after a reboot.
+
+
+
+8. What is the difference between SSH and Telnet in terms of management hardening?
+
+A. SSH uses UDP while Telnet uses TCP
+B. Telnet is more secure because it uses port 23
+C. SSH provides encrypted communication, whereas Telnet sends data in cleartext
+D. SSH is only used for file transfers, not CLI management
+
+**Answer:** C
+
+AI Analyzing: SSH is the standard for secure management because it encrypts the entire session, preventing credential theft via sniffing.
+
+
+
+9. Identify the feature: It prevents DHCP starvation attacks by limiting the rate of DHCP requests and defining trusted ports.
+
+A. NAT Overload
+B. Access Control Lists
+C. STP Guard
+D. DHCP Snooping
+
+**Answer:** D
+
+AI Analyzing: DHCP Snooping creates a binding table and distinguishes between trusted (server-facing) and untrusted (client-facing) ports to prevent attacks.
+
+
+
+10. Which Port Security violation mode drops offending traffic and sends an SNMP trap without shutting down the port?
+
+A. Shutdown
+B. Protect
+C. Disable
+D. Restrict
+
+**Answer:** D
+
+AI Analyzing: The 'Restrict' mode drops traffic from unauthorized MACs and increments the violation counter/sends an SNMP trap, unlike 'Protect' which just drops traffic.
+
+
+
+11. What is the purpose of Control Plane Policing (CoPP)?
+
+A. To encrypt data traveling between two end hosts
+B. To protect the router's CPU from being overwhelmed by management or routing traffic
+C. To assign IP addresses to hosts automatically
+D. To physical lock the server room
+
+**Answer:** B
+
+AI Analyzing: CoPP is a hardening technique used to manage the flow of traffic destined for the CPU of a network device, preventing DoS attacks against the device itself.
+
+
+
+12. In terms of hardening, why should the 'Native VLAN' be changed from VLAN 1?
+
+A. To prevent VLAN Hopping attacks such as double-tagging
+B. VLAN 1 does not support Gigabit speeds
+C. Because VLAN 1 is reserved for Voice over IP only
+D. VLAN 1 cannot be routed by modern switches
+
+**Answer:** A
+
+AI Analyzing: Using a non-default, unused VLAN for the native VLAN is a key hardening step to mitigate VLAN hopping attacks.
+
+
+
+13. Identify the feature: It allows a switch to mirror traffic from one port to another for analysis or IDS inspection.
+
+A. Dynamic Trunking Protocol
+B. Port Security
+C. VLAN Trunking
+D. Port Mirroring (SPAN)
+
+**Answer:** D
+
+AI Analyzing: Switched Port Analyzer (SPAN) or Port Mirroring is used to send a copy of network packets to a monitoring device.
+
+
+
+14. What is the difference between SNMPv2c and SNMPv3?
+
+A. SNMPv3 adds cryptographic security (encryption and authentication), while v2c uses cleartext communities
+B. SNMPv2c is faster but SNMPv3 supports larger networks
+C. SNMPv2c uses TCP while SNMPv3 uses UDP
+D. There is no difference in security, only in the MIB structure
+
+**Answer:** A
+
+AI Analyzing: SNMPv3 is the hardened version of SNMP, providing message integrity, authentication, and encryption.
+
+
+
+15. Which hardening technique involves disabling the Dynamic Trunking Protocol (DTP) on user-facing ports?
+
+A. DHCP Snooping
+B. Switch Spoofing prevention
+C. BPDU Filtering
+D. ARP Inspection
+
+**Answer:** B
+
+AI Analyzing: Disabling DTP (using 'switchport nonegotiate') prevents an attacker from negotiating a trunk link to access all VLANs (Switch Spoofing).
+
+
+
+16. Identify the feature: It acts as an internal firewall within a VLAN to control traffic between hosts in the same subnet.
+
+A. Standard ACL
+B. VLAN Access Control List (VACL)
+C. NAT
+D. Proxy Server
+
+**Answer:** B
+
+AI Analyzing: VACLs (or VLAN Maps) allow for traffic filtering within a single VLAN, which standard Router ACLs cannot do as effectively.
+
+
+
+17. In AAA, what is the role of 'Authorization'?
+
+A. Verifying the identity of the user
+B. Determining what actions or commands a user is allowed to perform
+C. Logging the activities performed by the user
+D. Encrypting the user's password
+
+**Answer:** B
+
+AI Analyzing: Authorization happens after authentication and defines the privileges and permissions of the user.
+
+
+
+18. Which hardening step helps prevent an attacker from mapping your network using Link Layer protocols?
+
+A. Enabling Port Security
+B. Disabling CDP and LLDP on untrusted interfaces
+C. Configuring a static IP
+D. Increasing the TTL of IP packets
+
+**Answer:** B
+
+AI Analyzing: Cisco Discovery Protocol (CDP) and LLDP reveal device information; disabling them on ports facing users/untrusted networks is a standard hardening practice.
+
+
+
+19. Compare In-band vs. Out-of-band (OOB) management. Which is more secure?
+
+A. OOB, because it uses a dedicated physical network separate from production data
+B. In-band, because it uses the production network
+C. In-band, because it is easier to configure
+D. Both are equally secure if SSH is used
+
+**Answer:** A
+
+AI Analyzing: Out-of-band management provides a separate path for management traffic, ensuring access even during production network congestion or attacks.
+
+
+
+20. Identify the attack: An attacker sends a flood of frames with different source MAC addresses to exhaust the switch's memory.
+
+A. ARP Spoofing
+B. MAC Table Overflow (CAM Table Attack)
+C. DHCP Starvation
+D. Smurf Attack
+
+**Answer:** B
+
+AI Analyzing: A CAM table overflow attack forces a switch to act like a hub, broadcasting all traffic to all ports, allowing for easy sniffing.
+
+
+
+21. Which feature is used to limit the number of MAC addresses allowed to join a single physical switch port?
+
+A. Port Security
+B. VLAN Trunking
+C. Storm Control
+D. Access Control List
+
+**Answer:** A
+
+AI Analyzing: Port Security allows administrators to specify the number of MAC addresses and which specific MAC addresses are allowed on a port.
+
+
+
+22. What is the function of 'Storm Control' in network hardening?
+
+A. To block all incoming traffic during a lightning storm
+B. To encrypt traffic during high congestion
+C. To prevent a single port from being overwhelmed by broadcast, multicast, or unicast traffic
+D. To automatically reboot the switch if it gets too hot
+
+**Answer:** C
+
+AI Analyzing: Storm control monitors traffic levels and drops traffic or shuts down ports if broadcast/multicast levels exceed a defined threshold.
+
+
+
+23. Identify the feature: It prevents 'Double Tagging' by ensuring that the native VLAN is not used for user traffic.
+
+A. STP Root Guard
+B. DHCP Relay
+C. VLAN Hopping mitigation
+D. IPSec VPN
+
+**Answer:** C
+
+AI Analyzing: Double-tagging is a VLAN hopping attack that exploits how switches process 802.1Q tags in the native VLAN.
+
+
+
+24. How does 'uRPF' (Unicast Reverse Path Forwarding) help in hardening a router?
+
+A. By checking if a source IP is reachable via the interface it arrived on, mitigating IP spoofing
+B. By speeding up the routing table lookups
+C. By automatically configuring OSPF
+D. By translating private IPs to public IPs
+
+**Answer:** A
+
+AI Analyzing: uRPF verifies the reachability of the source address in packets, helping to prevent spoofed IP addresses from entering the network.
+
+
+
+25. Which protocol is commonly used for port-based Network Access Control (NAC) to authenticate devices before granting network access?
+
+A. 802.1Q
+B. 802.11ac
+C. 802.3ad
+D. 802.1X
+
+**Answer:** D
+
+AI Analyzing: 802.1X is the IEEE standard for port-based network access control, involving a supplicant, authenticator, and authentication server.
+
+
+
+26. Identify the feature: It creates a 'private' relationship between ports in the same VLAN, preventing them from talking to each other.
+
+A. Port Mirroring
+B. VTP
+C. Trunking
+D. Private VLANs (PVLANs)
+
+**Answer:** D
+
+AI Analyzing: Private VLANs provide Layer 2 isolation between ports within the same broadcast domain (VLAN).
+
+
+
+27. What is the 'Implicit Deny' rule in an ACL?
+
+A. A rule that permits all traffic by default
+B. A rule that hides the IP address of the router
+C. A rule at the end of every ACL that drops all traffic not explicitly permitted
+D. A rule that requires a password for every packet
+
+**Answer:** C
+
+AI Analyzing: Every ACL has an invisible 'deny all' rule at the very end; if traffic doesn't match a permit statement, it is dropped.
+
+
+
+28. Compare 'Standard' vs 'Static' MAC binding in Port Security. Which is correct?
+
+A. Static is configured manually, while Dynamic is learned automatically but lost on reboot
+B. Static only works with IPv6
+C. Dynamic is safer than Sticky
+D. Standard MAC binding requires a RADIUS server
+
+**Answer:** A
+
+AI Analyzing: Static MAC addresses are manually entered into the configuration, while Dynamic addresses are learned and stored only in the MAC table (volatile).
+
+
+
+29. Identify the feature: It prevents an attacker from exhausting the pool of IP addresses available for legitimate users.
+
+A. Subnetting
+B. ARP spoofing
+C. VLAN pruning
+D. DHCP Snooping rate limiting
+
+**Answer:** D
+
+AI Analyzing: By limiting the rate of DHCP discovery packets, DHCP snooping mitigates DHCP starvation attacks.
+
+
+
+30. Which service should be disabled on a hardened router to prevent an attacker from gathering info via a 'finger' or 'HTTP' server?
+
+A. The routing engine
+B. Unused/Unnecessary services
+C. The console port
+D. The power supply
+
+**Answer:** B
+
+AI Analyzing: Disabling services like HTTP, Finger, and PAD that are not required for operation is a fundamental hardening step.
+
+
+
+31. What is the difference between an ACL 'permit' and a 'deny' statement?
+
+A. Permit adds encryption; Deny removes it
+B. Permit allows the packet to continue; Deny discards the packet
+C. Permit only works for TCP; Deny only works for UDP
+D. They are the same, just for different VLANs
+
+**Answer:** B
+
+AI Analyzing: This is the basic logic of filtering: packets matching a permit statement are forwarded, while those matching deny are dropped.
+
+
+
+32. Identify the feature: It is a banner displayed before login to warn unauthorized users of legal consequences.
+
+A. MOTD (Message of the Day)
+B. GUI
+C. DHCP Offer
+D. ICMP Echo
+
+**Answer:** A
+
+AI Analyzing: The 'Banner MOTD' is used to provide legal warnings to anyone attempting to access the device.
+
+
+
+33. How does 'DHCP Snooping' use the concept of 'Trusted' vs 'Untrusted' ports?
+
+A. Untrusted ports can send DHCP Offers
+B. Only Trusted ports are allowed to send DHCP Server responses (Offers/Acks)
+C. Trusted ports are disabled by default
+D. All ports are trusted if a password is set
+
+**Answer:** B
+
+AI Analyzing: DHCP Snooping ensures that only ports connected to legitimate DHCP servers (Trusted) can provide IP configurations.
+
+
+
+34. Which protocol provides a secure way to synchronize time across hardened network devices for accurate logging?
+
+A. FTP
+B. NTP (Network Time Protocol)
+C. SNMP
+D. BGP
+
+**Answer:** B
+
+AI Analyzing: NTP is critical for security auditing, as it ensures all logs have a synchronized and accurate timestamp.
+
+
+
+35. Identify the feature: It acts as an intermediary for requests from clients seeking resources from other servers.
+
+A. Bridge
+B. Repeater
+C. Proxy Server
+D. VLAN
+
+**Answer:** C
+
+AI Analyzing: A proxy server hides internal client IPs and can filter content before it reaches the end user.
+
+
+
+36. What is the security risk of leaving 'VTP' in Server mode with default configurations?
+
+A. An attacker can overwrite the VLAN database by connecting a switch with a higher revision number
+B. It causes high CPU usage
+C. VTP Server mode prevents routing between VLANs
+D. VTP is only compatible with hubs
+
+**Answer:** A
+
+AI Analyzing: VTP (VLAN Trunking Protocol) can be exploited if a switch with a higher configuration revision is introduced, potentially deleting all VLANs in the domain.
+
+
+
+37. Which hardening technique involves using 'Transport Input SSH' on VTY lines?
+
+A. Configuring Port Security
+B. Enabling IPv6
+C. Enabling Console logging
+D. Disabling Telnet access
+
+**Answer:** D
+
+AI Analyzing: The 'transport input ssh' command restricts remote management to SSH only, effectively blocking unencrypted Telnet.
+
+
+
+38. Identify the feature: It prevents loops at Layer 2 but can be attacked to redirect traffic if not secured.
+
+A. IP Routing
+B. Spanning Tree Protocol (STP)
+C. DNS
+D. DHCP
+
+**Answer:** B
+
+AI Analyzing: STP prevents loops but requires hardening (Root Guard, BPDU Guard) to prevent attackers from manipulating the logical topology.
+
+
+
+39. When comparing PAP and CHAP authentication for serial links, which is more secure?
+
+A. CHAP, because it uses a three-way handshake and never sends the password over the link
+B. PAP, because it sends passwords in cleartext
+C. Both are equally insecure
+D. CHAP, because it only works with Fiber optics
+
+**Answer:** A
+
+AI Analyzing: CHAP is more secure than PAP because it uses a challenge-response mechanism rather than sending plain passwords.
+
+
+
+40. What does 'service password-encryption' do in Cisco hardening?
+
+A. It provides strong AES-256 encryption for all data
+B. It encrypts the SSH session
+C. It encrypts cleartext passwords in the configuration file using a weak Vigenere cipher
+D. It creates a password for the power button
+
+**Answer:** C
+
+AI Analyzing: While the encryption is weak (Type 7), it prevents casual observers from reading passwords from a configuration screen or printout.
+
+
+
+41. Identify the feature: It creates a log entry whenever an ACL rule is matched, aiding in incident response.
+
+A. ACL Logging (the 'log' keyword)
+B. NAT
+C. BPDU Filter
+D. Telnet
+
+**Answer:** A
+
+AI Analyzing: Adding the 'log' keyword to an ACL entry generates syslog messages when packets match the criteria, providing visibility into attacks.
+
+
+
+42. In hardening, what is the 'Principle of Least Privilege'?
+
+A. Granting only the minimum permissions necessary to perform a job
+B. Giving every user administrative access
+C. Opening all ports by default
+D. Using the shortest possible passwords
+
+**Answer:** A
+
+AI Analyzing: Least privilege reduces the risk of accidental or intentional damage by limiting what each user or process can do.
+
+
+
+43. Which feature prevents a host from spoofing its IP address by checking against the DHCP snooping table?
+
+A. VTP
+B. Traceroute
+C. CDP
+D. IP Source Guard
+
+**Answer:** D
+
+AI Analyzing: IP Source Guard works with DHCP snooping to ensure that the source IP in a packet matches the IP assigned to that MAC/Port.
+
+
+
+44. What is the difference between an 'Access' port and a 'Trunk' port in terms of security?
+
+A. Access ports carry multiple VLANs; Trunk ports carry one
+B. There is no difference in security
+C. Trunk ports are for printers; Access ports are for routers
+D. Access ports belong to one VLAN; Trunk ports carry traffic for multiple VLANs and are high-risk targets
+
+**Answer:** D
+
+AI Analyzing: Trunk ports are more sensitive because they allow access to multiple broadcast domains; they must be secured to prevent VLAN hopping.
+
+
+
+45. Identify the feature: It provides cryptographic authentication of routing updates to prevent rogue routers from injecting false routes.
+
+A. Static Routing
+B. Routing Protocol Authentication (MD5/SHA)
+C. Split Horizon
+D. Poison Reverse
+
+**Answer:** B
+
+AI Analyzing: Hardening routing protocols involves configuring MD5 or SHA authentication so that only trusted peers can exchange route information.
+
+
+
+46. Which hardening command limits the number of login attempts on a Cisco device?
+
+A. speed 100
+B. shutdown
+C. login block-for
+D. ip routing
+
+**Answer:** C
+
+AI Analyzing: The 'login block-for' command is used to mitigate brute-force attacks by locking out login attempts after a certain number of failures.
+
+
+
+47. What is the primary difference between 'Authentication' and 'Accounting' in AAA?
+
+A. Authentication verifies who you are; Accounting records what you did and for how long
+B. Authentication tracks usage; Accounting verifies users
+C. Accounting is only for bank transfers
+D. There is no difference
+
+**Answer:** A
+
+AI Analyzing: Accounting provides the 'paper trail' for audit purposes, while Authentication manages the entry to the system.
+
+
+
+48. Identify the feature: It is a Layer 2 security mechanism that binds a MAC address to a port even after the host is disconnected.
+
+A. VLAN Hopping
+B. Dynamic ARP
+C. Port Security with Sticky MAC
+D. NAT
+
+**Answer:** C
+
+AI Analyzing: Sticky MAC addresses are persistent and prevent a different device from being plugged into the same port.
+
+
+
+49. In terms of hardening, why is 'SNMP Read-Write' more dangerous than 'SNMP Read-Only'?
+
+A. There is no danger if the community string is 'public'
+B. Read-Only uses more bandwidth
+C. Read-Write is not supported on Fiber
+D. Read-Write allows an attacker to change the device configuration
+
+**Answer:** D
+
+AI Analyzing: SNMP Read-Write (RW) access can be used to completely reconfigure or shut down a device if the community string is compromised.
+
+
+
+50. What is the final 'best practice' for any hardened switch port that is not being used?
+
+A. Set it to VLAN 1
+B. Leave it in 'no shutdown' mode
+C. Shut it down and place it in an isolated, unused VLAN
+D. Enable DHCP on it
+
+**Answer:** C
+
+AI Analyzing: Unused ports should always be administratively disabled ('shutdown') and moved out of production VLANs to prevent unauthorized physical access.
+
+
+
