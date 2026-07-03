@@ -1,654 +1,654 @@
-Network Hardening Quiz
+Network Hardening and Practical Defense
 
 
 
-1. What is the primary goal of network hardening?
+1. Which of the following describes the process of securing a network by reducing its vulnerability surface through the configuration of devices and protocols?
 
-A. To increase the speed of packet routing across the backbone
-B. To maximize the number of open ports for better service availability
-C. To minimize the attack surface by eliminating potential vulnerabilities
-D. To automate the dynamic assignment of IP addresses in a LAN
-
-**Answer:** C
-
-AI Analyzing: Network hardening is the process of securing a system by reducing its surface of vulnerability, which is often accomplished by removing unnecessary software, services, and logins.
-
-
-
-2. In the context of AAA, what is the main difference between RADIUS and TACACS+ regarding encryption?
-
-A. RADIUS encrypts the entire packet, while TACACS+ only encrypts the password
-B. Both encrypt the entire packet using the same algorithm
-C. RADIUS uses TCP for encryption, while TACACS+ uses UDP
-D. TACACS+ encrypts the entire body of the packet, while RADIUS only encrypts the password
-
-**Answer:** D
-
-AI Analyzing: TACACS+ is more secure in transmission because it encrypts the entire body of the packet, whereas RADIUS only encrypts the password field.
-
-
-
-3. Which feature allows a switch to shut down an interface if it receives a Bridge Protocol Data Unit (BPDU) on an access port?
-
-A. Root Guard
-B. BPDU Guard
-C. Loop Guard
-D. BPDU Filter
+A. Network Monitoring
+B. Network Hardening
+C. Packet Switching
+D. Traffic Regulation
 
 **Answer:** B
 
-AI Analyzing: BPDU Guard is used on access ports to prevent unauthorized switches or loops by disabling the port if any BPDU is detected.
+AI Analyzing: Network hardening refers to the set of practices and tools used to secure network infrastructure by reducing the attack surface, such as disabling unused services and configuring security features.
 
 
 
-4. Identify the feature based on these characteristics: it validates ARP packets, drops invalid IP-to-MAC bindings, and relies on a trusted database.
+2. Which device is inherently less secure because it forwards all incoming data to every port, creating a large collision and sniffable domain?
+
+A. Switch
+B. Hub
+C. Router
+D. Gateway
+
+**Answer:** B
+
+AI Analyzing: A hub operates at the physical layer and broadcasts all traffic to every connected port, making it easy for any connected host to capture traffic not intended for it.
+
+
+
+3. In the context of network hardening, what is the primary security difference between a Hub and a Switch?
+
+A. Switches use IP addresses while hubs use MAC addresses.
+B. Hubs support encryption while switches do not.
+C. Switches segment the network into separate collision domains using a CAM table.
+D. There is no security difference between them.
+
+**Answer:** C
+
+AI Analyzing: Switches use a Content Addressable Memory (CAM) table to forward frames only to the specific port where the destination MAC is located, providing better segmentation and security than a hub.
+
+
+
+4. I am a hardware-implemented feature in switches that validates ARP packets against a trusted database of IP-to-MAC bindings. What am I?
 
 A. DHCP Snooping
-B. Dynamic ARP Inspection (DAI)
-C. Port Security
-D. IP Source Guard
-
-**Answer:** B
-
-AI Analyzing: Dynamic ARP Inspection (DAI) uses the DHCP snooping binding database to validate ARP packets in a network.
-
-
-
-5. When comparing Standard ACLs and Extended ACLs, which statement is true?
-
-A. Standard ACLs can filter based on destination port numbers
-B. Extended ACLs can only filter based on source IP addresses
-C. Extended ACLs filter based on source/destination IP, protocol, and port numbers
-D. Standard ACLs should be placed as close to the source as possible
-
-**Answer:** C
-
-AI Analyzing: Extended ACLs provide much more granular control by looking at both source/destination IP addresses, protocols (TCP/UDP), and port numbers.
-
-
-
-6. Which mechanism prevents a rogue switch from becoming the STP Root Bridge by ignoring superior BPDUs on specific ports?
-
-A. BPDU Guard
-B. EtherChannel
-C. Root Guard
-D. VLAN Pruning
-
-**Answer:** C
-
-AI Analyzing: Root Guard prevents a port from becoming a Root Port, ensuring the root bridge placement remains under the administrator's control.
-
-
-
-7. Identify the feature: It learns MAC addresses dynamically, saves them to the running configuration, and limits the number of MACs on a port.
-
-A. MAC Flooding
-B. VLAN Trunking
-C. Static NAT
-D. Sticky MAC (Port Security)
+B. Access Control List (ACL)
+C. Port Mirroring
+D. Dynamic Address Inspection (DAI)
 
 **Answer:** D
 
-AI Analyzing: Sticky MAC addresses allow a switch to learn MAC addresses and add them to the running configuration so they are not lost after a reboot.
+AI Analyzing: Dynamic Address Inspection (DAI) prevents ARP poisoning by validating ARP packets based on a trusted database, typically built by DHCP snooping.
 
 
 
-8. What is the difference between SSH and Telnet in terms of management hardening?
+5. What is the main purpose of DHCP Snooping in a hardened network environment?
 
-A. SSH uses UDP while Telnet uses TCP
-B. Telnet is more secure because it uses port 23
-C. SSH provides encrypted communication, whereas Telnet sends data in cleartext
-D. SSH is only used for file transfers, not CLI management
-
-**Answer:** C
-
-AI Analyzing: SSH is the standard for secure management because it encrypts the entire session, preventing credential theft via sniffing.
-
-
-
-9. Identify the feature: It prevents DHCP starvation attacks by limiting the rate of DHCP requests and defining trusted ports.
-
-A. NAT Overload
-B. Access Control Lists
-C. STP Guard
-D. DHCP Snooping
-
-**Answer:** D
-
-AI Analyzing: DHCP Snooping creates a binding table and distinguishes between trusted (server-facing) and untrusted (client-facing) ports to prevent attacks.
-
-
-
-10. Which Port Security violation mode drops offending traffic and sends an SNMP trap without shutting down the port?
-
-A. Shutdown
-B. Protect
-C. Disable
-D. Restrict
-
-**Answer:** D
-
-AI Analyzing: The 'Restrict' mode drops traffic from unauthorized MACs and increments the violation counter/sends an SNMP trap, unlike 'Protect' which just drops traffic.
-
-
-
-11. What is the purpose of Control Plane Policing (CoPP)?
-
-A. To encrypt data traveling between two end hosts
-B. To protect the router's CPU from being overwhelmed by management or routing traffic
-C. To assign IP addresses to hosts automatically
-D. To physical lock the server room
-
-**Answer:** B
-
-AI Analyzing: CoPP is a hardening technique used to manage the flow of traffic destined for the CPU of a network device, preventing DoS attacks against the device itself.
-
-
-
-12. In terms of hardening, why should the 'Native VLAN' be changed from VLAN 1?
-
-A. To prevent VLAN Hopping attacks such as double-tagging
-B. VLAN 1 does not support Gigabit speeds
-C. Because VLAN 1 is reserved for Voice over IP only
-D. VLAN 1 cannot be routed by modern switches
+A. To prevent unauthorized (rogue) DHCP servers from distributing incorrect IP information.
+B. To speed up IP address assignment.
+C. To encrypt DHCP discover messages.
+D. To allow hosts to choose their own IP addresses without a server.
 
 **Answer:** A
 
-AI Analyzing: Using a non-default, unused VLAN for the native VLAN is a key hardening step to mitigate VLAN hopping attacks.
+AI Analyzing: DHCP Snooping categorizes ports as trusted or untrusted, ensuring that DHCP server responses only come from legitimate, trusted ports.
 
 
 
-13. Identify the feature: It allows a switch to mirror traffic from one port to another for analysis or IDS inspection.
+6. Compare Capture Filters and Display Filters in Wireshark. Which statement is true regarding network hardening diagnostics?
 
-A. Dynamic Trunking Protocol
-B. Port Security
+A. Display filters discard packets from the disk forever.
+B. Capture filters are used after the data is processed to hide unwanted packets.
+C. Capture filters (BPF) determine what is saved to the buffer; unmatched packets are lost.
+D. Both filters operate at the same stage of the packet processing pipeline.
+
+**Answer:** C
+
+AI Analyzing: Capture filters use BPF syntax and are applied during the capture process; packets not matching the filter are not recorded, which is useful for long-term monitoring with limited storage.
+
+
+
+7. Which mode must a Network Interface Card (NIC) be in to capture all traffic on a shared medium, regardless of the destination MAC address?
+
+A. Managed Mode
+B. Ad-hoc Mode
+C. Promiscuous Mode
+D. Master Mode
+
+**Answer:** C
+
+AI Analyzing: Promiscuous mode allows a NIC to pass all received traffic to the CPU, bypassing the hardware filter that usually only accepts traffic for the card's specific MAC address.
+
+
+
+8. I am a Cisco-specific term for port mirroring, where traffic from one or more ports is replicated to a specific port for analysis. What am I?
+
+A. Roving Analysis Port (RAP)
+B. Switched Port Analyzer (SPAN)
 C. VLAN Trunking
-D. Port Mirroring (SPAN)
+D. Port Security
+
+**Answer:** B
+
+AI Analyzing: SPAN (Switched Port Analyzer) is the Cisco terminology for port mirroring, which is a standard method for monitoring traffic in a switched (segmented) network.
+
+
+
+9. What is a significant privacy concern regarding the EUI-64 method of generating IPv6 Interface IDs?
+
+A. It makes the IP address too long to route.
+B. It embeds the hardware MAC address into the IP, allowing global tracking of a device.
+C. It prevents the device from using SLAAC.
+D. It requires a manual configuration that is prone to human error.
+
+**Answer:** B
+
+AI Analyzing: Because EUI-64 derives the Interface ID from the physical MAC address, a device's movements can be tracked across different networks, leading to the development of IPv6 Privacy Extensions.
+
+
+
+10. In IPv6 hardening, what is the role of 'Privacy Addresses' (Temporary Addresses)?
+
+A. They encrypt the payload of every packet.
+B. They are used only for communication with the local gateway.
+C. They hide the network prefix from the ISP.
+D. They replace the EUI-64 based Interface ID with a randomly generated, frequently changing one.
 
 **Answer:** D
 
-AI Analyzing: Switched Port Analyzer (SPAN) or Port Mirroring is used to send a copy of network packets to a monitoring device.
+AI Analyzing: Privacy addresses are randomly generated Interface IDs that change over time, preventing long-term tracking of a host based on a static Interface ID.
 
 
 
-14. What is the difference between SNMPv2c and SNMPv3?
+11. How does the IPv6 header simplify processing compared to the IPv4 header from a performance hardening perspective?
 
-A. SNMPv3 adds cryptographic security (encryption and authentication), while v2c uses cleartext communities
-B. SNMPv2c is faster but SNMPv3 supports larger networks
-C. SNMPv2c uses TCP while SNMPv3 uses UDP
-D. There is no difference in security, only in the MIB structure
+A. By adding more fields for complex routing.
+B. By using a fixed-length header of 40 bytes and removing the checksum field.
+C. By making fragmentation mandatory for all routers.
+D. By increasing the number of optional fields in the main header.
+
+**Answer:** B
+
+AI Analyzing: The IPv6 header is fixed at 40 bytes and removes the header checksum (relying on upper/lower layers), which allows routers to process packets faster.
+
+
+
+12. Compare Unicast and Anycast in the context of IPv6.
+
+A. Unicast is one-to-all; Anycast is one-to-one.
+B. Unicast is only for local links; Anycast is for global links.
+C. Unicast is one-to-one; Anycast is one-to-the-nearest of a group.
+D. They are functionally identical in IPv6.
+
+**Answer:** C
+
+AI Analyzing: Unicast identifies a single interface, while Anycast identifies a set of interfaces such that a packet is delivered to the 'nearest' one according to routing protocols.
+
+
+
+13. I am a type of address in IPv6 that starts with 'FE80::/10' and is mandatory for every interface. I am not routable. What am I?
+
+A. Global Unicast Address
+B. Link-Local Unicast Address
+C. Unique Local Address
+D. Multicast Address
+
+**Answer:** B
+
+AI Analyzing: Link-Local Unicast addresses (FE80::/10) are used for communication within a single local link and are required for many IPv6 functions like SLAAC.
+
+
+
+14. Why is NAT (Network Address Translation) generally not considered a true security feature by the IETF?
+
+A. It does not provide stateful inspection or policy-based filtering on its own.
+B. It actually makes the network slower.
+C. It is only available in IPv6.
+D. It requires the use of public IP addresses for all internal hosts.
 
 **Answer:** A
 
-AI Analyzing: SNMPv3 is the hardened version of SNMP, providing message integrity, authentication, and encryption.
+AI Analyzing: While NAT obscures internal IP addresses, it is a resource-saving tool, not a security tool; hardening requires a stateful firewall to manage access.
 
 
 
-15. Which hardening technique involves disabling the Dynamic Trunking Protocol (DTP) on user-facing ports?
+15. What is the first step in the TCP 3-way handshake, and what flag is set?
 
-A. DHCP Snooping
-B. Switch Spoofing prevention
-C. BPDU Filtering
-D. ARP Inspection
+A. Server sends ACK
+B. Client sends SYN-ACK
+C. Client sends SYN
+D. Server sends FIN
 
-**Answer:** B
+**Answer:** C
 
-AI Analyzing: Disabling DTP (using 'switchport nonegotiate') prevents an attacker from negotiating a trunk link to access all VLANs (Switch Spoofing).
-
-
-
-16. Identify the feature: It acts as an internal firewall within a VLAN to control traffic between hosts in the same subnet.
-
-A. Standard ACL
-B. VLAN Access Control List (VACL)
-C. NAT
-D. Proxy Server
-
-**Answer:** B
-
-AI Analyzing: VACLs (or VLAN Maps) allow for traffic filtering within a single VLAN, which standard Router ACLs cannot do as effectively.
+AI Analyzing: The TCP handshake begins with the client sending a SYN (Synchronize) packet with a random sequence number to initiate a connection.
 
 
 
-17. In AAA, what is the role of 'Authorization'?
+16. Which hardening technique prevents a packet from staying in a loop forever?
 
-A. Verifying the identity of the user
-B. Determining what actions or commands a user is allowed to perform
-C. Logging the activities performed by the user
-D. Encrypting the user's password
+A. Fragmentation
+B. TTL (Time To Live) / Hop Limit
+C. Checksum
+D. Encapsulation
 
 **Answer:** B
 
-AI Analyzing: Authorization happens after authentication and defines the privileges and permissions of the user.
+AI Analyzing: TTL in IPv4 (or Hop Limit in IPv6) is decremented by each router; if it reaches zero, the packet is discarded, preventing infinite routing loops.
 
 
 
-18. Which hardening step helps prevent an attacker from mapping your network using Link Layer protocols?
+17. In Wireshark, if you want to see only traffic coming from a specific country like China, which feature would you use?
 
-A. Enabling Port Security
-B. Disabling CDP and LLDP on untrusted interfaces
-C. Configuring a static IP
-D. Increasing the TTL of IP packets
+A. MAC Filtering
+B. GeoIP Resolver
+C. ARP Inspection
+D. Promiscuous Mode
 
 **Answer:** B
 
-AI Analyzing: Cisco Discovery Protocol (CDP) and LLDP reveal device information; disabling them on ports facing users/untrusted networks is a standard hardening practice.
+AI Analyzing: Wireshark can be configured with GeoIP databases to resolve IP addresses to geographic locations, allowing filters like 'ip.geoip.country == "China"'.
 
 
 
-19. Compare In-band vs. Out-of-band (OOB) management. Which is more secure?
+18. What is the '3-1-4 rule' in the context of IPv6 Global Unicast Address structure?
 
-A. OOB, because it uses a dedicated physical network separate from production data
-B. In-band, because it uses the production network
-C. In-band, because it is easier to configure
-D. Both are equally secure if SSH is used
+A. 3 bits for version, 1 for type, 4 for data.
+B. 3 layers of security, 1 firewall, 4 subnets.
+C. 3 hex blocks for Routing Prefix, 1 block for Subnet ID, 4 blocks for Interface ID.
+D. 3 minutes of lease time, 1 retry, 4 addresses.
+
+**Answer:** C
+
+AI Analyzing: The 3-1-4 rule refers to the common /64 address structure: 48 bits (3 blocks) for Global Prefix, 16 bits (1 block) for Subnet ID, and 64 bits (4 blocks) for the Interface ID.
+
+
+
+19. Which protocol is used by Traceroute to report that a path is being discovered?
+
+A. ICMP
+B. UDP
+C. TCP
+D. ARP
 
 **Answer:** A
 
-AI Analyzing: Out-of-band management provides a separate path for management traffic, ensuring access even during production network congestion or attacks.
+AI Analyzing: Traceroute relies on ICMP 'Time Exceeded' messages sent by routers when the TTL of a probe packet reaches zero.
 
 
 
-20. Identify the attack: An attacker sends a flood of frames with different source MAC addresses to exhaust the switch's memory.
+20. I am the process where a lower-layer protocol wraps a higher-layer PDU with its own header and trailer. What am I?
 
-A. ARP Spoofing
-B. MAC Table Overflow (CAM Table Attack)
-C. DHCP Starvation
+A. Decapsulation
+B. Segmentation
+C. Encapsulation
+D. Fragmentation
+
+**Answer:** C
+
+AI Analyzing: Encapsulation is the core concept of the OSI/TCP-IP models where data is passed down the stack and wrapped in protocol-specific information.
+
+
+
+21. What is the security risk associated with ARP?
+
+A. It uses too much bandwidth.
+B. It is stateless and lacks authentication, allowing ARP Poisoning/Spoofing.
+C. It only works on wireless networks.
+D. It requires a central server that can be a single point of failure.
+
+**Answer:** B
+
+AI Analyzing: ARP was designed without security; any host can send an unsolicited ARP reply to associate its MAC address with another host's IP, leading to Man-in-the-Middle attacks.
+
+
+
+22. Which layer of the TCP/IP model is responsible for end-to-end reliability and flow control?
+
+A. Network Access Layer
+B. Internet Layer
+C. Transport Layer
+D. Application Layer
+
+**Answer:** C
+
+AI Analyzing: The Transport Layer (specifically TCP) handles reliability, sequencing, and flow control using mechanisms like sliding windows and ACKs.
+
+
+
+23. Compare IPv4 and IPv6 fragmentation.
+
+A. IPv4 routers fragment packets; in IPv6, only the source host fragments.
+B. IPv6 routers fragment packets; in IPv4, only the source host fragments.
+C. Both allow routers to fragment packets at will.
+D. Neither protocol supports fragmentation.
+
+**Answer:** A
+
+AI Analyzing: In IPv4, routers can fragment packets if the MTU is too small. In IPv6, routers no longer fragment; the source host must perform Path MTU Discovery and fragment at the source.
+
+
+
+24. What is the purpose of the 'unspecified address' (::/128) in IPv6?
+
+A. It is used as a broadcast address for the local link.
+B. It indicates the absence of an address, often used as a source during initialization.
+C. It is the default gateway for all networks.
+D. It is a loopback address for testing.
+
+**Answer:** B
+
+AI Analyzing: The unspecified address ::/128 is used by a host that does not yet have an address assigned, such as in the source field of a Duplicate Address Detection (DAD) message.
+
+
+
+25. I am a decentralized system used to map human-friendly names to IP addresses. What am I?
+
+A. DHCP
+B. ICMP
+C. ARP
+D. DNS
+
+**Answer:** D
+
+AI Analyzing: DNS (Domain Name System) provides the mapping between domain names (like google.com) and IP addresses.
+
+
+
+26. Which port is commonly used for secure shell (SSH) management, a key part of network hardening?
+
+A. 21
+B. 23
+C. 80
+D. 22
+
+**Answer:** D
+
+AI Analyzing: SSH uses port 22 and is the secure alternative to Telnet (port 23) for remote management.
+
+
+
+27. What is the decimal equivalent of the IPv6 prefix length /64 in terms of bits available for the Interface ID?
+
+A. 32 bits
+B. 128 bits
+C. 64 bits
+D. 48 bits
+
+**Answer:** C
+
+AI Analyzing: In a /64 network, 64 bits are used for the network/subnet prefix, leaving the remaining 64 bits (out of 128) for the Interface ID.
+
+
+
+28. Contrast TCP and UDP headers.
+
+A. TCP headers are 20 bytes (minimum); UDP headers are 8 bytes.
+B. UDP headers are 20 bytes; TCP headers are 8 bytes.
+C. UDP headers contain sequence numbers; TCP headers do not.
+D. Both have the same fields and size.
+
+**Answer:** A
+
+AI Analyzing: TCP is more complex to provide reliability, requiring at least 20 bytes for flags, sequence numbers, etc., whereas UDP is a lightweight 8-byte header.
+
+
+
+29. I am the mechanism used by IPv6 hosts to automatically configure their own IP address without a DHCP server. What am I?
+
+A. NAT64
+B. SLAAC
+C. EUI-48
+D. RIP
+
+**Answer:** B
+
+AI Analyzing: Stateless Address Autoconfiguration (SLAAC) allows a host to generate its own GUA based on prefix information received from a router's RA (Router Advertisement) message.
+
+
+
+30. What is the security implication of 'Monitor Mode' in Wi-Fi?
+
+A. It allows a card to capture all wireless frames on a channel without associating with an Access Point.
+B. It prevents others from seeing your SSID.
+C. It encrypts the management frames of the network.
+D. It is a required setting for standard internet browsing.
+
+**Answer:** A
+
+AI Analyzing: Monitor mode (similar to promiscuous mode for wired) allows a wireless card to 'listen' to all traffic in the air on a specific frequency, which is a major tool for attackers.
+
+
+
+31. Which of the following is a 'Well-Known' port for HTTPS?
+
+A. 443
+B. 80
+C. 8080
+D. 143
+
+**Answer:** A
+
+AI Analyzing: Port 443 is the well-known port for HTTPS (HTTP over SSL/TLS).
+
+
+
+32. In the OSI model, which layer is responsible for routing packets across different networks?
+
+A. Data Link Layer
+B. Transport Layer
+C. Network Layer
+D. Session Layer
+
+**Answer:** C
+
+AI Analyzing: The Network Layer (Layer 3) handles logical addressing and path determination (routing).
+
+
+
+33. I am an attack where a host sends a flood of SYN packets but never completes the handshake. What am I?
+
+A. ARP Poisoning
+B. SYN Flood
+C. MAC Flooding
 D. Smurf Attack
 
 **Answer:** B
 
-AI Analyzing: A CAM table overflow attack forces a switch to act like a hub, broadcasting all traffic to all ports, allowing for easy sniffing.
+AI Analyzing: A SYN flood is a Denial of Service attack that exhausts server resources by leaving TCP connections in a 'half-open' state.
 
 
 
-21. Which feature is used to limit the number of MAC addresses allowed to join a single physical switch port?
+34. Compare the IPv4 Private Address ranges. Which of these is a Class B private range?
 
-A. Port Security
-B. VLAN Trunking
-C. Storm Control
-D. Access Control List
-
-**Answer:** A
-
-AI Analyzing: Port Security allows administrators to specify the number of MAC addresses and which specific MAC addresses are allowed on a port.
-
-
-
-22. What is the function of 'Storm Control' in network hardening?
-
-A. To block all incoming traffic during a lightning storm
-B. To encrypt traffic during high congestion
-C. To prevent a single port from being overwhelmed by broadcast, multicast, or unicast traffic
-D. To automatically reboot the switch if it gets too hot
-
-**Answer:** C
-
-AI Analyzing: Storm control monitors traffic levels and drops traffic or shuts down ports if broadcast/multicast levels exceed a defined threshold.
-
-
-
-23. Identify the feature: It prevents 'Double Tagging' by ensuring that the native VLAN is not used for user traffic.
-
-A. STP Root Guard
-B. DHCP Relay
-C. VLAN Hopping mitigation
-D. IPSec VPN
-
-**Answer:** C
-
-AI Analyzing: Double-tagging is a VLAN hopping attack that exploits how switches process 802.1Q tags in the native VLAN.
-
-
-
-24. How does 'uRPF' (Unicast Reverse Path Forwarding) help in hardening a router?
-
-A. By checking if a source IP is reachable via the interface it arrived on, mitigating IP spoofing
-B. By speeding up the routing table lookups
-C. By automatically configuring OSPF
-D. By translating private IPs to public IPs
+A. 172.16.0.0 - 172.31.255.255
+B. 10.0.0.0 - 10.255.255.255
+C. 192.168.0.0 - 192.168.255.255
+D. 224.0.0.0 - 239.255.255.255
 
 **Answer:** A
 
-AI Analyzing: uRPF verifies the reachability of the source address in packets, helping to prevent spoofed IP addresses from entering the network.
+AI Analyzing: According to RFC 1918, the Class B private range is 172.16.0.0/12 (up to 172.31.255.255).
 
 
 
-25. Which protocol is commonly used for port-based Network Access Control (NAC) to authenticate devices before granting network access?
+35. In an IPv6 address, how many times can the double colon (::) be used to compress zeroes?
 
-A. 802.1Q
-B. 802.11ac
-C. 802.3ad
-D. 802.1X
-
-**Answer:** D
-
-AI Analyzing: 802.1X is the IEEE standard for port-based network access control, involving a supplicant, authenticator, and authentication server.
-
-
-
-26. Identify the feature: It creates a 'private' relationship between ports in the same VLAN, preventing them from talking to each other.
-
-A. Port Mirroring
-B. VTP
-C. Trunking
-D. Private VLANs (PVLANs)
-
-**Answer:** D
-
-AI Analyzing: Private VLANs provide Layer 2 isolation between ports within the same broadcast domain (VLAN).
-
-
-
-27. What is the 'Implicit Deny' rule in an ACL?
-
-A. A rule that permits all traffic by default
-B. A rule that hides the IP address of the router
-C. A rule at the end of every ACL that drops all traffic not explicitly permitted
-D. A rule that requires a password for every packet
-
-**Answer:** C
-
-AI Analyzing: Every ACL has an invisible 'deny all' rule at the very end; if traffic doesn't match a permit statement, it is dropped.
-
-
-
-28. Compare 'Standard' vs 'Static' MAC binding in Port Security. Which is correct?
-
-A. Static is configured manually, while Dynamic is learned automatically but lost on reboot
-B. Static only works with IPv6
-C. Dynamic is safer than Sticky
-D. Standard MAC binding requires a RADIUS server
+A. Once per address.
+B. Twice if the segments are non-contiguous.
+C. As many times as needed.
+D. It depends on the prefix length.
 
 **Answer:** A
 
-AI Analyzing: Static MAC addresses are manually entered into the configuration, while Dynamic addresses are learned and stored only in the MAC table (volatile).
+AI Analyzing: To prevent ambiguity in the address length, the double colon (::) can only be used once in any IPv6 address.
 
 
 
-29. Identify the feature: It prevents an attacker from exhausting the pool of IP addresses available for legitimate users.
+36. What happens to an Ethernet frame if the switch does not find the destination MAC address in its CAM table?
 
-A. Subnetting
-B. ARP spoofing
-C. VLAN pruning
-D. DHCP Snooping rate limiting
+A. It drops the frame.
+B. It sends an ICMP error back to the source.
+C. It stores the frame until the host connects.
+D. It floods the frame out of all ports except the source port.
 
 **Answer:** D
 
-AI Analyzing: By limiting the rate of DHCP discovery packets, DHCP snooping mitigates DHCP starvation attacks.
+AI Analyzing: This is known as 'unicast flooding.' If the destination is unknown, the switch acts like a hub and sends the frame to all ports in that VLAN/segment.
 
 
 
-30. Which service should be disabled on a hardened router to prevent an attacker from gathering info via a 'finger' or 'HTTP' server?
+37. Which protocol is essential for translating a known IP address into a MAC address on a local Ethernet segment?
 
-A. The routing engine
-B. Unused/Unnecessary services
-C. The console port
-D. The power supply
+A. DNS
+B. ARP
+C. DHCP
+D. SNMP
 
 **Answer:** B
 
-AI Analyzing: Disabling services like HTTP, Finger, and PAD that are not required for operation is a fundamental hardening step.
+AI Analyzing: ARP (Address Resolution Protocol) is used to find the Layer 2 (MAC) address of a host when only its Layer 3 (IP) address is known.
 
 
 
-31. What is the difference between an ACL 'permit' and a 'deny' statement?
+38. I am a set of 128 bits represented in 8 groups of 4 hexadecimal digits. What am I?
 
-A. Permit adds encryption; Deny removes it
-B. Permit allows the packet to continue; Deny discards the packet
-C. Permit only works for TCP; Deny only works for UDP
-D. They are the same, just for different VLANs
-
-**Answer:** B
-
-AI Analyzing: This is the basic logic of filtering: packets matching a permit statement are forwarded, while those matching deny are dropped.
-
-
-
-32. Identify the feature: It is a banner displayed before login to warn unauthorized users of legal consequences.
-
-A. MOTD (Message of the Day)
-B. GUI
-C. DHCP Offer
-D. ICMP Echo
-
-**Answer:** A
-
-AI Analyzing: The 'Banner MOTD' is used to provide legal warnings to anyone attempting to access the device.
-
-
-
-33. How does 'DHCP Snooping' use the concept of 'Trusted' vs 'Untrusted' ports?
-
-A. Untrusted ports can send DHCP Offers
-B. Only Trusted ports are allowed to send DHCP Server responses (Offers/Acks)
-C. Trusted ports are disabled by default
-D. All ports are trusted if a password is set
+A. IPv4 Address
+B. IPv6 Address
+C. MAC Address
+D. TCP Sequence Number
 
 **Answer:** B
 
-AI Analyzing: DHCP Snooping ensures that only ports connected to legitimate DHCP servers (Trusted) can provide IP configurations.
+AI Analyzing: IPv6 addresses are 128 bits long and written in hexadecimal format.
 
 
 
-34. Which protocol provides a secure way to synchronize time across hardened network devices for accurate logging?
+39. In network monitoring, what is the 'dissector' in tools like Wireshark?
 
-A. FTP
-B. NTP (Network Time Protocol)
-C. SNMP
-D. BGP
-
-**Answer:** B
-
-AI Analyzing: NTP is critical for security auditing, as it ensures all logs have a synchronized and accurate timestamp.
-
-
-
-35. Identify the feature: It acts as an intermediary for requests from clients seeking resources from other servers.
-
-A. Bridge
-B. Repeater
-C. Proxy Server
-D. VLAN
-
-**Answer:** C
-
-AI Analyzing: A proxy server hides internal client IPs and can filter content before it reaches the end user.
-
-
-
-36. What is the security risk of leaving 'VTP' in Server mode with default configurations?
-
-A. An attacker can overwrite the VLAN database by connecting a switch with a higher revision number
-B. It causes high CPU usage
-C. VTP Server mode prevents routing between VLANs
-D. VTP is only compatible with hubs
-
-**Answer:** A
-
-AI Analyzing: VTP (VLAN Trunking Protocol) can be exploited if a switch with a higher configuration revision is introduced, potentially deleting all VLANs in the domain.
-
-
-
-37. Which hardening technique involves using 'Transport Input SSH' on VTY lines?
-
-A. Configuring Port Security
-B. Enabling IPv6
-C. Enabling Console logging
-D. Disabling Telnet access
+A. A tool that breaks the hardware to see the internal components.
+B. A virus that destroys packets.
+C. A physical tap that splits a cable.
+D. A logical process that decodes a sequence of bits into a recognized protocol format.
 
 **Answer:** D
 
-AI Analyzing: The 'transport input ssh' command restricts remote management to SSH only, effectively blocking unencrypted Telnet.
+AI Analyzing: A dissector is a piece of code in Wireshark that understands a specific protocol's structure and displays the fields to the user.
 
 
 
-38. Identify the feature: It prevents loops at Layer 2 but can be attacked to redirect traffic if not secured.
+40. What does the 'A' in the CIA triad of network security stand for?
 
-A. IP Routing
-B. Spanning Tree Protocol (STP)
-C. DNS
-D. DHCP
+A. Authentication
+B. Accountability
+C. Authorization
+D. Availability
+
+**Answer:** D
+
+AI Analyzing: The CIA triad stands for Confidentiality, Integrity, and Availability.
+
+
+
+41. Which IPv4 class is reserved for Multicast?
+
+A. Class D
+B. Class C
+C. Class A
+D. Class E
+
+**Answer:** A
+
+AI Analyzing: Class D (224.0.0.0 to 239.255.255.255) is reserved for multicast traffic.
+
+
+
+42. What is a 'Collateral' effect of using Port Mirroring (SPAN) for security monitoring?
+
+A. It increases the speed of the switch.
+B. It prevents ARP spoofing.
+C. It automatically encrypts the mirrored traffic.
+D. It can oversubscribe the destination port if the monitored traffic exceeds its bandwidth.
+
+**Answer:** D
+
+AI Analyzing: If you mirror a 1Gbps port to another 1Gbps port that is already busy, or mirror multiple ports to one, you may lose packets due to oversubscription.
+
+
+
+43. I am an ICMPv6 message sent by a host to discover the presence and prefix of a router on the link. What am I?
+
+A. Router Advertisement (RA)
+B. Neighbor Solicitation (NS)
+C. Router Solicitation (RS)
+D. Neighbor Advertisement (NA)
+
+**Answer:** C
+
+AI Analyzing: Router Solicitation (RS) is sent by hosts to request an RA from any available router.
+
+
+
+44. Contrast 'Stateless' and 'Stateful' inspection in the context of firewalls.
+
+A. Stateless firewalls remember the handshake; stateful firewalls do not.
+B. Stateful firewalls only work at Layer 2.
+C. Stateless is more secure than stateful.
+D. Stateful firewalls track the context and state of active connections; stateless firewalls check packets individually.
+
+**Answer:** D
+
+AI Analyzing: Stateful inspection is a hardening standard because it understands the 'state' of a connection (e.g., it only allows an ACK if a SYN was previously seen).
+
+
+
+45. What is the bit-length of a MAC address?
+
+A. 48 bits
+B. 32 bits
+C. 64 bits
+D. 128 bits
+
+**Answer:** A
+
+AI Analyzing: A MAC address consists of 48 bits (6 bytes), typically represented as 12 hexadecimal digits.
+
+
+
+46. Which IPv6 address type is equivalent to an IPv4 public address?
+
+A. Link-Local Address
+B. Global Unicast Address (GUA)
+C. Unique Local Address (ULA)
+D. Loopback Address
 
 **Answer:** B
 
-AI Analyzing: STP prevents loops but requires hardening (Root Guard, BPDU Guard) to prevent attackers from manipulating the logical topology.
+AI Analyzing: Global Unicast Addresses (starting with 2000::/3) are routable on the public internet.
 
 
 
-39. When comparing PAP and CHAP authentication for serial links, which is more secure?
+47. I am the first 3 bytes of a MAC address and I identify the manufacturer. What am I?
 
-A. CHAP, because it uses a three-way handshake and never sends the password over the link
-B. PAP, because it sends passwords in cleartext
-C. Both are equally insecure
-D. CHAP, because it only works with Fiber optics
-
-**Answer:** A
-
-AI Analyzing: CHAP is more secure than PAP because it uses a challenge-response mechanism rather than sending plain passwords.
-
-
-
-40. What does 'service password-encryption' do in Cisco hardening?
-
-A. It provides strong AES-256 encryption for all data
-B. It encrypts the SSH session
-C. It encrypts cleartext passwords in the configuration file using a weak Vigenere cipher
-D. It creates a password for the power button
-
-**Answer:** C
-
-AI Analyzing: While the encryption is weak (Type 7), it prevents casual observers from reading passwords from a configuration screen or printout.
-
-
-
-41. Identify the feature: It creates a log entry whenever an ACL rule is matched, aiding in incident response.
-
-A. ACL Logging (the 'log' keyword)
-B. NAT
-C. BPDU Filter
-D. Telnet
-
-**Answer:** A
-
-AI Analyzing: Adding the 'log' keyword to an ACL entry generates syslog messages when packets match the criteria, providing visibility into attacks.
-
-
-
-42. In hardening, what is the 'Principle of Least Privilege'?
-
-A. Granting only the minimum permissions necessary to perform a job
-B. Giving every user administrative access
-C. Opening all ports by default
-D. Using the shortest possible passwords
-
-**Answer:** A
-
-AI Analyzing: Least privilege reduces the risk of accidental or intentional damage by limiting what each user or process can do.
-
-
-
-43. Which feature prevents a host from spoofing its IP address by checking against the DHCP snooping table?
-
-A. VTP
-B. Traceroute
-C. CDP
-D. IP Source Guard
+A. Interface ID
+B. Subnet Mask
+C. Global Routing Prefix
+D. Organizationally Unique Identifier (OUI)
 
 **Answer:** D
 
-AI Analyzing: IP Source Guard works with DHCP snooping to ensure that the source IP in a packet matches the IP assigned to that MAC/Port.
+AI Analyzing: The OUI is the first half of a MAC address and is assigned by the IEEE to specific vendors.
 
 
 
-44. What is the difference between an 'Access' port and a 'Trunk' port in terms of security?
+48. What is the security risk of 'MAC Flooding' an Ethernet switch?
 
-A. Access ports carry multiple VLANs; Trunk ports carry one
-B. There is no difference in security
-C. Trunk ports are for printers; Access ports are for routers
-D. Access ports belong to one VLAN; Trunk ports carry traffic for multiple VLANs and are high-risk targets
-
-**Answer:** D
-
-AI Analyzing: Trunk ports are more sensitive because they allow access to multiple broadcast domains; they must be secured to prevent VLAN hopping.
-
-
-
-45. Identify the feature: It provides cryptographic authentication of routing updates to prevent rogue routers from injecting false routes.
-
-A. Static Routing
-B. Routing Protocol Authentication (MD5/SHA)
-C. Split Horizon
-D. Poison Reverse
-
-**Answer:** B
-
-AI Analyzing: Hardening routing protocols involves configuring MD5 or SHA authentication so that only trusted peers can exchange route information.
-
-
-
-46. Which hardening command limits the number of login attempts on a Cisco device?
-
-A. speed 100
-B. shutdown
-C. login block-for
-D. ip routing
+A. It crashes the switch physically.
+B. It changes the IP addresses of all hosts.
+C. It fills the CAM table, forcing the switch to fail-open and act like a hub, broadcasting all traffic.
+D. It disables the internet connection.
 
 **Answer:** C
 
-AI Analyzing: The 'login block-for' command is used to mitigate brute-force attacks by locking out login attempts after a certain number of failures.
+AI Analyzing: MAC flooding fills the CAM table with fake entries. Once full, the switch can no longer learn new addresses and sends all frames to all ports, allowing an attacker to sniff traffic.
 
 
 
-47. What is the primary difference between 'Authentication' and 'Accounting' in AAA?
+49. Compare IPv4 and IPv6 headers regarding the Checksum.
 
-A. Authentication verifies who you are; Accounting records what you did and for how long
-B. Authentication tracks usage; Accounting verifies users
-C. Accounting is only for bank transfers
-D. There is no difference
+A. Neither protocol uses any form of checksum.
+B. IPv6 has a header checksum; IPv4 does not.
+C. Both have a checksum for security.
+D. IPv4 has a header checksum; IPv6 does not.
+
+**Answer:** D
+
+AI Analyzing: IPv6 removed the header checksum to improve router performance, assuming that Layer 2 and Layer 4 protocols provide sufficient error checking.
+
+
+
+50. I am a field in the IPv4 header that prevents packets from looping infinitely. What am I?
+
+A. TTL
+B. IHL
+C. Fragment Offset
+D. Protocol
 
 **Answer:** A
 
-AI Analyzing: Accounting provides the 'paper trail' for audit purposes, while Authentication manages the entry to the system.
-
-
-
-48. Identify the feature: It is a Layer 2 security mechanism that binds a MAC address to a port even after the host is disconnected.
-
-A. VLAN Hopping
-B. Dynamic ARP
-C. Port Security with Sticky MAC
-D. NAT
-
-**Answer:** C
-
-AI Analyzing: Sticky MAC addresses are persistent and prevent a different device from being plugged into the same port.
-
-
-
-49. In terms of hardening, why is 'SNMP Read-Write' more dangerous than 'SNMP Read-Only'?
-
-A. There is no danger if the community string is 'public'
-B. Read-Only uses more bandwidth
-C. Read-Write is not supported on Fiber
-D. Read-Write allows an attacker to change the device configuration
-
-**Answer:** D
-
-AI Analyzing: SNMP Read-Write (RW) access can be used to completely reconfigure or shut down a device if the community string is compromised.
-
-
-
-50. What is the final 'best practice' for any hardened switch port that is not being used?
-
-A. Set it to VLAN 1
-B. Leave it in 'no shutdown' mode
-C. Shut it down and place it in an isolated, unused VLAN
-D. Enable DHCP on it
-
-**Answer:** C
-
-AI Analyzing: Unused ports should always be administratively disabled ('shutdown') and moved out of production VLANs to prevent unauthorized physical access.
+AI Analyzing: The Time To Live (TTL) field is decremented by each router to prevent infinite loops.
 
 
 

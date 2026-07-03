@@ -1,0 +1,654 @@
+Chapter XV: Intrusion Detection Systems (IDS)
+
+
+
+1. Which of the following best describes a Network Intrusion Detection System (NIDS)?
+
+A. A system that monitors the internal state and logs of a single host.
+B. A hardware device used solely to block malicious traffic at the network edge.
+C. A system that monitors network traffic for multiple hosts by analyzing packets on the wire.
+D. A protocol used to encrypt data between two specific endpoints.
+
+**Answer:** C
+
+AI Analyzing: NIDS is designed to monitor and analyze network traffic for an entire segment or group of hosts, whereas HIDS focuses on a single host.
+
+
+
+2. I analyze system calls, local log files, and file system integrity on a specific server. What am I?
+
+A. NIDS (Network Intrusion Detection System)
+B. Firewall
+C. HIDS (Host Intrusion Detection System)
+D. Proxy Server
+
+**Answer:** C
+
+AI Analyzing: The characteristics described—monitoring system calls, logs, and file integrity on a single machine—are specific to Host-based IDS (HIDS).
+
+
+
+3. What is the primary operational difference between an IDS and an IPS?
+
+A. IDS typically alerts and logs (passive), while IPS can actively block traffic (inline).
+B. IDS is used for encryption, while IPS is used for decryption.
+C. IDS sits at the Application Layer, while IPS sits at the Data Link Layer.
+D. IDS is always hardware-based, while IPS is always software-based.
+
+**Answer:** A
+
+AI Analyzing: Intrusion Detection Systems (IDS) are generally passive, alerting administrators to threats, while Intrusion Prevention Systems (IPS) are inline and can drop malicious packets.
+
+
+
+4. Which detection method relies on a database of known attack patterns or 'strings' to identify threats?
+
+A. Anomaly-based detection
+B. Signature-based detection
+C. Statistical detection
+D. Heuristic detection
+
+**Answer:** B
+
+AI Analyzing: Signature-based detection compares traffic or activity against a predefined list of signatures that represent known attacks.
+
+
+
+5. I require a 'training phase' to learn what normal network behavior looks like so I can flag deviations. What detection method am I?
+
+A. Signature-based detection
+B. Policy-based detection
+C. Anomaly-based detection
+D. Static analysis
+
+**Answer:** C
+
+AI Analyzing: Anomaly-based detection creates a baseline of 'normal' behavior and flags anything that deviates from that baseline as suspicious.
+
+
+
+6. In the context of IDS, what is a 'False Positive'?
+
+A. An actual attack that the system fails to detect.
+B. An update to the signature database that fixes a bug.
+C. A successful block of a malicious packet by an IPS.
+D. A legitimate activity that is incorrectly flagged as a threat.
+
+**Answer:** D
+
+AI Analyzing: A false positive occurs when the system triggers an alert for traffic or behavior that is actually benign or legitimate.
+
+
+
+7. Which of the following is a significant disadvantage of Signature-based detection?
+
+A. It produces a high number of false positives during normal operations.
+B. It is computationally too expensive for modern high-speed networks.
+C. It requires a long time to learn the network environment.
+D. It is unable to detect 'zero-day' attacks with no existing signature.
+
+**Answer:** D
+
+AI Analyzing: Because signature-based systems only look for known patterns, they cannot identify new, unknown vulnerabilities (zero-day attacks).
+
+
+
+8. Comparing NIDS and HIDS, which one is better at detecting attacks that use encrypted network traffic?
+
+A. NIDS, because it sees all packets on the wire.
+B. HIDS, because it analyzes the data after it is decrypted by the host.
+C. NIDS, because it can automatically decrypt any SSL/TLS session.
+D. Neither can detect attacks if encryption is used.
+
+**Answer:** B
+
+AI Analyzing: Since HIDS resides on the host, it can inspect files and processes after the network traffic has been decrypted by the operating system or application.
+
+
+
+9. What is a 'False Negative' in intrusion detection?
+
+A. An alarm triggered by a system administrator's test.
+B. A malicious event that occurs but is not caught by the IDS.
+C. A situation where a legitimate user is blocked from the network.
+D. A signature that matches two different types of attacks.
+
+**Answer:** B
+
+AI Analyzing: A false negative is a failure of the IDS to identify an actual security breach or attack.
+
+
+
+10. Which component is responsible for gathering data for the IDS to analyze?
+
+A. Analyzer
+B. Sensor
+C. Console
+D. Manager
+
+**Answer:** B
+
+AI Analyzing: The sensor (or agent) is the component that monitors the environment (network or host) and collects data for analysis.
+
+
+
+11. If an IDS is placed *outside* the corporate firewall, what is the most likely result?
+
+A. It will see only the traffic that has been allowed by the firewall.
+B. It will see all incoming attacks, including those the firewall would have blocked.
+C. It will be unable to see any traffic due to NAT.
+D. It will automatically become an IPS.
+
+**Answer:** B
+
+AI Analyzing: Placing an IDS outside the firewall allows it to see all attempts and probes, but it can lead to a very high volume of alerts that the firewall would have otherwise discarded.
+
+
+
+12. Which of these is a popular open-source NIDS that uses a rule-based language to describe traffic?
+
+A. Iptables
+B. Wireshark
+C. Apache
+D. Snort
+
+**Answer:** D
+
+AI Analyzing: Snort is one of the most widely used open-source Network Intrusion Detection Systems and is famous for its rule-based detection engine.
+
+
+
+13. I am a specific hardware device that provides a copy of network traffic to an IDS without interfering with the original signal. What am I?
+
+A. Router
+B. Switch SPAN port
+C. Network TAP
+D. Gateway
+
+**Answer:** C
+
+AI Analyzing: A Network TAP (Test Access Point) is a hardware device that mirrors traffic to a monitoring port. Unlike SPAN ports, TAPs are dedicated hardware that doesn't consume switch resources.
+
+
+
+14. Which of the following describes a 'True Positive'?
+
+A. The IDS correctly identifies a malicious attack.
+B. The IDS ignores a legitimate packet.
+C. The IDS flags a harmless packet as dangerous.
+D. The IDS fails to see a SQL injection attempt.
+
+**Answer:** A
+
+AI Analyzing: A true positive is the desired outcome where an actual threat is correctly detected by the security system.
+
+
+
+15. What is the primary benefit of Anomaly-based IDS over Signature-based IDS?
+
+A. It is much simpler to configure.
+B. It does not produce any false positives.
+C. It can potentially detect zero-day attacks.
+D. It uses less CPU and memory.
+
+**Answer:** C
+
+AI Analyzing: Because anomaly-based systems look for unusual behavior rather than specific known patterns, they are capable of identifying new types of attacks.
+
+
+
+16. I am a framework for network traffic inspection that focuses on semantic analysis and can act as an IDS. The text mentions me in Chapter II. What am I?
+
+A. Zeek (formerly Bro)
+B. Netflow
+C. Tcpdump
+D. BGP
+
+**Answer:** A
+
+AI Analyzing: Zeek (formerly Bro) is an open-source network security monitoring tool that performs deep packet inspection and semantic analysis, functioning as an IDS.
+
+
+
+17. Which of the following is a drawback of HIDS?
+
+A. It cannot see attacks that target a specific application on a host.
+B. It is unable to monitor log files.
+C. It must be installed on every single host that needs protection.
+D. It cannot detect privilege escalation on the local machine.
+
+**Answer:** C
+
+AI Analyzing: HIDS requires an agent or installation on every individual host, which increases administrative overhead and uses local system resources.
+
+
+
+18. How does an Inline IPS differ from a Passive NIDS in terms of network topology?
+
+A. NIDS must be in the path of traffic; Inline IPS receives a copy of the traffic.
+B. Inline IPS must be physically in the path of traffic; NIDS receives a copy of the traffic.
+C. There is no difference in placement.
+D. NIDS only works on IPv6, while IPS only works on IPv4.
+
+**Answer:** B
+
+AI Analyzing: An IPS is placed 'inline' so that all traffic flows through it, allowing it to drop packets. An IDS is usually 'out-of-band', receiving a copy of traffic from a TAP or SPAN port.
+
+
+
+19. Which of the following is a technique used by attackers to evade a NIDS?
+
+A. Using a faster Ethernet cable.
+B. Switching from TCP to UDP.
+C. Decreasing the TTL of every packet to 1.
+D. Packet fragmentation to split the attack payload across multiple packets.
+
+**Answer:** D
+
+AI Analyzing: Packet fragmentation can evade NIDS if the IDS does not properly reassemble the packets before analyzing them for signatures.
+
+
+
+20. What is 'Tuning' in the context of IDS management?
+
+A. Updating the operating system of the IDS sensor.
+B. Increasing the electrical power to the network TAP.
+C. Adjusting rules and thresholds to reduce false positives.
+D. Encrypting the logs sent to the SIEM.
+
+**Answer:** C
+
+AI Analyzing: Tuning is the process of refining an IDS's configuration so that it alerts on real threats while minimizing false alarms.
+
+
+
+21. Which IDS type is best suited for identifying an insider changing a critical configuration file on a server?
+
+A. HIDS
+B. NIDS
+C. Router ACL
+D. Firewall
+
+**Answer:** A
+
+AI Analyzing: HIDS includes file integrity monitoring (FIM), which is designed to detect changes to critical system files on a specific host.
+
+
+
+22. I am a feature on a switch that copies traffic from one or more ports to a specific port for analysis. What am I called in Cisco terminology?
+
+A. SPAN (Switched Port Analyzer)
+B. NAT
+C. VLAN
+D. Trunking
+
+**Answer:** A
+
+AI Analyzing: A SPAN port (also known as port mirroring) is a common way to provide traffic to a NIDS sensor by replicating switch traffic.
+
+
+
+23. Comparing Heuristic and Anomaly detection, what is a common shared characteristic?
+
+A. Both rely purely on a list of static MD5 hashes.
+B. Both require a 3-way handshake to be completed before analysis.
+C. Both are designed to detect unknown threats by looking for suspicious characteristics.
+D. Neither can be used on encrypted traffic.
+
+**Answer:** C
+
+AI Analyzing: Heuristic and Anomaly detection both go beyond fixed signatures to identify behavior or traits that suggest an attack, even if the specific attack is new.
+
+
+
+24. Which of the following describes the 'Base Rate Fallacy' problem in IDS?
+
+A. The IDS runs out of memory because the traffic rate is too high.
+B. In a system with a very low attack rate, even a low false-positive rate leads to most alarms being false.
+C. Attackers can bypass the IDS by sending traffic very slowly.
+D. The IDS cannot distinguish between IPv4 and IPv6.
+
+**Answer:** B
+
+AI Analyzing: The Base Rate Fallacy occurs when the number of legitimate events vastly outweighs the number of attacks, making a 99% accurate IDS still produce many false alarms.
+
+
+
+25. What is the purpose of a 'Honey Pot' in an intrusion detection strategy?
+
+A. To speed up the network connection for legitimate users.
+B. To provide a secure backup of all IDS logs.
+C. To act as a decoy system to lure and study attackers.
+D. To encrypt traffic between the IDS sensor and the console.
+
+**Answer:** C
+
+AI Analyzing: A Honey Pot is a decoy system designed to be probed or attacked, providing early warning and intelligence on attacker methods.
+
+
+
+26. Why is 'Stateful Inspection' important for a modern NIDS?
+
+A. It allows the IDS to track the context of a conversation rather than looking at packets in isolation.
+B. It allows the IDS to ignore all UDP traffic.
+C. It ensures the IDS can run on any operating system.
+D. It automatically generates new signatures without human intervention.
+
+**Answer:** A
+
+AI Analyzing: Stateful inspection allows the IDS to understand the sequence of packets in a TCP stream, which is necessary to detect multi-packet attacks.
+
+
+
+27. Which of the following is a limitation of using a SPAN port for NIDS?
+
+A. It can drop packets if the switch CPU becomes overloaded or if the egress port is saturated.
+B. It is too expensive compared to a hardware TAP.
+C. It only works with wireless networks.
+D. It cannot capture broadcast traffic.
+
+**Answer:** A
+
+AI Analyzing: Unlike TAPs, SPAN ports are a software-based function of the switch and can drop monitoring traffic if the switch is busy or the link is full.
+
+
+
+28. I am a specialized NIDS that can perform multi-threading to handle high-speed traffic more efficiently than the original Snort. What am I?
+
+A. OSSEC
+B. Tripwire
+C. Iptables
+D. Suricata
+
+**Answer:** D
+
+AI Analyzing: Suricata is a high-performance NIDS/IPS that supports multi-threading, allowing it to process traffic across multiple CPU cores simultaneously.
+
+
+
+29. What information does a 'Flow-based' IDS (like Netflow analysis) typically use?
+
+A. The full payload of every packet.
+B. The BIOS version of the target host.
+C. The MD5 hash of the files being transferred.
+D. Metadata like Source/Dest IP, ports, and byte counts.
+
+**Answer:** D
+
+AI Analyzing: Flow-based detection looks at the 'conversation' statistics (metadata) rather than the deep payload of individual packets.
+
+
+
+30. In a Snort rule, what does the 'action' field typically define?
+
+A. The destination IP address of the rule.
+B. What to do when a match is found (e.g., alert, log, or pass).
+C. The specific pattern to search for in the payload.
+D. The revision number of the signature.
+
+**Answer:** B
+
+AI Analyzing: The first part of a Snort rule is the action, which tells the engine what to do if the traffic matches the rest of the rule.
+
+
+
+31. Which of these is a primary difference between a firewall and a NIDS?
+
+A. A firewall is designed to enforce policy and block traffic; a NIDS is designed to detect and alert on complex attack patterns.
+B. A firewall only looks at IP addresses; a NIDS only looks at MAC addresses.
+C. A NIDS is always placed at the edge of the network; a firewall is always placed on the host.
+D. Firewalls are only for IPv4, while NIDS are only for IPv6.
+
+**Answer:** A
+
+AI Analyzing: Firewalls generally handle 'allow/deny' based on simple rules, while NIDS performs Deep Packet Inspection (DPI) to find signs of intrusion.
+
+
+
+32. An IDS that is integrated with a SIEM (Security Information and Event Management) system provides what benefit?
+
+A. It allows for faster packet capture on the wire.
+B. It automatically decrypts all HTTPS traffic for the IDS.
+C. It replaces the need for a signature database.
+D. It allows for correlation of IDS alerts with logs from other devices (firewalls, servers).
+
+**Answer:** D
+
+AI Analyzing: SIEM systems aggregate and correlate data from multiple sources, helping to validate IDS alerts by comparing them with other network logs.
+
+
+
+33. What happens if an IDS is 'Fail-Open'?
+
+A. It stops all network traffic if the IDS software crashes.
+B. It automatically opens a port for the attacker.
+C. It allows traffic to continue flowing even if the security analysis cannot be performed.
+D. It reboots the entire network infrastructure.
+
+**Answer:** C
+
+AI Analyzing: Fail-open means that if the system fails, traffic is still permitted to pass, favoring availability over security (common for IDS/IPS).
+
+
+
+34. Which of the following describes a 'Protocol Anomaly'?
+
+A. A user logging in at 3 AM.
+B. A server sending more data than usual.
+C. A TCP packet with an illegal combination of flags (e.g., SYN and FIN together).
+D. An IP address from a blacklisted country.
+
+**Answer:** C
+
+AI Analyzing: A protocol anomaly involves traffic that violates the standard rules of a protocol (e.g., RFC violations), which often indicates an attack tool.
+
+
+
+35. Which component of an IDS is used by the security analyst to view alerts and manage sensors?
+
+A. Management Console
+B. Database Layer
+C. Data Link Layer
+D. Packet Dissector
+
+**Answer:** A
+
+AI Analyzing: The Management Console is the user interface where administrators interact with the IDS system.
+
+
+
+36. Comparing 'Statistical Anomaly' and 'Behavioral Anomaly', which one usually looks for deviations in volume (e.g., number of bytes)?
+
+A. Statistical Anomaly
+B. Behavioral Anomaly
+C. Signature Anomaly
+D. Neither
+
+**Answer:** A
+
+AI Analyzing: Statistical anomaly detection focuses on quantitative metrics like traffic volume, number of connections, and packet rates.
+
+
+
+37. What is the 'Confidence Score' in an IDS alert?
+
+A. The speed at which the packet was traveling.
+B. The total number of sensors in the network.
+C. The number of bits in the attack signature.
+D. A value indicating the likelihood that the alert is a true positive.
+
+**Answer:** D
+
+AI Analyzing: Confidence scores help analysts prioritize alerts by indicating how reliable the detection was.
+
+
+
+38. I monitor changes to the Windows Registry and the addition of new users on a local machine. What type of IDS am I?
+
+A. NIDS
+B. Application Firewall
+C. Network TAP
+D. HIDS
+
+**Answer:** D
+
+AI Analyzing: Monitoring local host artifacts like the Registry or user accounts is a core function of a Host-based IDS.
+
+
+
+39. If an attacker uses 'Encryption' for their Command and Control (C2) traffic, what is the impact on a NIDS?
+
+A. The NIDS will be able to read the commands but not the responses.
+B. The NIDS will automatically block the traffic.
+C. The NIDS will fail to match the payload against its signature database.
+D. Encryption makes the NIDS process traffic faster.
+
+**Answer:** C
+
+AI Analyzing: NIDS relies on seeing the cleartext payload to match signatures; encryption hides the payload from the sensor.
+
+
+
+40. What is the main purpose of 'Defragmentation' in a NIDS sensor?
+
+A. To clean up the hard drive where logs are stored.
+B. To speed up the RAM of the IDS server.
+C. To remove duplicate IP addresses from the network.
+D. To combine split packets back into their original form before analysis.
+
+**Answer:** D
+
+AI Analyzing: Reassembling (defragmenting) packets is crucial so the IDS can see the whole attack string that an attacker might have split across multiple fragments.
+
+
+
+41. Which of the following is an example of a 'Behavioral' anomaly?
+
+A. A packet with a size of exactly 1500 bytes.
+B. An HTTP GET request for 'index.html'.
+C. A workstation suddenly attempting to scan all other hosts in the subnet.
+D. A ping request from the default gateway.
+
+**Answer:** C
+
+AI Analyzing: A host performing a network scan is a change in behavior from its normal activity as a workstation, triggering a behavioral anomaly alert.
+
+
+
+42. How does an IDS handle a 'Zero-Day' exploit if it only uses Signature-based detection?
+
+A. It will detect it based on the attacker's IP.
+B. It will block it using heuristic analysis.
+C. It will likely miss it because no signature exists yet.
+D. It will automatically create a new signature.
+
+**Answer:** C
+
+AI Analyzing: Signature-based systems are ineffective against zero-days by definition, as no pattern has been identified and shared yet.
+
+
+
+43. In the context of IDS placement, what is the 'DMZ'?
+
+A. A zone where no security is required.
+B. A subnetwork that contains an organization's external-facing services.
+C. A protocol for dynamic routing.
+D. The main database for HIDS logs.
+
+**Answer:** B
+
+AI Analyzing: A DMZ (Demilitarized Zone) is a common place to put IDS sensors to monitor traffic to public servers like Web or Mail servers.
+
+
+
+44. Which tool is often used alongside Snort to provide a graphical web interface for viewing alerts?
+
+A. Wireshark
+B. Putty
+C. Snorby or BASE
+D. Iptables
+
+**Answer:** C
+
+AI Analyzing: Snorby and BASE (Basic Analysis and Security Engine) are examples of front-ends used to visualize the database of alerts generated by Snort.
+
+
+
+45. What is the primary risk of an IPS being 'Fail-Closed'?
+
+A. The attacker will get into the network.
+B. The IPS will start leaking data.
+C. The network will become unavailable if the IPS fails.
+D. The signatures will be deleted.
+
+**Answer:** C
+
+AI Analyzing: Fail-closed (or fail-block) means that if the device fails, it stops all traffic, which can lead to a self-inflicted Denial of Service (DoS).
+
+
+
+46. Which of the following is true regarding 'Host-based IDS' (HIDS) visibility?
+
+A. It has no visibility into the local file system.
+B. It cannot see who logged into the console.
+C. It can only see traffic from other hosts on the same switch.
+D. It can see the actual content of local processes and memory.
+
+**Answer:** D
+
+AI Analyzing: Because it runs on the OS, HIDS can monitor process behavior, memory, and local user activity that NIDS cannot.
+
+
+
+47. Which detection method is most likely to flag a user who suddenly starts downloading 50GB of data per day when they usually download 100MB?
+
+A. Signature-based detection
+B. Static filtering
+C. Anomaly-based detection
+D. Encryption detection
+
+**Answer:** C
+
+AI Analyzing: This is a quantitative deviation from a baseline, which is the specialty of anomaly-based detection.
+
+
+
+48. What does 'DPI' stand for in the context of IDS/IPS?
+
+A. Data Packet Indexing
+B. Deep Packet Inspection
+C. Digital Private Interface
+D. Direct Protocol Integration
+
+**Answer:** B
+
+AI Analyzing: DPI refers to the ability of the IDS/IPS to look past the packet headers and examine the actual data (payload) for threats.
+
+
+
+49. I am a low-level software that monitors the integrity of the operating system kernel. What specific type of IDS am I?
+
+A. NIDS
+B. HIDS
+C. Switch
+D. Proxy
+
+**Answer:** B
+
+AI Analyzing: Monitoring the kernel and system files is a host-based activity, making it a HIDS function.
+
+
+
+50. Comparing 'Passive' IDS and 'Active' IDS (IPS), which one is less likely to cause a bottleneck in network performance?
+
+A. Active IDS (IPS), because it is inline.
+B. Both have the same impact on performance.
+C. Passive IDS, because it operates on a copy of the traffic.
+D. Neither affects network performance.
+
+**Answer:** C
+
+AI Analyzing: Passive IDS operates 'out-of-band'. If the sensor is slow, it might miss an alert, but it won't slow down the actual traffic flowing through the network.
+
+
+

@@ -1,0 +1,654 @@
+IPsec - Chapter XIII Assessment
+
+
+
+1. Which IPsec protocol provides data confidentiality, data origin authentication, and anti-replay services, but does not protect the outer IP header in transport mode?
+
+A. Authentication Header (AH)
+B. Layer 2 Tunneling Protocol (L2TP)
+C. Internet Key Exchange (IKE)
+D. Encapsulating Security Payload (ESP)
+
+**Answer:** D
+
+AI Analyzing: ESP provides encryption (confidentiality) and optional authentication. Unlike AH, it does not protect the entire IP header.
+
+
+
+2. In terms of packet structure, what is the primary difference between IPsec Transport Mode and Tunnel Mode?
+
+A. Transport mode only encrypts the payload; Tunnel mode encrypts the entire original IP packet.
+B. Transport mode adds a new IP header, while Tunnel mode uses the original.
+C. Tunnel mode is only used for AH, while Transport mode is for ESP.
+D. Transport mode is faster because it does not use a Security Association.
+
+**Answer:** A
+
+AI Analyzing: Transport mode protects the upper-layer protocols (payload), while Tunnel mode encapsulates and protects the entire IP packet with a new header.
+
+
+
+3. I am a database that stores the specific security parameters, such as keys and algorithms, for an active IPsec connection. What am I?
+
+A. Security Policy Database (SPD)
+B. Security Association Database (SADB)
+C. Routing Information Base (RIB)
+D. Internet Security Association Key Management Protocol (ISAKMP)
+
+**Answer:** B
+
+AI Analyzing: The SADB contains the parameters for established Security Associations (SAs).
+
+
+
+4. Which protocol is responsible for mutual authentication and the establishment of shared keys in the IPsec suite?
+
+A. AH
+B. ESP
+C. ICMPv6
+D. IKE
+
+**Answer:** D
+
+AI Analyzing: Internet Key Exchange (IKE) automates the negotiation of SAs and the exchange of keys.
+
+
+
+5. What is the function of the Security Parameter Index (SPI) in an IPsec header?
+
+A. To encrypt the data payload.
+B. To uniquely identify a Security Association at the receiver.
+C. To calculate the checksum for the IP header.
+D. To determine the next hop in the routing table.
+
+**Answer:** B
+
+AI Analyzing: The SPI is a 32-bit value used by the receiver to distinguish between different active SAs.
+
+
+
+6. Compare AH and ESP: Which statement accurately describes their relationship with NAT (Network Address Translation)?
+
+A. AH breaks when passing through NAT because it authenticates the IP header; ESP can work with NAT-T.
+B. Both are fully compatible with NAT without extra encapsulation.
+C. AH is compatible with NAT, but ESP is not.
+D. ESP only works on IPv6, while AH works on IPv4.
+
+**Answer:** A
+
+AI Analyzing: AH includes the IP source and destination addresses in its integrity check. NAT changes these, causing the check to fail. ESP can be encapsulated in UDP (NAT-T) to solve this.
+
+
+
+7. I am a specific phase in IKEv1 that establishes a secure, authenticated channel between two peers. What am I?
+
+A. Phase 1
+B. Phase 2
+C. Quick Mode
+D. Transfer Mode
+
+**Answer:** A
+
+AI Analyzing: IKE Phase 1 establishes the ISAKMP SA, which is the secure channel used to negotiate Phase 2.
+
+
+
+8. Which component of the IPsec architecture decides whether a packet should be dropped, bypassed, or protected?
+
+A. Security Policy Database (SPD)
+B. Security Association Database (SADB)
+C. Transport Layer
+D. MAC Table
+
+**Answer:** A
+
+AI Analyzing: The SPD contains the policy rules that dictate the treatment of all inbound and outbound traffic.
+
+
+
+9. What is the purpose of 'Anti-Replay' service in IPsec?
+
+A. To prevent an attacker from intercepting a packet and sending it again later.
+B. To speed up the encryption process.
+C. To ensure that packets arrive in the exact order they were sent.
+D. To compress the IP header for better performance.
+
+**Answer:** A
+
+AI Analyzing: Anti-replay uses sequence numbers to detect and reject duplicate packets sent by an attacker.
+
+
+
+10. In IKEv1 Phase 1, which mode provides identity protection by encrypting the identity exchange?
+
+A. Aggressive Mode
+B. Quick Mode
+C. Diffie-Hellman Mode
+D. Main Mode
+
+**Answer:** D
+
+AI Analyzing: Main Mode uses six messages and protects the identity of the peers, whereas Aggressive Mode is faster (3 messages) but reveals identities.
+
+
+
+11. Which of the following is NOT a service provided by the Authentication Header (AH)?
+
+A. Encryption (Confidentiality)
+B. Data origin authentication
+C. Data integrity
+D. Anti-replay protection
+
+**Answer:** A
+
+AI Analyzing: AH provides authentication and integrity but does not provide any encryption or confidentiality.
+
+
+
+12. I am a 32-bit monotonically increasing counter used to prevent the reuse of old packets. What am I?
+
+A. Sequence Number
+B. SPI
+C. Payload Length
+D. IHL
+
+**Answer:** A
+
+AI Analyzing: The Sequence Number in AH and ESP headers is used specifically for the anti-replay service.
+
+
+
+13. Compare IKEv1 and IKEv2: Which statement is true?
+
+A. IKEv2 requires more messages to establish a connection.
+B. IKEv2 does not use Diffie-Hellman.
+C. IKEv1 is more secure because it uses fewer phases.
+D. IKEv2 has built-in support for NAT traversal and MOBIKE.
+
+**Answer:** D
+
+AI Analyzing: IKEv2 is a major improvement over IKEv1, featuring fewer messages, better reliability, and native NAT-T support.
+
+
+
+14. When using IPsec in Tunnel Mode, where is the ESP header placed?
+
+A. After the original IP header.
+B. Inside the original TCP header.
+C. At the end of the packet payload.
+D. Between the new IP header and the original IP header.
+
+**Answer:** D
+
+AI Analyzing: In Tunnel Mode, the ESP header follows a brand-new IP header, and then it encapsulates the entire original IP packet.
+
+
+
+15. Which algorithm is typically used during IKE to allow two peers to establish a shared secret over an insecure channel?
+
+A. Diffie-Hellman (DH)
+B. MD5
+C. AES
+D. SHA-256
+
+**Answer:** A
+
+AI Analyzing: Diffie-Hellman is the key exchange algorithm used by IKE to securely derive keys.
+
+
+
+16. I am a one-way security association that defines the communication from Peer A to Peer B. If they want bidirectional communication, how many of me are needed?
+
+A. Two
+B. One
+C. Four
+D. Eight
+
+**Answer:** A
+
+AI Analyzing: IPsec SAs are simplex (unidirectional). Therefore, two SAs are required for full-duplex communication.
+
+
+
+17. In the context of the SPD, what does the 'Bypass' action mean?
+
+A. The packet is encrypted and sent.
+B. The packet is sent in the clear without IPsec processing.
+C. The packet is discarded immediately.
+D. The packet is sent to the IKE process for negotiation.
+
+**Answer:** B
+
+AI Analyzing: 'Bypass' allows traffic (like certain management protocols) to pass through the interface without needing IPsec security.
+
+
+
+18. Which protocol number is assigned to the Authentication Header (AH) in the IP header's 'Protocol' field?
+
+A. 50
+B. 17
+C. 6
+D. 51
+
+**Answer:** D
+
+AI Analyzing: AH is IP protocol 51; ESP is IP protocol 50.
+
+
+
+19. I am the protocol used for NAT Traversal (NAT-T) to wrap IPsec ESP packets so they can pass through PAT devices. Which port do I typically use?
+
+A. TCP 80
+B. UDP 4500
+C. UDP 500
+D. TCP 443
+
+**Answer:** B
+
+AI Analyzing: While IKE usually starts on UDP 500, NAT-T switches to UDP 4500 if a NAT is detected.
+
+
+
+20. What happens in IKEv1 Phase 2 (Quick Mode)?
+
+A. Peer identities are verified.
+B. The ISAKMP SA is established.
+C. The Diffie-Hellman groups are first proposed.
+D. Specific IPsec SAs (for ESP/AH) are negotiated.
+
+**Answer:** D
+
+AI Analyzing: Quick Mode is used to negotiate the actual security parameters for the data traffic SAs under the protection of the Phase 1 SA.
+
+
+
+21. Compare ESP and AH: Which one protects against changes to the TTL (Time to Live) field in the IP header?
+
+A. ESP
+B. AH
+C. Both
+D. Neither
+
+**Answer:** D
+
+AI Analyzing: Fields that change during transit, like TTL and Checksum, are excluded from the integrity check by both protocols.
+
+
+
+22. Which type of VPN is typically implemented using IPsec Tunnel Mode between two routers?
+
+A. Remote Access VPN
+B. Site-to-Site VPN
+C. Client-to-Site VPN
+D. SSL VPN
+
+**Answer:** B
+
+AI Analyzing: Tunnel mode is the standard for connecting two gateways (Site-to-Site) because it hides the internal network addresses.
+
+
+
+23. What does the 'Perfect Forward Secrecy' (PFS) feature ensure in IPsec?
+
+A. That the password cannot be guessed by brute force.
+B. That the compromise of one key does not compromise future keys.
+C. That the IPsec header is always compressed.
+D. That the authentication is always done via certificates.
+
+**Answer:** B
+
+AI Analyzing: PFS forces a new Diffie-Hellman exchange for each SA negotiation, ensuring that session keys are independent.
+
+
+
+24. I am a field in the ESP trailer used to ensure the encrypted data meets the block size requirements of the cipher. What am I?
+
+A. Next Header
+B. Padding
+C. SPI
+D. Integrity Check Value
+
+**Answer:** B
+
+AI Analyzing: Padding is used to align the payload to the required block size of the encryption algorithm.
+
+
+
+25. Which layer of the OSI model does IPsec primarily operate at?
+
+A. Layer 3 (Network)
+B. Layer 2 (Data Link)
+C. Layer 4 (Transport)
+D. Layer 7 (Application)
+
+**Answer:** A
+
+AI Analyzing: IPsec is a suite of protocols designed to secure IP communications at the Network Layer.
+
+
+
+26. Which of these is a valid ESP encryption algorithm?
+
+A. HMAC-SHA1
+B. RSA
+C. AES-CBC
+D. Diffie-Hellman
+
+**Answer:** C
+
+AI Analyzing: AES-CBC is a symmetric encryption algorithm used for ESP confidentiality. RSA and DH are for key management/asymmetric tasks.
+
+
+
+27. In an IPsec packet, what indicates the type of data contained within the encrypted payload?
+
+A. The SPI
+B. The sequence number
+C. The Protocol field in the outer IP header
+D. The Next Header field
+
+**Answer:** D
+
+AI Analyzing: The 'Next Header' field in the AH or ESP trailer tells the receiver which protocol (e.g., TCP, UDP, or another IP header) follows.
+
+
+
+28. I am the result of a successful IKE negotiation, representing a 'contract' between two hosts on how to protect traffic. What am I?
+
+A. Tunnel
+B. Handshake
+C. Policy Rule
+D. Security Association (SA)
+
+**Answer:** D
+
+AI Analyzing: A Security Association (SA) is the formal agreement of security parameters between two peers.
+
+
+
+29. Compare AH and ESP in terms of confidentiality: Which provides it?
+
+A. Both AH and ESP
+B. Only AH
+C. Only ESP
+D. Neither
+
+**Answer:** C
+
+AI Analyzing: Encryption (confidentiality) is only a feature of the ESP protocol.
+
+
+
+30. Why would an administrator choose Transport Mode over Tunnel Mode?
+
+A. When they want to secure end-to-end communication between two specific hosts.
+B. When they need to hide internal IP addresses.
+C. Because Transport Mode is more secure.
+D. Because it works better with NAT.
+
+**Answer:** A
+
+AI Analyzing: Transport mode is efficient for host-to-host security where the overhead of a new IP header is not required.
+
+
+
+31. What is the primary role of the ISAKMP protocol in IPsec?
+
+A. To encrypt the user data.
+B. To fragment large packets.
+C. To provide a framework for authentication and key exchange.
+D. To monitor the health of the tunnel.
+
+**Answer:** C
+
+AI Analyzing: ISAKMP (Internet Security Association and Key Management Protocol) defines the procedures and packet formats to establish, negotiate, and modify SAs.
+
+
+
+32. Which field is added at the end of an ESP packet to provide data integrity?
+
+A. ESP Header
+B. ESP Trailer
+C. ESP Sequence Number
+D. ESP Auth (Integrity Check Value)
+
+**Answer:** D
+
+AI Analyzing: The Integrity Check Value (ICV) is placed in the ESP Auth field at the end of the packet to verify that the data has not been tampered with.
+
+
+
+33. I am a list of IPsec policies configured on a device. When a packet arrives, I am searched to see if it matches any defined security rules. What am I?
+
+A. SADB
+B. CAM Table
+C. SPD
+D. ARP Table
+
+**Answer:** C
+
+AI Analyzing: The Security Policy Database (SPD) defines the security requirements for different types of traffic.
+
+
+
+34. In an IPsec SA, what does 'Lifetime' refer to?
+
+A. The time it takes to encrypt a single packet.
+B. The total time the router has been online.
+C. The TTL value in the IP header.
+D. The duration or amount of data after which an SA expires and must be renegotiated.
+
+**Answer:** D
+
+AI Analyzing: SAs are not permanent; they have a 'Lifetime' (measured in seconds or kilobytes) to ensure keys are refreshed regularly.
+
+
+
+35. Compare Aggressive Mode and Main Mode in IKEv1: Which is faster and why?
+
+A. Aggressive Mode is faster because it compresses the exchange into 3 messages.
+B. Main Mode is faster because it uses 6 messages.
+C. They are equally fast.
+D. Aggressive Mode is slower due to complex encryption.
+
+**Answer:** A
+
+AI Analyzing: Aggressive Mode reduces the number of round-trips but at the cost of less security for peer identities.
+
+
+
+36. If a packet matches an SPD entry with the action 'Discard', what happens to it?
+
+A. The packet is dropped and not allowed to pass.
+B. It is encrypted and sent.
+C. It is sent in cleartext.
+D. It is held until an SA is created.
+
+**Answer:** A
+
+AI Analyzing: 'Discard' is a security action to block traffic that does not meet the policy requirements.
+
+
+
+37. Which of the following describes the 'transport' part of an IPsec SA?
+
+A. The MAC address of the destination.
+B. The use of TCP as the underlying carrier.
+C. The protocol used (ESP or AH).
+D. The physical cable type.
+
+**Answer:** C
+
+AI Analyzing: An IPsec SA defines which security protocol (AH or ESP) is used to transport the protected data.
+
+
+
+38. I am the protocol that runs on UDP port 500 and manages the setup of VPN tunnels. What am I?
+
+A. ESP
+B. IKE
+C. BGP
+D. SSH
+
+**Answer:** B
+
+AI Analyzing: Internet Key Exchange (IKE) uses UDP port 500 for its negotiation messages.
+
+
+
+39. What is 'Selectors' in the context of IPsec SPD?
+
+A. The dropdown menu in the Wireshark interface.
+B. The hardware buttons used to select the VPN mode.
+C. The set of IP addresses and ports used to match traffic to a policy.
+D. The algorithms available for encryption.
+
+**Answer:** C
+
+AI Analyzing: Selectors (source/dest IP, port, protocol) are the criteria used by the SPD to identify which traffic needs IPsec.
+
+
+
+40. In IKEv2, how many messages are required for the initial exchange (IKE_SA_INIT)?
+
+A. 4
+B. 2
+C. 6
+D. 1
+
+**Answer:** B
+
+AI Analyzing: The IKE_SA_INIT exchange in IKEv2 consists of exactly one request and one response (2 messages).
+
+
+
+41. Compare Symmetric and Asymmetric encryption in IPsec: Which is used for the actual data payload encryption in ESP?
+
+A. Symmetric (Secret Key)
+B. Asymmetric (Public Key)
+C. Neither
+D. Both are used simultaneously on the payload.
+
+**Answer:** A
+
+AI Analyzing: Symmetric encryption (like AES) is used for data because it is much faster. Asymmetric encryption is used only during the IKE process for key exchange.
+
+
+
+42. What happens to the original IP header in IPsec Tunnel Mode?
+
+A. It is encrypted and encapsulated inside a new IP packet.
+B. It is left in the clear.
+C. It is deleted.
+D. It is moved to the ESP trailer.
+
+**Answer:** A
+
+AI Analyzing: Tunnel mode treats the whole original packet (header + payload) as data to be protected and wraps it in a new packet.
+
+
+
+43. I am a technology that allows IPsec to work even if one of the endpoints changes its IP address (e.g., moving from Wi-Fi to 4G). What am I?
+
+A. NAT-T
+B. MOBIKE
+C. AH
+D. IKEv1
+
+**Answer:** B
+
+AI Analyzing: MOBIKE (IKEv2 Mobility and Multihoming) is a feature of IKEv2 that allows sessions to survive IP address changes.
+
+
+
+44. Which of these is the correct order of headers for an ESP packet in Transport Mode?
+
+A. IP Header | Data | ESP Header
+B. ESP Header | IP Header | Data
+C. IP Header | ESP Header | Data | ESP Trailer | ESP Auth
+D. ESP Auth | IP Header | ESP Header | Data
+
+**Answer:** C
+
+AI Analyzing: In transport mode, the ESP header is inserted after the IP header, followed by the payload, the trailer, and the authentication data.
+
+
+
+45. In the context of AH, what does 'Mutable Fields' refer to?
+
+A. Fields that must be encrypted.
+B. The SPI value.
+C. The data payload.
+D. IP header fields that change during transit (like TTL) and are ignored by AH integrity checks.
+
+**Answer:** D
+
+AI Analyzing: AH must ignore fields that routers change (mutable) to ensure the integrity hash doesn't fail incorrectly at the destination.
+
+
+
+46. What is the primary benefit of using IKEv2 over IKEv1?
+
+A. It supports AH.
+B. It is more complex to configure.
+C. It significantly reduces the latency of tunnel establishment.
+D. It uses more bandwidth.
+
+**Answer:** C
+
+AI Analyzing: IKEv2 is much more efficient, requiring only 4 messages for a basic setup compared to IKEv1's 6+3.
+
+
+
+47. I provide a way for the receiver to verify that the sender of the IPsec packet is who they claim to be. What service am I?
+
+A. Confidentiality
+B. Data Origin Authentication
+C. Flow Labeling
+D. Compression
+
+**Answer:** B
+
+AI Analyzing: Data Origin Authentication ensures the packet comes from the legitimate peer in the SA.
+
+
+
+48. When configuring an IPsec VPN, which 'Diffie-Hellman Group' number represents a stronger key (higher bit length)?
+
+A. Group 1
+B. Group 2
+C. Group 14
+D. Group 5
+
+**Answer:** C
+
+AI Analyzing: Higher DH group numbers correspond to larger prime modulus sizes (e.g., Group 14 is 2048-bit), providing higher security.
+
+
+
+49. Which of the following is true regarding IPsec in IPv6?
+
+A. IPsec is not supported in IPv6.
+B. IPv6 only supports ESP, not AH.
+C. IPsec was designed to be a native part of the IPv6 suite (using Extension Headers).
+D. IPv6 requires NAT for IPsec to work.
+
+**Answer:** C
+
+AI Analyzing: IPsec is tightly integrated into IPv6, where AH and ESP are implemented as extension headers.
+
+
+
+50. Compare 'Main Mode' and 'Aggressive Mode': Which one allows the exchange of pre-shared keys (PSK) more securely?
+
+A. Aggressive Mode
+B. Neither uses PSK.
+C. Main Mode
+D. They are identical in PSK security.
+
+**Answer:** C
+
+AI Analyzing: Main Mode hides the identity (and thus the associated PSK hash) from eavesdroppers, whereas Aggressive Mode transmits it earlier in the process.
+
+
+
