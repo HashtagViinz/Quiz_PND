@@ -1,0 +1,213 @@
+[
+  {
+    "id": 1,
+    "question": "Which of the following is NOT a typical operational interface of a SIEM?",
+    "options": {
+      "A": "Command line",
+      "B": "Dashboard",
+      "C": "Alert",
+      "D": "Map"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A SIEM (Security Information and Event Management) relies heavily on visual data representation to help analysts quickly spot anomalies. Therefore, graphical Dashboards, Maps for geolocation tracking, and structured Alerts are typical. A raw Command Line is not its primary or typical operational interface."
+  },
+  {
+    "id": 2,
+    "question": "In a typical penetration testing procedure",
+    "options": {
+      "A": "intrusive target search happens before exploitation",
+      "B": "intrusive target search happens before planning",
+      "C": "planning happens after data analysis",
+      "D": "non-intrusive target search happens after reporting"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The logical sequence of a penetration test starts with Planning, followed by Non-intrusive then Intrusive target searches (scanning/enumeration). Only after discovering vulnerabilities during the search phase does the active Exploitation phase occur."
+  },
+  {
+    "id": 3,
+    "question": "What is true regarding the detection mechanisms of IDSs?",
+    "options": {
+      "A": "The signature-based does not rely on detection rules",
+      "B": "The behavior-based cannot recognize unknown attacks",
+      "C": "The behavior-based relies on detection rules",
+      "D": "The signature-based hardly recognize unknown attacks"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Signature-based Intrusion Detection Systems rely on a database of known malicious patterns (signatures). Because they only look for what they already know, they are notoriously ineffective at recognizing brand new, unknown (zero-day) attacks."
+  },
+  {
+    "id": 4,
+    "question": "Which step happens earlier in a IDS/IPS system?",
+    "options": {
+      "A": "Flow state table generation",
+      "B": "Flow Classification",
+      "C": "Alert raising",
+      "D": "Normalization"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "In a standard IDS/IPS processing pipeline, after capturing the raw packet, the system first performs 'Normalization' (decoding protocols, reassembling fragments, handling evasions) before it classifies the flow, tracks state, and ultimately raises an alert."
+  },
+  {
+    "id": 5,
+    "question": "With respect to the SIEM, the IT Regulatory Compliance",
+    "options": {
+      "A": "concerns the real-time analysis on the health and security of IT systems",
+      "B": "concerns the correlation of events in order to spot patterns of attacks",
+      "C": "concerns the validation of the compliance of the security checks against a standard",
+      "D": "concerns the monitor of endpoint security"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "IT Regulatory Compliance inside a SIEM specifically involves using aggregated logs and audit trails to prove to auditors that the organization's security controls successfully validate and adhere to legal standards (like GDPR, HIPAA, or PCI-DSS)."
+  },
+  {
+    "id": 6,
+    "question": "Concerning the content of a SSL session flowing through a proxy:",
+    "options": {
+      "A": "it can be examined without a client warning if the proxy is an anonymizer proxy",
+      "B": "it can be examined without a client warning if the proxy is the SSL termination",
+      "C": "it cannot be examined in any case",
+      "D": "it cannot be examined without a client warning"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "If a reverse proxy is officially configured as the 'SSL termination point' for the backend servers, it holds the legitimate private keys. Therefore, it can decrypt, examine, and re-encrypt the traffic natively without triggering any security warnings on the client's browser."
+  },
+  {
+    "id": 7,
+    "question": "What is ICAP?",
+    "options": {
+      "A": "A protocol for modifying managed device behavior on IP networks",
+      "B": "A protocol for standardizing remote procedure calls on HTTP contents",
+      "C": "A protocol for encrypting the HTTP contents",
+      "D": "A protocol for requesting contents, alternative to HTTP"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The Internet Content Adaptation Protocol (ICAP) acts fundamentally as a lightweight remote procedure call (RPC) protocol. It allows proxies to offload the processing of HTTP messages to dedicated servers for tasks like malware scanning or content filtering."
+  },
+  {
+    "id": 8,
+    "question": "The FF02:: 1 IPv6 address refers to",
+    "options": {
+      "A": "all DHCP servers within the link-local scope",
+      "B": "all the IPv6 devices within the link-local scope",
+      "C": "all the IPv6 devices within the site scope",
+      "D": "all DHCP servers within the site scope"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "In IPv6 multicast addressing, FF02 specifies the Link-Local scope. The suffix '::1' designates the 'All-Nodes' group. Thus, FF02::1 is used to reach every single IPv6-enabled device attached to the local network segment (the equivalent of an IPv4 subnet broadcast)."
+  },
+  {
+    "id": 9,
+    "question": "What is FALSE regarding a reverse proxy?",
+    "options": {
+      "A": "It can protect the origin server",
+      "B": "It appears to the client as the origin server",
+      "C": "It typically makes use of the HTTP CONNECT method",
+      "D": "It interacts with a server on behalf of the client"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The HTTP CONNECT method is explicitly used by Forward Proxies to establish a blind TCP tunnel (usually for outbound HTTPS traffic). Reverse proxies handle incoming traffic directly and process it at the application layer, they do not typically use CONNECT."
+  },
+  {
+    "id": 10,
+    "question": "The Internet Header Length (IHL) field of the IPv4 header packet, in the IPv6 header packet",
+    "options": {
+      "A": "has been substituted by the Next Header field",
+      "B": "has been substituted by the Total Length field",
+      "C": "has the same name and meaning",
+      "D": "has been removed"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "IPv4 required the IHL field because its header length was variable (due to Options). IPv6 was engineered for faster routing and features a strictly fixed 40-byte base header, making a header length indicator completely unnecessary; therefore, it was removed."
+  },
+  {
+    "id": 11,
+    "question": "ICMPv6 Router Solicitation messages are sent",
+    "options": {
+      "A": "by IPv6 devices for requesting a Router Advertisement message",
+      "B": "by IPv6 devices as part of the Neighbor Discover protocol",
+      "C": "by IPv6 routers to announce the prefix of a network",
+      "D": "by IPv6 devices for requesting the MAC address of another device in the network"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "When an IPv6 host boots up on a network, it proactively sends an ICMPv6 Router Solicitation to prompt the local routers to immediately reply with a Router Advertisement. This exchange is a core component of the broader Neighbor Discovery Protocol (NDP)."
+  },
+  {
+    "id": 12,
+    "question": "In a typical penetration testing, exploitation is",
+    "options": {
+      "A": "a step to find open ports in a target",
+      "B": "a step to find evidences about the feasibility of an attack",
+      "C": "a step to find live systems",
+      "D": "a step to enumerate the services in the system"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Exploitation takes the theoretical vulnerabilities found during the scanning phase and weaponizes them. By successfully executing an exploit, the pentester proves the concrete, practical feasibility of the attack and its potential impact."
+  },
+  {
+    "id": 13,
+    "question": "Which of the following is NOT a valid IPv6 address?",
+    "options": {
+      "A": "2001: DB8::1234::5678",
+      "B": "2001:DB8:1000::1",
+      "C": "FE80:: EE97:F7C5:F035:20C2",
+      "D": "FF02::1:FF00:0001"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The rules for compressing an IPv6 address strictly dictate that the double-colon '::' (representing contiguous blocks of zeros) can only be used exactly ONCE per address to prevent ambiguity. Option A uses it twice, making it invalid."
+  },
+  {
+    "id": 14,
+    "question": "Which of the following requires the users to proper setup its client software?",
+    "options": {
+      "A": "Forward proxy",
+      "B": "All the types of proxies",
+      "C": "Reverse proxy",
+      "D": "Transparent proxy"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A traditional Forward Proxy requires the user to manually enter the proxy's IP address and port into their browser or operating system's network settings. In contrast, Transparent proxies intercept traffic natively at the router level without the client's knowledge or configuration."
+  },
+  {
+    "id": 15,
+    "question": "In a IDS, a packet related to a known attack not raising an alarm is",
+    "options": {
+      "A": "a false negative",
+      "B": "a true negative",
+      "C": "a true positive",
+      "D": "a false positive"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "When an IDS fails to detect a genuine attack and remains silent (negative alert state), it is incorrectly categorizing malicious traffic as benign. This critical failure is defined as a False Negative."
+  }
+]

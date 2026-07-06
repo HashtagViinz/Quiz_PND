@@ -1,0 +1,297 @@
+[
+  {
+    "id": 1,
+    "question": "During a TLS-based VPN establishment, which kind of negotiations happen between the two communicating endpoints?",
+    "options": {
+      "A": "Hash function selection for integrity and authentication.",
+      "B": "Symmetric key length.",
+      "C": "Type of signature included in the digital certificates.",
+      "D": "Public key length for the digital certificates."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "During the TLS handshake (Cipher Suite negotiation), the endpoints agree on the cryptographic algorithms to use for the session, which includes selecting the symmetric encryption cipher and its key length (e.g., AES-256), as well as the HMAC hash function for data integrity (e.g., SHA-384). The certificate parameters (C, D) are statically fixed when the certificates are issued by the CA, not dynamically negotiated."
+  },
+  {
+    "id": 2,
+    "question": "Which statement is FALSE about NAT?",
+    "options": {
+      "A": "It is used together with RFC 1918 addresses to mitigate the shortage of IPv4 addresses.",
+      "B": "It does not impact in any way the services internal client can access.",
+      "C": "It hides the internal addresses assigned to the hosts.",
+      "D": "It protects the internal network from malware infections."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "NAT modifies IP headers, which routinely breaks applications that embed IP addresses inside their payloads (like SIP or active FTP) and peer-to-peer protocols, heavily impacting accessible services (making B false). Furthermore, NAT is purely a routing and address translation mechanism; it does not scan payloads and provides zero active protection against malware infections (making D false)."
+  },
+  {
+    "id": 3,
+    "question": "Considering iptables, which is the first chain traversed by packets going into the NAT table?",
+    "options": {
+      "A": "INPUT",
+      "B": "FORWARD",
+      "C": "POSTROUTING",
+      "D": "PREROUTING"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "When a packet first arrives at a network interface, before any routing decision is made regarding whether it is destined for the local machine (INPUT) or another network (FORWARD), it hits the PREROUTING chain. This is where Destination NAT (DNAT) is evaluated."
+  },
+  {
+    "id": 4,
+    "question": "Which command can be used to check the associations MAC-IP known by a host running Linux?",
+    "options": {
+      "A": "rarp",
+      "B": "ip n",
+      "C": "ip 1",
+      "D": "route"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The command 'ip n' is shorthand for 'ip neigh' (neighbor) within the modern iproute2 suite. It is the standard method used in modern Linux to display and manipulate the ARP cache, which maps Layer 3 IP addresses to Layer 2 MAC addresses."
+  },
+  {
+    "id": 5,
+    "question": "During a penetration testing activity, which of the following can be considered a non-intrusive target search (intelligence gathering)?",
+    "options": {
+      "A": "A system enumeration.",
+      "B": "A vulnerability scan.",
+      "C": "A research in the Way Back Machine (www.archive.org)",
+      "D": "A whois query."
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Non-intrusive target search (Passive Reconnaissance) relies on open-source intelligence (OSINT) without sending direct traffic to the target's infrastructure. Querying public WHOIS databases (D) or viewing cached pages on the Wayback Machine (C) are passive. System enumeration and vulnerability scanning send direct active packets, making them intrusive."
+  },
+  {
+    "id": 6,
+    "question": "In Internet, packets...",
+    "options": {
+      "A": "can arrive out of order",
+      "B": "can arrive at different times",
+      "C": "are always forwarded using the cheapest path",
+      "D": "are forwarded looking at the destination address"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "The Internet is a dynamic packet-switched network. Packets are forwarded independently by routers examining the Layer 3 Destination IP Address (D). Because paths can dynamically change, packets belonging to the same stream can take different routes, resulting in variable delays (B) and out-of-order arrival (A). They do not strictly use the 'cheapest' path, as metrics include bandwidth, hops, and administrative policies."
+  },
+  {
+    "id": 7,
+    "question": "Fail2ban can be considered...",
+    "options": {
+      "A": "... a IPS.",
+      "B": "... a HIDS.",
+      "C": "... a NIDS.",
+      "D": "... a IDS."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Fail2ban operates by parsing local application log files to detect malicious behavior like brute-force attacks, acting as a Host-based Intrusion Detection System (HIDS). Because it proactively updates firewall rules to block the detected malicious IPs, it also functions as an Intrusion Prevention System (IPS)."
+  },
+  {
+    "id": 8,
+    "question": "Which of the following are the main purposes of an Intrusion Detection System?",
+    "options": {
+      "A": "Notifying (alert) security administrators of important observed events.",
+      "B": "Storing the logs of the systems that have to be protected.",
+      "C": "Producing active responses to suspicious activity.",
+      "D": "Detecting the presence of intruders before serious damage is done."
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "An IDS is a passive monitoring tool designed to rapidly detect the presence of intruders (D) and immediately alert security administrators (A). Active responses (C) are the domain of an IPS, while centralized log storage (B) is handled by a SIEM."
+  },
+  {
+    "id": 9,
+    "question": "Considering the figure below, PC B sends a TCP SYN packet to PC A. Which destination MAC address will PC B use in the Ethernet frame of the TCP SYN packet?",
+    "options": {
+      "A": "Router C MAC address ending with AA.",
+      "B": "None, since TCP is at layer transport of the TCP/IP stack.",
+      "C": "PC A MAC address.",
+      "D": "Router C MAC address ending with BB."
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "At Layer 2 (Data Link), MAC addresses are strictly locally significant. Because PC B and PC A are on different subnets separated by Router C, PC B must send its Ethernet frame to its local Default Gateway to be routed. Therefore, it uses the MAC address of Router C's interface connected to lanB (ending in BB)."
+  },
+  {
+    "id": 10,
+    "question": "According to the OSSTMM standard, which are the two dimensions that can help to describe the different types of security tests an organization can perform?",
+    "options": {
+      "A": "Cost and analyst knowledge of the system.",
+      "B": "Cost and personnel required.",
+      "C": "Cost and time.",
+      "D": "Cost and level of automation."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The OSSTMM (Open Source Security Testing Methodology Manual) recognizes that practical security assessments are highly dependent on project management variables. Cost and Time are the fundamental bounding dimensions that dictate the depth, scope, and ultimate methodology applied to a security test."
+  },
+  {
+    "id": 11,
+    "question": "Which types of addresses are used during an IPv6 neighbor discovery exchange sequence initiated by a host before sending an IP packet?",
+    "options": {
+      "A": "A destination MAC broadcast address.",
+      "B": "A link-local unicast IP address.",
+      "C": "A destination MAC multicast address.",
+      "D": "A link-local multicast IP address."
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In the IPv6 Neighbor Discovery Protocol (NDP), the requesting host sources the Neighbor Solicitation from its own Link-Local Unicast IP address (B). Because IPv6 eliminated broadcast, the packet is encapsulated at Layer 2 into a targeted destination MAC multicast address (specifically the solicited-node multicast MAC) (C)."
+  },
+  {
+    "id": 12,
+    "question": "What is true about IPsec?",
+    "options": {
+      "A": "SAs can be defined only using the IKE protocol.",
+      "B": "SPs can specify different security properties, for different types of traffic between the same two endpoints.",
+      "C": "SPs can be defined only using the IKE protocol.",
+      "D": "Multiple SAs can be defined between the same two endpoints."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Security Policies (SPs) define how specific traffic is treated. You can create different SPs for different traffic flows (e.g., encrypt HTTP, but drop Telnet) between the exact same endpoints (B). Consequently, multiple Security Associations (SAs) are created between those same endpoints to handle the distinct encrypted flows required by the SPs (D)."
+  },
+  {
+    "id": 13,
+    "question": "What does Wireshark do differently from tcpdump?",
+    "options": {
+      "A": "It can capture packets and analyze them.",
+      "B": "It has a graphical interface.",
+      "C": "It can write packet captures to a file.",
+      "D": "It understands more application-level protocols."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Both tools capture and save packets (pcap). However, Wireshark is built around a comprehensive Graphical User Interface (GUI) (B) and features an immense library of protocol dissectors, allowing it to deeply parse and understand complex Application-level protocols that tcpdump displays as raw hex (D)."
+  },
+  {
+    "id": 14,
+    "question": "Log normalization is one of the steps performed by a SIEM before storing logs received by the hosts in the monitored network. Why this step is considered crucial?",
+    "options": {
+      "A": "The data must be decrypted before they can be stored in the log server.",
+      "B": "Abnormal logs create difficulties during the analysis phase.",
+      "C": "Logs formatted in a uniformed way are easier to store and analyze.",
+      "D": "Log normalization helps to detect potential attacks."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "A SIEM ingests logs from dozens of different vendors (firewalls, Windows, Linux, routers), all using disparate, proprietary log formats. Normalization parses these raw logs and translates them into a single, uniformed standard schema, which is strictly required for efficient database storage and centralized cross-correlation analysis (C)."
+  },
+  {
+    "id": 15,
+    "question": "Which of the following iptables commands allow a DNS requests coming from $WAN interface to reach the $DNSServer, provided that the default policy of the FORWARD cahin is DROP?",
+    "options": {
+      "A": "iptables -A FORWARD -i $WAN -d $DNSServer -j ACCEPT",
+      "B": "iptables -A FORWARD -i $WAN -p udp --dport 53 -j ACCEPT",
+      "C": "iptables -A FORWARD -p udp -j ACCEPT",
+      "D": "iptables -A FORWARD -p dns -j ACCEPT"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "With a default DROP policy, explicit ACCEPT rules are required. Option A accepts all traffic from the WAN destined to the DNS server. Option B accepts all UDP port 53 (DNS) traffic entering from the WAN. Option C broadly accepts all UDP traffic anywhere. All three successfully permit the UDP-based DNS request to pass."
+  },
+  {
+    "id": 16,
+    "question": "What is the main purpose of the TLS extension with the acronym SNI?",
+    "options": {
+      "A": "To help a reverse proxy in providing the right certificate to a client.",
+      "B": "To help a forward proxy in providing the right certificate to a client.",
+      "C": "To help the client in reaching the most suitable server.",
+      "D": "To make the client sending the requested hostname before the TLS establishes the encrypted channel."
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Server Name Indication (SNI) modifies the TLS handshake so the client transmits the target hostname in plaintext during the initial ClientHello phase, before the encrypted tunnel forms (D). This specifically allows a single web server or reverse proxy hosting multiple HTTPS domains on one IP address to serve the correct digital certificate (A)."
+  },
+  {
+    "id": 17,
+    "question": "What is true about a TLS-based VPN?",
+    "options": {
+      "A": "It can not implement site-to-site VPN.",
+      "B": "It can be considered as an encrypted tunnel.",
+      "C": "It can guarantee confidentiality, but not integrity.",
+      "D": "It does not provide mutual authentication."
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "A TLS-based VPN fundamentally works by encapsulating entire IP packets within a secure TLS session, creating an 'encrypted tunnel' across untrusted networks (B). It fully supports site-to-site deployments (like OpenVPN), guarantees both confidentiality and integrity, and supports strong mutual authentication via certificates."
+  },
+  {
+    "id": 18,
+    "question": "What is the main characteristic of a Transparent Proxy?",
+    "options": {
+      "A": "It handles the encrypted traffic using the ICAP protocol.",
+      "B": "It does not modify the traffic sent by the clients.",
+      "C": "It does not requires the clients to be aware of its existence.",
+      "D": "It can handle encrypted traffic without the clients being notified."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "Unlike standard proxies that require manual configuration in the client's OS or browser settings, an inline Transparent Proxy intercepts traffic seamlessly at the network layer. The clients simply send traffic normally to their default gateway and remain completely unaware that their traffic is being proxied (C)."
+  },
+  {
+    "id": 19,
+    "question": "Which of the following peap filter expressions generates a syntax error?",
+    "options": {
+      "A": "tcp or not udp",
+      "B": "ip and proto tcp and port 53",
+      "C": "ip or not ip",
+      "D": "ipv6 and port 53"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "In standard BPF (Berkeley Packet Filter) syntax, 'proto tcp' is structurally invalid; it must be either 'tcp' or 'ip proto \\tcp' (making B an error). Additionally, older strict BPF parsers fail on 'ipv6 and port 53' because the 'port' macro is traditionally optimized for IPv4, requiring explicit structures like 'tcp6 port 53' (making D an error)."
+  },
+  {
+    "id": 20,
+    "question": "Which of the following is not a valid IPv6 GUA?",
+    "options": {
+      "A": "3FF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF",
+      "B": "2001:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF",
+      "C": "201:4B0:2400:ABAB::2",
+      "D": "2000::2000"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Global Unicast Addresses (GUAs) are assigned from the IANA block 2000::/3. This strict prefix encompasses all IPv6 addresses starting with the binary bits 001, defining the hex range from 2000:: up to 3FFF::. Address A starts with 03FF (outside the range), and Address C starts with 0201 (outside the range), making them invalid GUAs."
+  }
+]

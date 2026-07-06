@@ -1,0 +1,291 @@
+[
+  {
+    "id": 1,
+    "question": "In a IDS, a packet related to a known attack not raising an alarm is",
+    "options": {
+      "A": "a false negative",
+      "B": "a false positive",
+      "C": "a true negative",
+      "D": "a true positive"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A false negative occurs when a security system fails to detect and alert on an actual, real threat, allowing the malicious attack to slip through unnoticed."
+  },
+  {
+    "id": 2,
+    "question": "Which of the following is NOT an IDS?",
+    "options": {
+      "A": "suricata",
+      "B": "burp",
+      "C": "fail2ban",
+      "D": "snort"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Burp Suite is a web vulnerability scanner and interception proxy, not a Network or Host Intrusion Detection System like Snort, Suricata, or Fail2ban."
+  },
+  {
+    "id": 3,
+    "question": "You have a firewall configured with the following iptables commands:\niptables -A INPUT -s $ADMIN_CONSOLE_IP -p tcp --dport 22 -j DROP\niptables -A FORWARD -i $INTERN_IFACE -p udp --dport 53 -j ACCEPT\niptables -A FORWARD -i $INTERN_IFACE -p udp -m state --state ESTABLISHED -j ACCEPT\niptables -P FORWARD DROP\niptables -A FORWARD -d $DMZ_PROXY -p tcp --dport 443 -j ACCEPT\niptables -A FORWARD -s $DMZ_PROXY -p tcp -m state --state ESTABLISHED, RELATED -j ACCEPT\nWhich of the following packets will pass the set of rules?",
+    "options": {
+      "A": "a DNS query from $INTERNAL_HOST to 8.8.8.8",
+      "B": "a ping from $ADMIN_CONSOLE_IP to $EXTERNAL_FW_IP",
+      "C": "an ssh connection from $ADMIN_CONSOLE_IP to $INTERNAL_HOST",
+      "D": "an HTTPS GET request from $INTERNAL_HOST to $WEB_SERVER_IP",
+      "E": "a ping from $ADMIN_CONSOLE_IP to $INTERNAL_HOST",
+      "F": "an ssh connection from $ADMIN_CONSOLE_IP to $EXTERNAL_FW_IP"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The rule 'iptables -A FORWARD -i $INTERN_IFACE -p udp --dport 53 -j ACCEPT' explicitly allows UDP traffic on port 53 (DNS) originating from the internal interface."
+  },
+  {
+    "id": 4,
+    "question": "Which of the following IPv4 addresses belonging to the network 172.16.128.0/19 (namely with subnet 255.255.224.0)?",
+    "options": {
+      "A": "172.16.240.12",
+      "B": "172.16.138.255",
+      "C": "172.16.158.13",
+      "D": "172.16.224.1"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A /19 subnet mask (255.255.224.0) gives a block size of 32 in the third octet. The network 172.16.128.0/19 ranges from 172.16.128.0 to 172.16.159.255."
+  },
+  {
+    "id": 5,
+    "question": "Which of the following is not a possible state of a TCP connection?",
+    "options": {
+      "A": "Fin-wait",
+      "B": "Related",
+      "C": "Closed",
+      "D": "Syn-received"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "'RELATED' is a connection tracking state used by firewalls (like Netfilter/iptables) to track associated traffic (like FTP data channels), not an actual state in the TCP protocol state machine."
+  },
+  {
+    "id": 6,
+    "question": "Which statements about subnet masks are true?",
+    "options": {
+      "A": "Every client on a network shares the same subnet mask",
+      "B": "A subnet masks consists of a string of zeroes and ones",
+      "C": "Every network client has a unique subnet mask",
+      "D": "A subnet masks consists of a string of ones followed by a string of zeroes"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "A valid subnet mask must consist of contiguous 1s followed by contiguous 0s. Devices in the same broadcast domain must share the identical subnet mask to communicate properly."
+  },
+  {
+    "id": 7,
+    "question": "Which type of proxy is generally employed for purposes like load balancing or application level control?",
+    "options": {
+      "A": "Forward proxies",
+      "B": "Reverse proxies",
+      "C": "Transparent proxies",
+      "D": "SOCKS proxies"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Reverse proxies sit in front of backend servers and distribute incoming client requests, providing load balancing, TLS offloading, and centralized application control."
+  },
+  {
+    "id": 8,
+    "question": "Which of the following requires the users to proper setup its client software?",
+    "options": {
+      "A": "Forward proxy",
+      "B": "All the types of proxies",
+      "C": "Reverse proxy",
+      "D": "Transparent proxy"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Traditional forward proxies require manual configuration in the client OS or browser settings, unlike transparent proxies which intercept traffic automatically without client awareness."
+  },
+  {
+    "id": 9,
+    "question": "What is the aim of a SSL forward proxy?",
+    "options": {
+      "A": "To block application input/output from detected intrusions or malformed communication, or block content that violates policies",
+      "B": "To receive the requests from the Internet as if it were the server and then forward to the actual server",
+      "C": "To provide access to the Web for hosts on closed subnets who can only access the Internet through a firewall machine",
+      "D": "To decrypt and inspect SSL/TLS traffic from internal users to the Internet"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "An SSL forward proxy (using techniques like SSL bumping) intercepts and decrypts outbound TLS traffic from internal users to inspect payloads for security policies before re-encrypting it."
+  },
+  {
+    "id": 10,
+    "question": "Mark the IPv6 multicast addresses:",
+    "options": {
+      "A": "FF02::1",
+      "B": "FE80::1",
+      "C": "FF18::CAFE:1234",
+      "D": "FE80::FE99:47FF:FE75:C3E0"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "All IPv6 multicast addresses start with the prefix FF (1111 1111). Addresses starting with FE80 are Link-Local Unicast addresses."
+  },
+  {
+    "id": 11,
+    "question": "Which type of addresses are generally involved in IPv6 to realize the Router Advertisement mechanism?",
+    "options": {
+      "A": "GUA",
+      "B": "Multicast link-local",
+      "C": "Broadcast link-local",
+      "D": "Unicast link-local"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Router Advertisements are typically sourced from the router's Unicast Link-Local address (FE80::) and sent to the All-Nodes Multicast Link-Local address (FF02::1)."
+  },
+  {
+    "id": 12,
+    "question": "What is the destination address of a ICMPv6 Router Solicitation?",
+    "options": {
+      "A": "FF02::2",
+      "B": "FE80::1",
+      "C": "FF11::1",
+      "D": "FF02::1"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "When a host wants to find local routers, it sends a Router Solicitation to the well-known All-Routers multicast address, which is FF02::2."
+  },
+  {
+    "id": 13,
+    "question": "Which iptables chain is found by default in the FILTER table?",
+    "options": {
+      "A": "POSTROUTING",
+      "B": "FORWARD",
+      "C": "OUTPUT",
+      "D": "PREROUTING"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "The 'filter' table is responsible for packet access control and contains exactly three built-in chains: INPUT, FORWARD, and OUTPUT."
+  },
+  {
+    "id": 14,
+    "question": "What is a firewall condition in which any traffic not specifically permitted by a previous rule in the rule set is denied?",
+    "options": {
+      "A": "Packet filtering",
+      "B": "Implicit deny",
+      "C": "Explicit deny",
+      "D": "Flood guarding"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "'Implicit Deny' (or default drop) ensures that if a packet does not match any explicit 'ACCEPT' rule in the firewall policy, it is automatically dropped by default."
+  },
+  {
+    "id": 15,
+    "question": "What is the purpose ose of the following iptables command? iptables -L -n -v",
+    "options": {
+      "A": "To erase all the rules in the filter table",
+      "B": "To display all the rules in the filter table",
+      "C": "To erase all the rules in all the tables",
+      "D": "To display all the rules in all the tables"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The '-L' flag lists the rules. Without specifying a table, it defaults to the 'filter' table. '-n' disables DNS resolution, and '-v' adds verbose output including packet counters."
+  },
+  {
+    "id": 16,
+    "question": "If you want to configure a firewall so that the hosts within the internal network can only browse the Internet over HTTPS and ping external hosts, which of the following rules are likely to be required, among others?",
+    "options": {
+      "A": "only allow ICMP echo-requests from to the internal network to the Internet, and ICMP echo-replies directed to the internal network",
+      "B": "allow all ICMP traffic",
+      "C": "accept the TCP packets with source port 80 starting from the internal network",
+      "D": "accept the TCP packets with destination port 443 directed to the internal network, that are part of an established connection"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "To safely allow 'pinging external hosts', the firewall must explicitly permit outbound ICMP echo-requests and inbound ICMP echo-replies. Blanket allowing all ICMP is poor practice."
+  },
+  {
+    "id": 17,
+    "question": "Which statements about VPNs are true?",
+    "options": {
+      "A": "VPN based on IPSec operate at transport level",
+      "B": "VPN based on TLS operate at transport level",
+      "C": "VPN based on IPSec operate at application level",
+      "D": "VPN based on IPSec operate at network level"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "IPSec is implemented directly over the IP protocol, making it operate at the Network Layer (Layer 3). TLS runs over TCP, operating at the Transport Layer (Layer 4)."
+  },
+  {
+    "id": 18,
+    "question": "What is true about openvpn?",
+    "options": {
+      "A": "It can only use pre-shared keys",
+      "B": "It can use both symmetric and asymmetric cryptography",
+      "C": "It can use both the transport mode and the tunnel mode",
+      "D": "It is based on the IPSec protocol"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "OpenVPN uses TLS, which relies on asymmetric cryptography for the initial handshake and authentication, and symmetric cryptography for bulk data encryption in the tunnel."
+  },
+  {
+    "id": 19,
+    "question": "If < is the relation \"happens before than\", mark the right statements:",
+    "options": {
+      "A": "Non-intrusive target search < Data analysis < Reporting",
+      "B": "Planning < Intrusive target search < Reporting",
+      "C": "Data analysis < Threat modeling and Exploitation < Intrusive target search",
+      "D": "Planning < Data analysis < Intrusive target search"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "In penetration testing, planning always comes first, followed by discovery (non-intrusive then intrusive searches), data analysis/exploitation, and finally reporting."
+  },
+  {
+    "id": 20,
+    "question": "Which of the following is a typical service of a SIEM?",
+    "options": {
+      "A": "Reconnaissance",
+      "B": "Vulnerability scanning",
+      "C": "Network Address Translation",
+      "D": "Event correlation"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "A SIEM (Security Information and Event Management) system collects logs from various sources to perform event correlation and detect complex attack patterns."
+  }
+]
