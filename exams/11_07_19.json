@@ -1,0 +1,296 @@
+[
+  {
+    "id": 1,
+    "question": "What is true when considering an SSL-tunnel-based site-to-site VPN?",
+    "options": {
+      "A": "The security parameters of the tunnel can be negotiated by the internal hosts of the sites.",
+      "B": "It is by far more efficient than an IPSec-tunnel-based site-to-site VPN.",
+      "C": "The IP addresses of the two endpoints of the SSL tunnel are likely to be eavesdropped.",
+      "D": "All the IP addresses of the tunneled traffic are likely to be eavesdropped."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "In a site-to-site VPN over the public internet, the outer IP headers containing the public IPs of the two VPN gateways (endpoints) must remain unencrypted to route the packets. Therefore, these endpoint addresses can be eavesdropped, even though the internal tunneled traffic is fully encrypted."
+  },
+  {
+    "id": 2,
+    "question": "If a user wants to hide its source IP address, which of the following tools could she use?",
+    "options": {
+      "A": "A forward proxy",
+      "B": "A transparent proxy",
+      "C": "A SOCKS proxy",
+      "D": "A reverse proxy"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Both Forward proxies and SOCKS proxies act on behalf of the client. When making outbound requests to the internet, the proxy substitutes the client's source IP address with its own, effectively hiding the client's identity from the destination server."
+  },
+  {
+    "id": 3,
+    "question": "What actually the following filter does? ip and not net 10.0.0.0",
+    "options": {
+      "A": "It only matches IPv4 packets that are not sent to the 10.0.0.0 network",
+      "B": "It is syntactically wrong",
+      "C": "It only matches IPv4 packets with an IP address not in the 10.0.0.0 network",
+      "D": "It only matches IP addresses that does not belong to the 10.0.0.0 network"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "In BPF (Berkeley Packet Filter) syntax, 'ip' isolates IPv4 traffic, and 'not net 10.0.0.0' excludes any packets that have either a source or destination IP within the 10.0.0.0/8 (or specified) subnet mask block."
+  },
+  {
+    "id": 4,
+    "question": "Which function is not expected from RADIUS?",
+    "options": {
+      "A": "Assignment",
+      "B": "Authorization",
+      "C": "Accounting",
+      "D": "Authentication"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "RADIUS stands for Remote Authentication Dial-In User Service. It explicitly implements the AAA framework: Authentication (verifying identity), Authorization (granting access rights), and Accounting (tracking usage). 'Assignment' is not a RADIUS function."
+  },
+  {
+    "id": 5,
+    "question": "To inspect HTTPS traffic before reaching your servers, you can use:",
+    "options": {
+      "A": "SOCKS",
+      "B": "Modsecurity",
+      "C": "HTTP CONNECT",
+      "D": "SSL bump"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "To inspect encrypted HTTPS traffic, you need mechanisms that terminate or intercept the TLS session. Modsecurity (a Web Application Firewall) can inspect traffic after TLS termination. SSL bump is a proxy feature that dynamically decrypts and re-encrypts traffic for deep packet inspection."
+  },
+  {
+    "id": 6,
+    "question": "If > denotes the relation \"has higher priority\", mark the correct relations about the iptables chains:",
+    "options": {
+      "A": "RAW > MANGLE > FILTER",
+      "B": "NAT > FILTER > RAW",
+      "C": "MANGLE > NAT > FILTER",
+      "D": "NAT > MANGLE > FILTER"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "In the Netfilter architecture, packets flow through tables in a specific priority order. The 'raw' table is always processed first (for connection tracking bypass), followed by 'mangle' (for QoS modifications), then 'nat' (for routing translations), and finally 'filter' (to accept or drop)."
+  },
+  {
+    "id": 7,
+    "question": "Which type of events are likely to be found in a SIEM log?",
+    "options": {
+      "A": "Every firewall rule match",
+      "B": "Every operating system patch installed by critical systems",
+      "C": "Every alert raised by IDS/IPS",
+      "D": "User log-in attempts in critical systems"
+    },
+    "correct_answers": [
+      "B",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "A SIEM aggregates significant security and operational logs to detect anomalies. This includes patch management events on endpoints, alerts from NIDS/HIDS, and authentication logs (logins). Logging 'every single firewall rule match' is generally avoided to prevent overwhelming the SIEM with 'noise'."
+  },
+  {
+    "id": 8,
+    "question": "The Header Checksum in IPv6",
+    "options": {
+      "A": "has been removed",
+      "B": "has been taken of a similar length than IPv4 (16 bits)",
+      "C": "has been provided extra bits (32 bits)",
+      "D": "has been moved in an extension header"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "To improve routing efficiency and reduce processing overhead, the designers of IPv6 completely removed the Header Checksum field. Integrity checking is left entirely to Layer 2 (Ethernet FCS) and Layer 4 (TCP/UDP checksums)."
+  },
+  {
+    "id": 9,
+    "question": "A typical firewall has the following interfaces:",
+    "options": {
+      "A": "monitor",
+      "B": "inside",
+      "C": "partner",
+      "D": "DMZ"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Standard enterprise firewalls delineate trust zones using specific interfaces. The 'inside' interface connects to the highly trusted internal LAN, and the 'DMZ' (Demilitarized Zone) interface connects to a semi-trusted network hosting public-facing services. 'Monitor' and 'partner' are not standard default architectural interfaces."
+  },
+  {
+    "id": 10,
+    "question": "Which statements about subnet masks are true?",
+    "options": {
+      "A": "A subnet masks consists of a string of zeroes and ones",
+      "B": "Every network client has a unique subnet mask",
+      "C": "A subnet masks consists of a string of ones followed by a string of zeroes",
+      "D": "Every client on a network shares the same subnet mask"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "A valid subnet mask must be a contiguous block of binary 1s (representing the network portion) followed by contiguous 0s (representing the host portion). Furthermore, for hosts in the same local subnet to communicate directly, they must share the exact same subnet mask."
+  },
+  {
+    "id": 11,
+    "question": "Which of the following iptables targets are used to configure the destination NAT?",
+    "options": {
+      "A": "SNAT",
+      "B": "DNAT",
+      "C": "MASQUERADING",
+      "D": "MASQUERADE"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Destination NAT is explicitly configured using the 'DNAT' target in iptables (within the PREROUTING chain of the nat table). SNAT and MASQUERADE are used strictly for Source NAT operations."
+  },
+  {
+    "id": 12,
+    "question": "LDAP is not well suited for",
+    "options": {
+      "A": "Information that is read more often than it is written",
+      "B": "Information that is unstructured",
+      "C": "Information that needs to be accessed from more than one location",
+      "D": "Information that is referenced by many entities and applications"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "LDAP (Lightweight Directory Access Protocol) is an optimized, hierarchical directory service. It excels at fast read operations for highly structured data across distributed networks. It performs very poorly when storing or querying unstructured information (like raw text blobs or multimedia)."
+  },
+  {
+    "id": 13,
+    "question": "What is true about vulnerabiliy scanners?",
+    "options": {
+      "A": "They can be used to find unknown buffer overflow vulnerabilities in applications",
+      "B": "They can be used to find unknown bugs in applications",
+      "C": "They are used to verify if a system has patched some application",
+      "D": "They can be used to check if a system has users with default logins"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Vulnerability scanners operate by comparing system fingerprints against databases of *known* vulnerabilities (CVEs). They are excellent for verifying patch status (C) and identifying common misconfigurations like default credentials (D). They do not generally discover *unknown* (zero-day) bugs or overflows; that requires dynamic fuzzing or static code analysis."
+  },
+  {
+    "id": 14,
+    "question": "Which of the following are tools that are not well suited to be used in an IDS for comparing the traffic features against a normal behavior?",
+    "options": {
+      "A": "Neural networks",
+      "B": "Hamming distance",
+      "C": "Markov models",
+      "D": "Signatures"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Comparing traffic against 'normal behavior' defines Anomaly/Behavioral-based detection, which leverages machine learning (Neural Networks, Markov models) or statistical variance (Hamming distance). 'Signatures' compare traffic against known malicious patterns, not normal baselines."
+  },
+  {
+    "id": 15,
+    "question": "Mark the invalid wireshark display filters:",
+    "options": {
+      "A": "eth.addr! 00:01:02:03:04:05",
+      "B": "protocol ftp",
+      "C": "ip.host == error",
+      "D": "ip.address eq 10.0.0.2"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "In Wireshark display filter syntax, you filter protocols simply by typing their name (e.g., 'ftp', not 'protocol ftp'). To filter IP addresses, the correct keyword is 'ip.addr', making 'ip.address eq 10.0.0.2' invalid syntax."
+  },
+  {
+    "id": 16,
+    "question": "Which of the following network traffic elements is not well suited to be used as a feature for an IDS?",
+    "options": {
+      "A": "Domain names of involved hosts",
+      "B": "% of connections to same host with SYN errors",
+      "C": "Connection lifetimes",
+      "D": "Illegal fragments"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Traditional NIDS engines operate optimally at Network and Transport layers (checking connection rates, TCP flags like SYN errors, fragmentation). Domain names reside in the Application layer (DNS/HTTP), requiring computationally expensive Deep Packet Inspection (DPI) which is not suited as a rapid primary feature metric."
+  },
+  {
+    "id": 17,
+    "question": "Which of the following IPv6 addresses is NOT a Link-Local multicast address?",
+    "options": {
+      "A": "FF02::1",
+      "B": "FF18::BABA:1234",
+      "C": "FF05::1:3",
+      "D": "FF12::BABA:1234"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "IPv6 multicast addresses start with FF. The fourth character determines the scope: '2' means Link-Local (FF02, FF12). Therefore, '8' (FF18 - Organization-Local scope) and '5' (FF05 - Site-Local scope) are NOT Link-Local multicast addresses."
+  },
+  {
+    "id": 18,
+    "question": "Which of the following IP addresses can be assigned to a host within the network 12.34.48.1/20?",
+    "options": {
+      "A": "12.34.48.255",
+      "B": "12.34.48.0",
+      "C": "12.34.56.0",
+      "D": "12.34.63.254"
+    },
+    "correct_answers": [
+      "A",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "A /20 subnet mask translates to 255.255.240.0. The network range spans from 12.34.48.0 (Network ID, Option B) to 12.34.63.255 (Broadcast). Any IP between these two bounds can be assigned to a host, including .48.255, .56.0, and .63.254."
+  },
+  {
+    "id": 19,
+    "question": "What is false about the openvpn tool?",
+    "options": {
+      "A": "It cannot be used for a host-to-site VPN",
+      "B": "It cannot be used to establish a VPN without a valid certificate",
+      "C": "It is used to establish a IPSec VPN",
+      "D": "It can be used to establish a VPN on any reachable port"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "OpenVPN is a highly flexible custom VPN protocol based on SSL/TLS, NOT IPSec (making C false). It actively supports 'road-warrior' (host-to-site) topologies (making A false) and can be configured with static pre-shared keys instead of full X.509 certificates (making B false)."
+  },
+  {
+    "id": 20,
+    "question": "What is the decision for a HTTPS GET request on the standard port when thee firewall that protects the webserver has the following set of rules?\niptables -A INPUT -p tcp --destination-port 80 -j ACCEPT\niptables -A INPUT -p tcp --destination-port 443 -j ACCEPT\niptables -A INPUT -j REJECT",
+    "options": {
+      "A": "HTTP 200 OK if the requested resource is available, HTTP 404 ERROR otherwise",
+      "B": "It depends on the source IP address",
+      "C": "No connection will be possible",
+      "D": "The request will be dropped and a ICMP PORT UNREACHABLE will be sent back"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The standard port for HTTPS is TCP 443. The second iptables rule explicitly intercepts and ACCEPTs traffic destined for port 443, meaning the traffic successfully passes the firewall to the webserver. The webserver then handles the GET request normally (returning 200 or 404 based on the resource)."
+  }
+]

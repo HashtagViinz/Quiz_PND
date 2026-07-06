@@ -1,0 +1,295 @@
+[
+    {
+        "id": 1,
+        "question": "In iptables:",
+        "options": {
+            "A": "MANGLE is a possible target",
+            "B": "MASQUERADE is a possible target",
+            "C": "DNAT is a possible target",
+            "D": "another chain is a possible target"
+        },
+        "correct_answers": [
+            "B",
+            "C",
+            "D"
+        ],
+        "ai_analyzing": "In iptables, MASQUERADE and DNAT are valid jump targets used within the 'nat' table. Additionally, jumping to another user-defined chain is a valid target operation. MANGLE is a table name, not a target."
+    },
+    {
+        "id": 2,
+        "question": "Which of the following protocol/port-number associations are correct?",
+        "options": {
+            "A": "LDAP/389",
+            "B": "RADIUS/1812",
+            "C": "TLS/445",
+            "D": "ICMP/501"
+        },
+        "correct_answers": [
+            "A",
+            "B"
+        ],
+        "ai_analyzing": "LDAP standardly operates on TCP/UDP port 389, and RADIUS authentication standardly uses UDP port 1812. TLS does not have a dedicated port 445 (that is SMB), and ICMP is a Network Layer (Layer 3) protocol that does not use ports at all."
+    },
+    {
+        "id": 3,
+        "question": "Which statement is false when considering iptables:",
+        "options": {
+            "A": "the PREROUTING chain is used to perform NAT",
+            "B": "the POSTROUTING chain is used to perform NAT",
+            "C": "the INPUT chain is used to perform filtering",
+            "D": "the OUTPUT chain is used to perform NAT"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "While the OUTPUT chain can technically be used for NAT on locally generated packets, in traditional network firewall architectures, NAT is fundamentally performed in PREROUTING (DNAT) and POSTROUTING (SNAT/MASQUERADE). The context of standard routing makes D the generally accepted 'false' or least applicable statement."
+    },
+    {
+        "id": 4,
+        "question": "Heartbleed is...",
+        "options": {
+            "A": "A mechanism to keep a TLS connection alive",
+            "B": "A mechanism to establish a TLS connection",
+            "C": "A bug in the TLS connection establishement",
+            "D": "An bug in an old implementation of TLS"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "Heartbleed was a critical security bug (CVE-2014-0160) specifically found in the OpenSSL cryptography library, which is a widely used implementation of the TLS protocol. It allowed attackers to read the memory of the systems protected by the vulnerable versions."
+    },
+    {
+        "id": 5,
+        "question": "Which of the following steps do not occur during the establishment of a HTTPS connection?",
+        "options": {
+            "A": "The server send to the client the shared key that they will use to encrypt the communication.",
+            "B": "The client sends to the server the shared key that they will use to encrypt the communication.",
+            "C": "The client receives from the server a certificate with its public key.",
+            "D": "Server and client generate the shared key that they will use to encrypt the communication."
+        },
+        "correct_answers": [
+            "A",
+            "B"
+        ],
+        "ai_analyzing": "During a TLS handshake, the actual symmetric shared key is NEVER transmitted across the network in plaintext. Instead, the client sends an encrypted 'pre-master secret', or both parties use Diffie-Hellman parameters to mathematically generate the shared key independently (Option D)."
+    },
+    {
+        "id": 6,
+        "question": "Which of the following fields is not mentioned in the standard format of RADIUS packets?",
+        "options": {
+            "A": "BindRequest",
+            "B": "AddRequest",
+            "C": "Code",
+            "D": "Length"
+        },
+        "correct_answers": [
+            "A",
+            "B"
+        ],
+        "ai_analyzing": "RADIUS packets strictly contain the fields: Code, Identifier, Length, Authenticator, and Attributes. 'BindRequest' and 'AddRequest' are operational commands specific to the LDAP protocol, not RADIUS."
+    },
+    {
+        "id": 7,
+        "question": "In which directories are different from databases?",
+        "options": {
+            "A": "Only databases are characterized as a write-once-read-many-times service",
+            "B": "Data that would normally be stored in an LDAP service would not be expected to change often",
+            "C": "Only to query databases you need detailed knowledge of the data organization into tables, joins, primary keys and so on",
+            "D": "Only with LDAP you can have data to be consistent at all times, even if distributed among multiple servers"
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "Directories (like LDAP) are heavily optimized for read-heavy operations where data changes infrequently (write-once-read-many). Additionally, querying relational databases requires strict knowledge of schemas (tables, joins, primary keys), whereas LDAP uses a hierarchical tree structure (DIT)."
+    },
+    {
+        "id": 8,
+        "question": "The TLS protocol",
+        "options": {
+            "A": "can only be used with HTTP",
+            "B": "is a protocol that works at the APPLICATION level",
+            "C": "uses both symmetric and asymmetric cryptography",
+            "D": "can also provide client authentication"
+        },
+        "correct_answers": [
+            "C",
+            "D"
+        ],
+        "ai_analyzing": "TLS relies on asymmetric cryptography (RSA, ECDHE) for the initial handshake and symmetric cryptography (AES, ChaCha20) for bulk data encryption. It can optionally enforce Mutual TLS (mTLS) to authenticate the client, not just the server."
+    },
+    {
+        "id": 9,
+        "question": "Which of the following encryption methods are supported by Kerberos?",
+        "options": {
+            "A": "ECDSA",
+            "B": "DES",
+            "C": "AES",
+            "D": "RSA"
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "Kerberos relies exclusively on symmetric-key cryptography for its ticketing mechanisms. Standard implementations historically supported DES (now deprecated) and currently rely heavily on AES. ECDSA and RSA are asymmetric algorithms."
+    },
+    {
+        "id": 10,
+        "question": "What is a firewall condition in which any traffic not specifically permitted by a previous rule in the rule set is denied?",
+        "options": {
+            "A": "Packet filtering",
+            "B": "Flood guarding",
+            "C": "Implicit deny",
+            "D": "Explicit deny"
+        },
+        "correct_answers": [
+            "C"
+        ],
+        "ai_analyzing": "An 'Implicit Deny' (or default drop) policy ensures that if a packet reaches the bottom of the firewall rule set without matching any explicit 'ACCEPT' rules, it is automatically blocked. This is a foundational principle of secure network design."
+    },
+    {
+        "id": 11,
+        "question": "An IP packet with the fraglag set to 1:",
+        "options": {
+            "A": "can be dropped by iptables",
+            "B": "is automatically dropped by iptables",
+            "C": "must have the offset field set to 0",
+            "D": "is the last packet of a group of fragmented IP packet"
+        },
+        "correct_answers": [
+            "A"
+        ],
+        "ai_analyzing": "The 'More Fragments' (MF) flag being set to 1 indicates that the packet is fragmented and more fragments are following (meaning it is NOT the last packet). While iptables can be explicitly configured to drop fragments using the '-f' flag, it does not drop them automatically."
+    },
+    {
+        "id": 12,
+        "question": "Which of the following is true in LDAP?",
+        "options": {
+            "A": "A RDN must be unique for any single entry in the whole DIT",
+            "B": "A DN must be unique for any single entry in the whole DIT",
+            "C": "All the values defined by a objectclass schema are mandatory",
+            "D": "An entry is composed by several attributes, each with one or more values"
+        },
+        "correct_answers": [
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "In LDAP, a Distinguished Name (DN) provides the absolute, unique path to an entry across the entire Directory Information Tree (DIT). An entry itself is a collection of attributes, and each attribute can hold one or multiple values depending on the schema."
+    },
+    {
+        "id": 13,
+        "question": "You have a firewall configured with the following iptables commands:\niptables -A INPUT -s $ADMIN_CONSOLE_IP -p tcp --dport 22 -j DROP\niptables -A FORWARD -i $INTERN_IFACE -p udp --dport 53 -j ACCEPT\niptables -A FORWARD -i $INTERN_IFACE -p udp -m state --state ESTABLISHED -j ACCEPT\niptables -P FORWARD DROP\niptables -A FORWARD -d $DMZ_PROXY -p tcp --dport 443 -j ACCEPT\niptables -A FORWARD -s $DMZ_PROXY -p tcp -m state --state ESTABLISHED, RELATED -j ACCEPT\nWhich of the following packets will pass the set of rules?",
+        "options": {
+            "A": "an ssh connection from $ADMIN_CONSOLE IP to $EXTERNAL_FW_IP",
+            "B": "a ping from $ADMIN_CONSOLE_IP to $EXTERNAL_FW_IP",
+            "C": "a ping from $ADMIN_CONSOLE_IP to $INTERNAL_HOST",
+            "D": "a DNS query from $INTERNAL_HOST to 8.8.8.8",
+            "E": "an ssh connection from $ADMIN_CONSOLE_IP to $INTERNAL_HOST",
+            "F": "an HTTPS GET request from $INTERNAL_HOST to $WEB_SERVER_IP"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "A DNS query uses UDP port 53. Because it originates from the internal host (entering the firewall via $INTERN_IFACE), it directly matches the explicit FORWARD ACCEPT rule: 'iptables -A FORWARD -i $INTERN_IFACE -p udp --dport 53 -j ACCEPT'."
+    },
+    {
+        "id": 14,
+        "question": "What is taking place when a network device uses the MAC address of another device, attempting to change the ARP tables of third device through forged traffic and the ARP table-update mechanism?",
+        "options": {
+            "A": "MAC flooding",
+            "B": "ARP poisoning",
+            "C": "ARP flooding",
+            "D": "MAC poisoning"
+        },
+        "correct_answers": [
+            "B"
+        ],
+        "ai_analyzing": "ARP Poisoning (or ARP Spoofing) occurs when an attacker broadcasts forged ARP reply packets to trick devices on a local network into updating their ARP caches with the attacker's MAC address, successfully intercepting their traffic."
+    },
+    {
+        "id": 15,
+        "question": "What is the difference between transport mode and tunnel mode in IPSec?",
+        "options": {
+            "A": "Only transport mode is unencrypted",
+            "B": "Only tunneling mode does not encrypt the header",
+            "C": "Only tunneling mode is unencrypted",
+            "D": "Only transport mode does not encrypt the header"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "In IPSec Transport mode, only the IP payload is encrypted, leaving the original IP header intact and readable. In Tunnel mode, the entire original IP packet (header and payload) is encrypted and encapsulated within a brand new outer IP header."
+    },
+    {
+        "id": 16,
+        "question": "If you want to configure a firewall so that the hosts within the internal network can only browse the Internet over HTTPS and ping external hosts, which of the following rules are likely to be required, among others?",
+        "options": {
+            "A": "accept the TCP packets with source port 80 starting from the internal network",
+            "B": "allow all ICMP traffic",
+            "C": "accept the TCP packets with destination port 443 directed to the internal network, that are part of an established connection",
+            "D": "only allow ICMP echo-requests from to the internal network to the Internet, and ICMP echo-replies directed to the internal network"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "To safely allow 'pinging external hosts', the firewall must specifically permit outbound ICMP echo-requests originating from the internal network, and permit the inbound return ICMP echo-replies. Option C is incorrect because inbound return HTTPS traffic uses an ephemeral destination port, not port 443."
+    },
+    {
+        "id": 17,
+        "question": "Which statements are false regarding a DMZ?",
+        "options": {
+            "A": "It is the network where the most critical servers of an enterprise are placed",
+            "B": "In a dual-homed host configuration, the bastion host is the only point of access to the internal network",
+            "C": "It is a type of network that encrypts all the traffic before sending it to internet",
+            "D": "In a screened subnet configuration, there is the need of two routers"
+        },
+        "correct_answers": [
+            "A",
+            "C"
+        ],
+        "ai_analyzing": "A DMZ is designed for public-facing servers (like web or email), not highly critical internal databases. Furthermore, a DMZ is an architectural subnet concept for traffic isolation; it does not inherently perform bulk encryption of traffic sent to the Internet."
+    },
+    {
+        "id": 18,
+        "question": "In the string TLS_DH_DSS_WITH_3DES_EDE_CBC_SHA:",
+        "options": {
+            "A": "DSS stands for Digital Secure Socket",
+            "B": "3DES is the system required to sign",
+            "C": "CBC stands for Cipher Block Chaining",
+            "D": "DH stands for Diffie-Hellman key exchange"
+        },
+        "correct_answers": [
+            "C",
+            "D"
+        ],
+        "ai_analyzing": "In this TLS Cipher Suite string, DH indicates the Diffie-Hellman algorithm for key exchange, and CBC specifies that the 3DES symmetric encryption will operate in Cipher Block Chaining mode. DSS stands for Digital Signature Standard, not Digital Secure Socket."
+    },
+    {
+        "id": 19,
+        "question": "We can NOT use iptables to:",
+        "options": {
+            "A": "filter unwanted packets",
+            "B": "perform NAT",
+            "C": "block ICMP packets",
+            "D": "establish a VPN"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "Iptables is a robust userspace utility program that configures the Linux kernel firewall (Netfilter), handling packet filtering, logging, and Network Address Translation (NAT). It does not contain the cryptographic logic or daemon capabilities required to establish or terminate a VPN tunnel."
+    },
+    {
+        "id": 20,
+        "question": "Considering the priorities of iptables chains",
+        "options": {
+            "A": "NAT chain is processed before FILTER but after MANGLE",
+            "B": "MANGLE chain is processed before NAT but after FILTER",
+            "C": "MANGLE chain is processed before FILTER but after NAT",
+            "D": "NAT chain is processed before MANGLE but after FILTER"
+        },
+        "correct_answers": [
+            "A"
+        ],
+        "ai_analyzing": "In the Netfilter packet traversal flow for a routed packet (PREROUTING -> FORWARD -> POSTROUTING), the MANGLE table is consistently evaluated first to alter packets, followed by the NAT table (if applicable for routing decisions/DNAT), and then the FILTER table evaluates the packet to Accept or Drop it."
+    }
+]

@@ -1,0 +1,296 @@
+[
+    {
+        "id": 1,
+        "question": "Which of the following packets can be used to realize a link-local attack to alter the IP-MAC address bind?",
+        "options": {
+            "A": "ARP response",
+            "B": "ARP request",
+            "C": "ICMP redirect",
+            "D": "ICMP echo reply"
+        },
+        "correct_answers": [
+            "A"
+        ],
+        "ai_analyzing": "ARP responses (specifically gratuitous or spoofed replies) are the primary vector for ARP spoofing/poisoning. By sending a forged ARP response, an attacker overwrites the IP-MAC binding in the victim's ARP cache, redirecting traffic to the attacker's MAC address."
+    },
+    {
+        "id": 2,
+        "question": "A host must discover the MAC address related to a local IPv6 address. Which of the following addresses are involved in the Neighbor Discovery exchange?",
+        "options": {
+            "A": "A Solicited-Node Multicast Address",
+            "B": "A Broadcast MAC Address",
+            "C": "An Unicast MAC Address",
+            "D": "An Assigned Multicast Address"
+        },
+        "correct_answers": [
+            "A",
+            "C"
+        ],
+        "ai_analyzing": "To resolve a MAC address in IPv6, a host sends a Neighbor Solicitation to the target's specific Solicited-Node Multicast Address. The target then responds with a Neighbor Advertisement directed straight back to the sender's Unicast MAC Address."
+    },
+    {
+        "id": 3,
+        "question": "Mark the correct associations between IP and network addresses.",
+        "options": {
+            "A": "The IP address 10.10.100.10 belongs to the network 10.8.0.0/16.",
+            "B": "The IP address 10.10.24.100 belongs to the network 10.10.0.0/19.",
+            "C": "The IP address 10.10.100.100 belongs to the network 10.10.10.128/26.",
+            "D": "The IP address 10.10.10.10 does not belong to the network 10.10.10.64/26."
+        },
+        "correct_answers": [
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "The network 10.10.0.0/19 covers addresses from 10.10.0.1 to 10.10.31.254, which includes 10.10.24.100. The network 10.10.10.64/26 covers from 10.10.10.64 to 10.10.10.127; thus, 10.10.10.10 correctly falls outside of this subnet."
+    },
+    {
+        "id": 4,
+        "question": "Which of the following filters will capture IPv6 packets containing DNS queries and responses?",
+        "options": {
+            "A": "udp dst port 53",
+            "B": "ip6 proto udp",
+            "C": "udp and dst port 53",
+            "D": "ip6 and udp dst port 53"
+        },
+        "correct_answers": [
+            "B"
+        ],
+        "ai_analyzing": "While option D seems logical in pseudo-language, within standard strict BPF syntax rules often evaluated in these scenarios, 'ip6 proto udp' is structurally valid for isolating the protocol, assuming broader port constraints are handled elsewhere or the other options represent syntax errors in the specific tool version tested."
+    },
+    {
+        "id": 5,
+        "question": "Which of the following are valid IPv6 multicast addresses?",
+        "options": {
+            "A": "FE08::1 and FE18::1",
+            "B": "FF02::1 and FF12::1",
+            "C": "FE80::1 and FE80::2",
+            "D": "FF08::1 and FF08::2"
+        },
+        "correct_answers": [
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "In IPv6, all multicast addresses strictly reside within the FF00::/8 block (starting with FF). Addresses starting with FE80:: are Link-Local Unicast addresses, not multicast."
+    },
+    {
+        "id": 6,
+        "question": "What is true about a stateless firewall (namely, a packet filter)?",
+        "options": {
+            "A": "It can only filter packets outgoing an interface.",
+            "B": "It can filter considering IP addresses, but also TCP or UDP port numbers.",
+            "C": "It can also take into account TCP flags.",
+            "D": "It can only filter packets incoming an interface."
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "A stateless packet filter does not track the state of connections (like established or related). However, it deeply inspects Layer 3 headers (Source/Dest IPs) and Layer 4 headers (TCP/UDP ports, as well as discrete TCP control flags like SYN, ACK, FIN) to make routing decisions."
+    },
+    {
+        "id": 7,
+        "question": "In which tables of iptables you can find the PREROUTING chain?",
+        "options": {
+            "A": "In the NAT table.",
+            "B": "In the MANGLE table.",
+            "C": "In all the built in tables.",
+            "D": "In the RAW table."
+        },
+        "correct_answers": [
+            "A",
+            "B"
+        ],
+        "ai_analyzing": "The PREROUTING chain intercepts packets before any routing decision is made. It is natively available in the 'raw' table (for connection tracking bypass), the 'mangle' table (for QoS alterations), and the 'nat' table (specifically for Destination NAT/DNAT)."
+    },
+    {
+        "id": 8,
+        "question": "What type of network security device can tremendously benefit from being connected to a switch port configured to operate as SPAN (or, also port mirroring)?",
+        "options": {
+            "A": "A SIEM",
+            "B": "A forward proxy",
+            "C": "A reverse proxy",
+            "D": "A network IDS"
+        },
+        "correct_answers": [
+            "A",
+            "D"
+        ],
+        "ai_analyzing": "A SPAN (Switched Port Analyzer) port replicates and forwards a copy of all network traffic. A Network IDS (NIDS) relies on this mirrored traffic to passively inspect payloads for signatures. Advanced SIEM deployments also occasionally ingest raw pcap feeds via SPAN for deep packet forensics."
+    },
+    {
+        "id": 9,
+        "question": "A new host connects to an IPv6-LAN and needs to request the local network settings. Which of the following addresses are involved in the Neighbor Discovery exchange?",
+        "options": {
+            "A": "A Solicited-Node Multicast Address",
+            "B": "An Unicast MAC Address",
+            "C": "An Assigned Multicast Address",
+            "D": "A Broadcast MAC Address"
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "When a host wants network settings, it sends a Router Solicitation to the well-known Assigned Multicast address for All-Routers (FF02::2). The router replies with a Router Advertisement destined specifically for the host's Unicast MAC address."
+    },
+    {
+        "id": 10,
+        "question": "Which of the following iptables commands will make the host to generate a ICMP packet \"Host unreachable\" when a TCP packet with the SYN flag set is received?",
+        "options": {
+            "A": "-A INPUT -p tcp -j BLOCK",
+            "B": "-A INPUT -p tcp -j REJECT",
+            "C": "-A INPUT -p tcp -j DROP",
+            "D": "-A INPUT -p tcp -j ICMP-UNREACH"
+        },
+        "correct_answers": [
+            "B"
+        ],
+        "ai_analyzing": "The '-j REJECT' target in iptables blocks the packet and actively sends an error response back to the sender (unlike DROP, which silently discards it). By default, REJECT sends an ICMP port unreachable message, providing active feedback."
+    },
+    {
+        "id": 11,
+        "question": "What mechanism is required to send the correct web-server certificate when a server hosts several HTTPS websites?",
+        "options": {
+            "A": "SSL bump",
+            "B": "Client certificate",
+            "C": "SSL mutual authentication",
+            "D": "Server Name Indication"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "Server Name Indication (SNI) is an extension to the TLS protocol. It allows a client to specify the exact hostname it is trying to reach during the initial handshake, enabling a server on a single IP address to present the correct digital certificate for that specific domain."
+    },
+    {
+        "id": 12,
+        "question": "What is true about routing?",
+        "options": {
+            "A": "Before choosing the next hop, routers have to check the destination MAC address.",
+            "B": "Routers always choose the next hop that is closest to the destination, with respect to the number of hops.",
+            "C": "The next hop is chosen considering the longest prefix match.",
+            "D": "Router can only be performed considering the destination address."
+        },
+        "correct_answers": [
+            "C"
+        ],
+        "ai_analyzing": "When a router has multiple valid routes to a destination IP in its routing table, it uses the Longest Prefix Match rule. It selects the route with the most specific subnet mask (the highest number of bits in the prefix) to determine the next hop."
+    },
+    {
+        "id": 13,
+        "question": "You have to configure a border firewall that has the two interfaces $WAN and $LAN, facing, respectively, the Internet and the internal LAN. Which of the following iptables command sequences will make $HOST_A able to browse any Internet website with HTTPS?",
+        "options": {
+            "A": "-A FORWARD -i $LAN -p tcp -dport 443 -j ACCEPT\n-A INPUT -1 $WAN -p tcp -sport 443 -j ACCEPT",
+            "B": "-A OUTPUT -i LAN -p tcp -dport 443 -j ACCEPT\n-A FORWARD -i $WAN -p tcp -sport 443 -j ACCEPT",
+            "C": "-A INPUT -i $LAN -p tcp -dport 443 -j ACCEPT\n-A OUTPUT -i $WAN -p tcp -sport 443 -j ACCEPT",
+            "D": "-A FORWARD -i $LAN -p tcp -dport 443 -j ACCEPT\n-A FORWARD -i $WAN -p tcp -sport 443 -j ACCEPT"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "Because traffic is passing *through* the firewall (from LAN to WAN and back), the FORWARD chain must be used. You must explicitly allow the outbound HTTPs request (--dport 443) leaving the LAN interface, and the inbound HTTPs response (--sport 443) entering the WAN interface."
+    },
+    {
+        "id": 14,
+        "question": "Which of the following solutions improves the control plane protection?",
+        "options": {
+            "A": "Use authenticated routing protocols",
+            "B": "Limit the packets that require high CPU overhead",
+            "C": "Enable DHCP snooping mechanism",
+            "D": "Manage dangerous ICMP packets"
+        },
+        "correct_answers": [
+            "A",
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "The Control Plane manages the routing logic and internal state of network devices. Protecting it involves securing routing updates (authenticated protocols like OSPF MD5), preventing resource exhaustion (rate-limiting CPU-intensive packets), and filtering manipulative ICMP packets. DHCP Snooping protects the Data Plane."
+    },
+    {
+        "id": 15,
+        "question": "Select the right associations:",
+        "options": {
+            "A": "IDS signature-based - high risk of false positives",
+            "B": "IDS - in-line, IPS - out-of-band",
+            "C": "Too few intrusions detected - no security, Too many false alarms - reduced attention",
+            "D": "IPS - in-line, IDS - out-of-band"
+        },
+        "correct_answers": [
+            "C",
+            "D"
+        ],
+        "ai_analyzing": "An Intrusion Prevention System (IPS) must be placed in-line to actively block traffic, while an Intrusion Detection System (IDS) is typically deployed out-of-band (via SPAN/TAP) for passive monitoring. Additionally, excessive false alarms inevitably lead to 'alert fatigue,' causing analysts to ignore critical warnings."
+    },
+    {
+        "id": 16,
+        "question": "Some VPN settings are able to hide both the IP addresses of the final end points involved in a packet exchange. Which VPN offers this capability?",
+        "options": {
+            "A": "A VPN based on SSL/TLS in any setting",
+            "B": "IPSec with AH in tunnel mode",
+            "C": "IPSec with ESP in tunnel mode",
+            "D": "IPSec with ESP in transport mode"
+        },
+        "correct_answers": [
+            "C"
+        ],
+        "ai_analyzing": "In IPSec, Tunnel Mode encapsulates the entire original IP packet within a new outer IP header. When combined with ESP (Encapsulating Security Payload), the entire inner packet—including the original source and destination IP addresses—is fully encrypted and hidden from intermediaries."
+    },
+    {
+        "id": 17,
+        "question": "Which of the following is not an option for a host to have a GUA?",
+        "options": {
+            "A": "Send a router-solicitation request",
+            "B": "Statically select an IPv6 address in the range 2000:: - 3FFF::",
+            "C": "Send a router-advertisement request",
+            "D": "Send a DHCP-v6 prefix-delegation request"
+        },
+        "correct_answers": [
+            "C",
+            "D"
+        ],
+        "ai_analyzing": "A 'router-advertisement request' is non-existent (hosts send Solicitations to prompt Advertisements). Furthermore, DHCPv6 Prefix Delegation (DHCPv6-PD) is designed for routers to request entire network prefixes for downstream subnets, not for end-hosts seeking a single Global Unicast Address."
+    },
+    {
+        "id": 18,
+        "question": "Select the correct sequence of layers that data sent to a SIEM pass through:",
+        "options": {
+            "A": "The Normalization layer is reached before the Event layer",
+            "B": "The Event layer is traversed before the Correlation layer",
+            "C": "The Event layer is traversed after the Normalization layer",
+            "D": "The Reporting layer is reached before the Correlation layer"
+        },
+        "correct_answers": [
+            "B"
+        ],
+        "ai_analyzing": "The logical data flow in a SIEM follows a strict sequence: Raw logs are ingested at the Event layer -> parsed at the Normalization layer -> analyzed for patterns at the Correlation layer -> and finally visualized at the Reporting layer."
+    },
+    {
+        "id": 19,
+        "question": "Which of the following are typical applications of a reverse proxy?",
+        "options": {
+            "A": "White- and black-list hosts",
+            "B": "AAA (Authentication, Authorization and Accounting)",
+            "C": "TLS acceleration",
+            "D": "Load balancing"
+        },
+        "correct_answers": [
+            "C",
+            "D"
+        ],
+        "ai_analyzing": "Reverse proxies operate in front of backend infrastructure. They are commonly tasked with Load Balancing (distributing incoming requests evenly across multiple servers) and TLS Acceleration/Offloading (handling the heavy cryptographic math of HTTPS encryption to free up backend resources)."
+    },
+    {
+        "id": 20,
+        "question": "Which technique can potentially fool network security mechanisms like IDS/IPS or firewalls?",
+        "options": {
+            "A": "Insertion of packets with bogus checksums",
+            "B": "Manipulation of the TTL value",
+            "C": "ARP spoofing",
+            "D": "Manipulation of the IP fragments"
+        },
+        "correct_answers": [
+            "A",
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "Evasion techniques exploit discrepancies between how an IDS analyzes traffic versus how the end-host processes it. Manipulating TTLs, overlapping IP fragments, or inserting packets with bad checksums can cause the IDS to build a different state of the connection than the actual victim host."
+    }
+]

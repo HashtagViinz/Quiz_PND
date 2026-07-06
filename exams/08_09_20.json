@@ -1,0 +1,295 @@
+[
+    {
+        "id": 1,
+        "question": "Which of the following openvpn setup can guarantee mutual authentication?",
+        "options": {
+            "A": "user certificates",
+            "B": "four different symmetric keys",
+            "C": "one symmetric key",
+            "D": "none of the other answers"
+        },
+        "correct_answers": [
+            "A",
+            "B"
+        ],
+        "ai_analyzing": "Mutual authentication in OpenVPN can be achieved using Public Key Infrastructure (PKI) with user certificates, or using static key configurations where separate symmetric keys handle HMAC and encryption for each direction (totaling four keys)."
+    },
+    {
+        "id": 2,
+        "question": "Which of the following commands is NOT based on ICMP packets?",
+        "options": {
+            "A": "ping",
+            "B": "nslookup",
+            "C": "traceroute",
+            "D": "ssh"
+        },
+        "correct_answers": [
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "The 'nslookup' command relies on DNS (UDP/TCP port 53) to resolve IP addresses, and 'ssh' uses TCP (port 22) for secure shell access. Conversely, 'ping' and standard Windows 'traceroute' rely directly on the ICMP protocol."
+    },
+    {
+        "id": 3,
+        "question": "What is true regarding intrusion detection?",
+        "options": {
+            "A": "IDS generally focus on packet headers, while IPS generally focus on packet payloads",
+            "B": "HIDS generally focus on packet headers, while NIDS generally focus on packet payloads",
+            "C": "Using a distribute IDS is generally not very effective",
+            "D": "There are attacks that can only be detected by HIDS"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "Host-based Intrusion Detection Systems (HIDS) have deep visibility into the host operating system, monitoring system calls, file integrity, and local processes. This allows them to detect local privilege escalations or encrypted attacks that leave no identifiable traces on the network for a NIDS to intercept."
+    },
+    {
+        "id": 4,
+        "question": "Which of the following parameters for iptables can make DNS responses from $DNS to reach $HOST, provided that there is the default drop? Imagine the full command be: iptables -A FORWARD -p udp -j ALLOW",
+        "options": {
+            "A": "-d $HOST --dport 53",
+            "B": "-s $DNS -d $HOST --sport 53",
+            "C": "-d $HOST --sport 53",
+            "D": "-s $HOST -d $DNS --dport 53"
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "A DNS response originates from the DNS server (source port 53) and is directed to the client host. Therefore, valid rules must specify the source port as 53 (--sport 53) and the destination as the host (-d $HOST). Specifying the source IP (-s $DNS) adds further strictness."
+    },
+    {
+        "id": 5,
+        "question": "Which are limitations or challenges of vulnerability scanners?",
+        "options": {
+            "A": "They need to have the vulnerability DB updated frequently",
+            "B": "They are slower than simpler port scanners",
+            "C": "They can report a high number of true positive",
+            "D": "They can not identify rogue machines"
+        },
+        "correct_answers": [
+            "A",
+            "B"
+        ],
+        "ai_analyzing": "Vulnerability scanners perform deep, intrusive checks and send multiple payloads per open port, making them significantly slower than basic port scanners. Furthermore, their effectiveness is entirely dependent on their signature databases, which must be constantly updated to recognize newly discovered CVEs."
+    },
+    {
+        "id": 6,
+        "question": "Which of the following pairs table-chain are evaluated before the FILTER-INPUT?",
+        "options": {
+            "A": "NAT-POSTROUTING",
+            "B": "MANGLE-INPUT",
+            "C": "FILTER-FORWARD",
+            "D": "RAW-INPUT"
+        },
+        "correct_answers": [
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "In the Netfilter packet flow architecture for incoming traffic targeting the local machine, the 'raw' table is processed first, followed by the 'mangle' table, and then the 'nat' PREROUTING table. Therefore, both RAW-INPUT and MANGLE-INPUT are evaluated strictly before FILTER-INPUT."
+    },
+    {
+        "id": 7,
+        "question": "What can definitely help a vulnerability scan to detect vulnerabilities in a target system?",
+        "options": {
+            "A": "A database of users in the target system",
+            "B": "The knowledge that a certain service is running in its well known port",
+            "C": "The knowledge of other hosts in the network",
+            "D": "A local agent that runs in the target system"
+        },
+        "correct_answers": [
+            "A",
+            "D"
+        ],
+        "ai_analyzing": "Credentialed scans (utilizing valid user credentials) or agent-based scans (using a local agent installed on the endpoint) provide deep, inside-out visibility into the system's software registry, installed patches, and local configurations, vastly outperforming unauthenticated remote scans."
+    },
+    {
+        "id": 8,
+        "question": "In IPSec, what is true regarding ESP?",
+        "options": {
+            "A": "It can support traffic authentication even without AH",
+            "B": "It requires AH to support traffic authentication",
+            "C": "It requires IKE to support traffic authentication",
+            "D": "It always supports traffic authentication"
+        },
+        "correct_answers": [
+            "A"
+        ],
+        "ai_analyzing": "Encapsulating Security Payload (ESP) is capable of providing both payload confidentiality (encryption) and data origin authentication/integrity (via HMACs). It does not rely on the Authentication Header (AH) protocol to authenticate the encapsulated traffic."
+    },
+    {
+        "id": 9,
+        "question": "Which type of addresses are generally involved in IPv6 to realize the Router Advertisement mechanism?",
+        "options": {
+            "A": "GUA",
+            "B": "Unicast link-local",
+            "C": "Multicast link-local",
+            "D": "Broadcast link-local"
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "Router Advertisements (RAs) are sourced from the router's Unicast Link-Local address (FE80::/10) and are typically transmitted to the all-nodes Multicast Link-Local address (FF02::1) ensuring all hosts on the local network segment receive the network configuration parameters."
+    },
+    {
+        "id": 10,
+        "question": "Which can be the role of a DHCP server in IPv6?",
+        "options": {
+            "A": "Communicating to local hosts to self generate the GUA",
+            "B": "Providing to local hosts the network address for generating the GUA",
+            "C": "Providing to local hosts the IP address of the default gateway",
+            "D": "Providing to local hosts the IP address of the DNS server to use"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "In an IPv6 network utilizing SLAAC for primary IP addressing and gateway discovery (via Router Advertisements), a Stateless DHCPv6 server is commonly deployed solely to provide 'other' necessary configuration options, primarily the IP addresses of the DNS servers."
+    },
+    {
+        "id": 11,
+        "question": "Which of the following is generally used to support the anonymity of a request?",
+        "options": {
+            "A": "reverse proxy",
+            "B": "SAL termination",
+            "C": "forward proxy",
+            "D": "SOCKS proxy"
+        },
+        "correct_answers": [
+            "C",
+            "D"
+        ],
+        "ai_analyzing": "Both Forward proxies and SOCKS proxies sit between the client and the external internet. By routing outbound traffic through them, the destination web server sees the proxy's IP address instead of the client's actual IP address, facilitating request anonymity."
+    },
+    {
+        "id": 12,
+        "question": "Which of the following commands does not alter the APR (ARP) table of a host?",
+        "options": {
+            "A": "ping",
+            "B": "ip link",
+            "C": "ifconfig",
+            "D": "traceroute"
+        },
+        "correct_answers": [
+            "B"
+        ],
+        "ai_analyzing": "The 'ip link' command is used strictly to display or modify the state of network interfaces at Layer 2 (e.g., bringing an interface up or down). It does not generate the Layer 3 to Layer 2 network traffic required to resolve IP addresses and populate the ARP cache."
+    },
+    {
+        "id": 13,
+        "question": "Which of the following is not a possible state of a TCP connection?",
+        "options": {
+            "A": "Syn-received",
+            "B": "Fin-wait",
+            "C": "Related",
+            "D": "Closed"
+        },
+        "correct_answers": [
+            "C"
+        ],
+        "ai_analyzing": "TCP protocol connection states include SYN-RECEIVED, FIN-WAIT, ESTABLISHED, and CLOSED. 'RELATED' is not a TCP protocol state; it is a connection tracking state used by firewalls (like iptables conntrack) to identify new connections associated with already established ones (e.g., FTP data channels)."
+    },
+    {
+        "id": 14,
+        "question": "What is generally used by vulnerability scanners to actually identify vulnerabilities?",
+        "options": {
+            "A": "Sequences of packets to be sent against a target",
+            "B": "Packet-based exploits",
+            "C": "CVE severities and solutions",
+            "D": "Traffic sniffers"
+        },
+        "correct_answers": [
+            "A",
+            "B",
+            "D"
+        ],
+        "ai_analyzing": "Vulnerability scanners actively identify flaws by sending specific sequences of crafted packets (probes) or non-destructive packet-based exploits to target services. Some scanners also incorporate passive traffic sniffers to detect vulnerable plaintext protocols traversing the network."
+    },
+    {
+        "id": 15,
+        "question": "What is generally true in a SIEM stack?",
+        "options": {
+            "A": "The event layer lays on top of the normalization layer",
+            "B": "The correlation layer is used by the reporting layer",
+            "C": "The normalization layer lays on top of the event layer",
+            "D": "The normalization layer is used by the reporting layer"
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "In a logical SIEM architecture, raw logs are collected at the event layer, which passes them up to the normalization layer for standardization. The correlation layer then analyzes this structured data, and the reporting layer ultimately consumes the correlated findings to generate actionable dashboards and alerts."
+    },
+    {
+        "id": 16,
+        "question": "Which is the official range of IPv6 GUA addresses?",
+        "options": {
+            "A": "FF02::/8",
+            "B": "2000::/3",
+            "C": "FC00::/7",
+            "D": "2000::/10"
+        },
+        "correct_answers": [
+            "B"
+        ],
+        "ai_analyzing": "The Internet Assigned Numbers Authority (IANA) allocates Global Unicast Addresses (GUAs) from the 2000::/3 prefix. This large block encompasses all IPv6 addresses that begin with the binary bits 001, effectively spanning from 2000:: up to 3FFF::."
+    },
+    {
+        "id": 17,
+        "question": "What is the purpose of ICAP?",
+        "options": {
+            "A": "To provide a default mechanism for checking if an IDS or an antivirus is working",
+            "B": "To intercept the traffic that moves between two networks",
+            "C": "To capture network traffic and save it in files",
+            "D": "To provide a structured way of processing HTTP traffic"
+        },
+        "correct_answers": [
+            "D"
+        ],
+        "ai_analyzing": "The Internet Content Adaptation Protocol (ICAP) is a lightweight protocol specifically designed to offload the processing of HTTP messages to dedicated servers. It provides a structured way to implement features like virus scanning, content filtering, or ad insertion on HTTP traffic."
+    },
+    {
+        "id": 18,
+        "question": "In a VPN realized in tunnel mode, which is the most typical use?",
+        "options": {
+            "A": "none of the other answers",
+            "B": "site-to-site",
+            "C": "host-to-site",
+            "D": "host-to-host"
+        },
+        "correct_answers": [
+            "B"
+        ],
+        "ai_analyzing": "IPSec Tunnel mode encapsulates the entire original IP packet inside a new IP packet header. This is the standard operational mode used for site-to-site VPNs, allowing VPN gateways to securely route traffic between two distinct, geographically separated local networks over the internet."
+    },
+    {
+        "id": 19,
+        "question": "Which of the following modules allows iptables to operate as a stateful firewall?",
+        "options": {
+            "A": "connmark",
+            "B": "conntrack",
+            "C": "state",
+            "D": "stateful"
+        },
+        "correct_answers": [
+            "B",
+            "C"
+        ],
+        "ai_analyzing": "The 'conntrack' (connection tracking) module is the modern core component within Netfilter that tracks connection states. The legacy 'state' match extension is also traditionally used in iptables syntax (e.g., -m state --state ESTABLISHED) to interface with this stateful tracking mechanism."
+    },
+    {
+        "id": 20,
+        "question": "Which of the following filters would capture all the packets involving the host 1.1.1.1?",
+        "options": {
+            "A": "host not 1.1.1.2",
+            "B": "host 1.1.1.1",
+            "C": "ip 1.1.1.1",
+            "D": "dst 1.1.1.1"
+        },
+        "correct_answers": [
+            "A",
+            "B"
+        ],
+        "ai_analyzing": "The BPF display filter 'host 1.1.1.1' explicitly targets all traffic where 1.1.1.1 is either the source or destination. Concurrently, a negative filter like 'host not 1.1.1.2' will inherently capture packets involving 1.1.1.1, provided those packets are not communicating with 1.1.1.2."
+    }
+]

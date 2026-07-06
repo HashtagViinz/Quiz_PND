@@ -1,0 +1,290 @@
+[
+  {
+    "id": 1,
+    "question": "What is true with respect to SLAAC?",
+    "options": {
+      "A": "It cannot be used in conjunction with a DHCP server",
+      "B": "It cannot be used in conjunction with the privacy extension",
+      "C": "It must use the EUI-64 format to work",
+      "D": "It is used to delegate the address assignment to the hosts"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "SLAAC (Stateless Address Autoconfiguration) allows hosts to independently generate their own IPv6 addresses using router advertisements, effectively delegating the responsibility of address assignment to the endpoint hosts themselves."
+  },
+  {
+    "id": 2,
+    "question": "What is the main purpose of a content-filtering proxy?",
+    "options": {
+      "A": "It is generally used to decrypt decrypt and inspect SSL/TLS traffic from internal users to the web.",
+      "B": "It generally receives the requests from the outside as if it were the server and then forwards the request to the actual destination (origin) server",
+      "C": "It is generally used to authenticate internal users and control over the content that may be relayed",
+      "D": "It is generally used as an intermediary and privacy shield between a client computer and the rest of the Internet"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "A content-filtering proxy sits between internal users and the internet, enforcing corporate policies by authenticating users and actively blocking unauthorized, inappropriate, or malicious web content from being relayed."
+  },
+  {
+    "id": 3,
+    "question": "In the image below there is the structure of the IPv4 header. The IPv4 header of a captured packet is also highlighted in the detail of a Wireshark window. Considering togheter the two images, is it possible to determine the total lenght of the IP packet shown in the Wireshark window?",
+    "options": {
+      "A": "Yes, it is: 84 bytes.",
+      "B": "Yes, it is: 98 bytes.",
+      "C": "Yes, it is: 54 bytes.",
+      "D": "No, it is not possible."
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The Wireshark frame capture shows the total length of the IPv4 packet directly in the 'Total Length' field of the IP header (which is offset 2 and 3 in the IP header hex dump, translating to 0x0054, which equals 84 bytes in decimal)."
+  },
+  {
+    "id": 4,
+    "question": "Which type of information is used by the connection track mechanism of iptables when dealing with connectionless protocols (like ICMP and UDP)?",
+    "options": {
+      "A": "interarrival time of packets in the two directions",
+      "B": "none, since iptables connection track does not deal with connectionless protocols",
+      "C": "type of protocol in the inner layer (namely, in the payload)",
+      "D": "number of exchanged packets in the two directions"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Since UDP and ICMP lack native connection states (like TCP SYN/ACK flags), iptables connection tracking infers 'pseudo-state' by monitoring the interarrival time of packets between the source and destination over specific timeouts."
+  },
+  {
+    "id": 5,
+    "question": "Which type of filter is used to restrict the operator can analyze in wireshark?",
+    "options": {
+      "A": "Logical filters",
+      "B": "Display filters",
+      "C": "View filters",
+      "D": "Capture filters"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "In Wireshark, Display Filters are used post-capture to restrict or isolate which packets the operator sees in the graphical interface for analysis, without discarding the underlying captured data."
+  },
+  {
+    "id": 6,
+    "question": "In a IDS, a packet related to a known attack not raising an alarm is",
+    "options": {
+      "A": "a false negative",
+      "B": "a true positive",
+      "C": "a false positive",
+      "D": "a true negative"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A false negative occurs when a security system fails to detect and alert on an actual, real threat, allowing the malicious attack to slip through unnoticed."
+  },
+  {
+    "id": 7,
+    "question": "Mark the more correct statements:",
+    "options": {
+      "A": "IDS is able to actively prevent/block intrusions in real time",
+      "B": "IPS is able to produce responses to suspicious activity",
+      "C": "IPS is generally out of band",
+      "D": "IPS is generally in line"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "An Intrusion Prevention System (IPS) must be deployed in-line with network traffic so it can actively drop malicious packets and produce automated responses to suspicious activities, unlike an IDS which is out-of-band and passive."
+  },
+  {
+    "id": 8,
+    "question": "Select the right order of the following TLS handshake protocol phases: C: Client authentication and key exchange, F: Finish, H: Hello, S: Server authentication and key exchange",
+    "options": {
+      "A": "H, S, F, C",
+      "B": "H. F. C. S",
+      "C": "H. C. S, F",
+      "D": "H, S, C, F"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "The standard TLS handshake sequence begins with Hello messages (H), followed by Server authentication/key exchange (S), then Client authentication/key exchange (C), and concludes with Finished messages (F)."
+  },
+  {
+    "id": 9,
+    "question": "Which of the following IPv4 addresses belonging to the network 172.16.128.0/19 (namely with subnet 255.255.224.0)?",
+    "options": {
+      "A": "172.16.158.13",
+      "B": "172.16.138.255",
+      "C": "172.16.240.12",
+      "D": "172.16.224.1"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "A /19 subnet mask (255.255.224.0) gives a block size of 32 in the third octet. The network 172.16.128.0/19 ranges from 172.16.128.0 to 172.16.159.255. Addresses 172.16.158.13 and 172.16.138.255 correctly fall within this valid range."
+  },
+  {
+    "id": 10,
+    "question": "Which are the advantages of installing and using a SIEM?",
+    "options": {
+      "A": "It can collect and normalize logs coming from different sources and with different formats.",
+      "B": "It can become a central point where performing security event analysis.",
+      "C": "It brings together the benefits of anti-viruses and IDS.",
+      "D": "It can monitor and, if needed, enhance the security of endpoint devices."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "A SIEM (Security Information and Event Management) system acts as a centralized platform. Its primary advantages are collecting/normalizing diverse logs from across the enterprise (A) and serving as the central hub for security event correlation and analysis (B)."
+  },
+  {
+    "id": 11,
+    "question": "What is true regarding IPSec?",
+    "options": {
+      "A": "In transport mode, it provides protection for an IP packet embedded as payload in an IP packet",
+      "B": "In transport mode, it provides protection for a T-layer packet embedded as payload in an IP packet",
+      "C": "In tunnel mode, it provides protection for an IP packet embedded as payload in an IP packet",
+      "D": "In tunnel mode, it provides protection for a T-layer packet embedded as payload in an IP packet"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In Transport Mode, IPSec encrypts only the Transport-layer (T-layer) payload (like TCP/UDP), leaving the original IP header intact. In Tunnel Mode, the entire original IP packet is encrypted and embedded as the payload inside a new outer IP packet."
+  },
+  {
+    "id": 12,
+    "question": "Select what makes a stateful packet filtering firewall different from a stateless one.",
+    "options": {
+      "A": "A stateless firewall treats every packet independently, without any knowledge of what has come before.",
+      "B": "A stateful firewall can match incoming traffic for a high-numbered port with a previous outgoing request to set up a connection",
+      "C": "A stateful firewall treats every packet independently, without any knowledge of what has come before.",
+      "D": "A stateful firewall can filter packets looking at the details at the transport and the above levels."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "A stateless firewall evaluates each packet in isolation (A). A stateful firewall tracks connection context, allowing it to dynamically permit return traffic for established sessions, such as automatically allowing responses on ephemeral high-numbered ports (B)."
+  },
+  {
+    "id": 13,
+    "question": "ICMPv6 Router Solicitation messages are sent",
+    "options": {
+      "A": "by IPv6 devices as part of the Neighbor Discover protocol",
+      "B": "by IPv6 routers to announce the prefix of a network",
+      "C": "by IPv6 devices for requesting the MAC address of another device in the network",
+      "D": "by IPv6 devices for requesting a Router Advertisement message"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Router Solicitations are a core component of the Neighbor Discovery Protocol (NDP). They are sent by IPv6 host devices upon network connection to prompt local routers to immediately send a Router Advertisement containing network configuration parameters."
+  },
+  {
+    "id": 14,
+    "question": "Which of the following can be the purpose of a ICMPv6 redirect packect?",
+    "options": {
+      "A": "A router informs an originating host that the destination host (on a different prefix/network) is on the same link as itself.",
+      "B": "A router informs a requesting router about a new prefix that it can use to assign addresses in its own networks.",
+      "C": "A host that informs an originating host about the not-uniqueness of the requested address, redirecting it to a valid DHCPv6 server.",
+      "D": "A router informs an originating host of the IP address of a router that is on the local link and is closer to the destination."
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "ICMPv6 Redirect messages are explicitly used by routers to inform an originating host that there is a more optimal first-hop router present on the local link to reach a specific destination IP."
+  },
+  {
+    "id": 15,
+    "question": "Which type of filter would you use in tcpdump to only capture the traffic of an ssh connection?",
+    "options": {
+      "A": "proto openssl",
+      "B": "tcp and port 22",
+      "C": "tcp or port 22",
+      "D": "port 22"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Standard SSH traffic operates over TCP port 22. In tcpdump's BPF syntax, 'tcp and port 22' explicitly isolates this traffic, guaranteeing that UDP traffic which might sporadically hit the same port is ignored."
+  },
+  {
+    "id": 16,
+    "question": "Which of the following iptables targets are used to configure the destination NAT?",
+    "options": {
+      "A": "MASQUERADE",
+      "B": "SNAT",
+      "C": "MASQUERADING",
+      "D": "DNAT"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "In iptables, the DNAT (Destination NAT) target is explicitly used in the PREROUTING chain of the nat table to modify the destination IP address of incoming packets, often for port forwarding."
+  },
+  {
+    "id": 17,
+    "question": "Select the commands that are used for a similar purpose:",
+    "options": {
+      "A": "rarp",
+      "B": "ip neigh",
+      "C": "ip addr",
+      "D": "arp"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Both 'arp' (the legacy net-tools command) and 'ip neigh' (the modern iproute2 command) are used to display and manipulate the ARP cache (neighbor table), which maps IP addresses to MAC addresses."
+  },
+  {
+    "id": 18,
+    "question": "Which are the next steps once the vulnerability scan is over and the assessment report is ready?",
+    "options": {
+      "A": "Make a prioritization of the results with respect to the risks.",
+      "B": "Apply all the patches suggested in the report.",
+      "C": "Analyze the report and make a plan with possible actionable information.",
+      "D": "Repear the scan to verify if any vulnerability was missed with the previous scan."
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Blindly applying all suggested patches can break production systems. The correct post-scan process is to analyze the findings, contextualize them to the business environment, prioritize them based on actual risk, and develop a remediation plan."
+  },
+  {
+    "id": 19,
+    "question": "Which of the following should not be considered when configuring a firewall to allow the internal host $HOSTA to open a ssh connections with a remote host $HOSTB?",
+    "options": {
+      "A": "iptables -A FORWARD -d $HOSTB -P TCP -dport 22 -j ACCEPT",
+      "B": "iptables -A FORWARD -s $HOSTB - TCP -m state -state ESTABLISHED, RELATED -j ACCEPT",
+      "C": "iptables -A FORWARD -p TCP -dport 22 -j ACCEPT",
+      "D": "iptables -A FORWARD -s $HOSTA -P TCP -sport 22 -j ACCEPT"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "When $HOSTA initiates an outbound SSH connection, it uses a random high ephemeral source port, not port 22. Port 22 is the destination port on $HOSTB. Thus, filtering outbound traffic by asserting the source port (-sport) is 22 is entirely incorrect and will block the connection."
+  },
+  {
+    "id": 20,
+    "question": "Which tool is not generally used to capture network packets?",
+    "options": {
+      "A": "pcap-filter",
+      "B": "tshark",
+      "C": "tcpdump",
+      "D": "dumpcap"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "tcpdump, tshark, and dumpcap are all executable packet sniffing utilities. 'pcap-filter' is not a capture tool itself, but rather the underlying syntax and filtering language (BPF) utilized by these tools during capture."
+  }
+]

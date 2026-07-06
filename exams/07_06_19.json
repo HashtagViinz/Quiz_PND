@@ -1,0 +1,297 @@
+[
+  {
+    "id": 1,
+    "question": "Mark the most likely wrong associations of IPv6 addresses, given that: A=2001:DB8:1000::1, B=FE80::FE99:47FF:FE75:C3E0, C=2001:DB8:CAFE:1:50A5:8A35:A5BB:66E1, D=2001:DB8:CAFE:1:FE99:47FF:FE75:C3E0",
+    "options": {
+      "A": "A: GUA via SLAAC with random IID, B: Link-local with EUI-64",
+      "B": "C: GUA via SLAAC with EUI-64, D: link-local with EUI-64",
+      "C": "A: static GUA, C: GUA via SLAAC with random IID",
+      "D": "B: Link-local with EUI-64, D: GUA via SLAAC with EUI-64"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Address A (2001:DB8:1000::1) appears to be statically assigned rather than SLAAC generated. Addresses B and D do not contain 'FFFE' in the middle of their Interface Identifiers, meaning they are not derived using the EUI-64 method. [cite: 327, 328, 329, 330, 331]"
+  },
+  {
+    "id": 2,
+    "question": "When a packet is processed in an iptables chain,",
+    "options": {
+      "A": "once a matching rule has been applied, under no circumstances other rules will be considered",
+      "B": "the rules are considered in order and if no matching rule is found, the default policy is applied",
+      "C": "the rules are considered in order and the decision is made according to the first one matching",
+      "D": "all the rules are always considered and the matching ones are applied"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In iptables, rules within a chain are evaluated sequentially from top to bottom. The first rule that matches the packet dictates the action (like ACCEPT or DROP). If no rules match after evaluating the entire chain, the chain's default policy is enforced. [cite: 336, 338, 339]"
+  },
+  {
+    "id": 3,
+    "question": "What is true when talking about Kerberos?",
+    "options": {
+      "A": "Mutual authentication is granted using symmetric cryptography",
+      "B": "Resource Tickets are encrypted with a short term session key",
+      "C": "A Resource Ticket can be used with several servers",
+      "D": "Short term session keys are encrypted in Resource Tickets"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Kerberos heavily relies on symmetric key cryptography for mutual authentication between clients and servers. When a Ticket Granting Service (TGS) issues a Resource Ticket, it embeds a short-term session key inside the ticket, which is encrypted with the target server's secret key. [cite: 341, 342, 345]"
+  },
+  {
+    "id": 4,
+    "question": "Which of the following is NOT a typical service of a SIEM?",
+    "options": {
+      "A": "Vulnerability scanning",
+      "B": "Event correlation",
+      "C": "Endpoint security",
+      "D": "Reconnaissance"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "SIEM (Security Information and Event Management) systems excel at log aggregation, event correlation, and alerting based on endpoint security data. They are not traditionally designed to perform active vulnerability scanning or active network reconnaissance. [cite: 346, 347, 350]"
+  },
+  {
+    "id": 5,
+    "question": "Which of the following filters allows to capture DNS queries?",
+    "options": {
+      "A": "udp port dns",
+      "B": "udp port 53",
+      "C": "proto dns",
+      "D": "proto udp port 53"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "DNS conventionally operates over UDP port 53 for standard queries. The valid BPF (Berkeley Packet Filter) syntax to capture this traffic in tools like tcpdump or Wireshark is 'udp port 53'. [cite: 351, 353]"
+  },
+  {
+    "id": 6,
+    "question": "If < is the relation 'happens before than', mark the right statements:",
+    "options": {
+      "A": "Non-intrusive target search < Data analysis < Reporting",
+      "B": "Planning < Data analysis < Intrusive target search",
+      "C": "Planning < Intrusive target search < Reporting",
+      "D": "Data analysis < Threat modeling and Exploitation < Intrusive target search"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "In a standard penetration testing methodology, planning comes first, followed by discovery (non-intrusive then intrusive searches), data analysis/exploitation, and finally reporting. [cite: 356, 359, 361]"
+  },
+  {
+    "id": 7,
+    "question": "Which of the following are typical features of forward proxies?",
+    "options": {
+      "A": "Possibility to perform load balancing between different origin servers",
+      "B": "Possibility to check the identity of the user making a request and verify her authorization",
+      "C": "Possibility to check the integrity of the fetched resources",
+      "D": "Possibility to cache fetched resources, to save bandwidth and increase latency"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Forward proxies sit in front of client endpoints. They are commonly used to enforce organizational access policies (authentication/authorization) and to cache outbound web requests to save external bandwidth, though caching may slightly increase initial latency for uncached items. [cite: 363, 365, 366]"
+  },
+  {
+    "id": 8,
+    "question": "The TLS protocol",
+    "options": {
+      "A": "is a protocol that works at the APPLICATION level",
+      "B": "can only be used with HTTP",
+      "C": "can also provide client authentication",
+      "D": "uses both symmetric and asymmetric cryptography"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "TLS (Transport Layer Security) operates primarily between the Transport and Application layers. It uses asymmetric cryptography for the initial handshake and key exchange, and symmetric cryptography for bulk data encryption. It can optionally enforce client-side certificate authentication (mTLS). [cite: 367, 370, 371]"
+  },
+  {
+    "id": 9,
+    "question": "Which type of IDS makes use of 'rules'?",
+    "options": {
+      "A": "Only HIDS signature-based",
+      "B": "Only NIDS behavioral-based",
+      "C": "NIDS Signature-based",
+      "D": "HIDS Signature-based"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Signature-based Intrusion Detection Systems (whether Network-based or Host-based) rely on pre-defined sets of rules to identify known malicious patterns within traffic or logs. [cite: 372, 375, 376]"
+  },
+  {
+    "id": 10,
+    "question": "In a VPN",
+    "options": {
+      "A": "we cannot use SSL/TLS to secure the VPN network layer",
+      "B": "site-to-site tunneling makes PDUs of a network to pass encrypted through an insecure network, to reach another secure network",
+      "C": "site-to-site tunneling makes possible ARP spoofing attacks within the VPN itself",
+      "D": "we can use IPSec to secure the VPN network layer"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "A site-to-site VPN encrypts Protocol Data Units (PDUs) traversing over an untrusted network (like the Internet) to securely bridge two distinct local networks. IPSec is the standard suite used to secure communications at the Network layer (Layer 3). [cite: 377, 378, 380]"
+  },
+  {
+    "id": 11,
+    "question": "To take a decision about a packet, what a packet filtering firewall DOES NOT consider?",
+    "options": {
+      "A": "The payload of the packet",
+      "B": "The IP addresses of the packet",
+      "C": "The context of the packet",
+      "D": "The TCP flags of the packet"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Stateless packet filtering firewalls operate strictly up to Layer 4. They inspect headers (IP addresses, ports, TCP flags) but do not look deep into the Application layer payload, nor do they track connection states (context). [cite: 381, 382, 384]"
+  },
+  {
+    "id": 12,
+    "question": "What is true with respect to ICMPv6?",
+    "options": {
+      "A": "When a host wants to ping another host, it keeps sending Echo Request packets with increasing Hop Limit field",
+      "B": "When a host needs to know the MAC address related to a IPv6 address, it sends a multicast message",
+      "C": "When a host connects to a new network, it sends a Router Solicitation packet",
+      "D": "When a host receives a packet for a port not in listening, it sends a Destination Unreachable, No route to destination message"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "ICMPv6 incorporates Neighbor Discovery Protocol (NDP). MAC address resolution is performed via Neighbor Solicitations sent to a solicited-node multicast address. Newly connected hosts send Router Solicitations to discover local routers and configuration parameters. [cite: 386, 389, 390]"
+  },
+  {
+    "id": 13,
+    "question": "For protecting a legacy server that does not makes use of TLS, which type of proxy could you use?",
+    "options": {
+      "A": "Forward proxy with SSL offloading",
+      "B": "Transparent proxy",
+      "C": "Forward proxy with SSL bump",
+      "D": "Reverse proxy as TLS termination"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "A reverse proxy acting as a TLS termination point sits in front of the legacy server. It handles the secure TLS connections from external clients, decrypts the traffic, and forwards it to the legacy internal server via unencrypted HTTP. [cite: 392, 396]"
+  },
+  {
+    "id": 14,
+    "question": "In a company that only has one single public IP address, you would use DNAT for doing what?",
+    "options": {
+      "A": "To make possible the internal DNS server to contact other DNS servers",
+      "B": "To make possible an external customer to visit the company website hosted in an internal server",
+      "C": "To make possible an employee that is inside the network to reach an external service",
+      "D": "To make possible an employee that is abroad to reach the VPN gateway of the company"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Destination NAT (DNAT) modifies the destination address of incoming packets. This is essential for routing traffic arriving at the single public IP address to specific internal private IP addresses, such as a web server or an internal VPN gateway. [cite: 397, 399, 401]"
+  },
+  {
+    "id": 15,
+    "question": "Mark the wrong descriptions of commands:",
+    "options": {
+      "A": "ip addr is used to assign or modify IP addresses",
+      "B": "ip ntable is used to manage ARP cache entries",
+      "C": "ip link is used to manage a network device",
+      "D": "ip route is used to manage routing table entries"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The command 'ip ntable' is incorrect for managing ARP cache entries; the correct command in the iproute2 suite is 'ip neigh' (neighbor). [cite: 402, 403]"
+  },
+  {
+    "id": 16,
+    "question": "What is true about Wireshark?",
+    "options": {
+      "A": "It makes use of filters to only display packets with certain field values",
+      "B": "It can easily recognize protocols used in non-standard ports",
+      "C": "It cannot be used without having an interface in promiscuous mode",
+      "D": "It can dissect raw data of a packet in the different logical fields"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Wireshark uses a powerful display filter syntax to isolate specific traffic based on field values. Its core functionality as a protocol analyzer is dissecting raw binary data into human-readable logical fields mapped to the OSI layers. [cite: 405, 406, 409]"
+  },
+  {
+    "id": 17,
+    "question": "An Intrusion Detection System has failed raising an alarm when a real attack was occurring. Which of the following is true?",
+    "options": {
+      "A": "A True Positive should have occurred, but a False Positive eventually occurred",
+      "B": "A True Positive should have occurred, but a False Negative eventually occurred",
+      "C": "A False Negative should have occurred, but a False Positive eventually occurred",
+      "D": "A True Negative should have occurred, but a False Negative eventually occurred"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "A real attack should correctly trigger an alarm (a True Positive). If the system misses the attack and stays silent, it has incorrectly identified malicious behavior as benign, resulting in a False Negative. [cite: 412, 413, 415]"
+  },
+  {
+    "id": 18,
+    "question": "In which directories are different from databases?",
+    "options": {
+      "A": "Data that would normally be stored in an LDAP service would not be expected to change on every access",
+      "B": "To query both of them you need detailed knowledge of the data organization into tables, joins, primary keys and so on",
+      "C": "Only directories are characterized as a write-once-read-many-times service",
+      "D": "Only with LDAP you can have data to be consistent at all times, even if distributed among multiple servers"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Directory services (like LDAP) are optimized for data that is read frequently but modified rarely (write-once-read-many). Unlike relational databases, they do not expect high-transaction modifications on every access. [cite: 418, 419, 421]"
+  },
+  {
+    "id": 19,
+    "question": "A firewall transforms each packet reaching its WAN interface and a certain port, changing the destination IP address with the IP address of an internal host. Which mechanism is the firewall probably adopting?",
+    "options": {
+      "A": "dynamic NAT",
+      "B": "port forwarding",
+      "C": "connection tracking",
+      "D": "destination NAT"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Changing the destination IP address of an incoming packet so it reaches an internal, privately addressed host is the definition of Destination NAT (DNAT), often colloquially referred to as port forwarding in consumer routers. [cite: 423, 424, 428]"
+  },
+  {
+    "id": 20,
+    "question": "Which of the following is NOT a RADIUS packet?",
+    "options": {
+      "A": "Access-accept",
+      "B": "Server-hello",
+      "C": "Accounting-request",
+      "D": "Bind-request"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "RADIUS standard packet types include Access-Request, Access-Accept, Access-Reject, and Accounting-Request. 'Server-hello' is part of the TLS handshake, and 'Bind-request' is typical in LDAP, not RADIUS. [cite: 429, 431, 433]"
+  }
+]

@@ -1,0 +1,294 @@
+[
+  {
+    "id": 1,
+    "question": "Which of the following is NOT a type of IDS?",
+    "options": {
+      "A": "HIDS",
+      "B": "SIDS",
+      "C": "NIDS",
+      "D": "WIDS"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Standard IDS types include Network-based (NIDS), Host-based (HIDS), and Wireless (WIDS). SIDS is not a recognized standard acronym for an Intrusion Detection System architecture."
+  },
+  {
+    "id": 2,
+    "question": "Which command is the most likely to have generated the output in the following picture? (Output shows IPs mapped to MAC addresses like 'at 00:02:29... [ether]')",
+    "options": {
+      "A": "arp",
+      "B": "ping",
+      "C": "nmap",
+      "D": "tcpdump"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The output explicitly shows IP addresses mapped to MAC addresses (hardware addresses) along with the interface (e.g., '[ether] on wlp2s0'). This is the standard output format of the 'arp' command used to view the local ARP cache."
+  },
+  {
+    "id": 3,
+    "question": "Which of the following requires a user to be aware of its presence?",
+    "options": {
+      "A": "Forward proxy",
+      "B": "Anonymous proxy",
+      "C": "Reverse proxy",
+      "D": "Transparent proxy"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Standard forward proxies and anonymous proxies typically require the client (user's browser or OS) to be explicitly configured to point to them. In contrast, transparent proxies intercept traffic at the network level without client configuration, and reverse proxies are entirely hidden behind the destination server's IP."
+  },
+  {
+    "id": 4,
+    "question": "Which of the following iptables targets have a function similar to the DROP target?",
+    "options": {
+      "A": "MASQUERADE",
+      "B": "REJECT",
+      "C": "JUMP",
+      "D": "ABORT"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Both DROP and REJECT prevent a packet from traversing the firewall. The difference is that DROP silently discards the packet, whereas REJECT drops it but also actively sends an ICMP error response back to the sender."
+  },
+  {
+    "id": 5,
+    "question": "Mark the IPv6 link-local addresses:",
+    "options": {
+      "A": "FE80::1",
+      "B": "FF18::CAFE:1234",
+      "C": "FE80::FE99:47FF:FE75:C3E0",
+      "D": "2001:DB8:CAFE:1:6909:CB1C:36A0:A595"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "IPv6 Link-Local addresses strictly belong to the FE80::/10 block. Therefore, any address starting with FE80, FE90, FEA0, or FEB0 falls into this category. Options A and C correctly start with FE80."
+  },
+  {
+    "id": 6,
+    "question": "Which of the following is a typical service of a SIEM?",
+    "options": {
+      "A": "Network Address Translation",
+      "B": "Reconnaissance",
+      "C": "Vulnerability scanning",
+      "D": "Event correlation"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "A Security Information and Event Management (SIEM) system is primarily designed to collect, aggregate, and correlate security events from various network devices and endpoints to identify potential threats (Event correlation)."
+  },
+  {
+    "id": 7,
+    "question": "What is the aim of a SSL forward proxy?",
+    "options": {
+      "A": "To receive the requests from the Internet as if it were the server and then forward to the actual server",
+      "B": "To provide access to the Web for hosts on closed subnets who can only access the Internet through a firewall machine",
+      "C": "To block application input/output from detected intrusions or malformed communication, or block content that violates policies",
+      "D": "To decrypt and inspect SSL/TLS traffic from internal users to the Internet"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "An SSL forward proxy (often using SSL bumping) is deployed to intercept, decrypt, and inspect outbound encrypted TLS traffic from internal users before re-encrypting and forwarding it to the external internet, allowing for deep packet inspection."
+  },
+  {
+    "id": 8,
+    "question": "Which of the following is a common use of LDAP?",
+    "options": {
+      "A": "Scan network hosts",
+      "B": "Provide user authentication",
+      "C": "Store and access information from different systems",
+      "D": "Inspect network packets"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "The Lightweight Directory Access Protocol (LDAP) is heavily used to store, organize, and quickly retrieve hierarchical directory information across systems, making it a foundational technology for centralized user authentication (e.g., Active Directory)."
+  },
+  {
+    "id": 9,
+    "question": "Which of the following IPv4 addresses belonging to the network 172.16.128.0/19 (namely with subnet 255.255.224.0)?",
+    "options": {
+      "A": "172.16.138.255",
+      "B": "172.16.224.1",
+      "C": "172.16.158.13",
+      "D": "172.16.240.12"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "A /19 subnet mask (255.255.224.0) gives a block size of 32 in the third octet. The network 172.16.128.0/19 ranges from 172.16.128.0 to 172.16.159.255. Addresses 172.16.138.255 and 172.16.158.13 fall correctly within this valid range."
+  },
+  {
+    "id": 10,
+    "question": "Which of the following is a filter you can use with the tcpdump command?",
+    "options": {
+      "A": "ns0 port 53 and udp",
+      "B": "tcp.port eq 25 or icmp",
+      "C": "-i eth0 dst 10.10.1.20",
+      "D": "ip.addr = 10.43.54.65"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Tcpdump uses BPF syntax. Option C ('-i eth0 dst 10.10.1.20') correctly specifies the interface and a BPF capture filter. Option A is also valid BPF syntax. Options B and D use Wireshark display filter syntax ('eq', '='), which is invalid for tcpdump."
+  },
+  {
+    "id": 11,
+    "question": "What is the purpose of a program like fail2ban?",
+    "options": {
+      "A": "to detect and possibly react to the presence of attacks",
+      "B": "to forward all the traffic directed to one network",
+      "C": "to provide a secure communications mechanism for the traffic between two endpoints",
+      "D": "to collect and process information from distributed sources"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Fail2ban is an intrusion prevention software framework that parses system log files for suspicious behavior (like repeated failed login attempts) and dynamically updates firewall rules (like iptables) to block the offending IP addresses (reacting to attacks)."
+  },
+  {
+    "id": 12,
+    "question": "What is true about openvpn?",
+    "options": {
+      "A": "It is based on the IPSec protocol",
+      "B": "It can use both the transport mode and the tunnel mode",
+      "C": "It can use both symmetric and asymmetric cryptography",
+      "D": "It can only use pre-shared keys"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "OpenVPN is based on the SSL/TLS protocol (not IPSec). During the TLS handshake, it uses asymmetric cryptography for authentication and key exchange, and then establishes the actual secure tunnel using symmetric cryptography for bulk data encryption."
+  },
+  {
+    "id": 13,
+    "question": "Which of the following can be considered an example of SIEM?",
+    "options": {
+      "A": "QRadar",
+      "B": "suricata",
+      "C": "splunk",
+      "D": "snort"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "IBM QRadar and Splunk are highly prominent enterprise Security Information and Event Management (SIEM) platforms. Snort and Suricata are strictly Intrusion Detection/Prevention Systems (IDS/IPS), not SIEMs."
+  },
+  {
+    "id": 14,
+    "question": "Which of the following types of packets are used in IPv6 to realize the same mechanism of ARP in IPv4?",
+    "options": {
+      "A": "Neighbor Solicitation Message",
+      "B": "Router Advertisement Message",
+      "C": "Neighbor Advertisement Message",
+      "D": "Router Solicitation Message"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "IPv6 replaces the broadcast-based ARP with the Neighbor Discovery Protocol (NDP). To resolve a MAC address, a host sends a multicast Neighbor Solicitation, and the target responds with a unicast Neighbor Advertisement."
+  },
+  {
+    "id": 15,
+    "question": "In iptables, what is a likely sequence of chains traversed by a packet received by a host?",
+    "options": {
+      "A": "PREROUTING, INPUT",
+      "B": "POSTROUTING, INPUT, OUTPUT",
+      "C": "PREROUTING, INPUT, FORWARD",
+      "D": "PREROUTING, FORWARD, INPUT"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "For a packet destined for the local host itself, it enters the network interface, passes through the PREROUTING chain (where DNAT could occur), and then is routed to the INPUT chain to reach the local application. It does not traverse FORWARD or POSTROUTING."
+  },
+  {
+    "id": 16,
+    "question": "A VPN implemented with TLS/SSL...",
+    "options": {
+      "A": "generally needs the existence of a Certification Authority known to the all the communicating endpoints",
+      "B": "usually does not hide the type of traffic exchanged between two communicating endpoints",
+      "C": "typically cannot hide the IP addresses of the actual communicating endpoints, if it is used for site-to-site tunneling",
+      "D": "can only be used for HTTP traffic"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "TLS/SSL relies on X.509 digital certificates for secure authentication and key exchange. To trust these certificates without warnings, all endpoints must have the issuing Certification Authority (CA) installed in their trusted root store."
+  },
+  {
+    "id": 17,
+    "question": "What is likely to find in a DMZ?",
+    "options": {
+      "A": "A server hosting a web service",
+      "B": "A VPN gateway",
+      "C": "A proxy server",
+      "D": "A server hosting a sensitive database"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A DMZ is a semi-trusted zone exposed to untrusted external networks. It is designed specifically to host internet-facing services like Web servers, VPN gateways, and proxies. Sensitive internal databases must always be placed in a fully secure internal network."
+  },
+  {
+    "id": 18,
+    "question": "What is FALSE when talking about Kerberos?",
+    "options": {
+      "A": "A Resource Ticket is likely to be used with several servers",
+      "B": "Resource Tickets are encrypted with a short term session key",
+      "C": "Mutual authentication is granted using symmetric cryptography",
+      "D": "Short term session keys are encrypted in Resource Tickets"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "In Kerberos, a Resource Ticket (Service Ticket) is strictly bound to one specific service/server (making A false). Furthermore, the Resource Ticket is encrypted using the target server's long-term secret key, not the short-term session key (making B false; the ticket actually contains the session key)."
+  },
+  {
+    "id": 19,
+    "question": "Which iptables chain is found by default in the FILTER table?",
+    "options": {
+      "A": "PREROUTING",
+      "B": "OUTPUT",
+      "C": "FORWARD",
+      "D": "POSTROUTING"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "The 'filter' table is the default table in iptables used for standard firewall access control. It contains exactly three built-in chains: INPUT, FORWARD, and OUTPUT."
+  },
+  {
+    "id": 20,
+    "question": "Which of the following IPv4 addresses are unlikely to be assigned to a host in a NAT'd network?",
+    "options": {
+      "A": "173.16.10.20",
+      "B": "11.10.9.8",
+      "C": "10.10.10.10",
+      "D": "192.168.254.254"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Internal NAT'd networks use private, non-routable IP blocks defined in RFC 1918 (like 10.x.x.x or 192.168.x.x). Addresses 173.16.10.20 and 11.10.9.8 are public, globally routable IP addresses, and therefore very unlikely to be assigned to an internal host behind NAT."
+  }
+]
