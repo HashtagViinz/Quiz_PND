@@ -15,6 +15,7 @@ CYAN = "\033[96m"
 
 DATA_FOLDER = "exams"
 ERROR_FILE = "errori_exams.json"
+MEM_FILE = "memory.txt"
 DEFAULT_QUIZ_SIZE = 30
 
 def parse_quiz_files():
@@ -66,6 +67,21 @@ def load_congr_json():
             except json.JSONDecodeError:
                 return None
     return None
+
+def load_memory():
+    """Carica la memoria dei titoli già testati"""
+    if os.path.exists(MEM_FILE):
+        with open(MEM_FILE, "r", encoding="utf-8") as f:
+            return set(line.strip() for line in f)
+    return set()
+
+def add_to_memory(filename, loaded_memory):
+    """Aggiunge un file alla memoria solo se non è già presente"""
+    if filename not in loaded_memory:
+        with open(MEM_FILE, "a", encoding="utf-8") as mem_file:
+            mem_file.write(f"{filename}\n")
+        # Aggiorniamo il set in memoria per mantenere la coerenza
+        loaded_memory.add(filename)
 
 def congratulations():
     """Stampa una frase di congratulazioni casuale."""
@@ -203,12 +219,21 @@ def main():
         if not files:
             print(f"\n{RED}📭 Nessun file rilevato. Verifica la cartella '{DATA_FOLDER}'.{RESET}")
             return
-            
+        
+        loaded_memory = load_memory()         
+         
         print(f"\n{BOLD}📚 Seleziona un file JSON:{RESET}")
         for idx, filename in enumerate(files, 1):
-            count = sum(1 for q in all_questions if q['source'] == filename)
-            print(f"  {CYAN}{idx}.{RESET} {filename} ({YELLOW}{count} domande{RESET})")
             
+            count = sum(1 for q in all_questions if q['source'] == filename)
+            tested = f"{'🔴' if filename not in loaded_memory else '🟢'}"
+            print(f"  {CYAN}{idx}.{RESET} {filename} ({YELLOW}{count} domande{RESET}) TESTED:{tested}")
+        
+        
+        if filename not in loaded_memory:
+            # ... esegui le tue operazioni ...
+            add_to_memory(filename, loaded_memory)
+        
         try:
             file_choice = int(input(f"\nScegli il numero del file (1-{len(files)}): ").strip())
             if 1 <= file_choice <= len(files):
