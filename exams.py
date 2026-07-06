@@ -14,7 +14,7 @@ BLUE = "\033[94m"
 CYAN = "\033[96m"
 
 DATA_FOLDER = "exams"
-ERROR_FILE = "errori.json"
+ERROR_FILE = "errori_exams.json"
 DEFAULT_QUIZ_SIZE = 30
 
 def parse_quiz_files():
