@@ -1,0 +1,295 @@
+[
+  {
+    "id": 1,
+    "question": "The host H1 needs to use ARP for reaching the host H2 in its local network. What is true about HI ARP request packet?",
+    "options": {
+      "A": "It is supposed to receive a reply packet with HI MAC address in the Ethernet frame destination field.",
+      "B": "It is sent to the broadcast IP address of the local network.",
+      "C": "It is supposed to receive a reply packet with H2 MAC address in the Ethernet frame source field.",
+      "D": "It has HI MAC address in the Ethernet frame source field."
+    },
+    "correct_answers": [
+      "A",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "An ARP request is broadcast at Layer 2 (MAC broadcast, not IP broadcast). The frame sent out will contain H1's MAC as the source. The unicast reply coming back from H2 will appropriately have H2's MAC as the source and H1's MAC as the destination."
+  },
+  {
+    "id": 2,
+    "question": "Which of the following packets involve a multicast IPv6 address?",
+    "options": {
+      "A": "A neighbor solicitation for DAD purposes",
+      "B": "An ARP reply",
+      "C": "An ARP request",
+      "D": "A neighbor solicitation for knowing the MAC address of a local host"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "IPv6 does not use ARP; instead, it relies on the Neighbor Discovery Protocol (NDP). Neighbor Solicitations—used both for MAC resolution and Duplicate Address Detection (DAD)—are sent to the solicited-node multicast address."
+  },
+  {
+    "id": 3,
+    "question": "Mark the possible values of a network mask:",
+    "options": {
+      "A": "255.255.64.0",
+      "B": "255.255.255.252",
+      "C": "255.0.0.0",
+      "D": "255.128.128.0"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A legitimate network mask must consist of contiguous binary 1s followed by contiguous 0s. 255.255.255.252 (/30) and 255.0.0.0 (/8) follow this rule. Values like 255.255.64.0 or 255.128.128.0 interrupt the contiguity of the 1s."
+  },
+  {
+    "id": 4,
+    "question": "You can use SLAAC...",
+    "options": {
+      "A": "for autonomously generating an IPv6 GUA address.",
+      "B": "to communicate the information a device needs to join a local network.",
+      "C": "for autonomously generating an IPv6 link-local address.",
+      "D": "to inform a host to contact the stateful DHCPv6 server for all its addressing information."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Stateless Address Autoconfiguration (SLAAC) allows interfaces to generate their own Global Unicast Addresses (GUAs) dynamically. It works via Router Advertisements (RAs), which simultaneously supply the prefix and essential routing details the host needs to join the network."
+  },
+  {
+    "id": 5,
+    "question": "You must develop an IP addressing plan with 192.20.20.0/24 to allow the maximum number of subnets with as many as 50 hosts each. Which IP address range meets these requirements?",
+    "options": {
+      "A": "192.20.20.0/28",
+      "B": "192.20.20.0/26",
+      "C": "192.20.20.0/25",
+      "D": "192.20.20.0/27"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Supporting exactly up to 50 valid hosts per subnet requires 6 bits for the host ID (2^6 - 2 = 62 usable IP addresses). Subtracting those 6 bits from the 32-bit total gives a /26 prefix. This guarantees exactly 4 subnets, maximizing subnet quantity while satisfying the host constraint."
+  },
+  {
+    "id": 6,
+    "question": "You use DHCP-v6 prefix-delegation...",
+    "options": {
+      "A": "to request an IPv6 GUA.",
+      "B": "to tell to a device how to obtain its addressing information dynamically.",
+      "C": "... to request an IPv6 prefix.",
+      "D": "to assign IPv6 GUAs to the hosts of a local network."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "DHCPv6 Prefix Delegation (DHCPv6-PD) is specifically used by downstream routers (like a home router connecting to an ISP) to dynamically request an entire IPv6 network prefix, rather than a single host address."
+  },
+  {
+    "id": 7,
+    "question": "Mark the correct associations between IPv6 - shortened IPv6 address:",
+    "options": {
+      "A": "2001:0000:BEEF:0001:0000:0000:0000:0001 - 2001::BEEF:1::1",
+      "B": "2001:FEED:DEAF:1000:0000:0000:0000:0001 - 2001:FEED:DEAF:1::1",
+      "C": "2001:DEAD:FACE:0000:0000:0000:0000:0001 - 2001:DEAD:FACE::1",
+      "D": "2001:0DB8:CAFE:0001:0000:0000:0000:0001 - 2001:DB8:CAFE:1::1"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Double colons (::) can only be used once per address to condense contiguous fields of zeros. Leading zeros in a hextet can be dropped. Trailing zeros cannot be truncated."
+  },
+  {
+    "id": 8,
+    "question": "What is true when considering the exchange between a client and a server with a proxy that accepts the HTTP CONNECT method?",
+    "options": {
+      "A": "The client establishes the TCP connection directly with the server since the proxy forwards the TCP handshake.",
+      "B": "The HTTP CONNECT can only be used with HTTPS since it uses HTTP.",
+      "C": "The client can communicate with the server using any TCP-based protocol.",
+      "D": "The proxy decrypts and re-encrypts all the traffic between the client and the server."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The HTTP CONNECT method instructs a proxy server to establish a blind TCP tunnel to a designated destination. Because the tunnel simply relays TCP streams transparently, it can ferry any TCP-based protocol over it without the proxy actively modifying the payloads."
+  },
+  {
+    "id": 9,
+    "question": "Which of the following commands does not return a syntax error?",
+    "options": {
+      "A": "iptables -D FORWARD 1 updm state -j ACCEPT",
+      "B": "iptables -P OUTPUT ACCEPT",
+      "C": "iptables -I INPUT 99 tcpj REJECT",
+      "D": "iptables A natt FORWARDj ACCEPT"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Option B correctly assigns the default Policy (-P) for the OUTPUT chain to ACCEPT. The other options suffer from syntax errors or malformed arguments."
+  },
+  {
+    "id": 10,
+    "question": "What does it mean that SIEM can help with IT Regulatory Compliance?",
+    "options": {
+      "A": "SIEMs can investigate and consider (correlate) other events that are not necessarily homogeneous.",
+      "B": "SIEMs can produce reports often needed by businesses to provide evidence of self-auditing.",
+      "C": "SIEMs can activate procedures after the identification of given (security) events.",
+      "D": "SIEMs can audit and validate the compliance or identify violations of compliance requirements imposed upon the organization."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "While correlation and active response are core capabilities, the direct impact on Regulatory Compliance originates from generating necessary self-audit reports and effectively identifying violations regarding organizational policies."
+  },
+  {
+    "id": 11,
+    "question": "Which of the following is a typical function of a reverse proxy?",
+    "options": {
+      "A": "Cache static content",
+      "B": "Authentication, Authorization and Accounting",
+      "C": "Decrypt and inspect SSL/TLS traffic from internal users to the web",
+      "D": "Log the resources requested by the clients"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Positioned immediately in front of backend web servers, a reverse proxy's traditional role is to cache static assets to accelerate delivery to clients and offload repetitive requests from the backend."
+  },
+  {
+    "id": 12,
+    "question": "Which builtin chains can you find in the NAT table?",
+    "options": {
+      "A": "POSTROUTING",
+      "B": "OUTPUT",
+      "C": "MANGLE",
+      "D": "FORWARD"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Within iptables, the native chains for the nat table are PREROUTING, INPUT, OUTPUT, and POSTROUTING. MANGLE is a separate operational table, while FORWARD belongs specifically to the filter table."
+  },
+  {
+    "id": 13,
+    "question": "What mechanism can help servers deal with the overhead of encrypted communications?",
+    "options": {
+      "A": "SSL offloading",
+      "B": "HTTP CONNECT",
+      "C": "Server Name Indication",
+      "D": "SSL bump"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "SSL offloading handles TLS/SSL encryption and decryption on a separate appliance (like a load balancer or proxy) before routing the unencrypted traffic back to the web servers, saving internal resources."
+  },
+  {
+    "id": 14,
+    "question": "Mark the correct plane-best-practice associations for network hardening:",
+    "options": {
+      "A": "Management-plane - Use ACLs in routers to authorize only trusted sources",
+      "B": "Management-plane - Limit the packets that require high CPU overhead",
+      "C": "Control-plane - Use authenticated routing protocols",
+      "D": "Data-plane - Enable DHCP snooping"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Securing the control plane involves authenticating routing protocols to prevent rogue topology changes. The data plane is hardened by filtering malformed or malicious payload traffic, which DHCP Snooping effectively prevents."
+  },
+  {
+    "id": 15,
+    "question": "Which of the following attacks can fool a host in modifying its routing table?",
+    "options": {
+      "A": "ARP poisoning",
+      "B": "ICMP redirect",
+      "C": "Rogue DHCP server",
+      "D": "DNS poisoning"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "An ICMP redirect is an explicit message to a host commanding it to adopt a new route for a destination IP. A rogue DHCP server can stealthily modify a host's behavior by supplying a malicious Default Gateway IP alongside the lease."
+  },
+  {
+    "id": 16,
+    "question": "Select the right associations:",
+    "options": {
+      "A": "IPS behaviour-based - toughness of defining what is the normal behavior",
+      "B": "NIDS - monitors events in a single host to detect suspicious activity",
+      "C": "IDS signature-based - low risk of false positives",
+      "D": "Too few intrusions detected - reduced attention"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Behavior-based anomaly detection systems have notoriously tough times building a perfect baseline. Signature-based systems contrast this by utilizing rigid, known indicators of compromise, which drastically lowers the false-positive rate."
+  },
+  {
+    "id": 17,
+    "question": "Which of the following involves symmetric key encryption?",
+    "options": {
+      "A": "A VPN implemented with IPSec with AH in tunnel mode",
+      "B": "A VPN implemented with TLS in host-to-site mode",
+      "C": "A VPN implemented with TLS in site-to-site mode",
+      "D": "A VPN implemented with IPSec with AH in transport mode"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Both TLS VPN deployments rely fundamentally on symmetric algorithms for the bulk data encryption of the tunnel. Conversely, IPSec's Authentication Header (AH) secures integrity and origin authentication but guarantees zero payload encryption."
+  },
+  {
+    "id": 18,
+    "question": "What is true when considering a TLS connection handshake?",
+    "options": {
+      "A": "Mutual autentication is optional.",
+      "B": "The client always sends its certificate before the server.",
+      "C": "The symmetric key is generated by the server and sent right after the client certificate verification phase.",
+      "D": "It generally involves more than two hosts when realized with a multicast address."
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Standard TLS handshakes strictly require only the server to prove its identity via a certificate. Client authentication (mTLS) is an entirely optional configuration triggered by the server explicitly requesting it."
+  },
+  {
+    "id": 19,
+    "question": "Which of the following filters will make Wireshark only display IPv6 packets containing DNS queries and responses?",
+    "options": {
+      "A": "ipv6 and udp.port == 53",
+      "B": "ip == 6 and udp.port == 53",
+      "C": "ip6 and udp port 53",
+      "D": "ipv6 and udp port 53"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Within Wireshark's display filter engine, isolating the IPv6 protocol requires the exact identifier ipv6, while UDP ports are filtered via udp.port == 53."
+  },
+  {
+    "id": 20,
+    "question": "Assuming that the default policy of the INPUT chain is DROP, which of the following commands will make a host accept an incoming SSH connection?",
+    "options": {
+      "A": "iptables -A INPUT -p ssh-port 22 -j ACCEPT",
+      "B": "iptables -A INPUT -p tcp -j ACCEPT",
+      "C": "iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
+      "D": "iptables -A INPUT -p ssh -j ACCEPT"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Command B dictates that all incoming TCP traffic is permitted, which fundamentally includes SSH. Command C targets port 22 specifically, directly allowing standard SSH operations."
+  }
+]
