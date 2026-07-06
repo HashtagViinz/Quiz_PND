@@ -3,6 +3,7 @@ import os
 import json
 import random
 import re
+import sys
 
 # Costanti per i colori ANSI nel terminale
 RESET = "\033[0m"
@@ -79,7 +80,7 @@ def add_to_memory(filename, loaded_memory):
     """Aggiunge un file alla memoria solo se non è già presente"""
     if filename not in loaded_memory:
         with open(MEM_FILE, "a", encoding="utf-8") as mem_file:
-            mem_file.write(f"{filename}\n")
+            mem_file.write(f"\n{filename}")
         # Aggiorniamo il set in memoria per mantenere la coerenza
         loaded_memory.add(filename)
 
@@ -216,6 +217,7 @@ def main():
         
     elif choice == "2":
         files = sorted(list(set([q['source'] for q in all_questions])))
+
         if not files:
             print(f"\n{RED}📭 Nessun file rilevato. Verifica la cartella '{DATA_FOLDER}'.{RESET}")
             return
@@ -230,14 +232,14 @@ def main():
             print(f"  {CYAN}{idx}.{RESET} {filename} ({YELLOW}{count} domande{RESET}) TESTED:{tested}")
         
         
-        if filename not in loaded_memory:
-            # ... esegui le tue operazioni ...
-            add_to_memory(filename, loaded_memory)
         
         try:
             file_choice = int(input(f"\nScegli il numero del file (1-{len(files)}): ").strip())
             if 1 <= file_choice <= len(files):
                 selected_file = files[file_choice - 1]
+                
+                add_to_memory(selected_file, loaded_memory)
+                
                 topic_questions = [q for q in all_questions if q['source'] == selected_file]
                 run_quiz(topic_questions, max_size=None)
             else:
