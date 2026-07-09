@@ -136,7 +136,7 @@ def run_quiz(questions, max_size=None):
         correct_sorted = sorted(q['correct_answers'])
         is_multiple = len(correct_sorted) > 1
         
-        prompt_msg = f"\n✍️  La tua risposta (es. {BOLD}A,B{RESET}) | {YELLOW}{BOLD}S{RESET} to SKIP o '{RED}{BOLD}Q{RESET}' per uscire: " if is_multiple else f"\n✍️  La tua risposta ({BOLD}A-E{RESET}) | {YELLOW}{BOLD}S{RESET} to SKIP o '{RED}{BOLD}Q{RESET}' per uscire: "
+        prompt_msg = f"\n✍️  La tua risposta (es. {BOLD}A,B{RESET}) | {YELLOW}{BOLD}S{RESET} to SKIP o '{RED}{BOLD}Q{RESET}' per uscire: "
         
         user_input = ""
         user_parsed = []
