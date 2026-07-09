@@ -1,0 +1,3948 @@
+[
+  {
+    "id": 1,
+    "question": "The host H1 needs to use ARP for reaching the host H2 in its local network. What is true about HI ARP request packet? [cite: 134, 135]",
+    "options": {
+      "A": "It is supposed to receive a reply packet with HI MAC address in the Ethernet frame destination field. [cite: 136]",
+      "B": "It is sent to the broadcast IP address of the local network. [cite: 137]",
+      "C": "It is supposed to receive a reply packet with H2 MAC address in the Ethernet frame source field. [cite: 138]",
+      "D": "It has HI MAC address in the Ethernet frame source field. [cite: 139]"
+    },
+    "correct_answers": [
+      "A",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "An ARP request is broadcast at Layer 2 (MAC broadcast, not IP broadcast). The frame sent out will contain H1's MAC as the source. The unicast reply coming back from H2 will appropriately have H2's MAC as the source and H1's MAC as the destination."
+  },
+  {
+    "id": 2,
+    "question": "Which of the following packets involve a multicast IPv6 address? [cite: 140]",
+    "options": {
+      "A": "A neighbor solicitation for DAD purposes [cite: 141]",
+      "B": "An ARP reply [cite: 142]",
+      "C": "An ARP request [cite: 143]",
+      "D": "A neighbor solicitation for knowing the MAC address of a local host [cite: 144]"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "IPv6 does not use ARP; instead, it relies on the Neighbor Discovery Protocol (NDP). Neighbor Solicitations—used both for MAC resolution and Duplicate Address Detection (DAD)—are sent to the solicited-node multicast address."
+  },
+  {
+    "id": 3,
+    "question": "Mark the possible values of a network mask: [cite: 145]",
+    "options": {
+      "A": "255.255.64.0 [cite: 146]",
+      "B": "255.255.255.252 [cite: 147]",
+      "C": "255.0.0.0 [cite: 148]",
+      "D": "255.128.128.0 [cite: 149]"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A legitimate network mask must consist of contiguous binary 1s followed by contiguous 0s. 255.255.255.252 (/30) and 255.0.0.0 (/8) follow this rule. Values like 255.255.64.0 or 255.128.128.0 interrupt the contiguity of the 1s."
+  },
+  {
+    "id": 4,
+    "question": "You can use SLAAC... [cite: 150]",
+    "options": {
+      "A": "for autonomously generating an IPv6 GUA address. [cite: 151, 155]",
+      "B": "to communicate the information a device needs to join a local network. [cite: 152, 156]",
+      "C": "for autonomously generating an IPv6 link-local address. [cite: 153, 157]",
+      "D": "to inform a host to contact the stateful DHCPv6 server for all its addressing information. [cite: 154, 158]"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Stateless Address Autoconfiguration (SLAAC) allows interfaces to generate their own Global Unicast Addresses (GUAs) dynamically. It works via Router Advertisements (RAs), which simultaneously supply the prefix and essential routing details the host needs to join the network."
+  },
+  {
+    "id": 5,
+    "question": "You must develop an IP addressing plan with 192.20.20.0/24 to allow the maximum number of subnets with as many as 50 hosts each. Which IP address range meets these requirements? [cite: 159, 160]",
+    "options": {
+      "A": "192.20.20.0/28 [cite: 161]",
+      "B": "192.20.20.0/26 [cite: 162]",
+      "C": "192.20.20.0/25 [cite: 163]",
+      "D": "192.20.20.0/27 [cite: 164]"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Supporting exactly up to 50 valid hosts per subnet requires 6 bits for the host ID (2^6 - 2 = 62 usable IP addresses). Subtracting those 6 bits from the 32-bit total gives a /26 prefix. This guarantees exactly 4 subnets, maximizing subnet quantity while satisfying the host constraint."
+  },
+  {
+    "id": 6,
+    "question": "You use DHCP-v6 prefix-delegation... [cite: 165]",
+    "options": {
+      "A": "to request an IPv6 GUA. [cite: 166, 167]",
+      "B": "to tell to a device how to obtain its addressing information dynamically. [cite: 168, 169]",
+      "C": "... to request an IPv6 prefix. [cite: 172]",
+      "D": "to assign IPv6 GUAs to the hosts of a local network. [cite: 173]"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "DHCPv6 Prefix Delegation (DHCPv6-PD) is specifically used by downstream routers (like a home router connecting to an ISP) to dynamically request an entire IPv6 network prefix, rather than a single host address."
+  },
+  {
+    "id": 7,
+    "question": "Mark the correct associations between IPv6 - shortened IPv6 address: [cite: 174]",
+    "options": {
+      "A": "2001:0000:BEEF:0001:0000:0000:0000:0001 - 2001::BEEF:1::1 [cite: 175]",
+      "B": "2001:FEED:DEAF:1000:0000:0000:0000:0001 - 2001:FEED:DEAF:1::1 [cite: 176]",
+      "C": "2001:DEAD:FACE:0000:0000:0000:0000:0001 - 2001:DEAD:FACE::1 [cite: 177]",
+      "D": "2001:0DB8:CAFE:0001:0000:0000:0000:0001 - 2001:DB8:CAFE:1::1 [cite: 178]"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Double colons (::) can only be used once per address to condense contiguous fields of zeros. Leading zeros in a hextet can be dropped. Trailing zeros cannot be truncated."
+  },
+  {
+    "id": 8,
+    "question": "What is true when considering the exchange between a client and a server with a proxy that accepts the HTTP CONNECT method? [cite: 179]",
+    "options": {
+      "A": "The client establishes the TCP connection directly with the server since the proxy forwards the TCP handshake. [cite: 180]",
+      "B": "The HTTP CONNECT can only be used with HTTPS since it uses HTTP. [cite: 181]",
+      "C": "The client can communicate with the server using any TCP-based protocol. [cite: 182]",
+      "D": "The proxy decrypts and re-encrypts all the traffic between the client and the server. [cite: 183]"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The HTTP CONNECT method instructs a proxy server to establish a blind TCP tunnel to a designated destination. Because the tunnel simply relays TCP streams transparently, it can ferry any TCP-based protocol over it without the proxy actively modifying the payloads."
+  },
+  {
+    "id": 9,
+    "question": "Which of the following commands does not return a syntax error? [cite: 184]",
+    "options": {
+      "A": "iptables -D FORWARD 1 updm state -j ACCEPT [cite: 185]",
+      "B": "iptables -P OUTPUT ACCEPT [cite: 186]",
+      "C": "iptables -I INPUT 99 tcpj REJECT [cite: 187]",
+      "D": "iptables A natt FORWARDj ACCEPT [cite: 188]"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Option B correctly assigns the default Policy (-P) for the OUTPUT chain to ACCEPT. The other options suffer from syntax errors or malformed arguments."
+  },
+  {
+    "id": 10,
+    "question": "What does it mean that SIEM can help with IT Regulatory Compliance? [cite: 189]",
+    "options": {
+      "A": "SIEMs can investigate and consider (correlate) other events that are not necessarily homogeneous. [cite: 190]",
+      "B": "SIEMs can produce reports often needed by businesses to provide evidence of self-auditing. [cite: 191]",
+      "C": "SIEMs can activate procedures after the identification of given (security) events. [cite: 192]",
+      "D": "SIEMs can audit and validate the compliance or identify violations of compliance requirements imposed upon the organization. [cite: 193]"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "While correlation and active response are core capabilities, the direct impact on Regulatory Compliance originates from generating necessary self-audit reports and effectively identifying violations regarding organizational policies."
+  },
+  {
+    "id": 11,
+    "question": "Which of the following is a typical function of a reverse proxy? [cite: 194]",
+    "options": {
+      "A": "Cache static content [cite: 195]",
+      "B": "Authentication, Authorization and Accounting [cite: 196]",
+      "C": "Decrypt and inspect SSL/TLS traffic from internal users to the web [cite: 197]",
+      "D": "Log the resources requested by the clients [cite: 198]"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Positioned immediately in front of backend web servers, a reverse proxy's traditional role is to cache static assets to accelerate delivery to clients and offload repetitive requests from the backend."
+  },
+  {
+    "id": 12,
+    "question": "Which builtin chains can you find in the NAT table? [cite: 200]",
+    "options": {
+      "A": "POSTROUTING [cite: 201]",
+      "B": "OUTPUT [cite: 202]",
+      "C": "MANGLE [cite: 203]",
+      "D": "FORWARD [cite: 204]"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Within iptables, the native chains for the nat table are PREROUTING, INPUT, OUTPUT, and POSTROUTING. MANGLE is a separate operational table, while FORWARD belongs specifically to the filter table."
+  },
+  {
+    "id": 13,
+    "question": "What mechanism can help servers deal with the overhead of encrypted communications? [cite: 205]",
+    "options": {
+      "A": "SSL offloading [cite: 206]",
+      "B": "HTTP CONNECT [cite: 207]",
+      "C": "Server Name Indication [cite: 208]",
+      "D": "SSL bump [cite: 209]"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "SSL offloading handles TLS/SSL encryption and decryption on a separate appliance (like a load balancer or proxy) before routing the unencrypted traffic back to the web servers, saving internal resources."
+  },
+  {
+    "id": 14,
+    "question": "Mark the correct plane-best-practice associations for network hardening: [cite: 210]",
+    "options": {
+      "A": "Management-plane - Use ACLs in routers to authorize only trusted sources [cite: 211]",
+      "B": "Management-plane - Limit the packets that require high CPU overhead [cite: 212]",
+      "C": "Control-plane - Use authenticated routing protocols [cite: 213]",
+      "D": "Data-plane - Enable DHCP snooping [cite: 214]"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Securing the control plane involves authenticating routing protocols to prevent rogue topology changes. The data plane is hardened by filtering malformed or malicious payload traffic, which DHCP Snooping effectively prevents."
+  },
+  {
+    "id": 15,
+    "question": "Which of the following attacks can fool a host in modifying its routing table? [cite: 215]",
+    "options": {
+      "A": "ARP poisoning [cite: 216]",
+      "B": "ICMP redirect [cite: 217]",
+      "C": "Rogue DHCP server [cite: 218]",
+      "D": "DNS poisoning [cite: 219]"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "An ICMP redirect is an explicit message to a host commanding it to adopt a new route for a destination IP. A rogue DHCP server can stealthily modify a host's behavior by supplying a malicious Default Gateway IP alongside the lease."
+  },
+  {
+    "id": 16,
+    "question": "Select the right associations: [cite: 220]",
+    "options": {
+      "A": "IPS behaviour-based - toughness of defining what is the normal behavior [cite: 221]",
+      "B": "NIDS - monitors events in a single host to detect suspicious activity [cite: 242]",
+      "C": "IDS signature-based - low risk of false positives [cite: 224]",
+      "D": "Too few intrusions detected - reduced attention [cite: 224]"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Behavior-based anomaly detection systems have notoriously tough times building a perfect baseline. Signature-based systems contrast this by utilizing rigid, known indicators of compromise, which drastically lowers the false-positive rate."
+  },
+  {
+    "id": 17,
+    "question": "Which of the following involves symmetric key encryption? [cite: 225]",
+    "options": {
+      "A": "A VPN implemented with IPSec with AH in tunnel mode [cite: 226]",
+      "B": "A VPN implemented with TLS in host-to-site mode [cite: 227]",
+      "C": "A VPN implemented with TLS in site-to-site mode [cite: 227]",
+      "D": "A VPN implemented with IPSec with AH in transport mode [cite: 227]"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Both TLS VPN deployments rely fundamentally on symmetric algorithms for the bulk data encryption of the tunnel. Conversely, IPSec's Authentication Header (AH) secures integrity and origin authentication but guarantees zero payload encryption."
+  },
+  {
+    "id": 18,
+    "question": "What is true when considering a TLS connection handshake? [cite: 228]",
+    "options": {
+      "A": "Mutual autentication is optional. [cite: 229]",
+      "B": "The client always sends its certificate before the server. [cite: 230]",
+      "C": "The symmetric key is generated by the server and sent right after the client certificate verification phase. [cite: 231]",
+      "D": "It generally involves more than two hosts when realized with a multicast address. [cite: 232]"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Standard TLS handshakes strictly require only the server to prove its identity via a certificate. Client authentication (mTLS) is an entirely optional configuration triggered by the server explicitly requesting it."
+  },
+  {
+    "id": 19,
+    "question": "Which of the following filters will make Wireshark only display IPv6 packets containing DNS queries and responses? [cite: 233]",
+    "options": {
+      "A": "ipv6 and udp.port == 53 [cite: 234]",
+      "B": "ip == 6 and udp.port == 53 [cite: 235]",
+      "C": "ip6 and udp port 53 [cite: 236]",
+      "D": "ipv6 and udp port 53 [cite: 237]"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Within Wireshark's display filter engine, isolating the IPv6 protocol requires the exact identifier ipv6, while UDP ports are filtered via udp.port == 53."
+  },
+  {
+    "id": 20,
+    "question": "Assuming that the default policy of the INPUT chain is DROP, which of the following commands will make a host accept an incoming SSH connection? [cite: 238]",
+    "options": {
+      "A": "iptables -A INPUT -p ssh-port 22 -j ACCEPT [cite: 239]",
+      "B": "iptables -A INPUT -p tcp -j ACCEPT [cite: 240]",
+      "C": "iptables -A INPUT -p tcp-dport 22 -j ACCEPT [cite: 241]",
+      "D": "iptables -A INPUT -p ssh -j ACCEPT [cite: 241]"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Command B dictates that all incoming TCP traffic is permitted, which fundamentally includes SSH. Command C (accounting for OCR typos representing -p tcp --dport 22) targets port 22 specifically, directly allowing standard SSH operations."
+  },
+  {
+    "id": 21,
+    "question": "Mark the most likely wrong associations of IPv6 addresses, given that: A=2001:DB8:1000::1, B=FE80::FE99:47FF:FE75:C3E0, C=2001:DB8:CAFE:1:50A5:8A35:A5BB:66E1, D=2001:DB8:CAFE:1:FE99:47FF:FE75:C3E0",
+    "options": {
+      "A": "A: GUA via SLAAC with random IID, B: Link-local with EUI-64",
+      "B": "C: GUA via SLAAC with EUI-64, D: link-local with EUI-64",
+      "C": "A: static GUA, C: GUA via SLAAC with random IID",
+      "D": "B: Link-local with EUI-64, D: GUA via SLAAC with EUI-64"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Address A (2001:DB8:1000::1) appears to be statically assigned rather than SLAAC generated. Addresses B and D do not contain 'FFFE' in the middle of their Interface Identifiers, meaning they are not derived using the EUI-64 method. [cite: 327, 328, 329, 330, 331]"
+  },
+  {
+    "id": 22,
+    "question": "When a packet is processed in an iptables chain,",
+    "options": {
+      "A": "once a matching rule has been applied, under no circumstances other rules will be considered",
+      "B": "the rules are considered in order and if no matching rule is found, the default policy is applied",
+      "C": "the rules are considered in order and the decision is made according to the first one matching",
+      "D": "all the rules are always considered and the matching ones are applied"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In iptables, rules within a chain are evaluated sequentially from top to bottom. The first rule that matches the packet dictates the action (like ACCEPT or DROP). If no rules match after evaluating the entire chain, the chain's default policy is enforced. [cite: 336, 338, 339]"
+  },
+  {
+    "id": 23,
+    "question": "What is true when talking about Kerberos?",
+    "options": {
+      "A": "Mutual authentication is granted using symmetric cryptography",
+      "B": "Resource Tickets are encrypted with a short term session key",
+      "C": "A Resource Ticket can be used with several servers",
+      "D": "Short term session keys are encrypted in Resource Tickets"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Kerberos heavily relies on symmetric key cryptography for mutual authentication between clients and servers. When a Ticket Granting Service (TGS) issues a Resource Ticket, it embeds a short-term session key inside the ticket, which is encrypted with the target server's secret key. [cite: 341, 342, 345]"
+  },
+  {
+    "id": 24,
+    "question": "Which of the following is NOT a typical service of a SIEM?",
+    "options": {
+      "A": "Vulnerability scanning",
+      "B": "Event correlation",
+      "C": "Endpoint security",
+      "D": "Reconnaissance"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "SIEM (Security Information and Event Management) systems excel at log aggregation, event correlation, and alerting based on endpoint security data. They are not traditionally designed to perform active vulnerability scanning or active network reconnaissance. [cite: 346, 347, 350]"
+  },
+  {
+    "id": 25,
+    "question": "Which of the following filters allows to capture DNS queries?",
+    "options": {
+      "A": "udp port dns",
+      "B": "udp port 53",
+      "C": "proto dns",
+      "D": "proto udp port 53"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "DNS conventionally operates over UDP port 53 for standard queries. The valid BPF (Berkeley Packet Filter) syntax to capture this traffic in tools like tcpdump or Wireshark is 'udp port 53'. [cite: 351, 353]"
+  },
+  {
+    "id": 26,
+    "question": "If < is the relation 'happens before than', mark the right statements:",
+    "options": {
+      "A": "Non-intrusive target search < Data analysis < Reporting",
+      "B": "Planning < Data analysis < Intrusive target search",
+      "C": "Planning < Intrusive target search < Reporting",
+      "D": "Data analysis < Threat modeling and Exploitation < Intrusive target search"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "In a standard penetration testing methodology, planning comes first, followed by discovery (non-intrusive then intrusive searches), data analysis/exploitation, and finally reporting. [cite: 356, 359, 361]"
+  },
+  {
+    "id": 27,
+    "question": "Which of the following are typical features of forward proxies?",
+    "options": {
+      "A": "Possibility to perform load balancing between different origin servers",
+      "B": "Possibility to check the identity of the user making a request and verify her authorization",
+      "C": "Possibility to check the integrity of the fetched resources",
+      "D": "Possibility to cache fetched resources, to save bandwidth and increase latency"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Forward proxies sit in front of client endpoints. They are commonly used to enforce organizational access policies (authentication/authorization) and to cache outbound web requests to save external bandwidth, though caching may slightly increase initial latency for uncached items. [cite: 363, 365, 366]"
+  },
+  {
+    "id": 28,
+    "question": "The TLS protocol",
+    "options": {
+      "A": "is a protocol that works at the APPLICATION level",
+      "B": "can only be used with HTTP",
+      "C": "can also provide client authentication",
+      "D": "uses both symmetric and asymmetric cryptography"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "TLS (Transport Layer Security) operates primarily between the Transport and Application layers. It uses asymmetric cryptography for the initial handshake and key exchange, and symmetric cryptography for bulk data encryption. It can optionally enforce client-side certificate authentication (mTLS). [cite: 367, 370, 371]"
+  },
+  {
+    "id": 29,
+    "question": "Which type of IDS makes use of 'rules'?",
+    "options": {
+      "A": "Only HIDS signature-based",
+      "B": "Only NIDS behavioral-based",
+      "C": "NIDS Signature-based",
+      "D": "HIDS Signature-based"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Signature-based Intrusion Detection Systems (whether Network-based or Host-based) rely on pre-defined sets of rules to identify known malicious patterns within traffic or logs. [cite: 372, 375, 376]"
+  },
+  {
+    "id": 30,
+    "question": "In a VPN",
+    "options": {
+      "A": "we cannot use SSL/TLS to secure the VPN network layer",
+      "B": "site-to-site tunneling makes PDUs of a network to pass encrypted through an insecure network, to reach another secure network",
+      "C": "site-to-site tunneling makes possible ARP spoofing attacks within the VPN itself",
+      "D": "we can use IPSec to secure the VPN network layer"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "A site-to-site VPN encrypts Protocol Data Units (PDUs) traversing over an untrusted network (like the Internet) to securely bridge two distinct local networks. IPSec is the standard suite used to secure communications at the Network layer (Layer 3). [cite: 377, 378, 380]"
+  },
+  {
+    "id": 31,
+    "question": "To take a decision about a packet, what a packet filtering firewall DOES NOT consider?",
+    "options": {
+      "A": "The payload of the packet",
+      "B": "The IP addresses of the packet",
+      "C": "The context of the packet",
+      "D": "The TCP flags of the packet"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Stateless packet filtering firewalls operate strictly up to Layer 4. They inspect headers (IP addresses, ports, TCP flags) but do not look deep into the Application layer payload, nor do they track connection states (context). [cite: 381, 382, 384]"
+  },
+  {
+    "id": 32,
+    "question": "What is true with respect to ICMPv6?",
+    "options": {
+      "A": "When a host wants to ping another host, it keeps sending Echo Request packets with increasing Hop Limit field",
+      "B": "When a host needs to know the MAC address related to a IPv6 address, it sends a multicast message",
+      "C": "When a host connects to a new network, it sends a Router Solicitation packet",
+      "D": "When a host receives a packet for a port not in listening, it sends a Destination Unreachable, No route to destination message"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "ICMPv6 incorporates Neighbor Discovery Protocol (NDP). MAC address resolution is performed via Neighbor Solicitations sent to a solicited-node multicast address. Newly connected hosts send Router Solicitations to discover local routers and configuration parameters. [cite: 386, 389, 390]"
+  },
+  {
+    "id": 33,
+    "question": "For protecting a legacy server that does not makes use of TLS, which type of proxy could you use?",
+    "options": {
+      "A": "Forward proxy with SSL offloading",
+      "B": "Transparent proxy",
+      "C": "Forward proxy with SSL bump",
+      "D": "Reverse proxy as TLS termination"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "A reverse proxy acting as a TLS termination point sits in front of the legacy server. It handles the secure TLS connections from external clients, decrypts the traffic, and forwards it to the legacy internal server via unencrypted HTTP. [cite: 392, 396]"
+  },
+  {
+    "id": 34,
+    "question": "In a company that only has one single public IP address, you would use DNAT for doing what?",
+    "options": {
+      "A": "To make possible the internal DNS server to contact other DNS servers",
+      "B": "To make possible an external customer to visit the company website hosted in an internal server",
+      "C": "To make possible an employee that is inside the network to reach an external service",
+      "D": "To make possible an employee that is abroad to reach the VPN gateway of the company"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Destination NAT (DNAT) modifies the destination address of incoming packets. This is essential for routing traffic arriving at the single public IP address to specific internal private IP addresses, such as a web server or an internal VPN gateway. [cite: 397, 399, 401]"
+  },
+  {
+    "id": 35,
+    "question": "Mark the wrong descriptions of commands:",
+    "options": {
+      "A": "ip addr is used to assign or modify IP addresses",
+      "B": "ip ntable is used to manage ARP cache entries",
+      "C": "ip link is used to manage a network device",
+      "D": "ip route is used to manage routing table entries"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The command 'ip ntable' is incorrect for managing ARP cache entries; the correct command in the iproute2 suite is 'ip neigh' (neighbor). [cite: 402, 403]"
+  },
+  {
+    "id": 36,
+    "question": "What is true about Wireshark?",
+    "options": {
+      "A": "It makes use of filters to only display packets with certain field values",
+      "B": "It can easily recognize protocols used in non-standard ports",
+      "C": "It cannot be used without having an interface in promiscuous mode",
+      "D": "It can dissect raw data of a packet in the different logical fields"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Wireshark uses a powerful display filter syntax to isolate specific traffic based on field values. Its core functionality as a protocol analyzer is dissecting raw binary data into human-readable logical fields mapped to the OSI layers. [cite: 405, 406, 409]"
+  },
+  {
+    "id": 37,
+    "question": "An Intrusion Detection System has failed raising an alarm when a real attack was occurring. Which of the following is true?",
+    "options": {
+      "A": "A True Positive should have occurred, but a False Positive eventually occurred",
+      "B": "A True Positive should have occurred, but a False Negative eventually occurred",
+      "C": "A False Negative should have occurred, but a False Positive eventually occurred",
+      "D": "A True Negative should have occurred, but a False Negative eventually occurred"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "A real attack should correctly trigger an alarm (a True Positive). If the system misses the attack and stays silent, it has incorrectly identified malicious behavior as benign, resulting in a False Negative. [cite: 412, 413, 415]"
+  },
+  {
+    "id": 38,
+    "question": "In which directories are different from databases?",
+    "options": {
+      "A": "Data that would normally be stored in an LDAP service would not be expected to change on every access",
+      "B": "To query both of them you need detailed knowledge of the data organization into tables, joins, primary keys and so on",
+      "C": "Only directories are characterized as a write-once-read-many-times service",
+      "D": "Only with LDAP you can have data to be consistent at all times, even if distributed among multiple servers"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Directory services (like LDAP) are optimized for data that is read frequently but modified rarely (write-once-read-many). Unlike relational databases, they do not expect high-transaction modifications on every access. [cite: 418, 419, 421]"
+  },
+  {
+    "id": 39,
+    "question": "A firewall transforms each packet reaching its WAN interface and a certain port, changing the destination IP address with the IP address of an internal host. Which mechanism is the firewall probably adopting?",
+    "options": {
+      "A": "dynamic NAT",
+      "B": "port forwarding",
+      "C": "connection tracking",
+      "D": "destination NAT"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Changing the destination IP address of an incoming packet so it reaches an internal, privately addressed host is the definition of Destination NAT (DNAT), often colloquially referred to as port forwarding in consumer routers. [cite: 423, 424, 428]"
+  },
+  {
+    "id": 40,
+    "question": "Which of the following is NOT a RADIUS packet?",
+    "options": {
+      "A": "Access-accept",
+      "B": "Server-hello",
+      "C": "Accounting-request",
+      "D": "Bind-request"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "RADIUS standard packet types include Access-Request, Access-Accept, Access-Reject, and Accounting-Request. 'Server-hello' is part of the TLS handshake, and 'Bind-request' is typical in LDAP, not RADIUS. [cite: 429, 431, 433]"
+  },
+  {
+    "id": 41,
+    "question": "Which of the following openvpn setup can guarantee mutual authentication?",
+    "options": {
+      "A": "user certificates",
+      "B": "four different symmetric keys",
+      "C": "one symmetric key",
+      "D": "none of the other answers"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Mutual authentication in OpenVPN can be achieved using Public Key Infrastructure (PKI) with user certificates, or using static key configurations where separate symmetric keys handle HMAC and encryption for each direction (totaling four keys)."
+  },
+  {
+    "id": 42,
+    "question": "Which of the following commands is NOT based on ICMP packets?",
+    "options": {
+      "A": "ping",
+      "B": "nslookup",
+      "C": "traceroute",
+      "D": "ssh"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "The 'nslookup' command relies on DNS (UDP/TCP port 53) to resolve IP addresses, and 'ssh' uses TCP (port 22) for secure shell access. Conversely, 'ping' and standard Windows 'traceroute' rely directly on the ICMP protocol."
+  },
+  {
+    "id": 43,
+    "question": "What is true regarding intrusion detection?",
+    "options": {
+      "A": "IDS generally focus on packet headers, while IPS generally focus on packet payloads",
+      "B": "HIDS generally focus on packet headers, while NIDS generally focus on packet payloads",
+      "C": "Using a distribute IDS is generally not very effective",
+      "D": "There are attacks that can only be detected by HIDS"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Host-based Intrusion Detection Systems (HIDS) have deep visibility into the host operating system, monitoring system calls, file integrity, and local processes. This allows them to detect local privilege escalations or encrypted attacks that leave no identifiable traces on the network for a NIDS to intercept."
+  },
+  {
+    "id": 44,
+    "question": "Which of the following parameters for iptables can make DNS responses from $DNS to reach $HOST, provided that there is the default drop? Imagine the full command be: iptables -A FORWARD -p udp -j ALLOW",
+    "options": {
+      "A": "-d $HOST --dport 53",
+      "B": "-s $DNS -d $HOST --sport 53",
+      "C": "-d $HOST --sport 53",
+      "D": "-s $HOST -d $DNS --dport 53"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A DNS response originates from the DNS server (source port 53) and is directed to the client host. Therefore, valid rules must specify the source port as 53 (--sport 53) and the destination as the host (-d $HOST). Specifying the source IP (-s $DNS) adds further strictness."
+  },
+  {
+    "id": 45,
+    "question": "Which are limitations or challenges of vulnerability scanners?",
+    "options": {
+      "A": "They need to have the vulnerability DB updated frequently",
+      "B": "They are slower than simpler port scanners",
+      "C": "They can report a high number of true positive",
+      "D": "They can not identify rogue machines"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Vulnerability scanners perform deep, intrusive checks and send multiple payloads per open port, making them significantly slower than basic port scanners. Furthermore, their effectiveness is entirely dependent on their signature databases, which must be constantly updated to recognize newly discovered CVEs."
+  },
+  {
+    "id": 46,
+    "question": "Which of the following pairs table-chain are evaluated before the FILTER-INPUT?",
+    "options": {
+      "A": "NAT-POSTROUTING",
+      "B": "MANGLE-INPUT",
+      "C": "FILTER-FORWARD",
+      "D": "RAW-INPUT"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "In the Netfilter packet flow architecture for incoming traffic targeting the local machine, the 'raw' table is processed first, followed by the 'mangle' table, and then the 'nat' PREROUTING table. Therefore, both RAW-INPUT and MANGLE-INPUT are evaluated strictly before FILTER-INPUT."
+  },
+  {
+    "id": 47,
+    "question": "What can definitely help a vulnerability scan to detect vulnerabilities in a target system?",
+    "options": {
+      "A": "A database of users in the target system",
+      "B": "The knowledge that a certain service is running in its well known port",
+      "C": "The knowledge of other hosts in the network",
+      "D": "A local agent that runs in the target system"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Credentialed scans (utilizing valid user credentials) or agent-based scans (using a local agent installed on the endpoint) provide deep, inside-out visibility into the system's software registry, installed patches, and local configurations, vastly outperforming unauthenticated remote scans."
+  },
+  {
+    "id": 48,
+    "question": "In IPSec, what is true regarding ESP?",
+    "options": {
+      "A": "It can support traffic authentication even without AH",
+      "B": "It requires AH to support traffic authentication",
+      "C": "It requires IKE to support traffic authentication",
+      "D": "It always supports traffic authentication"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Encapsulating Security Payload (ESP) is capable of providing both payload confidentiality (encryption) and data origin authentication/integrity (via HMACs). It does not rely on the Authentication Header (AH) protocol to authenticate the encapsulated traffic."
+  },
+  {
+    "id": 49,
+    "question": "Which type of addresses are generally involved in IPv6 to realize the Router Advertisement mechanism?",
+    "options": {
+      "A": "GUA",
+      "B": "Unicast link-local",
+      "C": "Multicast link-local",
+      "D": "Broadcast link-local"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Router Advertisements (RAs) are sourced from the router's Unicast Link-Local address (FE80::/10) and are typically transmitted to the all-nodes Multicast Link-Local address (FF02::1) ensuring all hosts on the local network segment receive the network configuration parameters."
+  },
+  {
+    "id": 50,
+    "question": "Which can be the role of a DHCP server in IPv6?",
+    "options": {
+      "A": "Communicating to local hosts to self generate the GUA",
+      "B": "Providing to local hosts the network address for generating the GUA",
+      "C": "Providing to local hosts the IP address of the default gateway",
+      "D": "Providing to local hosts the IP address of the DNS server to use"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "In an IPv6 network utilizing SLAAC for primary IP addressing and gateway discovery (via Router Advertisements), a Stateless DHCPv6 server is commonly deployed solely to provide 'other' necessary configuration options, primarily the IP addresses of the DNS servers."
+  },
+  {
+    "id": 51,
+    "question": "Which of the following is generally used to support the anonymity of a request?",
+    "options": {
+      "A": "reverse proxy",
+      "B": "SAL termination",
+      "C": "forward proxy",
+      "D": "SOCKS proxy"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Both Forward proxies and SOCKS proxies sit between the client and the external internet. By routing outbound traffic through them, the destination web server sees the proxy's IP address instead of the client's actual IP address, facilitating request anonymity."
+  },
+  {
+    "id": 52,
+    "question": "Which of the following commands does not alter the APR (ARP) table of a host?",
+    "options": {
+      "A": "ping",
+      "B": "ip link",
+      "C": "ifconfig",
+      "D": "traceroute"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The 'ip link' command is used strictly to display or modify the state of network interfaces at Layer 2 (e.g., bringing an interface up or down). It does not generate the Layer 3 to Layer 2 network traffic required to resolve IP addresses and populate the ARP cache."
+  },
+  {
+    "id": 53,
+    "question": "Which of the following is not a possible state of a TCP connection?",
+    "options": {
+      "A": "Syn-received",
+      "B": "Fin-wait",
+      "C": "Related",
+      "D": "Closed"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "TCP protocol connection states include SYN-RECEIVED, FIN-WAIT, ESTABLISHED, and CLOSED. 'RELATED' is not a TCP protocol state; it is a connection tracking state used by firewalls (like iptables conntrack) to identify new connections associated with already established ones (e.g., FTP data channels)."
+  },
+  {
+    "id": 54,
+    "question": "What is generally used by vulnerability scanners to actually identify vulnerabilities?",
+    "options": {
+      "A": "Sequences of packets to be sent against a target",
+      "B": "Packet-based exploits",
+      "C": "CVE severities and solutions",
+      "D": "Traffic sniffers"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Vulnerability scanners actively identify flaws by sending specific sequences of crafted packets (probes) or non-destructive packet-based exploits to target services. Some scanners also incorporate passive traffic sniffers to detect vulnerable plaintext protocols traversing the network."
+  },
+  {
+    "id": 55,
+    "question": "What is generally true in a SIEM stack?",
+    "options": {
+      "A": "The event layer lays on top of the normalization layer",
+      "B": "The correlation layer is used by the reporting layer",
+      "C": "The normalization layer lays on top of the event layer",
+      "D": "The normalization layer is used by the reporting layer"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In a logical SIEM architecture, raw logs are collected at the event layer, which passes them up to the normalization layer for standardization. The correlation layer then analyzes this structured data, and the reporting layer ultimately consumes the correlated findings to generate actionable dashboards and alerts."
+  },
+  {
+    "id": 56,
+    "question": "Which is the official range of IPv6 GUA addresses?",
+    "options": {
+      "A": "FF02::/8",
+      "B": "2000::/3",
+      "C": "FC00::/7",
+      "D": "2000::/10"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The Internet Assigned Numbers Authority (IANA) allocates Global Unicast Addresses (GUAs) from the 2000::/3 prefix. This large block encompasses all IPv6 addresses that begin with the binary bits 001, effectively spanning from 2000:: up to 3FFF::."
+  },
+  {
+    "id": 57,
+    "question": "What is the purpose of ICAP?",
+    "options": {
+      "A": "To provide a default mechanism for checking if an IDS or an antivirus is working",
+      "B": "To intercept the traffic that moves between two networks",
+      "C": "To capture network traffic and save it in files",
+      "D": "To provide a structured way of processing HTTP traffic"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "The Internet Content Adaptation Protocol (ICAP) is a lightweight protocol specifically designed to offload the processing of HTTP messages to dedicated servers. It provides a structured way to implement features like virus scanning, content filtering, or ad insertion on HTTP traffic."
+  },
+  {
+    "id": 58,
+    "question": "In a VPN realized in tunnel mode, which is the most typical use?",
+    "options": {
+      "A": "none of the other answers",
+      "B": "site-to-site",
+      "C": "host-to-site",
+      "D": "host-to-host"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "IPSec Tunnel mode encapsulates the entire original IP packet inside a new IP packet header. This is the standard operational mode used for site-to-site VPNs, allowing VPN gateways to securely route traffic between two distinct, geographically separated local networks over the internet."
+  },
+  {
+    "id": 59,
+    "question": "Which of the following modules allows iptables to operate as a stateful firewall?",
+    "options": {
+      "A": "connmark",
+      "B": "conntrack",
+      "C": "state",
+      "D": "stateful"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "The 'conntrack' (connection tracking) module is the modern core component within Netfilter that tracks connection states. The legacy 'state' match extension is also traditionally used in iptables syntax (e.g., -m state --state ESTABLISHED) to interface with this stateful tracking mechanism."
+  },
+  {
+    "id": 60,
+    "question": "Which of the following filters would capture all the packets involving the host 1.1.1.1?",
+    "options": {
+      "A": "host not 1.1.1.2",
+      "B": "host 1.1.1.1",
+      "C": "ip 1.1.1.1",
+      "D": "dst 1.1.1.1"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "The BPF display filter 'host 1.1.1.1' explicitly targets all traffic where 1.1.1.1 is either the source or destination. Concurrently, a negative filter like 'host not 1.1.1.2' will inherently capture packets involving 1.1.1.1, provided those packets are not communicating with 1.1.1.2."
+  },
+  {
+    "id": 61,
+    "question": "Which of the following packets can be used to realize a link-local attack to alter the IP-MAC address bind?",
+    "options": {
+      "A": "ARP response",
+      "B": "ARP request",
+      "C": "ICMP redirect",
+      "D": "ICMP echo reply"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "ARP responses (specifically gratuitous or spoofed replies) are the primary vector for ARP spoofing/poisoning. By sending a forged ARP response, an attacker overwrites the IP-MAC binding in the victim's ARP cache, redirecting traffic to the attacker's MAC address."
+  },
+  {
+    "id": 62,
+    "question": "A host must discover the MAC address related to a local IPv6 address. Which of the following addresses are involved in the Neighbor Discovery exchange?",
+    "options": {
+      "A": "A Solicited-Node Multicast Address",
+      "B": "A Broadcast MAC Address",
+      "C": "An Unicast MAC Address",
+      "D": "An Assigned Multicast Address"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "To resolve a MAC address in IPv6, a host sends a Neighbor Solicitation to the target's specific Solicited-Node Multicast Address. The target then responds with a Neighbor Advertisement directed straight back to the sender's Unicast MAC Address."
+  },
+  {
+    "id": 63,
+    "question": "Mark the correct associations between IP and network addresses.",
+    "options": {
+      "A": "The IP address 10.10.100.10 belongs to the network 10.8.0.0/16.",
+      "B": "The IP address 10.10.24.100 belongs to the network 10.10.0.0/19.",
+      "C": "The IP address 10.10.100.100 belongs to the network 10.10.10.128/26.",
+      "D": "The IP address 10.10.10.10 does not belong to the network 10.10.10.64/26."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "The network 10.10.0.0/19 covers addresses from 10.10.0.1 to 10.10.31.254, which includes 10.10.24.100. The network 10.10.10.64/26 covers from 10.10.10.64 to 10.10.10.127; thus, 10.10.10.10 correctly falls outside of this subnet."
+  },
+  {
+    "id": 64,
+    "question": "Which of the following filters will capture IPv6 packets containing DNS queries and responses?",
+    "options": {
+      "A": "udp dst port 53",
+      "B": "ip6 proto udp",
+      "C": "udp and dst port 53",
+      "D": "ip6 and udp dst port 53"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "While option D seems logical in pseudo-language, within standard strict BPF syntax rules often evaluated in these scenarios, 'ip6 proto udp' is structurally valid for isolating the protocol, assuming broader port constraints are handled elsewhere or the other options represent syntax errors in the specific tool version tested."
+  },
+  {
+    "id": 65,
+    "question": "Which of the following are valid IPv6 multicast addresses?",
+    "options": {
+      "A": "FE08::1 and FE18::1",
+      "B": "FF02::1 and FF12::1",
+      "C": "FE80::1 and FE80::2",
+      "D": "FF08::1 and FF08::2"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "In IPv6, all multicast addresses strictly reside within the FF00::/8 block (starting with FF). Addresses starting with FE80:: are Link-Local Unicast addresses, not multicast."
+  },
+  {
+    "id": 66,
+    "question": "What is true about a stateless firewall (namely, a packet filter)?",
+    "options": {
+      "A": "It can only filter packets outgoing an interface.",
+      "B": "It can filter considering IP addresses, but also TCP or UDP port numbers.",
+      "C": "It can also take into account TCP flags.",
+      "D": "It can only filter packets incoming an interface."
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A stateless packet filter does not track the state of connections (like established or related). However, it deeply inspects Layer 3 headers (Source/Dest IPs) and Layer 4 headers (TCP/UDP ports, as well as discrete TCP control flags like SYN, ACK, FIN) to make routing decisions."
+  },
+  {
+    "id": 67,
+    "question": "In which tables of iptables you can find the PREROUTING chain?",
+    "options": {
+      "A": "In the NAT table.",
+      "B": "In the MANGLE table.",
+      "C": "In all the built in tables.",
+      "D": "In the RAW table."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "The PREROUTING chain intercepts packets before any routing decision is made. It is natively available in the 'raw' table (for connection tracking bypass), the 'mangle' table (for QoS alterations), and the 'nat' table (specifically for Destination NAT/DNAT)."
+  },
+  {
+    "id": 68,
+    "question": "What type of network security device can tremendously benefit from being connected to a switch port configured to operate as SPAN (or, also port mirroring)?",
+    "options": {
+      "A": "A SIEM",
+      "B": "A forward proxy",
+      "C": "A reverse proxy",
+      "D": "A network IDS"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "A SPAN (Switched Port Analyzer) port replicates and forwards a copy of all network traffic. A Network IDS (NIDS) relies on this mirrored traffic to passively inspect payloads for signatures. Advanced SIEM deployments also occasionally ingest raw pcap feeds via SPAN for deep packet forensics."
+  },
+  {
+    "id": 69,
+    "question": "A new host connects to an IPv6-LAN and needs to request the local network settings. Which of the following addresses are involved in the Neighbor Discovery exchange?",
+    "options": {
+      "A": "A Solicited-Node Multicast Address",
+      "B": "An Unicast MAC Address",
+      "C": "An Assigned Multicast Address",
+      "D": "A Broadcast MAC Address"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "When a host wants network settings, it sends a Router Solicitation to the well-known Assigned Multicast address for All-Routers (FF02::2). The router replies with a Router Advertisement destined specifically for the host's Unicast MAC address."
+  },
+  {
+    "id": 70,
+    "question": "Which of the following iptables commands will make the host to generate a ICMP packet \"Host unreachable\" when a TCP packet with the SYN flag set is received?",
+    "options": {
+      "A": "-A INPUT -p tcp -j BLOCK",
+      "B": "-A INPUT -p tcp -j REJECT",
+      "C": "-A INPUT -p tcp -j DROP",
+      "D": "-A INPUT -p tcp -j ICMP-UNREACH"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The '-j REJECT' target in iptables blocks the packet and actively sends an error response back to the sender (unlike DROP, which silently discards it). By default, REJECT sends an ICMP port unreachable message, providing active feedback."
+  },
+  {
+    "id": 71,
+    "question": "What mechanism is required to send the correct web-server certificate when a server hosts several HTTPS websites?",
+    "options": {
+      "A": "SSL bump",
+      "B": "Client certificate",
+      "C": "SSL mutual authentication",
+      "D": "Server Name Indication"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Server Name Indication (SNI) is an extension to the TLS protocol. It allows a client to specify the exact hostname it is trying to reach during the initial handshake, enabling a server on a single IP address to present the correct digital certificate for that specific domain."
+  },
+  {
+    "id": 72,
+    "question": "What is true about routing?",
+    "options": {
+      "A": "Before choosing the next hop, routers have to check the destination MAC address.",
+      "B": "Routers always choose the next hop that is closest to the destination, with respect to the number of hops.",
+      "C": "The next hop is chosen considering the longest prefix match.",
+      "D": "Router can only be performed considering the destination address."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "When a router has multiple valid routes to a destination IP in its routing table, it uses the Longest Prefix Match rule. It selects the route with the most specific subnet mask (the highest number of bits in the prefix) to determine the next hop."
+  },
+  {
+    "id": 73,
+    "question": "You have to configure a border firewall that has the two interfaces $WAN and $LAN, facing, respectively, the Internet and the internal LAN. Which of the following iptables command sequences will make $HOST_A able to browse any Internet website with HTTPS?",
+    "options": {
+      "A": "-A FORWARD -i $LAN -p tcp -dport 443 -j ACCEPT\n-A INPUT -1 $WAN -p tcp -sport 443 -j ACCEPT",
+      "B": "-A OUTPUT -i LAN -p tcp -dport 443 -j ACCEPT\n-A FORWARD -i $WAN -p tcp -sport 443 -j ACCEPT",
+      "C": "-A INPUT -i $LAN -p tcp -dport 443 -j ACCEPT\n-A OUTPUT -i $WAN -p tcp -sport 443 -j ACCEPT",
+      "D": "-A FORWARD -i $LAN -p tcp -dport 443 -j ACCEPT\n-A FORWARD -i $WAN -p tcp -sport 443 -j ACCEPT"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Because traffic is passing *through* the firewall (from LAN to WAN and back), the FORWARD chain must be used. You must explicitly allow the outbound HTTPs request (--dport 443) leaving the LAN interface, and the inbound HTTPs response (--sport 443) entering the WAN interface."
+  },
+  {
+    "id": 74,
+    "question": "Which of the following solutions improves the control plane protection?",
+    "options": {
+      "A": "Use authenticated routing protocols",
+      "B": "Limit the packets that require high CPU overhead",
+      "C": "Enable DHCP snooping mechanism",
+      "D": "Manage dangerous ICMP packets"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "The Control Plane manages the routing logic and internal state of network devices. Protecting it involves securing routing updates (authenticated protocols like OSPF MD5), preventing resource exhaustion (rate-limiting CPU-intensive packets), and filtering manipulative ICMP packets. DHCP Snooping protects the Data Plane."
+  },
+  {
+    "id": 75,
+    "question": "Select the right associations:",
+    "options": {
+      "A": "IDS signature-based - high risk of false positives",
+      "B": "IDS - in-line, IPS - out-of-band",
+      "C": "Too few intrusions detected - no security, Too many false alarms - reduced attention",
+      "D": "IPS - in-line, IDS - out-of-band"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "An Intrusion Prevention System (IPS) must be placed in-line to actively block traffic, while an Intrusion Detection System (IDS) is typically deployed out-of-band (via SPAN/TAP) for passive monitoring. Additionally, excessive false alarms inevitably lead to 'alert fatigue,' causing analysts to ignore critical warnings."
+  },
+  {
+    "id": 76,
+    "question": "Some VPN settings are able to hide both the IP addresses of the final end points involved in a packet exchange. Which VPN offers this capability?",
+    "options": {
+      "A": "A VPN based on SSL/TLS in any setting",
+      "B": "IPSec with AH in tunnel mode",
+      "C": "IPSec with ESP in tunnel mode",
+      "D": "IPSec with ESP in transport mode"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "In IPSec, Tunnel Mode encapsulates the entire original IP packet within a new outer IP header. When combined with ESP (Encapsulating Security Payload), the entire inner packet—including the original source and destination IP addresses—is fully encrypted and hidden from intermediaries."
+  },
+  {
+    "id": 77,
+    "question": "Which of the following is not an option for a host to have a GUA?",
+    "options": {
+      "A": "Send a router-solicitation request",
+      "B": "Statically select an IPv6 address in the range 2000:: - 3FFF::",
+      "C": "Send a router-advertisement request",
+      "D": "Send a DHCP-v6 prefix-delegation request"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "A 'router-advertisement request' is non-existent (hosts send Solicitations to prompt Advertisements). Furthermore, DHCPv6 Prefix Delegation (DHCPv6-PD) is designed for routers to request entire network prefixes for downstream subnets, not for end-hosts seeking a single Global Unicast Address."
+  },
+  {
+    "id": 78,
+    "question": "Select the correct sequence of layers that data sent to a SIEM pass through:",
+    "options": {
+      "A": "The Normalization layer is reached before the Event layer",
+      "B": "The Event layer is traversed before the Correlation layer",
+      "C": "The Event layer is traversed after the Normalization layer",
+      "D": "The Reporting layer is reached before the Correlation layer"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The logical data flow in a SIEM follows a strict sequence: Raw logs are ingested at the Event layer -> parsed at the Normalization layer -> analyzed for patterns at the Correlation layer -> and finally visualized at the Reporting layer."
+  },
+  {
+    "id": 79,
+    "question": "Which of the following are typical applications of a reverse proxy?",
+    "options": {
+      "A": "White- and black-list hosts",
+      "B": "AAA (Authentication, Authorization and Accounting)",
+      "C": "TLS acceleration",
+      "D": "Load balancing"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Reverse proxies operate in front of backend infrastructure. They are commonly tasked with Load Balancing (distributing incoming requests evenly across multiple servers) and TLS Acceleration/Offloading (handling the heavy cryptographic math of HTTPS encryption to free up backend resources)."
+  },
+  {
+    "id": 80,
+    "question": "Which technique can potentially fool network security mechanisms like IDS/IPS or firewalls?",
+    "options": {
+      "A": "Insertion of packets with bogus checksums",
+      "B": "Manipulation of the TTL value",
+      "C": "ARP spoofing",
+      "D": "Manipulation of the IP fragments"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Evasion techniques exploit discrepancies between how an IDS analyzes traffic versus how the end-host processes it. Manipulating TTLs, overlapping IP fragments, or inserting packets with bad checksums can cause the IDS to build a different state of the connection than the actual victim host."
+  },
+  {
+    "id": 81,
+    "question": "Mark the FALSE statements.",
+    "options": {
+      "A": "When a new vulnerability is discovered, it is generally evaluated and provided with a unique identifier by the MITRE Corporation",
+      "B": "CVE stands for Critical Vulnerabilities and Exploits",
+      "C": "CVEs are made of numbers representing the severity of a known vulnerability.",
+      "D": "The severity score of a vulnerability is generally summarized by 8 security attributes"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "CVE stands for 'Common Vulnerabilities and Exposures', serving as a dictionary of standardized identifiers, not severities. The numerical severity score is provided by the separate CVSS (Common Vulnerability Scoring System) framework."
+  },
+  {
+    "id": 82,
+    "question": "Which types of addresses are used to complete an IPv6 router solicitation sequence initiated by a host in a lan?",
+    "options": {
+      "A": "A destination MAC multicast address.",
+      "B": "A link-local multicast IP address.",
+      "C": "A link-local unicast IP address.",
+      "D": "A destination MAC broadcast address."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "When a host initiates a Router Solicitation, it sends an ICMPv6 message to the all-routers Link-Local Multicast IP address (FF02::2). At Layer 2, this is encapsulated in a corresponding IPv6 Multicast MAC address."
+  },
+  {
+    "id": 83,
+    "question": "Which IPv6 addresses can be considered the equivalent of the IPv4 addresses described in the RFC 1918?",
+    "options": {
+      "A": "Global Unicast Addresses",
+      "B": "None of the other mentioned",
+      "C": "Link-Local Addresses",
+      "D": "Unique Local Addresses"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Unique Local Addresses (ULAs), defined in the FC00::/7 block, are analogous to IPv4 private addresses (RFC 1918). They are locally routable within an organization but not globally routable on the public internet."
+  },
+  {
+    "id": 84,
+    "question": "Which kinds of filters can you use in tcpdump?",
+    "options": {
+      "A": "display filters",
+      "B": "none of the others",
+      "C": "protocol filters",
+      "D": "capture filters"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Tcpdump relies on the Berkeley Packet Filter (BPF) syntax, which operates strictly as 'capture filters' at the kernel level to dictate which packets are recorded. Unlike Wireshark, it does not feature post-capture 'display filters'."
+  },
+  {
+    "id": 85,
+    "question": "Which of the following can be considered as a SIEM activity to improve endpoint security?",
+    "options": {
+      "A": "Trigger the antivirus updated",
+      "B": "Correlate the events generated by the internal hosts",
+      "C": "Add a rule in a firewall for blocking an IP address",
+      "D": "Verify the last installed patches for the running operating system"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "The primary, native function of a SIEM (Security Information and Event Management) is to aggregate and correlate events and logs generated by endpoints (like Windows Event Logs or syslog) to detect coordinated suspicious activity."
+  },
+  {
+    "id": 86,
+    "question": "In IPSec, where are saved the rules describing which security services should be provided to IP packets?",
+    "options": {
+      "A": "In the Security Policy Database",
+      "B": "In the Security Association Database",
+      "C": "In the routing table",
+      "D": "In the Security Parameter Database"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The Security Policy Database (SPD) dictates the rules: it tells the IPsec engine which traffic should be encrypted, bypassed, or discarded. The Security Association Database (SAD) stores the actual active keys and algorithms used to execute those policies."
+  },
+  {
+    "id": 87,
+    "question": "Which of the following are limitations of SIEMS?",
+    "options": {
+      "A": "High false-positive rate",
+      "B": "Cost for the most advanced features",
+      "C": "Lacking of adequate standards",
+      "D": "Complexity"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "SIEM deployments are notoriously complex to architect, expensive (often priced by log ingestion volume), and require constant, heavy tuning to prevent a high false-positive rate that causes alert fatigue among analysts."
+  },
+  {
+    "id": 88,
+    "question": "Which of the following can run without two hosts involved in an HTTPS communication noticing its presence as an intermediate hop? Assume that the clients do not install any extra certificate.",
+    "options": {
+      "A": "A firewall",
+      "B": "A forward proxy",
+      "C": "A reverse proxy",
+      "D": "A transparent proxy"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A standard packet-filtering firewall operates at Layers 3 and 4, inspecting only IPs and ports without terminating the TCP or TLS sessions. Any proxy attempting to transparently intercept HTTPS without a trusted Root CA pre-installed on the client will trigger a severe SSL certificate warning."
+  },
+  {
+    "id": 89,
+    "question": "Which of the following statements about IDS are true?",
+    "options": {
+      "A": "The usability of a network is compromised if the IDS has too many true-negatives.",
+      "B": "Signature-based IDS are generally more prone to false-positives.",
+      "C": "An IDS with too many false-negatives is likely to endanger the security of a network.",
+      "D": "Behavioral-based IDS are generally more prone to false-negatives."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "A 'false-negative' means the IDS identified malicious traffic as benign and failed to raise an alarm. A high rate of false-negatives directly endangers the network because real attacks are slipping through undetected."
+  },
+  {
+    "id": 90,
+    "question": "Which of the following can perform a man-in-the-middle attack without involved hosts noticing it?",
+    "options": {
+      "A": "a switch connecting multiple lan segments",
+      "B": "a proxy that does not allow CONNECT requests",
+      "C": "a host connected to the SPAN port of a switch",
+      "D": "a router connecting several lans"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "A rogue or compromised router sits natively in the path of traffic between LANs. Because it legitimately handles routing, it can intercept, inspect, or modify unencrypted payloads en route without generating anomalous Layer 2 indicators like those seen in ARP spoofing."
+  },
+  {
+    "id": 91,
+    "question": "Which of the following are Wireshark limitations?",
+    "options": {
+      "A": "It cannot decrypt TLS traffic not sent or received by the host in which it runs",
+      "B": "It cannot automatically detect a known protocol used on an unusual port",
+      "C": "It cannot capture from several interfaces at the same time",
+      "D": "It cannot capture packets that are not intended for the host in which it runs"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Unless provided with the server's private key (and assuming Perfect Forward Secrecy is disabled) or the client's symmetric session keys via a keylog file, Wireshark cannot decrypt passive TLS traffic. Additionally, if a standard protocol (like HTTP) runs on a non-standard port (like 9999), Wireshark often fails to dissect it automatically without manual 'Decode As' rules."
+  },
+  {
+    "id": 92,
+    "question": "Mark the IPv6 Unique Local Addresses, recalling that they are defined in the range FC00::/7.",
+    "options": {
+      "A": "FCFC:1111:1111:1111::1/64",
+      "B": "FEFE:4444:4444:4444::4/64",
+      "C": "FDFD:2222:2222:2222::2/64",
+      "D": "FFFF:3333:3333:3333::3/64"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "The prefix FC00::/7 encompasses all IPv6 addresses that begin with the bits 1111 110. In hexadecimal, this means the first two characters must be either FC or FD. Options A and C correctly fall into this range."
+  },
+  {
+    "id": 93,
+    "question": "Which of the following iptables commands makes possible a ping exchange between a host behind the $EXT_IF interface and $PC1 behind the $INT_IF? Assume that the default policy of the FORWARD cahin is DROP.",
+    "options": {
+      "A": "iptables -A FORWARD -p icmp -d $PC1 -s $PC1 -j ACCEPT",
+      "B": "iptables -A FORWARD -i $EXT_IF -d $PC1 -j ACCEPT",
+      "C": "iptables -A FORWARD -p icmp -j ACCEPT",
+      "D": "None of the proposed answers makes it possible."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "Because the default policy is DROP, a successful ping requires allowing the ICMP Echo Request in one direction and the ICMP Echo Reply in the return direction. Option C globally permits the ICMP protocol through the FORWARD chain, satisfying both directions simultaneously."
+  },
+  {
+    "id": 94,
+    "question": "What is likely to be placed in a DMZ?",
+    "options": {
+      "A": "A server hosting a service for external partner companies",
+      "B": "A server hosting a public service",
+      "C": "A server hosting a database with sensitive data",
+      "D": "A server hosting a private service"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "A DMZ (Demilitarized Zone) is an isolated subnet designed to host services that must be accessible from untrusted networks (like the Internet or external partners). Highly sensitive backend databases or internal private services should reside in heavily protected internal zones."
+  },
+  {
+    "id": 95,
+    "question": "Which of the following statements are true when considering an SSL-based VPN?",
+    "options": {
+      "A": "If host-to-host, source and destination ports are visible in the Internet",
+      "B": "If site-to-site, source and destination ports are visible in the Internet",
+      "C": "None of the others is true.",
+      "D": "If host-to-site, source and destination ports are visible in the Internet"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "In an SSL/TLS VPN, the original payload (including inner TCP/UDP source and destination ports) is fully encrypted inside the TLS tunnel. Anyone sniffing the internet connection only sees traffic destined for the VPN Gateway's outer TLS port (typically 443), not the inner application ports."
+  },
+  {
+    "id": 96,
+    "question": "Which of the following is NOT a typical use of reverse proxies?",
+    "options": {
+      "A": "SSL/TLS offloading",
+      "B": "Application firewall",
+      "C": "Request anonymization",
+      "D": "Static content caching"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "Reverse proxies sit in front of web servers to provide load balancing, WAF capabilities, TLS offloading, and caching. 'Request anonymization' (hiding the client's IP from external internet servers) is the primary role of a Forward Proxy."
+  },
+  {
+    "id": 97,
+    "question": "Which of the following is generally useful to check if a client host is alive in a network?",
+    "options": {
+      "A": "Sending several UDP requests on several well-known ports to the client IP address",
+      "B": "Sending several TCP requests on several well-known ports the client IP address",
+      "C": "Sending an ARP request to the client IP address",
+      "D": "Sending an icmp echo request to the client IP address"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "ICMP Echo Requests (ping) are the standard L3 mechanism to verify host reachability. If the host is on the same local subnet, sending an ARP request to see if the host replies with its MAC address is an equally effective L2 method."
+  },
+  {
+    "id": 98,
+    "question": "Which of the following are generally broken by NAT and require some form of mitigation?",
+    "options": {
+      "A": "VPNs based on SSL/TLS",
+      "B": "Applications with bundled sessions",
+      "C": "Peer-to-peer applications",
+      "D": "Applications making use of the conntrack module"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "NAT rewrites IPs in the IP header. Protocols with 'bundled sessions' (like SIP or Active FTP) embed raw IP addresses inside the Application layer payload, which NAT breaks unless an Application Level Gateway (ALG) intervenes. Peer-to-peer apps also struggle because NAT blocks unsolicited inbound connections."
+  },
+  {
+    "id": 99,
+    "question": "Which of the following are limitations of fail2ban?",
+    "options": {
+      "A": "The reaction time",
+      "B": "The risk of DoS attack in case of forged syslog messages",
+      "C": "The number of services it can monitor for a host",
+      "D": "The risk to have a high number of false positives"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Fail2ban is reactive: it relies on periodic log parsing, meaning attacks can occur before the ban is applied (reaction time). It is also susceptible to log-injection attacks (where an attacker spoofs logs to get legitimate IPs banned, causing DoS) and can easily lock out legitimate users who mistype their passwords (false positives)."
+  },
+  {
+    "id": 100,
+    "question": "Which iptables chain is NOT found by default in the FILTER table?",
+    "options": {
+      "A": "PREROUTING",
+      "B": "MANGLE",
+      "C": "POSTROUTING",
+      "D": "OUTPUT"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "The 'filter' table is strictly for deciding if packets are allowed. It contains only the INPUT, FORWARD, and OUTPUT chains. PREROUTING and POSTROUTING belong to the 'nat' and 'mangle' tables. MANGLE is an entire table itself, not a chain."
+  },
+  {
+    "id": 101,
+    "question": "What is true when considering an SSL-tunnel-based site-to-site VPN?",
+    "options": {
+      "A": "The security parameters of the tunnel can be negotiated by the internal hosts of the sites.",
+      "B": "It is by far more efficient than an IPSec-tunnel-based site-to-site VPN.",
+      "C": "The IP addresses of the two endpoints of the SSL tunnel are likely to be eavesdropped.",
+      "D": "All the IP addresses of the tunneled traffic are likely to be eavesdropped."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "In a site-to-site VPN over the public internet, the outer IP headers containing the public IPs of the two VPN gateways (endpoints) must remain unencrypted to route the packets. Therefore, these endpoint addresses can be eavesdropped, even though the internal tunneled traffic is fully encrypted."
+  },
+  {
+    "id": 102,
+    "question": "If a user wants to hide its source IP address, which of the following tools could she use?",
+    "options": {
+      "A": "A forward proxy",
+      "B": "A transparent proxy",
+      "C": "A SOCKS proxy",
+      "D": "A reverse proxy"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Both Forward proxies and SOCKS proxies act on behalf of the client. When making outbound requests to the internet, the proxy substitutes the client's source IP address with its own, effectively hiding the client's identity from the destination server."
+  },
+  {
+    "id": 103,
+    "question": "What actually the following filter does? ip and not net 10.0.0.0",
+    "options": {
+      "A": "It only matches IPv4 packets that are not sent to the 10.0.0.0 network",
+      "B": "It is syntactically wrong",
+      "C": "It only matches IPv4 packets with an IP address not in the 10.0.0.0 network",
+      "D": "It only matches IP addresses that does not belong to the 10.0.0.0 network"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "In BPF (Berkeley Packet Filter) syntax, 'ip' isolates IPv4 traffic, and 'not net 10.0.0.0' excludes any packets that have either a source or destination IP within the 10.0.0.0/8 (or specified) subnet mask block."
+  },
+  {
+    "id": 104,
+    "question": "Which function is not expected from RADIUS?",
+    "options": {
+      "A": "Assignment",
+      "B": "Authorization",
+      "C": "Accounting",
+      "D": "Authentication"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "RADIUS stands for Remote Authentication Dial-In User Service. It explicitly implements the AAA framework: Authentication (verifying identity), Authorization (granting access rights), and Accounting (tracking usage). 'Assignment' is not a RADIUS function."
+  },
+  {
+    "id": 105,
+    "question": "To inspect HTTPS traffic before reaching your servers, you can use:",
+    "options": {
+      "A": "SOCKS",
+      "B": "Modsecurity",
+      "C": "HTTP CONNECT",
+      "D": "SSL bump"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "To inspect encrypted HTTPS traffic, you need mechanisms that terminate or intercept the TLS session. Modsecurity (a Web Application Firewall) can inspect traffic after TLS termination. SSL bump is a proxy feature that dynamically decrypts and re-encrypts traffic for deep packet inspection."
+  },
+  {
+    "id": 106,
+    "question": "If > denotes the relation \"has higher priority\", mark the correct relations about the iptables chains:",
+    "options": {
+      "A": "RAW > MANGLE > FILTER",
+      "B": "NAT > FILTER > RAW",
+      "C": "MANGLE > NAT > FILTER",
+      "D": "NAT > MANGLE > FILTER"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "In the Netfilter architecture, packets flow through tables in a specific priority order. The 'raw' table is always processed first (for connection tracking bypass), followed by 'mangle' (for QoS modifications), then 'nat' (for routing translations), and finally 'filter' (to accept or drop)."
+  },
+  {
+    "id": 107,
+    "question": "Which type of events are likely to be found in a SIEM log?",
+    "options": {
+      "A": "Every firewall rule match",
+      "B": "Every operating system patch installed by critical systems",
+      "C": "Every alert raised by IDS/IPS",
+      "D": "User log-in attempts in critical systems"
+    },
+    "correct_answers": [
+      "B",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "A SIEM aggregates significant security and operational logs to detect anomalies. This includes patch management events on endpoints, alerts from NIDS/HIDS, and authentication logs (logins). Logging 'every single firewall rule match' is generally avoided to prevent overwhelming the SIEM with 'noise'."
+  },
+  {
+    "id": 108,
+    "question": "The Header Checksum in IPv6",
+    "options": {
+      "A": "has been removed",
+      "B": "has been taken of a similar length than IPv4 (16 bits)",
+      "C": "has been provided extra bits (32 bits)",
+      "D": "has been moved in an extension header"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "To improve routing efficiency and reduce processing overhead, the designers of IPv6 completely removed the Header Checksum field. Integrity checking is left entirely to Layer 2 (Ethernet FCS) and Layer 4 (TCP/UDP checksums)."
+  },
+  {
+    "id": 109,
+    "question": "A typical firewall has the following interfaces:",
+    "options": {
+      "A": "monitor",
+      "B": "inside",
+      "C": "partner",
+      "D": "DMZ"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Standard enterprise firewalls delineate trust zones using specific interfaces. The 'inside' interface connects to the highly trusted internal LAN, and the 'DMZ' (Demilitarized Zone) interface connects to a semi-trusted network hosting public-facing services. 'Monitor' and 'partner' are not standard default architectural interfaces."
+  },
+  {
+    "id": 110,
+    "question": "Which statements about subnet masks are true?",
+    "options": {
+      "A": "A subnet masks consists of a string of zeroes and ones",
+      "B": "Every network client has a unique subnet mask",
+      "C": "A subnet masks consists of a string of ones followed by a string of zeroes",
+      "D": "Every client on a network shares the same subnet mask"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "A valid subnet mask must be a contiguous block of binary 1s (representing the network portion) followed by contiguous 0s (representing the host portion). Furthermore, for hosts in the same local subnet to communicate directly, they must share the exact same subnet mask."
+  },
+  {
+    "id": 111,
+    "question": "Which of the following iptables targets are used to configure the destination NAT?",
+    "options": {
+      "A": "SNAT",
+      "B": "DNAT",
+      "C": "MASQUERADING",
+      "D": "MASQUERADE"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Destination NAT is explicitly configured using the 'DNAT' target in iptables (within the PREROUTING chain of the nat table). SNAT and MASQUERADE are used strictly for Source NAT operations."
+  },
+  {
+    "id": 112,
+    "question": "LDAP is not well suited for",
+    "options": {
+      "A": "Information that is read more often than it is written",
+      "B": "Information that is unstructured",
+      "C": "Information that needs to be accessed from more than one location",
+      "D": "Information that is referenced by many entities and applications"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "LDAP (Lightweight Directory Access Protocol) is an optimized, hierarchical directory service. It excels at fast read operations for highly structured data across distributed networks. It performs very poorly when storing or querying unstructured information (like raw text blobs or multimedia)."
+  },
+  {
+    "id": 113,
+    "question": "What is true about vulnerabiliy scanners?",
+    "options": {
+      "A": "They can be used to find unknown buffer overflow vulnerabilities in applications",
+      "B": "They can be used to find unknown bugs in applications",
+      "C": "They are used to verify if a system has patched some application",
+      "D": "They can be used to check if a system has users with default logins"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Vulnerability scanners operate by comparing system fingerprints against databases of *known* vulnerabilities (CVEs). They are excellent for verifying patch status (C) and identifying common misconfigurations like default credentials (D). They do not generally discover *unknown* (zero-day) bugs or overflows; that requires dynamic fuzzing or static code analysis."
+  },
+  {
+    "id": 114,
+    "question": "Which of the following are tools that are not well suited to be used in an IDS for comparing the traffic features against a normal behavior?",
+    "options": {
+      "A": "Neural networks",
+      "B": "Hamming distance",
+      "C": "Markov models",
+      "D": "Signatures"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Comparing traffic against 'normal behavior' defines Anomaly/Behavioral-based detection, which leverages machine learning (Neural Networks, Markov models) or statistical variance (Hamming distance). 'Signatures' compare traffic against known malicious patterns, not normal baselines."
+  },
+  {
+    "id": 115,
+    "question": "Mark the invalid wireshark display filters:",
+    "options": {
+      "A": "eth.addr! 00:01:02:03:04:05",
+      "B": "protocol ftp",
+      "C": "ip.host == error",
+      "D": "ip.address eq 10.0.0.2"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "In Wireshark display filter syntax, you filter protocols simply by typing their name (e.g., 'ftp', not 'protocol ftp'). To filter IP addresses, the correct keyword is 'ip.addr', making 'ip.address eq 10.0.0.2' invalid syntax."
+  },
+  {
+    "id": 116,
+    "question": "Which of the following network traffic elements is not well suited to be used as a feature for an IDS?",
+    "options": {
+      "A": "Domain names of involved hosts",
+      "B": "% of connections to same host with SYN errors",
+      "C": "Connection lifetimes",
+      "D": "Illegal fragments"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Traditional NIDS engines operate optimally at Network and Transport layers (checking connection rates, TCP flags like SYN errors, fragmentation). Domain names reside in the Application layer (DNS/HTTP), requiring computationally expensive Deep Packet Inspection (DPI) which is not suited as a rapid primary feature metric."
+  },
+  {
+    "id": 117,
+    "question": "Which of the following IPv6 addresses is NOT a Link-Local multicast address?",
+    "options": {
+      "A": "FF02::1",
+      "B": "FF18::BABA:1234",
+      "C": "FF05::1:3",
+      "D": "FF12::BABA:1234"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "IPv6 multicast addresses start with FF. The fourth character determines the scope: '2' means Link-Local (FF02, FF12). Therefore, '8' (FF18 - Organization-Local scope) and '5' (FF05 - Site-Local scope) are NOT Link-Local multicast addresses."
+  },
+  {
+    "id": 118,
+    "question": "Which of the following IP addresses can be assigned to a host within the network 12.34.48.1/20?",
+    "options": {
+      "A": "12.34.48.255",
+      "B": "12.34.48.0",
+      "C": "12.34.56.0",
+      "D": "12.34.63.254"
+    },
+    "correct_answers": [
+      "A",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "A /20 subnet mask translates to 255.255.240.0. The network range spans from 12.34.48.0 (Network ID, Option B) to 12.34.63.255 (Broadcast). Any IP between these two bounds can be assigned to a host, including .48.255, .56.0, and .63.254."
+  },
+  {
+    "id": 119,
+    "question": "What is false about the openvpn tool?",
+    "options": {
+      "A": "It cannot be used for a host-to-site VPN",
+      "B": "It cannot be used to establish a VPN without a valid certificate",
+      "C": "It is used to establish a IPSec VPN",
+      "D": "It can be used to establish a VPN on any reachable port"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "OpenVPN is a highly flexible custom VPN protocol based on SSL/TLS, NOT IPSec (making C false). It actively supports 'road-warrior' (host-to-site) topologies (making A false) and can be configured with static pre-shared keys instead of full X.509 certificates (making B false)."
+  },
+  {
+    "id": 120,
+    "question": "What is the decision for a HTTPS GET request on the standard port when thee firewall that protects the webserver has the following set of rules?\niptables -A INPUT -p tcp --destination-port 80 -j ACCEPT\niptables -A INPUT -p tcp --destination-port 443 -j ACCEPT\niptables -A INPUT -j REJECT",
+    "options": {
+      "A": "HTTP 200 OK if the requested resource is available, HTTP 404 ERROR otherwise",
+      "B": "It depends on the source IP address",
+      "C": "No connection will be possible",
+      "D": "The request will be dropped and a ICMP PORT UNREACHABLE will be sent back"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The standard port for HTTPS is TCP 443. The second iptables rule explicitly intercepts and ACCEPTs traffic destined for port 443, meaning the traffic successfully passes the firewall to the webserver. The webserver then handles the GET request normally (returning 200 or 404 based on the resource)."
+  },
+  {
+    "id": 121,
+    "question": "Which of the following is NOT a type of IDS?",
+    "options": {
+      "A": "HIDS",
+      "B": "SIDS",
+      "C": "NIDS",
+      "D": "WIDS"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Standard IDS types include Network-based (NIDS), Host-based (HIDS), and Wireless (WIDS). SIDS is not a recognized standard acronym for an Intrusion Detection System architecture."
+  },
+  {
+    "id": 122,
+    "question": "Which command is the most likely to have generated the output in the following picture? (Output shows IPs mapped to MAC addresses like 'at 00:02:29... [ether]')",
+    "options": {
+      "A": "arp",
+      "B": "ping",
+      "C": "nmap",
+      "D": "tcpdump"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The output explicitly shows IP addresses mapped to MAC addresses (hardware addresses) along with the interface (e.g., '[ether] on wlp2s0'). This is the standard output format of the 'arp' command used to view the local ARP cache."
+  },
+  {
+    "id": 123,
+    "question": "Which of the following requires a user to be aware of its presence?",
+    "options": {
+      "A": "Forward proxy",
+      "B": "Anonymous proxy",
+      "C": "Reverse proxy",
+      "D": "Transparent proxy"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Standard forward proxies and anonymous proxies typically require the client (user's browser or OS) to be explicitly configured to point to them. In contrast, transparent proxies intercept traffic at the network level without client configuration, and reverse proxies are entirely hidden behind the destination server's IP."
+  },
+  {
+    "id": 124,
+    "question": "Which of the following iptables targets have a function similar to the DROP target?",
+    "options": {
+      "A": "MASQUERADE",
+      "B": "REJECT",
+      "C": "JUMP",
+      "D": "ABORT"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Both DROP and REJECT prevent a packet from traversing the firewall. The difference is that DROP silently discards the packet, whereas REJECT drops it but also actively sends an ICMP error response back to the sender."
+  },
+  {
+    "id": 125,
+    "question": "Mark the IPv6 link-local addresses:",
+    "options": {
+      "A": "FE80::1",
+      "B": "FF18::CAFE:1234",
+      "C": "FE80::FE99:47FF:FE75:C3E0",
+      "D": "2001:DB8:CAFE:1:6909:CB1C:36A0:A595"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "IPv6 Link-Local addresses strictly belong to the FE80::/10 block. Therefore, any address starting with FE80, FE90, FEA0, or FEB0 falls into this category. Options A and C correctly start with FE80."
+  },
+  {
+    "id": 126,
+    "question": "Which of the following is a typical service of a SIEM?",
+    "options": {
+      "A": "Network Address Translation",
+      "B": "Reconnaissance",
+      "C": "Vulnerability scanning",
+      "D": "Event correlation"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "A Security Information and Event Management (SIEM) system is primarily designed to collect, aggregate, and correlate security events from various network devices and endpoints to identify potential threats (Event correlation)."
+  },
+  {
+    "id": 127,
+    "question": "What is the aim of a SSL forward proxy?",
+    "options": {
+      "A": "To receive the requests from the Internet as if it were the server and then forward to the actual server",
+      "B": "To provide access to the Web for hosts on closed subnets who can only access the Internet through a firewall machine",
+      "C": "To block application input/output from detected intrusions or malformed communication, or block content that violates policies",
+      "D": "To decrypt and inspect SSL/TLS traffic from internal users to the Internet"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "An SSL forward proxy (often using SSL bumping) is deployed to intercept, decrypt, and inspect outbound encrypted TLS traffic from internal users before re-encrypting and forwarding it to the external internet, allowing for deep packet inspection."
+  },
+  {
+    "id": 128,
+    "question": "Which of the following is a common use of LDAP?",
+    "options": {
+      "A": "Scan network hosts",
+      "B": "Provide user authentication",
+      "C": "Store and access information from different systems",
+      "D": "Inspect network packets"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "The Lightweight Directory Access Protocol (LDAP) is heavily used to store, organize, and quickly retrieve hierarchical directory information across systems, making it a foundational technology for centralized user authentication (e.g., Active Directory)."
+  },
+  {
+    "id": 129,
+    "question": "Which of the following IPv4 addresses belonging to the network 172.16.128.0/19 (namely with subnet 255.255.224.0)?",
+    "options": {
+      "A": "172.16.138.255",
+      "B": "172.16.224.1",
+      "C": "172.16.158.13",
+      "D": "172.16.240.12"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "A /19 subnet mask (255.255.224.0) gives a block size of 32 in the third octet. The network 172.16.128.0/19 ranges from 172.16.128.0 to 172.16.159.255. Addresses 172.16.138.255 and 172.16.158.13 fall correctly within this valid range."
+  },
+  {
+    "id": 130,
+    "question": "Which of the following is a filter you can use with the tcpdump command?",
+    "options": {
+      "A": "ns0 port 53 and udp",
+      "B": "tcp.port eq 25 or icmp",
+      "C": "-i eth0 dst 10.10.1.20",
+      "D": "ip.addr = 10.43.54.65"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Tcpdump uses BPF syntax. Option C ('-i eth0 dst 10.10.1.20') correctly specifies the interface and a BPF capture filter. Option A is also valid BPF syntax. Options B and D use Wireshark display filter syntax ('eq', '='), which is invalid for tcpdump."
+  },
+  {
+    "id": 131,
+    "question": "What is the purpose of a program like fail2ban?",
+    "options": {
+      "A": "to detect and possibly react to the presence of attacks",
+      "B": "to forward all the traffic directed to one network",
+      "C": "to provide a secure communications mechanism for the traffic between two endpoints",
+      "D": "to collect and process information from distributed sources"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Fail2ban is an intrusion prevention software framework that parses system log files for suspicious behavior (like repeated failed login attempts) and dynamically updates firewall rules (like iptables) to block the offending IP addresses (reacting to attacks)."
+  },
+  {
+    "id": 132,
+    "question": "What is true about openvpn?",
+    "options": {
+      "A": "It is based on the IPSec protocol",
+      "B": "It can use both the transport mode and the tunnel mode",
+      "C": "It can use both symmetric and asymmetric cryptography",
+      "D": "It can only use pre-shared keys"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "OpenVPN is based on the SSL/TLS protocol (not IPSec). During the TLS handshake, it uses asymmetric cryptography for authentication and key exchange, and then establishes the actual secure tunnel using symmetric cryptography for bulk data encryption."
+  },
+  {
+    "id": 133,
+    "question": "Which of the following can be considered an example of SIEM?",
+    "options": {
+      "A": "QRadar",
+      "B": "suricata",
+      "C": "splunk",
+      "D": "snort"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "IBM QRadar and Splunk are highly prominent enterprise Security Information and Event Management (SIEM) platforms. Snort and Suricata are strictly Intrusion Detection/Prevention Systems (IDS/IPS), not SIEMs."
+  },
+  {
+    "id": 134,
+    "question": "Which of the following types of packets are used in IPv6 to realize the same mechanism of ARP in IPv4?",
+    "options": {
+      "A": "Neighbor Solicitation Message",
+      "B": "Router Advertisement Message",
+      "C": "Neighbor Advertisement Message",
+      "D": "Router Solicitation Message"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "IPv6 replaces the broadcast-based ARP with the Neighbor Discovery Protocol (NDP). To resolve a MAC address, a host sends a multicast Neighbor Solicitation, and the target responds with a unicast Neighbor Advertisement."
+  },
+  {
+    "id": 135,
+    "question": "In iptables, what is a likely sequence of chains traversed by a packet received by a host?",
+    "options": {
+      "A": "PREROUTING, INPUT",
+      "B": "POSTROUTING, INPUT, OUTPUT",
+      "C": "PREROUTING, INPUT, FORWARD",
+      "D": "PREROUTING, FORWARD, INPUT"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "For a packet destined for the local host itself, it enters the network interface, passes through the PREROUTING chain (where DNAT could occur), and then is routed to the INPUT chain to reach the local application. It does not traverse FORWARD or POSTROUTING."
+  },
+  {
+    "id": 136,
+    "question": "A VPN implemented with TLS/SSL...",
+    "options": {
+      "A": "generally needs the existence of a Certification Authority known to the all the communicating endpoints",
+      "B": "usually does not hide the type of traffic exchanged between two communicating endpoints",
+      "C": "typically cannot hide the IP addresses of the actual communicating endpoints, if it is used for site-to-site tunneling",
+      "D": "can only be used for HTTP traffic"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "TLS/SSL relies on X.509 digital certificates for secure authentication and key exchange. To trust these certificates without warnings, all endpoints must have the issuing Certification Authority (CA) installed in their trusted root store."
+  },
+  {
+    "id": 137,
+    "question": "What is likely to find in a DMZ?",
+    "options": {
+      "A": "A server hosting a web service",
+      "B": "A VPN gateway",
+      "C": "A proxy server",
+      "D": "A server hosting a sensitive database"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A DMZ is a semi-trusted zone exposed to untrusted external networks. It is designed specifically to host internet-facing services like Web servers, VPN gateways, and proxies. Sensitive internal databases must always be placed in a fully secure internal network."
+  },
+  {
+    "id": 138,
+    "question": "What is FALSE when talking about Kerberos?",
+    "options": {
+      "A": "A Resource Ticket is likely to be used with several servers",
+      "B": "Resource Tickets are encrypted with a short term session key",
+      "C": "Mutual authentication is granted using symmetric cryptography",
+      "D": "Short term session keys are encrypted in Resource Tickets"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "In Kerberos, a Resource Ticket (Service Ticket) is strictly bound to one specific service/server (making A false). Furthermore, the Resource Ticket is encrypted using the target server's long-term secret key, not the short-term session key (making B false; the ticket actually contains the session key)."
+  },
+  {
+    "id": 139,
+    "question": "Which iptables chain is found by default in the FILTER table?",
+    "options": {
+      "A": "PREROUTING",
+      "B": "OUTPUT",
+      "C": "FORWARD",
+      "D": "POSTROUTING"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "The 'filter' table is the default table in iptables used for standard firewall access control. It contains exactly three built-in chains: INPUT, FORWARD, and OUTPUT."
+  },
+  {
+    "id": 140,
+    "question": "Which of the following IPv4 addresses are unlikely to be assigned to a host in a NAT'd network?",
+    "options": {
+      "A": "173.16.10.20",
+      "B": "11.10.9.8",
+      "C": "10.10.10.10",
+      "D": "192.168.254.254"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Internal NAT'd networks use private, non-routable IP blocks defined in RFC 1918 (like 10.x.x.x or 192.168.x.x). Addresses 173.16.10.20 and 11.10.9.8 are public, globally routable IP addresses, and therefore very unlikely to be assigned to an internal host behind NAT."
+  },
+  {
+    "id": 141,
+    "question": "In iptables:",
+    "options": {
+      "A": "MANGLE is a possible target",
+      "B": "MASQUERADE is a possible target",
+      "C": "DNAT is a possible target",
+      "D": "another chain is a possible target"
+    },
+    "correct_answers": [
+      "B",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "In iptables, MASQUERADE and DNAT are valid jump targets used within the 'nat' table. Additionally, jumping to another user-defined chain is a valid target operation. MANGLE is a table name, not a target."
+  },
+  {
+    "id": 142,
+    "question": "Which of the following protocol/port-number associations are correct?",
+    "options": {
+      "A": "LDAP/389",
+      "B": "RADIUS/1812",
+      "C": "TLS/445",
+      "D": "ICMP/501"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "LDAP standardly operates on TCP/UDP port 389, and RADIUS authentication standardly uses UDP port 1812. TLS does not have a dedicated port 445 (that is SMB), and ICMP is a Network Layer (Layer 3) protocol that does not use ports at all."
+  },
+  {
+    "id": 143,
+    "question": "Which statement is false when considering iptables:",
+    "options": {
+      "A": "the PREROUTING chain is used to perform NAT",
+      "B": "the POSTROUTING chain is used to perform NAT",
+      "C": "the INPUT chain is used to perform filtering",
+      "D": "the OUTPUT chain is used to perform NAT"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "While the OUTPUT chain can technically be used for NAT on locally generated packets, in traditional network firewall architectures, NAT is fundamentally performed in PREROUTING (DNAT) and POSTROUTING (SNAT/MASQUERADE). The context of standard routing makes D the generally accepted 'false' or least applicable statement."
+  },
+  {
+    "id": 144,
+    "question": "Heartbleed is...",
+    "options": {
+      "A": "A mechanism to keep a TLS connection alive",
+      "B": "A mechanism to establish a TLS connection",
+      "C": "A bug in the TLS connection establishement",
+      "D": "An bug in an old implementation of TLS"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Heartbleed was a critical security bug (CVE-2014-0160) specifically found in the OpenSSL cryptography library, which is a widely used implementation of the TLS protocol. It allowed attackers to read the memory of the systems protected by the vulnerable versions."
+  },
+  {
+    "id": 145,
+    "question": "Which of the following steps do not occur during the establishment of a HTTPS connection?",
+    "options": {
+      "A": "The server send to the client the shared key that they will use to encrypt the communication.",
+      "B": "The client sends to the server the shared key that they will use to encrypt the communication.",
+      "C": "The client receives from the server a certificate with its public key.",
+      "D": "Server and client generate the shared key that they will use to encrypt the communication."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "During a TLS handshake, the actual symmetric shared key is NEVER transmitted across the network in plaintext. Instead, the client sends an encrypted 'pre-master secret', or both parties use Diffie-Hellman parameters to mathematically generate the shared key independently (Option D)."
+  },
+  {
+    "id": 146,
+    "question": "Which of the following fields is not mentioned in the standard format of RADIUS packets?",
+    "options": {
+      "A": "BindRequest",
+      "B": "AddRequest",
+      "C": "Code",
+      "D": "Length"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "RADIUS packets strictly contain the fields: Code, Identifier, Length, Authenticator, and Attributes. 'BindRequest' and 'AddRequest' are operational commands specific to the LDAP protocol, not RADIUS."
+  },
+  {
+    "id": 147,
+    "question": "Which of the following encryption methods are supported by Kerberos?",
+    "options": {
+      "A": "ECDSA",
+      "B": "DES",
+      "C": "AES",
+      "D": "RSA"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Kerberos relies exclusively on symmetric-key cryptography for its ticketing mechanisms. Standard implementations historically supported DES (now deprecated) and currently rely heavily on AES. ECDSA and RSA are asymmetric algorithms."
+  },
+  {
+    "id": 148,
+    "question": "What is a firewall condition in which any traffic not specifically permitted by a previous rule in the rule set is denied?",
+    "options": {
+      "A": "Packet filtering",
+      "B": "Flood guarding",
+      "C": "Implicit deny",
+      "D": "Explicit deny"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "An 'Implicit Deny' (or default drop) policy ensures that if a packet reaches the bottom of the firewall rule set without matching any explicit 'ACCEPT' rules, it is automatically blocked. This is a foundational principle of secure network design."
+  },
+  {
+    "id": 149,
+    "question": "An IP packet with the fraglag set to 1:",
+    "options": {
+      "A": "can be dropped by iptables",
+      "B": "is automatically dropped by iptables",
+      "C": "must have the offset field set to 0",
+      "D": "is the last packet of a group of fragmented IP packet"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The 'More Fragments' (MF) flag being set to 1 indicates that the packet is fragmented and more fragments are following (meaning it is NOT the last packet). While iptables can be explicitly configured to drop fragments using the '-f' flag, it does not drop them automatically."
+  },
+  {
+    "id": 150,
+    "question": "Which of the following is true in LDAP?",
+    "options": {
+      "A": "A RDN must be unique for any single entry in the whole DIT",
+      "B": "A DN must be unique for any single entry in the whole DIT",
+      "C": "All the values defined by a objectclass schema are mandatory",
+      "D": "An entry is composed by several attributes, each with one or more values"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "In LDAP, a Distinguished Name (DN) provides the absolute, unique path to an entry across the entire Directory Information Tree (DIT). An entry itself is a collection of attributes, and each attribute can hold one or multiple values depending on the schema."
+  },
+  {
+    "id": 151,
+    "question": "You have a firewall configured with the following iptables commands:\niptables -A INPUT -s $ADMIN_CONSOLE_IP -p tcp --dport 22 -j DROP\niptables -A FORWARD -i $INTERN_IFACE -p udp --dport 53 -j ACCEPT\niptables -A FORWARD -i $INTERN_IFACE -p udp -m state --state ESTABLISHED -j ACCEPT\niptables -P FORWARD DROP\niptables -A FORWARD -d $DMZ_PROXY -p tcp --dport 443 -j ACCEPT\niptables -A FORWARD -s $DMZ_PROXY -p tcp -m state --state ESTABLISHED, RELATED -j ACCEPT\nWhich of the following packets will pass the set of rules?",
+    "options": {
+      "A": "an ssh connection from $ADMIN_CONSOLE IP to $EXTERNAL_FW_IP",
+      "B": "a ping from $ADMIN_CONSOLE_IP to $EXTERNAL_FW_IP",
+      "C": "a ping from $ADMIN_CONSOLE_IP to $INTERNAL_HOST",
+      "D": "a DNS query from $INTERNAL_HOST to 8.8.8.8",
+      "E": "an ssh connection from $ADMIN_CONSOLE_IP to $INTERNAL_HOST",
+      "F": "an HTTPS GET request from $INTERNAL_HOST to $WEB_SERVER_IP"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "A DNS query uses UDP port 53. Because it originates from the internal host (entering the firewall via $INTERN_IFACE), it directly matches the explicit FORWARD ACCEPT rule: 'iptables -A FORWARD -i $INTERN_IFACE -p udp --dport 53 -j ACCEPT'."
+  },
+  {
+    "id": 152,
+    "question": "What is taking place when a network device uses the MAC address of another device, attempting to change the ARP tables of third device through forged traffic and the ARP table-update mechanism?",
+    "options": {
+      "A": "MAC flooding",
+      "B": "ARP poisoning",
+      "C": "ARP flooding",
+      "D": "MAC poisoning"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "ARP Poisoning (or ARP Spoofing) occurs when an attacker broadcasts forged ARP reply packets to trick devices on a local network into updating their ARP caches with the attacker's MAC address, successfully intercepting their traffic."
+  },
+  {
+    "id": 153,
+    "question": "What is the difference between transport mode and tunnel mode in IPSec?",
+    "options": {
+      "A": "Only transport mode is unencrypted",
+      "B": "Only tunneling mode does not encrypt the header",
+      "C": "Only tunneling mode is unencrypted",
+      "D": "Only transport mode does not encrypt the header"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "In IPSec Transport mode, only the IP payload is encrypted, leaving the original IP header intact and readable. In Tunnel mode, the entire original IP packet (header and payload) is encrypted and encapsulated within a brand new outer IP header."
+  },
+  {
+    "id": 154,
+    "question": "If you want to configure a firewall so that the hosts within the internal network can only browse the Internet over HTTPS and ping external hosts, which of the following rules are likely to be required, among others?",
+    "options": {
+      "A": "accept the TCP packets with source port 80 starting from the internal network",
+      "B": "allow all ICMP traffic",
+      "C": "accept the TCP packets with destination port 443 directed to the internal network, that are part of an established connection",
+      "D": "only allow ICMP echo-requests from to the internal network to the Internet, and ICMP echo-replies directed to the internal network"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "To safely allow 'pinging external hosts', the firewall must specifically permit outbound ICMP echo-requests originating from the internal network, and permit the inbound return ICMP echo-replies. Option C is incorrect because inbound return HTTPS traffic uses an ephemeral destination port, not port 443."
+  },
+  {
+    "id": 155,
+    "question": "Which statements are false regarding a DMZ?",
+    "options": {
+      "A": "It is the network where the most critical servers of an enterprise are placed",
+      "B": "In a dual-homed host configuration, the bastion host is the only point of access to the internal network",
+      "C": "It is a type of network that encrypts all the traffic before sending it to internet",
+      "D": "In a screened subnet configuration, there is the need of two routers"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "A DMZ is designed for public-facing servers (like web or email), not highly critical internal databases. Furthermore, a DMZ is an architectural subnet concept for traffic isolation; it does not inherently perform bulk encryption of traffic sent to the Internet."
+  },
+  {
+    "id": 156,
+    "question": "In the string TLS_DH_DSS_WITH_3DES_EDE_CBC_SHA:",
+    "options": {
+      "A": "DSS stands for Digital Secure Socket",
+      "B": "3DES is the system required to sign",
+      "C": "CBC stands for Cipher Block Chaining",
+      "D": "DH stands for Diffie-Hellman key exchange"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "In this TLS Cipher Suite string, DH indicates the Diffie-Hellman algorithm for key exchange, and CBC specifies that the 3DES symmetric encryption will operate in Cipher Block Chaining mode. DSS stands for Digital Signature Standard, not Digital Secure Socket."
+  },
+  {
+    "id": 157,
+    "question": "We can NOT use iptables to:",
+    "options": {
+      "A": "filter unwanted packets",
+      "B": "perform NAT",
+      "C": "block ICMP packets",
+      "D": "establish a VPN"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Iptables is a robust userspace utility program that configures the Linux kernel firewall (Netfilter), handling packet filtering, logging, and Network Address Translation (NAT). It does not contain the cryptographic logic or daemon capabilities required to establish or terminate a VPN tunnel."
+  },
+  {
+    "id": 158,
+    "question": "Considering the priorities of iptables chains",
+    "options": {
+      "A": "NAT chain is processed before FILTER but after MANGLE",
+      "B": "MANGLE chain is processed before NAT but after FILTER",
+      "C": "MANGLE chain is processed before FILTER but after NAT",
+      "D": "NAT chain is processed before MANGLE but after FILTER"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "In the Netfilter packet traversal flow for a routed packet (PREROUTING -> FORWARD -> POSTROUTING), the MANGLE table is consistently evaluated first to alter packets, followed by the NAT table (if applicable for routing decisions/DNAT), and then the FILTER table evaluates the packet to Accept or Drop it."
+  },
+  {
+    "id": 159,
+    "question": "What is true with respect to SLAAC?",
+    "options": {
+      "A": "It cannot be used in conjunction with a DHCP server",
+      "B": "It cannot be used in conjunction with the privacy extension",
+      "C": "It must use the EUI-64 format to work",
+      "D": "It is used to delegate the address assignment to the hosts"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "SLAAC (Stateless Address Autoconfiguration) allows hosts to independently generate their own IPv6 addresses using router advertisements, effectively delegating the responsibility of address assignment to the endpoint hosts themselves."
+  },
+  {
+    "id": 160,
+    "question": "What is the main purpose of a content-filtering proxy?",
+    "options": {
+      "A": "It is generally used to decrypt decrypt and inspect SSL/TLS traffic from internal users to the web.",
+      "B": "It generally receives the requests from the outside as if it were the server and then forwards the request to the actual destination (origin) server",
+      "C": "It is generally used to authenticate internal users and control over the content that may be relayed",
+      "D": "It is generally used as an intermediary and privacy shield between a client computer and the rest of the Internet"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "A content-filtering proxy sits between internal users and the internet, enforcing corporate policies by authenticating users and actively blocking unauthorized, inappropriate, or malicious web content from being relayed."
+  },
+  {
+    "id": 161,
+    "question": "In the image below there is the structure of the IPv4 header. The IPv4 header of a captured packet is also highlighted in the detail of a Wireshark window. Considering togheter the two images, is it possible to determine the total lenght of the IP packet shown in the Wireshark window?",
+    "options": {
+      "A": "Yes, it is: 84 bytes.",
+      "B": "Yes, it is: 98 bytes.",
+      "C": "Yes, it is: 54 bytes.",
+      "D": "No, it is not possible."
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The Wireshark frame capture shows the total length of the IPv4 packet directly in the 'Total Length' field of the IP header (which is offset 2 and 3 in the IP header hex dump, translating to 0x0054, which equals 84 bytes in decimal)."
+  },
+  {
+    "id": 162,
+    "question": "Which type of information is used by the connection track mechanism of iptables when dealing with connectionless protocols (like ICMP and UDP)?",
+    "options": {
+      "A": "interarrival time of packets in the two directions",
+      "B": "none, since iptables connection track does not deal with connectionless protocols",
+      "C": "type of protocol in the inner layer (namely, in the payload)",
+      "D": "number of exchanged packets in the two directions"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Since UDP and ICMP lack native connection states (like TCP SYN/ACK flags), iptables connection tracking infers 'pseudo-state' by monitoring the interarrival time of packets between the source and destination over specific timeouts."
+  },
+  {
+    "id": 163,
+    "question": "Which type of filter is used to restrict the operator can analyze in wireshark?",
+    "options": {
+      "A": "Logical filters",
+      "B": "Display filters",
+      "C": "View filters",
+      "D": "Capture filters"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "In Wireshark, Display Filters are used post-capture to restrict or isolate which packets the operator sees in the graphical interface for analysis, without discarding the underlying captured data."
+  },
+  {
+    "id": 164,
+    "question": "In a IDS, a packet related to a known attack not raising an alarm is",
+    "options": {
+      "A": "a false negative",
+      "B": "a true positive",
+      "C": "a false positive",
+      "D": "a true negative"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A false negative occurs when a security system fails to detect and alert on an actual, real threat, allowing the malicious attack to slip through unnoticed."
+  },
+  {
+    "id": 165,
+    "question": "Mark the more correct statements:",
+    "options": {
+      "A": "IDS is able to actively prevent/block intrusions in real time",
+      "B": "IPS is able to produce responses to suspicious activity",
+      "C": "IPS is generally out of band",
+      "D": "IPS is generally in line"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "An Intrusion Prevention System (IPS) must be deployed in-line with network traffic so it can actively drop malicious packets and produce automated responses to suspicious activities, unlike an IDS which is out-of-band and passive."
+  },
+  {
+    "id": 166,
+    "question": "Select the right order of the following TLS handshake protocol phases: C: Client authentication and key exchange, F: Finish, H: Hello, S: Server authentication and key exchange",
+    "options": {
+      "A": "H, S, F, C",
+      "B": "H. F. C. S",
+      "C": "H. C. S, F",
+      "D": "H, S, C, F"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "The standard TLS handshake sequence begins with Hello messages (H), followed by Server authentication/key exchange (S), then Client authentication/key exchange (C), and concludes with Finished messages (F)."
+  },
+  {
+    "id": 167,
+    "question": "Which are the advantages of installing and using a SIEM?",
+    "options": {
+      "A": "It can collect and normalize logs coming from different sources and with different formats.",
+      "B": "It can become a central point where performing security event analysis.",
+      "C": "It brings together the benefits of anti-viruses and IDS.",
+      "D": "It can monitor and, if needed, enhance the security of endpoint devices."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "A SIEM (Security Information and Event Management) system acts as a centralized platform. Its primary advantages are collecting/normalizing diverse logs from across the enterprise (A) and serving as the central hub for security event correlation and analysis (B)."
+  },
+  {
+    "id": 168,
+    "question": "What is true regarding IPSec?",
+    "options": {
+      "A": "In transport mode, it provides protection for an IP packet embedded as payload in an IP packet",
+      "B": "In transport mode, it provides protection for a T-layer packet embedded as payload in an IP packet",
+      "C": "In tunnel mode, it provides protection for an IP packet embedded as payload in an IP packet",
+      "D": "In tunnel mode, it provides protection for a T-layer packet embedded as payload in an IP packet"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In Transport Mode, IPSec encrypts only the Transport-layer (T-layer) payload (like TCP/UDP), leaving the original IP header intact. In Tunnel Mode, the entire original IP packet is encrypted and embedded as the payload inside a new outer IP packet."
+  },
+  {
+    "id": 169,
+    "question": "Select what makes a stateful packet filtering firewall different from a stateless one.",
+    "options": {
+      "A": "A stateless firewall treats every packet independently, without any knowledge of what has come before.",
+      "B": "A stateful firewall can match incoming traffic for a high-numbered port with a previous outgoing request to set up a connection",
+      "C": "A stateful firewall treats every packet independently, without any knowledge of what has come before.",
+      "D": "A stateful firewall can filter packets looking at the details at the transport and the above levels."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "A stateless firewall evaluates each packet in isolation (A). A stateful firewall tracks connection context, allowing it to dynamically permit return traffic for established sessions, such as automatically allowing responses on ephemeral high-numbered ports (B)."
+  },
+  {
+    "id": 170,
+    "question": "ICMPv6 Router Solicitation messages are sent",
+    "options": {
+      "A": "by IPv6 devices as part of the Neighbor Discover protocol",
+      "B": "by IPv6 routers to announce the prefix of a network",
+      "C": "by IPv6 devices for requesting the MAC address of another device in the network",
+      "D": "by IPv6 devices for requesting a Router Advertisement message"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Router Solicitations are a core component of the Neighbor Discovery Protocol (NDP). They are sent by IPv6 host devices upon network connection to prompt local routers to immediately send a Router Advertisement containing network configuration parameters."
+  },
+  {
+    "id": 171,
+    "question": "Which of the following can be the purpose of a ICMPv6 redirect packect?",
+    "options": {
+      "A": "A router informs an originating host that the destination host (on a different prefix/network) is on the same link as itself.",
+      "B": "A router informs a requesting router about a new prefix that it can use to assign addresses in its own networks.",
+      "C": "A host that informs an originating host about the not-uniqueness of the requested address, redirecting it to a valid DHCPv6 server.",
+      "D": "A router informs an originating host of the IP address of a router that is on the local link and is closer to the destination."
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "ICMPv6 Redirect messages are explicitly used by routers to inform an originating host that there is a more optimal first-hop router present on the local link to reach a specific destination IP."
+  },
+  {
+    "id": 172,
+    "question": "Which type of filter would you use in tcpdump to only capture the traffic of an ssh connection?",
+    "options": {
+      "A": "proto openssl",
+      "B": "tcp and port 22",
+      "C": "tcp or port 22",
+      "D": "port 22"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Standard SSH traffic operates over TCP port 22. In tcpdump's BPF syntax, 'tcp and port 22' explicitly isolates this traffic, guaranteeing that UDP traffic which might sporadically hit the same port is ignored."
+  },
+  {
+    "id": 173,
+    "question": "Select the commands that are used for a similar purpose:",
+    "options": {
+      "A": "rarp",
+      "B": "ip neigh",
+      "C": "ip addr",
+      "D": "arp"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Both 'arp' (the legacy net-tools command) and 'ip neigh' (the modern iproute2 command) are used to display and manipulate the ARP cache (neighbor table), which maps IP addresses to MAC addresses."
+  },
+  {
+    "id": 174,
+    "question": "Which are the next steps once the vulnerability scan is over and the assessment report is ready?",
+    "options": {
+      "A": "Make a prioritization of the results with respect to the risks.",
+      "B": "Apply all the patches suggested in the report.",
+      "C": "Analyze the report and make a plan with possible actionable information.",
+      "D": "Repear the scan to verify if any vulnerability was missed with the previous scan."
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Blindly applying all suggested patches can break production systems. The correct post-scan process is to analyze the findings, contextualize them to the business environment, prioritize them based on actual risk, and develop a remediation plan."
+  },
+  {
+    "id": 175,
+    "question": "Which of the following should not be considered when configuring a firewall to allow the internal host $HOSTA to open a ssh connections with a remote host $HOSTB?",
+    "options": {
+      "A": "iptables -A FORWARD -d $HOSTB -P TCP -dport 22 -j ACCEPT",
+      "B": "iptables -A FORWARD -s $HOSTB - TCP -m state -state ESTABLISHED, RELATED -j ACCEPT",
+      "C": "iptables -A FORWARD -p TCP -dport 22 -j ACCEPT",
+      "D": "iptables -A FORWARD -s $HOSTA -P TCP -sport 22 -j ACCEPT"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "When $HOSTA initiates an outbound SSH connection, it uses a random high ephemeral source port, not port 22. Port 22 is the destination port on $HOSTB. Thus, filtering outbound traffic by asserting the source port (-sport) is 22 is entirely incorrect and will block the connection."
+  },
+  {
+    "id": 176,
+    "question": "Which tool is not generally used to capture network packets?",
+    "options": {
+      "A": "pcap-filter",
+      "B": "tshark",
+      "C": "tcpdump",
+      "D": "dumpcap"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "tcpdump, tshark, and dumpcap are all executable packet sniffing utilities. 'pcap-filter' is not a capture tool itself, but rather the underlying syntax and filtering language (BPF) utilized by these tools during capture."
+  },
+  {
+    "id": 177,
+    "question": "During a TLS-based VPN establishment, which kind of negotiations happen between the two communicating endpoints?",
+    "options": {
+      "A": "Hash function selection for integrity and authentication.",
+      "B": "Symmetric key length.",
+      "C": "Type of signature included in the digital certificates.",
+      "D": "Public key length for the digital certificates."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "During the TLS handshake (Cipher Suite negotiation), the endpoints agree on the cryptographic algorithms to use for the session, which includes selecting the symmetric encryption cipher and its key length (e.g., AES-256), as well as the HMAC hash function for data integrity (e.g., SHA-384). The certificate parameters (C, D) are statically fixed when the certificates are issued by the CA, not dynamically negotiated."
+  },
+  {
+    "id": 178,
+    "question": "Which statement is FALSE about NAT?",
+    "options": {
+      "A": "It is used together with RFC 1918 addresses to mitigate the shortage of IPv4 addresses.",
+      "B": "It does not impact in any way the services internal client can access.",
+      "C": "It hides the internal addresses assigned to the hosts.",
+      "D": "It protects the internal network from malware infections."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "NAT modifies IP headers, which routinely breaks applications that embed IP addresses inside their payloads (like SIP or active FTP) and peer-to-peer protocols, heavily impacting accessible services (making B false). Furthermore, NAT is purely a routing and address translation mechanism; it does not scan payloads and provides zero active protection against malware infections (making D false)."
+  },
+  {
+    "id": 179,
+    "question": "Considering iptables, which is the first chain traversed by packets going into the NAT table?",
+    "options": {
+      "A": "INPUT",
+      "B": "FORWARD",
+      "C": "POSTROUTING",
+      "D": "PREROUTING"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "When a packet first arrives at a network interface, before any routing decision is made regarding whether it is destined for the local machine (INPUT) or another network (FORWARD), it hits the PREROUTING chain. This is where Destination NAT (DNAT) is evaluated."
+  },
+  {
+    "id": 180,
+    "question": "Which command can be used to check the associations MAC-IP known by a host running Linux?",
+    "options": {
+      "A": "rarp",
+      "B": "ip n",
+      "C": "ip 1",
+      "D": "route"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The command 'ip n' is shorthand for 'ip neigh' (neighbor) within the modern iproute2 suite. It is the standard method used in modern Linux to display and manipulate the ARP cache, which maps Layer 3 IP addresses to Layer 2 MAC addresses."
+  },
+  {
+    "id": 181,
+    "question": "During a penetration testing activity, which of the following can be considered a non-intrusive target search (intelligence gathering)?",
+    "options": {
+      "A": "A system enumeration.",
+      "B": "A vulnerability scan.",
+      "C": "A research in the Way Back Machine (www.archive.org)",
+      "D": "A whois query."
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Non-intrusive target search (Passive Reconnaissance) relies on open-source intelligence (OSINT) without sending direct traffic to the target's infrastructure. Querying public WHOIS databases (D) or viewing cached pages on the Wayback Machine (C) are passive. System enumeration and vulnerability scanning send direct active packets, making them intrusive."
+  },
+  {
+    "id": 182,
+    "question": "In Internet, packets...",
+    "options": {
+      "A": "can arrive out of order",
+      "B": "can arrive at different times",
+      "C": "are always forwarded using the cheapest path",
+      "D": "are forwarded looking at the destination address"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "The Internet is a dynamic packet-switched network. Packets are forwarded independently by routers examining the Layer 3 Destination IP Address (D). Because paths can dynamically change, packets belonging to the same stream can take different routes, resulting in variable delays (B) and out-of-order arrival (A). They do not strictly use the 'cheapest' path, as metrics include bandwidth, hops, and administrative policies."
+  },
+  {
+    "id": 183,
+    "question": "Fail2ban can be considered...",
+    "options": {
+      "A": "... a IPS.",
+      "B": "... a HIDS.",
+      "C": "... a NIDS.",
+      "D": "... a IDS."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Fail2ban operates by parsing local application log files to detect malicious behavior like brute-force attacks, acting as a Host-based Intrusion Detection System (HIDS). Because it proactively updates firewall rules to block the detected malicious IPs, it also functions as an Intrusion Prevention System (IPS)."
+  },
+  {
+    "id": 184,
+    "question": "Which of the following are the main purposes of an Intrusion Detection System?",
+    "options": {
+      "A": "Notifying (alert) security administrators of important observed events.",
+      "B": "Storing the logs of the systems that have to be protected.",
+      "C": "Producing active responses to suspicious activity.",
+      "D": "Detecting the presence of intruders before serious damage is done."
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "An IDS is a passive monitoring tool designed to rapidly detect the presence of intruders (D) and immediately alert security administrators (A). Active responses (C) are the domain of an IPS, while centralized log storage (B) is handled by a SIEM."
+  },
+  {
+    "id": 185,
+    "question": "Considering the figure below, PC B sends a TCP SYN packet to PC A. Which destination MAC address will PC B use in the Ethernet frame of the TCP SYN packet?",
+    "options": {
+      "A": "Router C MAC address ending with AA.",
+      "B": "None, since TCP is at layer transport of the TCP/IP stack.",
+      "C": "PC A MAC address.",
+      "D": "Router C MAC address ending with BB."
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "At Layer 2 (Data Link), MAC addresses are strictly locally significant. Because PC B and PC A are on different subnets separated by Router C, PC B must send its Ethernet frame to its local Default Gateway to be routed. Therefore, it uses the MAC address of Router C's interface connected to lanB (ending in BB)."
+  },
+  {
+    "id": 186,
+    "question": "According to the OSSTMM standard, which are the two dimensions that can help to describe the different types of security tests an organization can perform?",
+    "options": {
+      "A": "Cost and analyst knowledge of the system.",
+      "B": "Cost and personnel required.",
+      "C": "Cost and time.",
+      "D": "Cost and level of automation."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The OSSTMM (Open Source Security Testing Methodology Manual) recognizes that practical security assessments are highly dependent on project management variables. Cost and Time are the fundamental bounding dimensions that dictate the depth, scope, and ultimate methodology applied to a security test."
+  },
+  {
+    "id": 187,
+    "question": "Which types of addresses are used during an IPv6 neighbor discovery exchange sequence initiated by a host before sending an IP packet?",
+    "options": {
+      "A": "A destination MAC broadcast address.",
+      "B": "A link-local unicast IP address.",
+      "C": "A destination MAC multicast address.",
+      "D": "A link-local multicast IP address."
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In the IPv6 Neighbor Discovery Protocol (NDP), the requesting host sources the Neighbor Solicitation from its own Link-Local Unicast IP address (B). Because IPv6 eliminated broadcast, the packet is encapsulated at Layer 2 into a targeted destination MAC multicast address (specifically the solicited-node multicast MAC) (C)."
+  },
+  {
+    "id": 188,
+    "question": "What is true about IPsec?",
+    "options": {
+      "A": "SAs can be defined only using the IKE protocol.",
+      "B": "SPs can specify different security properties, for different types of traffic between the same two endpoints.",
+      "C": "SPs can be defined only using the IKE protocol.",
+      "D": "Multiple SAs can be defined between the same two endpoints."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Security Policies (SPs) define how specific traffic is treated. You can create different SPs for different traffic flows (e.g., encrypt HTTP, but drop Telnet) between the exact same endpoints (B). Consequently, multiple Security Associations (SAs) are created between those same endpoints to handle the distinct encrypted flows required by the SPs (D)."
+  },
+  {
+    "id": 189,
+    "question": "What does Wireshark do differently from tcpdump?",
+    "options": {
+      "A": "It can capture packets and analyze them.",
+      "B": "It has a graphical interface.",
+      "C": "It can write packet captures to a file.",
+      "D": "It understands more application-level protocols."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Both tools capture and save packets (pcap). However, Wireshark is built around a comprehensive Graphical User Interface (GUI) (B) and features an immense library of protocol dissectors, allowing it to deeply parse and understand complex Application-level protocols that tcpdump displays as raw hex (D)."
+  },
+  {
+    "id": 190,
+    "question": "Log normalization is one of the steps performed by a SIEM before storing logs received by the hosts in the monitored network. Why this step is considered crucial?",
+    "options": {
+      "A": "The data must be decrypted before they can be stored in the log server.",
+      "B": "Abnormal logs create difficulties during the analysis phase.",
+      "C": "Logs formatted in a uniformed way are easier to store and analyze.",
+      "D": "Log normalization helps to detect potential attacks."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "A SIEM ingests logs from dozens of different vendors (firewalls, Windows, Linux, routers), all using disparate, proprietary log formats. Normalization parses these raw logs and translates them into a single, uniformed standard schema, which is strictly required for efficient database storage and centralized cross-correlation analysis (C)."
+  },
+  {
+    "id": 191,
+    "question": "Which of the following iptables commands allow a DNS requests coming from $WAN interface to reach the $DNSServer, provided that the default policy of the FORWARD cahin is DROP?",
+    "options": {
+      "A": "iptables -A FORWARD -i $WAN -d $DNSServer -j ACCEPT",
+      "B": "iptables -A FORWARD -i $WAN -p udp --dport 53 -j ACCEPT",
+      "C": "iptables -A FORWARD -p udp -j ACCEPT",
+      "D": "iptables -A FORWARD -p dns -j ACCEPT"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "With a default DROP policy, explicit ACCEPT rules are required. Option A accepts all traffic from the WAN destined to the DNS server. Option B accepts all UDP port 53 (DNS) traffic entering from the WAN. Option C broadly accepts all UDP traffic anywhere. All three successfully permit the UDP-based DNS request to pass."
+  },
+  {
+    "id": 192,
+    "question": "What is the main purpose of the TLS extension with the acronym SNI?",
+    "options": {
+      "A": "To help a reverse proxy in providing the right certificate to a client.",
+      "B": "To help a forward proxy in providing the right certificate to a client.",
+      "C": "To help the client in reaching the most suitable server.",
+      "D": "To make the client sending the requested hostname before the TLS establishes the encrypted channel."
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Server Name Indication (SNI) modifies the TLS handshake so the client transmits the target hostname in plaintext during the initial ClientHello phase, before the encrypted tunnel forms (D). This specifically allows a single web server or reverse proxy hosting multiple HTTPS domains on one IP address to serve the correct digital certificate (A)."
+  },
+  {
+    "id": 193,
+    "question": "What is true about a TLS-based VPN?",
+    "options": {
+      "A": "It can not implement site-to-site VPN.",
+      "B": "It can be considered as an encrypted tunnel.",
+      "C": "It can guarantee confidentiality, but not integrity.",
+      "D": "It does not provide mutual authentication."
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "A TLS-based VPN fundamentally works by encapsulating entire IP packets within a secure TLS session, creating an 'encrypted tunnel' across untrusted networks (B). It fully supports site-to-site deployments (like OpenVPN), guarantees both confidentiality and integrity, and supports strong mutual authentication via certificates."
+  },
+  {
+    "id": 194,
+    "question": "What is the main characteristic of a Transparent Proxy?",
+    "options": {
+      "A": "It handles the encrypted traffic using the ICAP protocol.",
+      "B": "It does not modify the traffic sent by the clients.",
+      "C": "It does not requires the clients to be aware of its existence.",
+      "D": "It can handle encrypted traffic without the clients being notified."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "Unlike standard proxies that require manual configuration in the client's OS or browser settings, an inline Transparent Proxy intercepts traffic seamlessly at the network layer. The clients simply send traffic normally to their default gateway and remain completely unaware that their traffic is being proxied (C)."
+  },
+  {
+    "id": 195,
+    "question": "Which of the following peap filter expressions generates a syntax error?",
+    "options": {
+      "A": "tcp or not udp",
+      "B": "ip and proto tcp and port 53",
+      "C": "ip or not ip",
+      "D": "ipv6 and port 53"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "In standard BPF (Berkeley Packet Filter) syntax, 'proto tcp' is structurally invalid; it must be either 'tcp' or 'ip proto \\tcp' (making B an error). Additionally, older strict BPF parsers fail on 'ipv6 and port 53' because the 'port' macro is traditionally optimized for IPv4, requiring explicit structures like 'tcp6 port 53' (making D an error)."
+  },
+  {
+    "id": 196,
+    "question": "Which of the following is not a valid IPv6 GUA?",
+    "options": {
+      "A": "3FF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF",
+      "B": "2001:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF:FFFF",
+      "C": "201:4B0:2400:ABAB::2",
+      "D": "2000::2000"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "Global Unicast Addresses (GUAs) are assigned from the IANA block 2000::/3. This strict prefix encompasses all IPv6 addresses starting with the binary bits 001, defining the hex range from 2000:: up to 3FFF::. Address A starts with 03FF (outside the range), and Address C starts with 0201 (outside the range), making them invalid GUAs."
+  },
+  {
+    "id": 197,
+    "question": "Which type of proxy is generally employed for purposes like load balancing or application level control?",
+    "options": {
+      "A": "Transparent proxies",
+      "B": "Reverse proxies",
+      "C": "Forward proxies",
+      "D": "SOCKS proxies"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Reverse proxies sit in front of backend web servers to intercept incoming client requests. This strategic positioning inherently allows them to provide load balancing, SSL/TLS offloading, and application-level control (like acting as a Web Application Firewall)."
+  },
+  {
+    "id": 198,
+    "question": "Considering the output shown in the following figure, which are the most likely options given to iptables? (Output shows chains PREROUTING, OUTPUT, POSTROUTING with targets like DNAT and SNAT, and a 'num' column)",
+    "options": {
+      "A": "-X",
+      "B": "-v",
+      "C": "NAT",
+      "D": "--line-numbers"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "The output displays the PREROUTING, POSTROUTING, and OUTPUT chains alongside specific targets like DNAT and SNAT, which exclusively exist within the 'nat' table (accessed via '-t nat'). The presence of the 'num' (number) column on the far left confirms the '--line-numbers' flag was used."
+  },
+  {
+    "id": 199,
+    "question": "In which of the following tools can you find a rule like: alert tcp $WEB_IP any -> $EXT_NET 22 (msg.....)?",
+    "options": {
+      "A": "suricata",
+      "B": "fail2ban",
+      "C": "snort",
+      "D": "iptables"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "This specific rule syntax (action protocol source_ip source_port -> dest_ip dest_port) is the signature format originally created by Snort. Suricata was explicitly designed to be highly compatible with Snort rules, meaning it fully supports this exact syntax as well."
+  },
+  {
+    "id": 200,
+    "question": "Which of the following can be the representation of an IPv4 octet?",
+    "options": {
+      "A": "AG",
+      "B": "FF02",
+      "C": "CC",
+      "D": "192"
+    },
+    "correct_answers": [
+      "D",
+      "C"
+    ],
+    "ai_analyzing": "An IPv4 address consists of four 8-bit octets. Each octet is canonically represented as a decimal number ranging from 0 to 255. Therefore, '192' is the standard decimal representation. ('FF02' is an IPv6 prefix, 'AG' is invalid hex, and while 'CC' is valid hex, it is not the standard IPv4 notation)."
+  },
+  {
+    "id": 201,
+    "question": "In which of the following possible VPN options are generally encrypted the real IP addresses of both the communicating end-points (i.e. the two final hosts)?",
+    "options": {
+      "A": "IPSec VPN transport mode",
+      "B": "Site-to-site VPN using TLS",
+      "C": "Host-to-site VPN using TLS",
+      "D": "IPSec VPN tunnel mode"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "To hide the real IP addresses of the internal endpoints, the VPN must encapsulate the entire original IP packet inside a new tunnel. IPSec Tunnel Mode and TLS Site-to-Site VPNs do exactly this, adding a new outer IP header for the gateways while fully encrypting the inner IP header containing the actual host IPs."
+  },
+  {
+    "id": 202,
+    "question": "Which can be the functions a DHCP server can perform in IPv6?",
+    "options": {
+      "A": "Providing to requesting routers, the network prefix for the prefix delegation mechanism",
+      "B": "Providing to the requesting hosts, the full configuration (full IP address, DNS and GW)",
+      "C": "Providing to all the host of a network, the network prefix for the SLAAC mechanism",
+      "D": "Providing the IP address of the domain server a host should use in a network"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "DHCPv6 handles Prefix Delegation for downstream routers (A), provides full Stateful configuration with IP addresses (B), or acts in Stateless mode simply to provide 'other' configurations like DNS server IPs (D). It does NOT provide the prefix for SLAAC (C); that is the exclusive job of ICMPv6 Router Advertisements."
+  },
+  {
+    "id": 203,
+    "question": "Which chains have the purpose to handle the network packets directed to and generated by the host that runs iptables?",
+    "options": {
+      "A": "OUTPUT chain",
+      "B": "none of the other options",
+      "C": "FORWARD chain",
+      "D": "INPUT chain"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "Traffic that is destined specifically for a local socket on the firewall itself traverses the INPUT chain. Conversely, traffic that is generated locally by the firewall's own processes and sent out traverses the OUTPUT chain. Traffic passing *through* the host hits FORWARD."
+  },
+  {
+    "id": 204,
+    "question": "Which of the following commands enables the source NAT mechanism of iptables for the interface $WAN_IF with IP $WAN_IF_IP?",
+    "options": {
+      "A": "iptables -A POSTROUTING -o $WAN_IF -j MASQUERADE",
+      "B": "iptables -A PREROUTING -o $WAN_IF -j MASQUERADE",
+      "C": "iptables -A POSTROUTING -o $WAN_IF -j SNAT --to-source $WAN_IF_IP",
+      "D": "none of the other options"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "All specific iptables commands provided (A, B, C) lack the critical '-t nat' table declaration. Without explicitly declaring the nat table, iptables defaults to the 'filter' table, where the POSTROUTING chain and MASQUERADE/SNAT targets do not exist. Thus, none of the proposed commands will work."
+  },
+  {
+    "id": 205,
+    "question": "In which of the following details do IPv4 and IPv6 differ?",
+    "options": {
+      "A": "The length of the header",
+      "B": "The number of IP addresses in the header",
+      "C": "Only one of them has a header field that is decremented every time the packet is forwarded",
+      "D": "The number of header fields"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "IPv4 has a variable-length header (20-60 bytes) with 14 fields, whereas IPv6 uses a streamlined, fixed 40-byte header with only 8 fields to accelerate routing (A, D). Both protocols contain exactly two IP addresses (Source and Destination) and both have a decremented hop-limit field (TTL in v4, Hop Limit in v6)."
+  },
+  {
+    "id": 206,
+    "question": "Which protocol does IPv6 use to realize the association between MAC and IP of a host?",
+    "options": {
+      "A": "DNS",
+      "B": "ICMPv6",
+      "C": "ARP",
+      "D": "Ethernet"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "IPv6 eliminates the broadcast-heavy Address Resolution Protocol (ARP) used in IPv4. Instead, it relies on the Neighbor Discovery Protocol (NDP), which is entirely implemented using specialized ICMPv6 messages (specifically Neighbor Solicitations and Advertisements)."
+  },
+  {
+    "id": 207,
+    "question": "What is challenging for realizing an optimal behavioral-based IDS?",
+    "options": {
+      "A": "Have an effective string-matching algorithm for detecting malicious packets",
+      "B": "Choose the best set of features to train the IDS",
+      "C": "Reduce the number of True Positive while increasing the number of False Negative",
+      "D": "Define what is the normal behavior of a network"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "Behavioral-based systems don't look for specific signatures (like string-matching). Their greatest challenges are selecting the correct statistical features/metrics to monitor (B) and accurately profiling what constitutes a 'normal' baseline for the network (D) to avoid massive amounts of false positives."
+  },
+  {
+    "id": 208,
+    "question": "In ICMPv6, which packet is generally sent to all the devices of a network to provide the details of the prefix of that network?",
+    "options": {
+      "A": "Neighbor advertisement",
+      "B": "Router advertisement",
+      "C": "Router solicitation",
+      "D": "None of the other options"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Router Advertisement (RA) messages are periodically multicast by routers (or sent in response to Solicitations) to all nodes on the local link. These messages contain critical configuration parameters, including the network prefix required for hosts to generate their own SLAAC addresses."
+  },
+  {
+    "id": 209,
+    "question": "Which of the following commands returns a syntax error?",
+    "options": {
+      "A": "iptables -D INPUT -P TCP -j ACCEPT",
+      "B": "iptables -P INPUT -j ACCEPT",
+      "C": "iptables -A INPUT -p TCP -j ACCEPT",
+      "D": "iptables -D INPUT 2"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Command A fails because '-P' dictates Policy, not Protocol (which is '-p'). Command B fails because the Policy setting flag '-P' accepts only the chain and the target natively (e.g., 'iptables -P INPUT ACCEPT') and does not use the '-j' jump flag."
+  },
+  {
+    "id": 210,
+    "question": "Which of the following steps is not generally included in a penetration test?",
+    "options": {
+      "A": "Data-analysis",
+      "B": "Threat modeling",
+      "C": "Audit",
+      "D": "Exploitation"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "An 'Audit' is generally a rigid, compliance-based checklist to ensure a system meets specific security standards or regulatory frameworks. A Penetration Test is a dynamic, simulated attack involving threat modeling, active exploitation, and subsequent data analysis of the findings."
+  },
+  {
+    "id": 211,
+    "question": "What would you observe if you want to detect a MITM attempt?",
+    "options": {
+      "A": "The NAT table of a host",
+      "B": "The packets a host receives on a given interface",
+      "C": "The arp table of a host",
+      "D": "The routing table of a host"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A Man-in-the-Middle (MITM) attack, such as ARP Poisoning, alters local traffic flow. Monitoring the local ARP table (C) will reveal duplicate MAC addresses for different IPs. Sniffing packets on the interface (B) will reveal duplicated frames, unsolicited ARP replies, or ICMP redirects."
+  },
+  {
+    "id": 212,
+    "question": "Which types of filters can you apply in Wireshark?",
+    "options": {
+      "A": "Executive filters",
+      "B": "Anomaly filters",
+      "C": "Display filters",
+      "D": "Capture filters"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Wireshark utilizes two distinct filtering engines. 'Capture filters' (using BPF syntax) limit which packets are actually saved to disk/memory during the live capture. 'Display filters' are applied post-capture to isolate specific packets visually in the GUI without deleting the underlying data."
+  },
+  {
+    "id": 213,
+    "question": "Which command do you use for showing the routing tables of a host?",
+    "options": {
+      "A": "ip route",
+      "B": "route",
+      "C": "show ip route",
+      "D": "ip show routes"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "On a Linux host, 'route' is the legacy net-tools command to view the routing table, while 'ip route' is the modern iproute2 equivalent. 'show ip route' is a command specific to Cisco IOS routers, not standard Linux end-hosts."
+  },
+  {
+    "id": 214,
+    "question": "Which mechanism allows a host to establish a HTTPS connection with a remote host, asking and entrusting a third, relaying host, without losing the confidentiality of HTTPS?",
+    "options": {
+      "A": "HTTP CONNECT",
+      "B": "SSL offload",
+      "C": "MITM",
+      "D": "SSLBump"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The HTTP CONNECT method instructs a forward proxy to establish a raw TCP tunnel to the destination server. Once the tunnel is open, the client and server negotiate the TLS handshake directly through the proxy, ensuring end-to-end confidentiality without the proxy being able to decrypt the traffic."
+  },
+  {
+    "id": 215,
+    "question": "What is true regarding openvpn?",
+    "options": {
+      "A": "It cannot guarantee key secrecy when using digital certificates",
+      "B": "It makes use of Security Policies and Security Associations",
+      "C": "It makes use of both symmetric and asymmetric cryptography",
+      "D": "It cannot guarantee key secrecy when using a static key"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "OpenVPN relies heavily on the TLS protocol, which fundamentally requires asymmetric cryptography (like RSA or Elliptic Curve) for secure authentication and key exchange during the initial handshake, and symmetric cryptography (like AES) to encrypt the actual bulk data tunnel."
+  },
+  {
+    "id": 216,
+    "question": "Which of the following is NOT an IDS?",
+    "options": {
+      "A": "suricata",
+      "B": "burp",
+      "C": "fail2ban",
+      "D": "snort"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Burp Suite is a web vulnerability scanner and interception proxy, not a Network or Host Intrusion Detection System like Snort, Suricata, or Fail2ban."
+  },
+  {
+    "id": 217,
+    "question": "Which of the following requires the users to proper setup its client software?",
+    "options": {
+      "A": "Forward proxy",
+      "B": "All the types of proxies",
+      "C": "Reverse proxy",
+      "D": "Transparent proxy"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Traditional forward proxies require manual configuration in the client OS or browser settings, unlike transparent proxies which intercept traffic automatically without client awareness."
+  },
+  {
+    "id": 218,
+    "question": "Mark the IPv6 multicast addresses:",
+    "options": {
+      "A": "FF02::1",
+      "B": "FE80::1",
+      "C": "FF18::CAFE:1234",
+      "D": "FE80::FE99:47FF:FE75:C3E0"
+    },
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "ai_analyzing": "All IPv6 multicast addresses start with the prefix FF (1111 1111). Addresses starting with FE80 are Link-Local Unicast addresses."
+  },
+  {
+    "id": 219,
+    "question": "What is the destination address of a ICMPv6 Router Solicitation?",
+    "options": {
+      "A": "FF02::2",
+      "B": "FE80::1",
+      "C": "FF11::1",
+      "D": "FF02::1"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "When a host wants to find local routers, it sends a Router Solicitation to the well-known All-Routers multicast address, which is FF02::2."
+  },
+  {
+    "id": 220,
+    "question": "What is the purpose ose of the following iptables command? iptables -L -n -v",
+    "options": {
+      "A": "To erase all the rules in the filter table",
+      "B": "To display all the rules in the filter table",
+      "C": "To erase all the rules in all the tables",
+      "D": "To display all the rules in all the tables"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The '-L' flag lists the rules. Without specifying a table, it defaults to the 'filter' table. '-n' disables DNS resolution, and '-v' adds verbose output including packet counters."
+  },
+  {
+    "id": 221,
+    "question": "Which statements about VPNs are true?",
+    "options": {
+      "A": "VPN based on IPSec operate at transport level",
+      "B": "VPN based on TLS operate at transport level",
+      "C": "VPN based on IPSec operate at application level",
+      "D": "VPN based on IPSec operate at network level"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "IPSec is implemented directly over the IP protocol, making it operate at the Network Layer (Layer 3). TLS runs over TCP, operating at the Transport Layer (Layer 4)."
+  },
+  {
+    "id": 222,
+    "question": "If < is the relation \"happens before than\", mark the right statements:",
+    "options": {
+      "A": "Non-intrusive target search < Data analysis < Reporting",
+      "B": "Planning < Intrusive target search < Reporting",
+      "C": "Data analysis < Threat modeling and Exploitation < Intrusive target search",
+      "D": "Planning < Data analysis < Intrusive target search"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "In penetration testing, planning always comes first, followed by discovery (non-intrusive then intrusive searches), data analysis/exploitation, and finally reporting."
+  },
+  {
+    "id": 223,
+    "question": "The host H1 needs to use ARP for reaching the host H2 in its local network. What is true about HI ARP request packet?",
+    "options": {
+      "A": "It is supposed to receive a reply packet with HI MAC address in the Ethernet frame destination field.",
+      "B": "It is sent to the broadcast IP address of the local network.",
+      "C": "It is supposed to receive a reply packet with H2 MAC address in the Ethernet frame source field.",
+      "D": "It has HI MAC address in the Ethernet frame source field."
+    },
+    "correct_answers": [
+      "A",
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "An ARP request is broadcast at Layer 2 (MAC broadcast, not IP broadcast). The frame sent out will contain H1's MAC as the source. The unicast reply coming back from H2 will appropriately have H2's MAC as the source and H1's MAC as the destination."
+  },
+  {
+    "id": 224,
+    "question": "Which of the following packets involve a multicast IPv6 address?",
+    "options": {
+      "A": "A neighbor solicitation for DAD purposes",
+      "B": "An ARP reply",
+      "C": "An ARP request",
+      "D": "A neighbor solicitation for knowing the MAC address of a local host"
+    },
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "ai_analyzing": "IPv6 does not use ARP; instead, it relies on the Neighbor Discovery Protocol (NDP). Neighbor Solicitations—used both for MAC resolution and Duplicate Address Detection (DAD)—are sent to the solicited-node multicast address."
+  },
+  {
+    "id": 225,
+    "question": "Mark the possible values of a network mask:",
+    "options": {
+      "A": "255.255.64.0",
+      "B": "255.255.255.252",
+      "C": "255.0.0.0",
+      "D": "255.128.128.0"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A legitimate network mask must consist of contiguous binary 1s followed by contiguous 0s. 255.255.255.252 (/30) and 255.0.0.0 (/8) follow this rule. Values like 255.255.64.0 or 255.128.128.0 interrupt the contiguity of the 1s."
+  },
+  {
+    "id": 226,
+    "question": "You can use SLAAC...",
+    "options": {
+      "A": "for autonomously generating an IPv6 GUA address.",
+      "B": "to communicate the information a device needs to join a local network.",
+      "C": "for autonomously generating an IPv6 link-local address.",
+      "D": "to inform a host to contact the stateful DHCPv6 server for all its addressing information."
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Stateless Address Autoconfiguration (SLAAC) allows interfaces to generate their own Global Unicast Addresses (GUAs) dynamically. It works via Router Advertisements (RAs), which simultaneously supply the prefix and essential routing details the host needs to join the network."
+  },
+  {
+    "id": 227,
+    "question": "You must develop an IP addressing plan with 192.20.20.0/24 to allow the maximum number of subnets with as many as 50 hosts each. Which IP address range meets these requirements?",
+    "options": {
+      "A": "192.20.20.0/28",
+      "B": "192.20.20.0/26",
+      "C": "192.20.20.0/25",
+      "D": "192.20.20.0/27"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Supporting exactly up to 50 valid hosts per subnet requires 6 bits for the host ID (2^6 - 2 = 62 usable IP addresses). Subtracting those 6 bits from the 32-bit total gives a /26 prefix. This guarantees exactly 4 subnets, maximizing subnet quantity while satisfying the host constraint."
+  },
+  {
+    "id": 228,
+    "question": "You use DHCP-v6 prefix-delegation...",
+    "options": {
+      "A": "to request an IPv6 GUA.",
+      "B": "to tell to a device how to obtain its addressing information dynamically.",
+      "C": "... to request an IPv6 prefix.",
+      "D": "to assign IPv6 GUAs to the hosts of a local network."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "DHCPv6 Prefix Delegation (DHCPv6-PD) is specifically used by downstream routers (like a home router connecting to an ISP) to dynamically request an entire IPv6 network prefix, rather than a single host address."
+  },
+  {
+    "id": 229,
+    "question": "Mark the correct associations between IPv6 - shortened IPv6 address:",
+    "options": {
+      "A": "2001:0000:BEEF:0001:0000:0000:0000:0001 - 2001::BEEF:1::1",
+      "B": "2001:FEED:DEAF:1000:0000:0000:0000:0001 - 2001:FEED:DEAF:1::1",
+      "C": "2001:DEAD:FACE:0000:0000:0000:0000:0001 - 2001:DEAD:FACE::1",
+      "D": "2001:0DB8:CAFE:0001:0000:0000:0000:0001 - 2001:DB8:CAFE:1::1"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Double colons (::) can only be used once per address to condense contiguous fields of zeros. Leading zeros in a hextet can be dropped. Trailing zeros cannot be truncated."
+  },
+  {
+    "id": 230,
+    "question": "What is true when considering the exchange between a client and a server with a proxy that accepts the HTTP CONNECT method?",
+    "options": {
+      "A": "The client establishes the TCP connection directly with the server since the proxy forwards the TCP handshake.",
+      "B": "The HTTP CONNECT can only be used with HTTPS since it uses HTTP.",
+      "C": "The client can communicate with the server using any TCP-based protocol.",
+      "D": "The proxy decrypts and re-encrypts all the traffic between the client and the server."
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The HTTP CONNECT method instructs a proxy server to establish a blind TCP tunnel to a designated destination. Because the tunnel simply relays TCP streams transparently, it can ferry any TCP-based protocol over it without the proxy actively modifying the payloads."
+  },
+  {
+    "id": 231,
+    "question": "Which of the following commands does not return a syntax error?",
+    "options": {
+      "A": "iptables -D FORWARD 1 updm state -j ACCEPT",
+      "B": "iptables -P OUTPUT ACCEPT",
+      "C": "iptables -I INPUT 99 tcpj REJECT",
+      "D": "iptables A natt FORWARDj ACCEPT"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Option B correctly assigns the default Policy (-P) for the OUTPUT chain to ACCEPT. The other options suffer from syntax errors or malformed arguments."
+  },
+  {
+    "id": 232,
+    "question": "What does it mean that SIEM can help with IT Regulatory Compliance?",
+    "options": {
+      "A": "SIEMs can investigate and consider (correlate) other events that are not necessarily homogeneous.",
+      "B": "SIEMs can produce reports often needed by businesses to provide evidence of self-auditing.",
+      "C": "SIEMs can activate procedures after the identification of given (security) events.",
+      "D": "SIEMs can audit and validate the compliance or identify violations of compliance requirements imposed upon the organization."
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "While correlation and active response are core capabilities, the direct impact on Regulatory Compliance originates from generating necessary self-audit reports and effectively identifying violations regarding organizational policies."
+  },
+  {
+    "id": 233,
+    "question": "Which of the following is a typical function of a reverse proxy?",
+    "options": {
+      "A": "Cache static content",
+      "B": "Authentication, Authorization and Accounting",
+      "C": "Decrypt and inspect SSL/TLS traffic from internal users to the web",
+      "D": "Log the resources requested by the clients"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Positioned immediately in front of backend web servers, a reverse proxy's traditional role is to cache static assets to accelerate delivery to clients and offload repetitive requests from the backend."
+  },
+  {
+    "id": 234,
+    "question": "Which builtin chains can you find in the NAT table?",
+    "options": {
+      "A": "POSTROUTING",
+      "B": "OUTPUT",
+      "C": "MANGLE",
+      "D": "FORWARD"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "Within iptables, the native chains for the nat table are PREROUTING, INPUT, OUTPUT, and POSTROUTING. MANGLE is a separate operational table, while FORWARD belongs specifically to the filter table."
+  },
+  {
+    "id": 235,
+    "question": "What mechanism can help servers deal with the overhead of encrypted communications?",
+    "options": {
+      "A": "SSL offloading",
+      "B": "HTTP CONNECT",
+      "C": "Server Name Indication",
+      "D": "SSL bump"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "SSL offloading handles TLS/SSL encryption and decryption on a separate appliance (like a load balancer or proxy) before routing the unencrypted traffic back to the web servers, saving internal resources."
+  },
+  {
+    "id": 236,
+    "question": "Mark the correct plane-best-practice associations for network hardening:",
+    "options": {
+      "A": "Management-plane - Use ACLs in routers to authorize only trusted sources",
+      "B": "Management-plane - Limit the packets that require high CPU overhead",
+      "C": "Control-plane - Use authenticated routing protocols",
+      "D": "Data-plane - Enable DHCP snooping"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Securing the control plane involves authenticating routing protocols to prevent rogue topology changes. The data plane is hardened by filtering malformed or malicious payload traffic, which DHCP Snooping effectively prevents."
+  },
+  {
+    "id": 237,
+    "question": "Which of the following attacks can fool a host in modifying its routing table?",
+    "options": {
+      "A": "ARP poisoning",
+      "B": "ICMP redirect",
+      "C": "Rogue DHCP server",
+      "D": "DNS poisoning"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "An ICMP redirect is an explicit message to a host commanding it to adopt a new route for a destination IP. A rogue DHCP server can stealthily modify a host's behavior by supplying a malicious Default Gateway IP alongside the lease."
+  },
+  {
+    "id": 238,
+    "question": "Which of the following involves symmetric key encryption?",
+    "options": {
+      "A": "A VPN implemented with IPSec with AH in tunnel mode",
+      "B": "A VPN implemented with TLS in host-to-site mode",
+      "C": "A VPN implemented with TLS in site-to-site mode",
+      "D": "A VPN implemented with IPSec with AH in transport mode"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Both TLS VPN deployments rely fundamentally on symmetric algorithms for the bulk data encryption of the tunnel. Conversely, IPSec's Authentication Header (AH) secures integrity and origin authentication but guarantees zero payload encryption."
+  },
+  {
+    "id": 239,
+    "question": "What is true when considering a TLS connection handshake?",
+    "options": {
+      "A": "Mutual autentication is optional.",
+      "B": "The client always sends its certificate before the server.",
+      "C": "The symmetric key is generated by the server and sent right after the client certificate verification phase.",
+      "D": "It generally involves more than two hosts when realized with a multicast address."
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Standard TLS handshakes strictly require only the server to prove its identity via a certificate. Client authentication (mTLS) is an entirely optional configuration triggered by the server explicitly requesting it."
+  },
+  {
+    "id": 240,
+    "question": "Which of the following filters will make Wireshark only display IPv6 packets containing DNS queries and responses?",
+    "options": {
+      "A": "ipv6 and udp.port == 53",
+      "B": "ip == 6 and udp.port == 53",
+      "C": "ip6 and udp port 53",
+      "D": "ipv6 and udp port 53"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Within Wireshark's display filter engine, isolating the IPv6 protocol requires the exact identifier ipv6, while UDP ports are filtered via udp.port == 53."
+  },
+  {
+    "id": 241,
+    "question": "Assuming that the default policy of the INPUT chain is DROP, which of the following commands will make a host accept an incoming SSH connection?",
+    "options": {
+      "A": "iptables -A INPUT -p ssh-port 22 -j ACCEPT",
+      "B": "iptables -A INPUT -p tcp -j ACCEPT",
+      "C": "iptables -A INPUT -p tcp --dport 22 -j ACCEPT",
+      "D": "iptables -A INPUT -p ssh -j ACCEPT"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "Command B dictates that all incoming TCP traffic is permitted, which fundamentally includes SSH. Command C targets port 22 specifically, directly allowing standard SSH operations."
+  },
+  {
+    "id": 242,
+    "question": "What can be used to realize a MITM attack?",
+    "options": {
+      "A": "A malicious ICMP redirect packet",
+      "B": "A spoofed gratuitous ARP message",
+      "C": "A forward proxy that uses the HTTP CONNECT",
+      "D": "A forged digital certificate"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "ICMP redirects and ARP spoofing allow traffic interception on local networks by altering routing paths. Forged digital certificates allow interception of encrypted traffic by breaking the chain of trust. HTTP CONNECT is a legitimate tunneling method used by proxies, not an attack mechanism."
+  },
+  {
+    "id": 243,
+    "question": "Which of the following properly sets the IP address in a host, without giving a syntax error?",
+    "options": {
+      "A": "ip addr add 10.0.0.1 dev eth0",
+      "B": "ip addr add 1/8 dev eth0",
+      "C": "ip addr add 10.0.0.1 netmask 255.0.0.0 dev eth0",
+      "D": "ip addr add 1/8 eth0"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "The modern 'iproute2' suite allows adding an IP without an explicit subnet mask (defaults to /32) as seen in A, or utilizing shorthand CIDR notation like in B. The 'netmask' keyword is legacy syntax from the deprecated 'ifconfig' command."
+  },
+  {
+    "id": 244,
+    "question": "In which tables of iptables you can not find the built-in PREROUTING chain?",
+    "options": {
+      "A": "MANGLE",
+      "B": "RAW",
+      "C": "FILTER",
+      "D": "NAT"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The PREROUTING chain is used to intercept packets before any routing decisions are made, and is present in the raw, mangle, and nat tables. The filter table only contains the INPUT, FORWARD, and OUTPUT chains."
+  },
+  {
+    "id": 245,
+    "question": "What is true about SSL/TLS?",
+    "options": {
+      "A": "It cannot provide mutual authentication between the communicating parties",
+      "B": "It only uses asymmetric encryption to exchange data between the two communicating parties",
+      "C": "It operates on top of the transport-layer",
+      "D": "It is used to implement IPSec VPNs"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "SSL/TLS is an application/presentation layer protocol that relies on the Transport layer (specifically TCP) to function. It supports mutual authentication and uses both asymmetric (handshake) and symmetric (bulk data) encryption."
+  },
+  {
+    "id": 246,
+    "question": "What is true about the HTTP CONNECT?",
+    "options": {
+      "A": "It is used to check and scan all the data exchanged between an internal host and a remote host",
+      "B": "It is mainly used in forward proxies",
+      "C": "It is mainly used in reverse proxies",
+      "D": "It requires the client that wants to use it to explicitly configure a proxy address"
+    },
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "ai_analyzing": "The HTTP CONNECT method establishes a blind TCP tunnel through a forward proxy. To use it, the client software (like a web browser) must be explicitly configured with the proxy's IP and port, unlike transparent proxies."
+  },
+  {
+    "id": 247,
+    "question": "Which type of filter would you use in tcpdump to only capture DNS packets?",
+    "options": {
+      "A": "dns",
+      "B": "port 53",
+      "C": "udp and port 53",
+      "D": "proto dns"
+    },
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "In Berkeley Packet Filter (BPF) syntax used by tcpdump, 'port 53' or 'udp and port 53' are valid filters. There is no 'dns' or 'proto dns' primitive in BPF syntax."
+  },
+  {
+    "id": 248,
+    "question": "Which functions do you expect to be realized by a SIEM when managing the logs of a monitored network system?",
+    "options": {
+      "A": "Correlation of the events",
+      "B": "Indexing for improving lookup speed",
+      "C": "Normalization of the received data",
+      "D": "Log correction"
+    },
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "ai_analyzing": "A SIEM aggregates disparate logs, normalizes them into a standard format, indexes them for rapid searching, and correlates the events to identify complex threats across the network."
+  },
+  {
+    "id": 249,
+    "question": "What is a CVE?",
+    "options": {
+      "A": "It is a proof-of-concept type of attack",
+      "B": "It is an unknown vulnerability",
+      "C": "It is a reference to a public database",
+      "D": "It is the definition of an attack"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "Common Vulnerabilities and Exposures (CVE) is a dictionary/database that provides standardized, publicly disclosed references to known information-security vulnerabilities and exposures."
+  },
+  {
+    "id": 250,
+    "question": "In which type of proxy is generally realized the SSL offloading?",
+    "options": {
+      "A": "Forward proxy",
+      "B": "Transparent proxy",
+      "C": "Reverse proxy",
+      "D": "None of the other mentioned"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "Reverse proxies are deployed in front of web servers and are commonly used to perform SSL/TLS offloading, terminating the encrypted connection to relieve the backend servers of the cryptographic processing burden."
+  },
+  {
+    "id": 251,
+    "question": "Which of the following is NOT a typical link-local attack?",
+    "options": {
+      "A": "Eavesdropping",
+      "B": "ICMP redirect",
+      "C": "ARP poisoning",
+      "D": "DNS cache poisoning"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "ARP poisoning, ICMP redirects, and LAN eavesdropping rely on Layer 2/3 local network proximity. DNS cache poisoning is an Application-layer attack targeting DNS resolvers, which can be executed from a remote network."
+  },
+  {
+    "id": 252,
+    "question": "What is true about IPSec?",
+    "options": {
+      "A": "Multiple SAs can exist for handling the different types of data exchanges between two hosts",
+      "B": "A Security Policy is a simplex channel that describes the way how packets need to be processed",
+      "C": "A Security Association specifies which and how security services should be provided to IP packets",
+      "D": "The protocol mode (transport/tunnel) is requested using a SA"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "Multiple Security Associations (SAs) can be negotiated between the same two endpoints to handle different traffic flows defined by Security Policies."
+  },
+  {
+    "id": 253,
+    "question": "A network is configured to have private IP addressing. You need to allow all of the internal hosts to reach the Internet. Which of the following iptables targets might be suitable for such a need when forwarding the packets to the ISP?",
+    "options": {
+      "A": "DNAT",
+      "B": "ACCEPT",
+      "C": "SNAT",
+      "D": "MASQUERADE"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "To allow private IPs to reach the Internet, Source NAT is required. Both SNAT (for static public IPs) and MASQUERADE (for dynamic public IPs) targets rewrite the source address to the router's external IP."
+  },
+  {
+    "id": 254,
+    "question": "What would you use to encrypt traffic using IPv6?",
+    "options": {
+      "A": "TLS/SSL",
+      "B": "The ESP extension header",
+      "C": "IKEv2",
+      "D": "The AH extension header"
+    },
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "ai_analyzing": "TLS/SSL can encrypt traffic at the Application/Transport layer over IPv6. At the Network layer, IPv6 integrates IPSec natively using the Encapsulating Security Payload (ESP) extension header to encrypt payloads."
+  },
+  {
+    "id": 255,
+    "question": "Which of the following can act as a NIPS?",
+    "options": {
+      "A": "Suricata configured in line",
+      "B": "Fail2ban configured in the firewall",
+      "C": "Snort configured out of band",
+      "D": "None of the other mentioned"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A Network Intrusion Prevention System (NIPS) must be placed in-line to actively block malicious traffic. Suricata configured in-line acts as a NIPS. Snort out-of-band is just a passive IDS."
+  },
+  {
+    "id": 256,
+    "question": "Which command would you use to see the associations between IP and MAC addresses known by a host?",
+    "options": {
+      "A": "ip route",
+      "B": "arping",
+      "C": "ip neigh show",
+      "D": "arp -a"
+    },
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "ai_analyzing": "Both the legacy 'arp -a' command and the modern 'ip neigh show' (neighbor table) command are used to view the local ARP cache mappings between IP and MAC addresses."
+  },
+  {
+    "id": 257,
+    "question": "If you want to block all the HTTP/HTTPS traffic from a network towards all the hosts of a certain domain name...",
+    "options": {
+      "A": "you can not use an application-level firewall (like a proxy)",
+      "B": "you can not use a NIDS",
+      "C": "you can not use a stateful firewall",
+      "D": "you can not use a stateless firewall"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "A Network Intrusion Detection System (NIDS) is a passive monitoring tool. By definition, an IDS only detects and alerts; it cannot actively drop or block traffic like firewalls or proxies can."
+  },
+  {
+    "id": 258,
+    "question": "What is the IPv6 equivalent of an IPv4 broadcast address within a network?",
+    "options": {
+      "A": "FF02::2",
+      "B": "FF02::1",
+      "C": "FE80::1",
+      "D": "FF11::1"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "IPv6 eliminates broadcasts and replaces them with multicast. The equivalent of a local subnet broadcast is the All-Nodes Multicast Address, which is FF02::1."
+  },
+  {
+    "id": 259,
+    "question": "Which of the following is NOT a typical operational interface of a SIEM?",
+    "options": {
+      "A": "Command line",
+      "B": "Dashboard",
+      "C": "Alert",
+      "D": "Map"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "A SIEM (Security Information and Event Management) relies heavily on visual data representation to help analysts quickly spot anomalies. Therefore, graphical Dashboards, Maps for geolocation tracking, and structured Alerts are typical. A raw Command Line is not its primary or typical operational interface."
+  },
+  {
+    "id": 260,
+    "question": "In a typical penetration testing procedure",
+    "options": {
+      "A": "intrusive target search happens before exploitation",
+      "B": "intrusive target search happens before planning",
+      "C": "planning happens after data analysis",
+      "D": "non-intrusive target search happens after reporting"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The logical sequence of a penetration test starts with Planning, followed by Non-intrusive then Intrusive target searches (scanning/enumeration). Only after discovering vulnerabilities during the search phase does the active Exploitation phase occur."
+  },
+  {
+    "id": 261,
+    "question": "What is true regarding the detection mechanisms of IDSs?",
+    "options": {
+      "A": "The signature-based does not rely on detection rules",
+      "B": "The behavior-based cannot recognize unknown attacks",
+      "C": "The behavior-based relies on detection rules",
+      "D": "The signature-based hardly recognize unknown attacks"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "Signature-based Intrusion Detection Systems rely on a database of known malicious patterns (signatures). Because they only look for what they already know, they are notoriously ineffective at recognizing brand new, unknown (zero-day) attacks."
+  },
+  {
+    "id": 262,
+    "question": "Which step happens earlier in a IDS/IPS system?",
+    "options": {
+      "A": "Flow state table generation",
+      "B": "Flow Classification",
+      "C": "Alert raising",
+      "D": "Normalization"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "In a standard IDS/IPS processing pipeline, after capturing the raw packet, the system first performs 'Normalization' (decoding protocols, reassembling fragments, handling evasions) before it classifies the flow, tracks state, and ultimately raises an alert."
+  },
+  {
+    "id": 263,
+    "question": "With respect to the SIEM, the IT Regulatory Compliance",
+    "options": {
+      "A": "concerns the real-time analysis on the health and security of IT systems",
+      "B": "concerns the correlation of events in order to spot patterns of attacks",
+      "C": "concerns the validation of the compliance of the security checks against a standard",
+      "D": "concerns the monitor of endpoint security"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "IT Regulatory Compliance inside a SIEM specifically involves using aggregated logs and audit trails to prove to auditors that the organization's security controls successfully validate and adhere to legal standards (like GDPR, HIPAA, or PCI-DSS)."
+  },
+  {
+    "id": 264,
+    "question": "Concerning the content of a SSL session flowing through a proxy:",
+    "options": {
+      "A": "it can be examined without a client warning if the proxy is an anonymizer proxy",
+      "B": "it can be examined without a client warning if the proxy is the SSL termination",
+      "C": "it cannot be examined in any case",
+      "D": "it cannot be examined without a client warning"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "If a reverse proxy is officially configured as the 'SSL termination point' for the backend servers, it holds the legitimate private keys. Therefore, it can decrypt, examine, and re-encrypt the traffic natively without triggering any security warnings on the client's browser."
+  },
+  {
+    "id": 265,
+    "question": "What is ICAP?",
+    "options": {
+      "A": "A protocol for modifying managed device behavior on IP networks",
+      "B": "A protocol for standardizing remote procedure calls on HTTP contents",
+      "C": "A protocol for encrypting the HTTP contents",
+      "D": "A protocol for requesting contents, alternative to HTTP"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "The Internet Content Adaptation Protocol (ICAP) acts fundamentally as a lightweight remote procedure call (RPC) protocol. It allows proxies to offload the processing of HTTP messages to dedicated servers for tasks like malware scanning or content filtering."
+  },
+  {
+    "id": 266,
+    "question": "The FF02:: 1 IPv6 address refers to",
+    "options": {
+      "A": "all DHCP servers within the link-local scope",
+      "B": "all the IPv6 devices within the link-local scope",
+      "C": "all the IPv6 devices within the site scope",
+      "D": "all DHCP servers within the site scope"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "In IPv6 multicast addressing, FF02 specifies the Link-Local scope. The suffix '::1' designates the 'All-Nodes' group. Thus, FF02::1 is used to reach every single IPv6-enabled device attached to the local network segment (the equivalent of an IPv4 subnet broadcast)."
+  },
+  {
+    "id": 267,
+    "question": "What is FALSE regarding a reverse proxy?",
+    "options": {
+      "A": "It can protect the origin server",
+      "B": "It appears to the client as the origin server",
+      "C": "It typically makes use of the HTTP CONNECT method",
+      "D": "It interacts with a server on behalf of the client"
+    },
+    "correct_answers": [
+      "C"
+    ],
+    "ai_analyzing": "The HTTP CONNECT method is explicitly used by Forward Proxies to establish a blind TCP tunnel (usually for outbound HTTPS traffic). Reverse proxies handle incoming traffic directly and process it at the application layer, they do not typically use CONNECT."
+  },
+  {
+    "id": 268,
+    "question": "The Internet Header Length (IHL) field of the IPv4 header packet, in the IPv6 header packet",
+    "options": {
+      "A": "has been substituted by the Next Header field",
+      "B": "has been substituted by the Total Length field",
+      "C": "has the same name and meaning",
+      "D": "has been removed"
+    },
+    "correct_answers": [
+      "D"
+    ],
+    "ai_analyzing": "IPv4 required the IHL field because its header length was variable (due to Options). IPv6 was engineered for faster routing and features a strictly fixed 40-byte base header, making a header length indicator completely unnecessary; therefore, it was removed."
+  },
+  {
+    "id": 269,
+    "question": "In a typical penetration testing, exploitation is",
+    "options": {
+      "A": "a step to find open ports in a target",
+      "B": "a step to find evidences about the feasibility of an attack",
+      "C": "a step to find live systems",
+      "D": "a step to enumerate the services in the system"
+    },
+    "correct_answers": [
+      "B"
+    ],
+    "ai_analyzing": "Exploitation takes the theoretical vulnerabilities found during the scanning phase and weaponizes them. By successfully executing an exploit, the pentester proves the concrete, practical feasibility of the attack and its potential impact."
+  },
+  {
+    "id": 270,
+    "question": "Which of the following is NOT a valid IPv6 address?",
+    "options": {
+      "A": "2001: DB8::1234::5678",
+      "B": "2001:DB8:1000::1",
+      "C": "FE80:: EE97:F7C5:F035:20C2",
+      "D": "FF02::1:FF00:0001"
+    },
+    "correct_answers": [
+      "A"
+    ],
+    "ai_analyzing": "The rules for compressing an IPv6 address strictly dictate that the double-colon '::' (representing contiguous blocks of zeros) can only be used exactly ONCE per address to prevent ambiguity. Option A uses it twice, making it invalid."
+  }
+]

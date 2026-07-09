@@ -53,7 +53,8 @@
       "D": "192"
     },
     "correct_answers": [
-      "D"
+      "D",
+      "C"
     ],
     "ai_analyzing": "An IPv4 address consists of four 8-bit octets. Each octet is canonically represented as a decimal number ranging from 0 to 255. Therefore, '192' is the standard decimal representation. ('FF02' is an IPv6 prefix, 'AG' is invalid hex, and while 'CC' is valid hex, it is not the standard IPv4 notation)."
   },
