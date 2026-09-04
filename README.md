@@ -1,5 +1,5 @@
 
-# Deep Learning & Computer Science Quiz Bot
+# Practical Network Defense - Quiz Bot
 
 Un'applicazione interattiva da riga di comando (CLI) progettata per supportare lo studio e la preparazione degli esami universitari attraverso quiz teorici e simulazioni d'esame. Il sistema integra un meccanismo avanzato di tracciamento degli errori e un'interfaccia terminale ottimizzata per una navigazione rapida ed efficiente.
 
@@ -16,12 +16,6 @@ Un'applicazione interattiva da riga di comando (CLI) progettata per supportare l
 
 
 ```
-
-```text
-README.md generato con successo.
-
-```text
-.
 ├── theory.py            # Script per la gestione dei quiz di teoria (v3.0 JSON Edition)
 ├── exams.py             # Script dedicato alle simulazioni e prove d'esame storiche
 ├── congrat.json         # File di configurazione contenente stringhe di congratulazioni casuali
